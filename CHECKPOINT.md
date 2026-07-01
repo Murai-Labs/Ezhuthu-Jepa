@@ -1,6 +1,6 @@
 # Ezhuthu-Jepa — Checkpoint
 
-Last updated: 2026-07-01 12:00 CT
+Last updated: 2026-07-01 13:30 CT
 
 ## Resume Point
 
@@ -9,21 +9,22 @@ To verify a clean state and continue:
 ```bash
 cd /c/Github/Ezhuthu-Jepa
 git status -sb
-python -m compileall src && pytest -q
+python -m compileall src && pytest -q     # expect: 28 passed
 nvidia-smi                 # confirm RTX 5090 available before any GPU work
 ```
 
-Next controlled task: see `tasks/atomic-task-list.md` → **TASK P0.003** (run-provenance writer),
-then **TASK P0.004** (config contract), then **TASK P1.001** (pre-register ε).
+Next controlled task: see `tasks/atomic-task-list.md` → **TASK PA.001** (Tamil rendering pipeline),
+then **PA.002** (frequency split), **PA.003** (eval harness), and **P1.001** (pre-register ε).
 
 ## Current Checkpoint
 
-- Phase: **G0 complete** (skeleton scaffolded). LAUNCH-A / G1 not started.
-- What is done: repository operating system installed — governance contract (CLAUDE.md ≡ AGENTS.md),
-  trackers, docs, append-only notes, atomic task list, spec-comprehension check, minimal package,
-  and the spec at `docs/spec/EZHUTHU_JEPA_Spec_v0.2.md`.
-- What is next: implement provenance writer (P0.003) and config contract (P0.004); then freeze the
-  eval harness and pre-register ε (P1.001) before running any cheap baseline.
+- Phase: **G0 complete; Phase-0 code done** (P0.001–P0.004). LAUNCH-A / G1 not started.
+- What is done: operating system + the run-provenance writer (`provenance.py`, 5-identifier manifest
+  + validator, 9 tests) and the locked config contract (`config.py` schema `0.1.0`, schema-consumer
+  audit, `locked-versions.yaml`, 18 tests). Full suite 28 passed.
+- What is next: build the rendering + evaluation harness (PA.001–PA.003) that defines metric M, then
+  pre-register ε (P1.001) before running any cheap baseline. New training/data code must call
+  `write_provenance(...)` before any run and load configs through `RunConfig.from_dict(...)`.
 - Authorization gate status: G0 evidence drafted in `docs/GATE_G0_REVIEW.md`, **pending human
   approval**. LAUNCH-A not requested. No run authorized.
 

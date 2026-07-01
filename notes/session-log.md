@@ -19,3 +19,13 @@ Per-session checkpoints. Append; never edit past entries.
   `docs/spec/`. Derived gate chain G0 → LAUNCH-A → G1 → G2 → G3; set M and provisional ε.
 - Ended at: G0 complete, pending human approval. Next: TASK P0.003 (provenance writer).
 - Open uncertainties carried forward: see `notes/uncertainties.md`.
+
+### 2026-07-01 13:30 CT — Phase-0 code: provenance + config contract
+- Started from: G0 skeleton (CHECKPOINT resume point) → TASK P0.003, P0.004.
+- Did: implemented `provenance.py` (5-identifier manifest writer + `validate_run_dir`, git SHA
+  capture, canonical config hashing, data-file hashing, best-effort env capture) and `config.py`
+  (frozen `RunConfig`, schema `0.1.0`, strict `from_dict`, typed `ConfigValidationError`); wrote
+  `configs/phase0/locked-versions.yaml` and the schema-consumer audit; added `test_provenance.py`
+  (9) + `test_config.py` (18). Full suite 28 passed; placeholder scan clean. Recorded DEC-0003.
+- Ended at: P0.001–P0.004 done. Next: PA.001 (rendering pipeline) → PA.002/PA.003 → P1.001 (ε).
+- Open uncertainties carried forward: see `notes/uncertainties.md` (unchanged; ε still provisional).

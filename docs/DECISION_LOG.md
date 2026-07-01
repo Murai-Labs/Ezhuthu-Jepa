@@ -54,3 +54,32 @@ Measured Result: N/A.
 Follow-up: Formalize in P1.001 with the exact bottom-quartile count cutoff once PA.002 computes
 corpus frequencies.
 Human Approval: pending.
+
+---
+
+## DEC-0003 - Phase-0 config + provenance implemented with stdlib only (no pydantic/PyYAML yet)
+
+Date: 2026-07-01
+Task/Gate: G0 (TASK P0.003, P0.004)
+Decision: Implemented the run-provenance writer (`src/ezhuthu_jepa/provenance.py`) and the versioned
+config contract (`src/ezhuthu_jepa/config.py`, schema `0.1.0`) using **only the Python standard
+library** (frozen `dataclass` + a typed `ConfigValidationError`, `hashlib`, `subprocess` git,
+`importlib.metadata`). No third-party validation/serialization dependency is added at Phase 0.
+Rationale: The training toolchain is not yet chosen (spec §4 keeps the core single-5090 and minimal),
+and the earlier decision (DEC-0001 follow-through) kept the skeleton installable without an unlocked
+toolchain. Stdlib gives a fully-controlled typed contract with zero install surface; pydantic/PyYAML
+are pinned only when a real consumer needs them (`configs/phase0/locked-versions.yaml` → `deferred`,
+PyYAML at PA.005 for loading `configs/phase1/*.yaml`).
+Alternatives Considered:
+- pydantic for config — rejected for now: heavy dep before the training stack exists; revisit if the
+  config grows enough that hand-rolled validation becomes a liability.
+- Hashing the raw config file bytes instead of a canonical dict — rejected: sensitive to formatting;
+  `to_canonical_dict` + sorted-key JSON gives an order/format-independent, stable hash.
+Evidence / Source Docs: `src/ezhuthu_jepa/config.py`, `src/ezhuthu_jepa/provenance.py`,
+`notes/schema-audits/ezhuthu_jepa-config.md`, `configs/phase0/locked-versions.yaml`,
+`tests/test_config.py` (18) + `tests/test_provenance.py` (9) — full suite 28 passed.
+Measured Result: All P0.003/P0.004 acceptance criteria pass (manifest carries exactly the 5
+identifiers; missing identifier rejected; out-of-contract config raises a typed error).
+Follow-up: PA-phase data/train code must call `write_provenance(...)` before any run and load configs
+via `RunConfig.from_dict(...)`. Re-audit the schema when PA.004/PA.005 add behavioral consumers.
+Human Approval: pending.

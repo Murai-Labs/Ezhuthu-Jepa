@@ -1,0 +1,37 @@
+# Phase-0 locked toolchain (TASK P0.004).
+#
+# This file pins what the repo actually uses today and records — honestly, without fake pins — the
+# training stack that is DEFERRED until it is really introduced (PA tasks / LAUNCH-A). A version is
+# only listed here once code depends on it, so the lock never lies about what a run used.
+#
+# Provenance note: the authoritative, machine-captured environment for any given run lives in that
+# run's provenance.json (see src/ezhuthu_jepa/provenance.py, capture_environment). This file is the
+# human-facing intent; provenance.json is the ground truth per run.
+
+config_schema_version: "0.1.0"   # ezhuthu_jepa.config.SCHEMA_VERSION — bump in lockstep.
+
+runtime:
+  python: ">=3.10"
+
+# Pinned now (used by the G0/Phase-0 skeleton and tests).
+pinned:
+  pytest: ">=7"
+
+# Deferred: pinned to exact versions at the task that introduces each dependency. Listed so the
+# roadmap is explicit and no one adds them ad hoc. NOT installed by the current pyproject.
+deferred:
+  - name: torch
+    pin_at: PA.005            # I-JEPA-style ViT pretraining loop
+    rule: "use dtype=..., never torch_dtype=..."
+  - name: torchvision
+    pin_at: PA.005
+  - name: timm
+    pin_at: PA.005            # ViT backbone
+  - name: numpy
+    pin_at: PA.001            # rendering / array ops
+  - name: pillow
+    pin_at: PA.001            # glyph rendering raster
+  - name: pyyaml
+    pin_at: PA.005            # loading configs/phase1/*.yaml into RunConfig
+  - name: gradio
+    pin_at: P3.002            # transcription-aid demo

@@ -54,13 +54,13 @@ n ≥ 3 seeds, 95 % bootstrap CIs. ε = 2.0 pp / non-overlapping CIs (pre-regist
 - **Acceptance criteria:**
   1. Writing creates one manifest per run dir containing exactly the 5 identifier categories.
   2. A run dir missing any identifier is rejected by a validator.
-- **Evidence of completion:** `src/ezhuthu_jepa/provenance.py`, passing test.
+- **Evidence of completion:** `src/ezhuthu_jepa/provenance.py`, `tests/test_provenance.py` (9 tests pass).
 - **Validation:** `pytest -k provenance`
 - **Measurements / logs:** n/a
 - **Dependencies:** P0.002
 - **Blocking gate:** G0
 - **Estimated effort:** 3
-- **Done:** [ ]
+- **Done:** [x]
 
 #### TASK P0.004: Lock the Phase-0 config contract
 - **What:** A versioned config schema + locked dependency-version file.
@@ -70,13 +70,13 @@ n ≥ 3 seeds, 95 % bootstrap CIs. ε = 2.0 pp / non-overlapping CIs (pre-regist
 - **Acceptance criteria:**
   1. Loading an out-of-contract config raises a typed validation error.
   2. A schema-consumer audit is written for the new schema.
-- **Evidence of completion:** `notes/schema-audits/ezhuthu_jepa-config.md`, passing test.
+- **Evidence of completion:** `notes/schema-audits/ezhuthu_jepa-config.md`, `configs/phase0/locked-versions.yaml`, `tests/test_config.py` (18 tests pass).
 - **Validation:** `pytest -k config`
 - **Measurements / logs:** n/a
 - **Dependencies:** P0.002
 - **Blocking gate:** G0
 - **Estimated effort:** 3
-- **Done:** [ ]
+- **Done:** [x]
 
 ## Phase A — Rendered-Core Evaluation Harness & Data (feeds LAUNCH-A / G1)
 
