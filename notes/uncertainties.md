@@ -19,6 +19,15 @@ Carry uncertainties forward each session until resolved.
   classical/literary skew vs manuscript-domain frequency is a known limitation to state in the paper;
   optional second-corpus robustness check tracked but not required for G1.
 
+### 2026-07-01 — Ligature vowels (i/ii/u/uu) have no cleanly separable sign region
+- Why it matters: for 60/216 aksharas the vowel fuses with the base into a single ligature glyph, so
+  the seam ("diff") spans most of the glyph — "mask the sign, keep the base visible" is only clean for
+  the 138 separate-glyph cases. This affects PA.004 masking design and how K1/K3 must be interpreted
+  (does the compositional win hold on ligated vs separable signs?). Surfaced by PA.001 (DEC-0005).
+- Status: Open — decide at PA.004 whether to (a) mask only the diff region, (b) stratify results by
+  seam_source (glyph vs diff), or (c) treat ligature aksharas as a separate reported bucket. Likely
+  report stratified by seam_source so the claim is honest about where composition is clean.
+
 ### 2026-07-01 — Rendered-glyph fidelity vs real paleographic forms
 - Why it matters: seam labels are learned on renders; transfer to manuscript glyph shapes is the
   whole K4 question. See RISKS Q006.

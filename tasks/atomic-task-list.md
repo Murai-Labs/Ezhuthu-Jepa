@@ -93,13 +93,17 @@ n ≥ 3 seeds, 95 % bootstrap CIs. ε = 2.0 pp / non-overlapping CIs (pre-regist
   1. For a sample of aksharas, the renderer emits image + `{base_id, sign_id, seam_bbox}` and the
      recomposition base×sign matches the source codepoint sequence 100 % on the sample.
   2. Output writes to `data/rendered/` (gitignored) with a committed text-free manifest.
-- **Evidence of completion:** manifest under `runs/`, passing `pytest -k render`.
-- **Validation:** `pytest -k render`
-- **Measurements / logs:** count rendered, glyph coverage.
+- **Evidence of completion:** `runs/pa001-render-001/render-manifest.json` (216 entries),
+  `src/ezhuthu_jepa/data/{grapheme,render,build_uyirmei}.py`, `configs/phase1/render.yaml`,
+  `tests/test_grapheme.py` (9) + `tests/test_render.py` (9). Counts: 138 glyph / 60 diff / 18 none.
+- **Validation:** `pytest -k "grapheme or render"` (18 pass); full suite 46 pass.
+- **Measurements / logs:** 216 rendered; seam_source breakdown in manifest `counts`.
 - **Dependencies:** P0.004
 - **Blocking gate:** G1
+- **Notes:** shaping via HarfBuzz+FreeType, seam via glyph/diff hybrid (DEC-0005). Ligature vowels
+  (i/ii/u/uu) have no cleanly separable sign region — open uncertainty feeding PA.004 masking design.
 - **Estimated effort:** 6
-- **Done:** [ ]
+- **Done:** [x]
 
 #### TASK PA.002: Frequency-stratified benchmark split with bottom-quartile cutoff
 - **What:** A train/eval split stratified by compound corpus frequency, with the bottom-quartile

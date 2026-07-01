@@ -1,0 +1,3829 @@
+{
+  "run_id": "pa001-render-001",
+  "task": "PA.001",
+  "created_at": "2026-07-01T13:03:29-0500",
+  "provenance": {
+    "config_hash": "sha256:4287e156028b8cca0b2203b86bfb2fd48aa6ad68f0f5fe760326e6b75bd0fb21",
+    "code_sha": "e12804a14be4ef06756d978e04b289a6591f2317",
+    "data_hash": "sha256:b977eee3b88bc47e69465152af0e7a6e8edd3d97dceebbbdcab28dcb577210c6",
+    "seed": "deterministic",
+    "environment": {
+      "python": "3.13.14",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "processor": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
+      "torch": {
+        "installed": true,
+        "version": "2.10.0+cu130",
+        "cuda_available": true,
+        "cuda_version": "13.0",
+        "device_name": "NVIDIA GeForce RTX 5090"
+      },
+      "packages": {
+        "pillow": "12.1.1",
+        "numpy": "2.4.3",
+        "uharfbuzz": "0.55.0",
+        "freetype-py": "2.5.1",
+        "pyyaml": "6.0.3"
+      }
+    }
+  },
+  "config_snapshot": {
+    "font_path": "C:/Windows/Fonts/Nirmala.ttc",
+    "font_index": 0,
+    "render_px": 96,
+    "output_px": 96,
+    "ink_threshold": 32,
+    "diff_threshold": 24,
+    "margin_px": 6
+  },
+  "counts": {
+    "total": 216,
+    "with_sign": 198,
+    "seam_glyph": 138,
+    "seam_diff": 60,
+    "seam_none": 18
+  },
+  "image_dir": "data/rendered/uyirmei",
+  "entries": [
+    {
+      "akshara_id": "k_a",
+      "base_id": "k",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0B95"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "k_a.png"
+    },
+    {
+      "akshara_id": "k_aa",
+      "base_id": "k",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0B95",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        59,
+        30,
+        92,
+        64
+      ],
+      "seam_source": "glyph",
+      "image": "k_aa.png"
+    },
+    {
+      "akshara_id": "k_i",
+      "base_id": "k",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0B95",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        7,
+        90,
+        88
+      ],
+      "seam_source": "diff",
+      "image": "k_i.png"
+    },
+    {
+      "akshara_id": "k_ii",
+      "base_id": "k",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0B95",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        10,
+        6,
+        85,
+        90
+      ],
+      "seam_source": "diff",
+      "image": "k_ii.png"
+    },
+    {
+      "akshara_id": "k_u",
+      "base_id": "k",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0B95",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        12,
+        90,
+        84
+      ],
+      "seam_source": "diff",
+      "image": "k_u.png"
+    },
+    {
+      "akshara_id": "k_uu",
+      "base_id": "k",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0B95",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        6,
+        40,
+        91,
+        69
+      ],
+      "seam_source": "diff",
+      "image": "k_uu.png"
+    },
+    {
+      "akshara_id": "k_e",
+      "base_id": "k",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0B95",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        27,
+        43,
+        68
+      ],
+      "seam_source": "glyph",
+      "image": "k_e.png"
+    },
+    {
+      "akshara_id": "k_ee",
+      "base_id": "k",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0B95",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        25,
+        40,
+        71
+      ],
+      "seam_source": "glyph",
+      "image": "k_ee.png"
+    },
+    {
+      "akshara_id": "k_ai",
+      "base_id": "k",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0B95",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        34,
+        53,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "k_ai.png"
+    },
+    {
+      "akshara_id": "k_o",
+      "base_id": "k",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0B95",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        33,
+        94,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "k_o.png"
+    },
+    {
+      "akshara_id": "k_oo",
+      "base_id": "k",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0B95",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        32,
+        93,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "k_oo.png"
+    },
+    {
+      "akshara_id": "k_au",
+      "base_id": "k",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0B95",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        35,
+        94,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "k_au.png"
+    },
+    {
+      "akshara_id": "ng_a",
+      "base_id": "ng",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0B99"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "ng_a.png"
+    },
+    {
+      "akshara_id": "ng_aa",
+      "base_id": "ng",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0B99",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        62,
+        32,
+        93,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "ng_aa.png"
+    },
+    {
+      "akshara_id": "ng_i",
+      "base_id": "ng",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0B99",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        12,
+        12,
+        91,
+        83
+      ],
+      "seam_source": "diff",
+      "image": "ng_i.png"
+    },
+    {
+      "akshara_id": "ng_ii",
+      "base_id": "ng",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0B99",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        27,
+        11,
+        91,
+        74
+      ],
+      "seam_source": "diff",
+      "image": "ng_ii.png"
+    },
+    {
+      "akshara_id": "ng_u",
+      "base_id": "ng",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0B99",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        31,
+        25,
+        90,
+        85
+      ],
+      "seam_source": "diff",
+      "image": "ng_u.png"
+    },
+    {
+      "akshara_id": "ng_uu",
+      "base_id": "ng",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0B99",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        24,
+        27,
+        91,
+        78
+      ],
+      "seam_source": "diff",
+      "image": "ng_uu.png"
+    },
+    {
+      "akshara_id": "ng_e",
+      "base_id": "ng",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0B99",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        29,
+        40,
+        67
+      ],
+      "seam_source": "glyph",
+      "image": "ng_e.png"
+    },
+    {
+      "akshara_id": "ng_ee",
+      "base_id": "ng",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0B99",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        27,
+        37,
+        69
+      ],
+      "seam_source": "glyph",
+      "image": "ng_ee.png"
+    },
+    {
+      "akshara_id": "ng_ai",
+      "base_id": "ng",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0B99",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        35,
+        49,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "ng_ai.png"
+    },
+    {
+      "akshara_id": "ng_o",
+      "base_id": "ng",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0B99",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        34,
+        94,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "ng_o.png"
+    },
+    {
+      "akshara_id": "ng_oo",
+      "base_id": "ng",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0B99",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        33,
+        94,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "ng_oo.png"
+    },
+    {
+      "akshara_id": "ng_au",
+      "base_id": "ng",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0B99",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        36,
+        94,
+        60
+      ],
+      "seam_source": "glyph",
+      "image": "ng_au.png"
+    },
+    {
+      "akshara_id": "c_a",
+      "base_id": "c",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0B9A"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "c_a.png"
+    },
+    {
+      "akshara_id": "c_aa",
+      "base_id": "c",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        57,
+        29,
+        92,
+        65
+      ],
+      "seam_source": "glyph",
+      "image": "c_aa.png"
+    },
+    {
+      "akshara_id": "c_i",
+      "base_id": "c",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        6,
+        89,
+        90
+      ],
+      "seam_source": "diff",
+      "image": "c_i.png"
+    },
+    {
+      "akshara_id": "c_ii",
+      "base_id": "c",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        14,
+        6,
+        82,
+        90
+      ],
+      "seam_source": "diff",
+      "image": "c_ii.png"
+    },
+    {
+      "akshara_id": "c_u",
+      "base_id": "c",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        66,
+        43,
+        90,
+        77
+      ],
+      "seam_source": "diff",
+      "image": "c_u.png"
+    },
+    {
+      "akshara_id": "c_uu",
+      "base_id": "c",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        16,
+        91,
+        80
+      ],
+      "seam_source": "diff",
+      "image": "c_uu.png"
+    },
+    {
+      "akshara_id": "c_e",
+      "base_id": "c",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        26,
+        45,
+        69
+      ],
+      "seam_source": "glyph",
+      "image": "c_e.png"
+    },
+    {
+      "akshara_id": "c_ee",
+      "base_id": "c",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        24,
+        42,
+        72
+      ],
+      "seam_source": "glyph",
+      "image": "c_ee.png"
+    },
+    {
+      "akshara_id": "c_ai",
+      "base_id": "c",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        34,
+        55,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "c_ai.png"
+    },
+    {
+      "akshara_id": "c_o",
+      "base_id": "c",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        33,
+        94,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "c_o.png"
+    },
+    {
+      "akshara_id": "c_oo",
+      "base_id": "c",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        32,
+        93,
+        64
+      ],
+      "seam_source": "glyph",
+      "image": "c_oo.png"
+    },
+    {
+      "akshara_id": "c_au",
+      "base_id": "c",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        35,
+        94,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "c_au.png"
+    },
+    {
+      "akshara_id": "nj_a",
+      "base_id": "nj",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0B9E"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "nj_a.png"
+    },
+    {
+      "akshara_id": "nj_aa",
+      "base_id": "nj",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        64,
+        28,
+        93,
+        57
+      ],
+      "seam_source": "glyph",
+      "image": "nj_aa.png"
+    },
+    {
+      "akshara_id": "nj_i",
+      "base_id": "nj",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        63,
+        10,
+        92,
+        71
+      ],
+      "seam_source": "glyph",
+      "image": "nj_i.png"
+    },
+    {
+      "akshara_id": "nj_ii",
+      "base_id": "nj",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        51,
+        5,
+        85,
+        30
+      ],
+      "seam_source": "glyph",
+      "image": "nj_ii.png"
+    },
+    {
+      "akshara_id": "nj_u",
+      "base_id": "nj",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        17,
+        91,
+        79
+      ],
+      "seam_source": "diff",
+      "image": "nj_u.png"
+    },
+    {
+      "akshara_id": "nj_uu",
+      "base_id": "nj",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        23,
+        92,
+        72
+      ],
+      "seam_source": "diff",
+      "image": "nj_uu.png"
+    },
+    {
+      "akshara_id": "nj_e",
+      "base_id": "nj",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        25,
+        37,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "nj_e.png"
+    },
+    {
+      "akshara_id": "nj_ee",
+      "base_id": "nj",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        23,
+        34,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "nj_ee.png"
+    },
+    {
+      "akshara_id": "nj_ai",
+      "base_id": "nj",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        32,
+        47,
+        56
+      ],
+      "seam_source": "glyph",
+      "image": "nj_ai.png"
+    },
+    {
+      "akshara_id": "nj_o",
+      "base_id": "nj",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        31,
+        94,
+        58
+      ],
+      "seam_source": "glyph",
+      "image": "nj_o.png"
+    },
+    {
+      "akshara_id": "nj_oo",
+      "base_id": "nj",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        30,
+        94,
+        58
+      ],
+      "seam_source": "glyph",
+      "image": "nj_oo.png"
+    },
+    {
+      "akshara_id": "nj_au",
+      "base_id": "nj",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        33,
+        94,
+        56
+      ],
+      "seam_source": "glyph",
+      "image": "nj_au.png"
+    },
+    {
+      "akshara_id": "tt_a",
+      "base_id": "tt",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0B9F"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "tt_a.png"
+    },
+    {
+      "akshara_id": "tt_aa",
+      "base_id": "tt",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        57,
+        30,
+        92,
+        66
+      ],
+      "seam_source": "glyph",
+      "image": "tt_aa.png"
+    },
+    {
+      "akshara_id": "tt_i",
+      "base_id": "tt",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        31,
+        7,
+        90,
+        88
+      ],
+      "seam_source": "diff",
+      "image": "tt_i.png"
+    },
+    {
+      "akshara_id": "tt_ii",
+      "base_id": "tt",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        28,
+        18,
+        90,
+        77
+      ],
+      "seam_source": "diff",
+      "image": "tt_ii.png"
+    },
+    {
+      "akshara_id": "tt_u",
+      "base_id": "tt",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        8,
+        5,
+        88,
+        91
+      ],
+      "seam_source": "diff",
+      "image": "tt_u.png"
+    },
+    {
+      "akshara_id": "tt_uu",
+      "base_id": "tt",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        13,
+        5,
+        82,
+        91
+      ],
+      "seam_source": "diff",
+      "image": "tt_uu.png"
+    },
+    {
+      "akshara_id": "tt_e",
+      "base_id": "tt",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        27,
+        43,
+        69
+      ],
+      "seam_source": "glyph",
+      "image": "tt_e.png"
+    },
+    {
+      "akshara_id": "tt_ee",
+      "base_id": "tt",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        25,
+        41,
+        71
+      ],
+      "seam_source": "glyph",
+      "image": "tt_ee.png"
+    },
+    {
+      "akshara_id": "tt_ai",
+      "base_id": "tt",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        34,
+        53,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "tt_ai.png"
+    },
+    {
+      "akshara_id": "tt_o",
+      "base_id": "tt",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        33,
+        94,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "tt_o.png"
+    },
+    {
+      "akshara_id": "tt_oo",
+      "base_id": "tt",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        32,
+        93,
+        64
+      ],
+      "seam_source": "glyph",
+      "image": "tt_oo.png"
+    },
+    {
+      "akshara_id": "tt_au",
+      "base_id": "tt",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        35,
+        94,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "tt_au.png"
+    },
+    {
+      "akshara_id": "nn_a",
+      "base_id": "nn",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BA3"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "nn_a.png"
+    },
+    {
+      "akshara_id": "nn_aa",
+      "base_id": "nn",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        71,
+        37,
+        94,
+        59
+      ],
+      "seam_source": "glyph",
+      "image": "nn_aa.png"
+    },
+    {
+      "akshara_id": "nn_i",
+      "base_id": "nn",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        72,
+        26,
+        93,
+        70
+      ],
+      "seam_source": "glyph",
+      "image": "nn_i.png"
+    },
+    {
+      "akshara_id": "nn_ii",
+      "base_id": "nn",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        70,
+        23,
+        93,
+        41
+      ],
+      "seam_source": "glyph",
+      "image": "nn_ii.png"
+    },
+    {
+      "akshara_id": "nn_u",
+      "base_id": "nn",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        26,
+        93,
+        70
+      ],
+      "seam_source": "diff",
+      "image": "nn_u.png"
+    },
+    {
+      "akshara_id": "nn_uu",
+      "base_id": "nn",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        30,
+        93,
+        66
+      ],
+      "seam_source": "diff",
+      "image": "nn_uu.png"
+    },
+    {
+      "akshara_id": "nn_e",
+      "base_id": "nn",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        34,
+        29,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "nn_e.png"
+    },
+    {
+      "akshara_id": "nn_ee",
+      "base_id": "nn",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        33,
+        27,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "nn_ee.png"
+    },
+    {
+      "akshara_id": "nn_ai",
+      "base_id": "nn",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        38,
+        38,
+        58
+      ],
+      "seam_source": "glyph",
+      "image": "nn_ai.png"
+    },
+    {
+      "akshara_id": "nn_o",
+      "base_id": "nn",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        37,
+        94,
+        59
+      ],
+      "seam_source": "glyph",
+      "image": "nn_o.png"
+    },
+    {
+      "akshara_id": "nn_oo",
+      "base_id": "nn",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        36,
+        94,
+        60
+      ],
+      "seam_source": "glyph",
+      "image": "nn_oo.png"
+    },
+    {
+      "akshara_id": "nn_au",
+      "base_id": "nn",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        38,
+        94,
+        58
+      ],
+      "seam_source": "glyph",
+      "image": "nn_au.png"
+    },
+    {
+      "akshara_id": "t_a",
+      "base_id": "t",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BA4"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "t_a.png"
+    },
+    {
+      "akshara_id": "t_aa",
+      "base_id": "t",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        59,
+        24,
+        92,
+        59
+      ],
+      "seam_source": "glyph",
+      "image": "t_aa.png"
+    },
+    {
+      "akshara_id": "t_i",
+      "base_id": "t",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        10,
+        5,
+        85,
+        91
+      ],
+      "seam_source": "diff",
+      "image": "t_i.png"
+    },
+    {
+      "akshara_id": "t_ii",
+      "base_id": "t",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        16,
+        5,
+        78,
+        91
+      ],
+      "seam_source": "diff",
+      "image": "t_ii.png"
+    },
+    {
+      "akshara_id": "t_u",
+      "base_id": "t",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        6,
+        13,
+        90,
+        83
+      ],
+      "seam_source": "diff",
+      "image": "t_u.png"
+    },
+    {
+      "akshara_id": "t_uu",
+      "base_id": "t",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        21,
+        92,
+        74
+      ],
+      "seam_source": "diff",
+      "image": "t_uu.png"
+    },
+    {
+      "akshara_id": "t_e",
+      "base_id": "t",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        22,
+        43,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "t_e.png"
+    },
+    {
+      "akshara_id": "t_ee",
+      "base_id": "t",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        19,
+        41,
+        65
+      ],
+      "seam_source": "glyph",
+      "image": "t_ee.png"
+    },
+    {
+      "akshara_id": "t_ai",
+      "base_id": "t",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        29,
+        53,
+        57
+      ],
+      "seam_source": "glyph",
+      "image": "t_ai.png"
+    },
+    {
+      "akshara_id": "t_o",
+      "base_id": "t",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        29,
+        94,
+        59
+      ],
+      "seam_source": "glyph",
+      "image": "t_o.png"
+    },
+    {
+      "akshara_id": "t_oo",
+      "base_id": "t",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        28,
+        93,
+        60
+      ],
+      "seam_source": "glyph",
+      "image": "t_oo.png"
+    },
+    {
+      "akshara_id": "t_au",
+      "base_id": "t",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        32,
+        94,
+        57
+      ],
+      "seam_source": "glyph",
+      "image": "t_au.png"
+    },
+    {
+      "akshara_id": "n_a",
+      "base_id": "n",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BA8"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "n_a.png"
+    },
+    {
+      "akshara_id": "n_aa",
+      "base_id": "n",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        57,
+        23,
+        92,
+        59
+      ],
+      "seam_source": "glyph",
+      "image": "n_aa.png"
+    },
+    {
+      "akshara_id": "n_i",
+      "base_id": "n",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        51,
+        5,
+        84,
+        75
+      ],
+      "seam_source": "glyph",
+      "image": "n_i.png"
+    },
+    {
+      "akshara_id": "n_ii",
+      "base_id": "n",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        37,
+        5,
+        70,
+        30
+      ],
+      "seam_source": "glyph",
+      "image": "n_ii.png"
+    },
+    {
+      "akshara_id": "n_u",
+      "base_id": "n",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        6,
+        13,
+        90,
+        83
+      ],
+      "seam_source": "diff",
+      "image": "n_u.png"
+    },
+    {
+      "akshara_id": "n_uu",
+      "base_id": "n",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        22,
+        92,
+        74
+      ],
+      "seam_source": "diff",
+      "image": "n_uu.png"
+    },
+    {
+      "akshara_id": "n_e",
+      "base_id": "n",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        21,
+        45,
+        64
+      ],
+      "seam_source": "glyph",
+      "image": "n_e.png"
+    },
+    {
+      "akshara_id": "n_ee",
+      "base_id": "n",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        18,
+        42,
+        65
+      ],
+      "seam_source": "glyph",
+      "image": "n_ee.png"
+    },
+    {
+      "akshara_id": "n_ai",
+      "base_id": "n",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        29,
+        55,
+        57
+      ],
+      "seam_source": "glyph",
+      "image": "n_ai.png"
+    },
+    {
+      "akshara_id": "n_o",
+      "base_id": "n",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        29,
+        94,
+        59
+      ],
+      "seam_source": "glyph",
+      "image": "n_o.png"
+    },
+    {
+      "akshara_id": "n_oo",
+      "base_id": "n",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        28,
+        93,
+        60
+      ],
+      "seam_source": "glyph",
+      "image": "n_oo.png"
+    },
+    {
+      "akshara_id": "n_au",
+      "base_id": "n",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        31,
+        94,
+        58
+      ],
+      "seam_source": "glyph",
+      "image": "n_au.png"
+    },
+    {
+      "akshara_id": "p_a",
+      "base_id": "p",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BAA"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "p_a.png"
+    },
+    {
+      "akshara_id": "p_aa",
+      "base_id": "p",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        57,
+        30,
+        92,
+        66
+      ],
+      "seam_source": "glyph",
+      "image": "p_aa.png"
+    },
+    {
+      "akshara_id": "p_i",
+      "base_id": "p",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        44,
+        6,
+        89,
+        90
+      ],
+      "seam_source": "diff",
+      "image": "p_i.png"
+    },
+    {
+      "akshara_id": "p_ii",
+      "base_id": "p",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        46,
+        6,
+        87,
+        49
+      ],
+      "seam_source": "diff",
+      "image": "p_ii.png"
+    },
+    {
+      "akshara_id": "p_u",
+      "base_id": "p",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        74,
+        67,
+        83,
+        89
+      ],
+      "seam_source": "diff",
+      "image": "p_u.png"
+    },
+    {
+      "akshara_id": "p_uu",
+      "base_id": "p",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        6,
+        10,
+        90,
+        85
+      ],
+      "seam_source": "diff",
+      "image": "p_uu.png"
+    },
+    {
+      "akshara_id": "p_e",
+      "base_id": "p",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        27,
+        45,
+        69
+      ],
+      "seam_source": "glyph",
+      "image": "p_e.png"
+    },
+    {
+      "akshara_id": "p_ee",
+      "base_id": "p",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        24,
+        42,
+        71
+      ],
+      "seam_source": "glyph",
+      "image": "p_ee.png"
+    },
+    {
+      "akshara_id": "p_ai",
+      "base_id": "p",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        33,
+        55,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "p_ai.png"
+    },
+    {
+      "akshara_id": "p_o",
+      "base_id": "p",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        33,
+        94,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "p_o.png"
+    },
+    {
+      "akshara_id": "p_oo",
+      "base_id": "p",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        32,
+        93,
+        64
+      ],
+      "seam_source": "glyph",
+      "image": "p_oo.png"
+    },
+    {
+      "akshara_id": "p_au",
+      "base_id": "p",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        35,
+        94,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "p_au.png"
+    },
+    {
+      "akshara_id": "m_a",
+      "base_id": "m",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BAE"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "m_a.png"
+    },
+    {
+      "akshara_id": "m_aa",
+      "base_id": "m",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        60,
+        32,
+        92,
+        65
+      ],
+      "seam_source": "glyph",
+      "image": "m_aa.png"
+    },
+    {
+      "akshara_id": "m_i",
+      "base_id": "m",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        53,
+        8,
+        90,
+        87
+      ],
+      "seam_source": "diff",
+      "image": "m_i.png"
+    },
+    {
+      "akshara_id": "m_ii",
+      "base_id": "m",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        49,
+        6,
+        89,
+        48
+      ],
+      "seam_source": "diff",
+      "image": "m_ii.png"
+    },
+    {
+      "akshara_id": "m_u",
+      "base_id": "m",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        16,
+        92,
+        79
+      ],
+      "seam_source": "diff",
+      "image": "m_u.png"
+    },
+    {
+      "akshara_id": "m_uu",
+      "base_id": "m",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        19,
+        91,
+        77
+      ],
+      "seam_source": "diff",
+      "image": "m_uu.png"
+    },
+    {
+      "akshara_id": "m_e",
+      "base_id": "m",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        28,
+        41,
+        68
+      ],
+      "seam_source": "glyph",
+      "image": "m_e.png"
+    },
+    {
+      "akshara_id": "m_ee",
+      "base_id": "m",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        26,
+        39,
+        70
+      ],
+      "seam_source": "glyph",
+      "image": "m_ee.png"
+    },
+    {
+      "akshara_id": "m_ai",
+      "base_id": "m",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        35,
+        51,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "m_ai.png"
+    },
+    {
+      "akshara_id": "m_o",
+      "base_id": "m",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        34,
+        94,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "m_o.png"
+    },
+    {
+      "akshara_id": "m_oo",
+      "base_id": "m",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        33,
+        94,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "m_oo.png"
+    },
+    {
+      "akshara_id": "m_au",
+      "base_id": "m",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        35,
+        94,
+        60
+      ],
+      "seam_source": "glyph",
+      "image": "m_au.png"
+    },
+    {
+      "akshara_id": "y_a",
+      "base_id": "y",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BAF"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "y_a.png"
+    },
+    {
+      "akshara_id": "y_aa",
+      "base_id": "y",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        61,
+        32,
+        92,
+        64
+      ],
+      "seam_source": "glyph",
+      "image": "y_aa.png"
+    },
+    {
+      "akshara_id": "y_i",
+      "base_id": "y",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        12,
+        11,
+        91,
+        83
+      ],
+      "seam_source": "diff",
+      "image": "y_i.png"
+    },
+    {
+      "akshara_id": "y_ii",
+      "base_id": "y",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        12,
+        9,
+        91,
+        84
+      ],
+      "seam_source": "diff",
+      "image": "y_ii.png"
+    },
+    {
+      "akshara_id": "y_u",
+      "base_id": "y",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        15,
+        49,
+        90,
+        87
+      ],
+      "seam_source": "diff",
+      "image": "y_u.png"
+    },
+    {
+      "akshara_id": "y_uu",
+      "base_id": "y",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        13,
+        91,
+        82
+      ],
+      "seam_source": "diff",
+      "image": "y_uu.png"
+    },
+    {
+      "akshara_id": "y_e",
+      "base_id": "y",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        28,
+        41,
+        67
+      ],
+      "seam_source": "glyph",
+      "image": "y_e.png"
+    },
+    {
+      "akshara_id": "y_ee",
+      "base_id": "y",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        27,
+        38,
+        69
+      ],
+      "seam_source": "glyph",
+      "image": "y_ee.png"
+    },
+    {
+      "akshara_id": "y_ai",
+      "base_id": "y",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        35,
+        50,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "y_ai.png"
+    },
+    {
+      "akshara_id": "y_o",
+      "base_id": "y",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        34,
+        94,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "y_o.png"
+    },
+    {
+      "akshara_id": "y_oo",
+      "base_id": "y",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        33,
+        94,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "y_oo.png"
+    },
+    {
+      "akshara_id": "y_au",
+      "base_id": "y",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        36,
+        94,
+        60
+      ],
+      "seam_source": "glyph",
+      "image": "y_au.png"
+    },
+    {
+      "akshara_id": "r_a",
+      "base_id": "r",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BB0"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "r_a.png"
+    },
+    {
+      "akshara_id": "r_aa",
+      "base_id": "r",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        53,
+        21,
+        92,
+        60
+      ],
+      "seam_source": "glyph",
+      "image": "r_aa.png"
+    },
+    {
+      "akshara_id": "r_i",
+      "base_id": "r",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        46,
+        5,
+        79,
+        75
+      ],
+      "seam_source": "glyph",
+      "image": "r_i.png"
+    },
+    {
+      "akshara_id": "r_ii",
+      "base_id": "r",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        41,
+        5,
+        74,
+        30
+      ],
+      "seam_source": "glyph",
+      "image": "r_ii.png"
+    },
+    {
+      "akshara_id": "r_u",
+      "base_id": "r",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        6,
+        12,
+        90,
+        84
+      ],
+      "seam_source": "diff",
+      "image": "r_u.png"
+    },
+    {
+      "akshara_id": "r_uu",
+      "base_id": "r",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        15,
+        91,
+        81
+      ],
+      "seam_source": "diff",
+      "image": "r_uu.png"
+    },
+    {
+      "akshara_id": "r_e",
+      "base_id": "r",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        19,
+        47,
+        65
+      ],
+      "seam_source": "glyph",
+      "image": "r_e.png"
+    },
+    {
+      "akshara_id": "r_ee",
+      "base_id": "r",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        16,
+        45,
+        66
+      ],
+      "seam_source": "glyph",
+      "image": "r_ee.png"
+    },
+    {
+      "akshara_id": "r_ai",
+      "base_id": "r",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        28,
+        57,
+        58
+      ],
+      "seam_source": "glyph",
+      "image": "r_ai.png"
+    },
+    {
+      "akshara_id": "r_o",
+      "base_id": "r",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        28,
+        93,
+        60
+      ],
+      "seam_source": "glyph",
+      "image": "r_o.png"
+    },
+    {
+      "akshara_id": "r_oo",
+      "base_id": "r",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        26,
+        93,
+        60
+      ],
+      "seam_source": "glyph",
+      "image": "r_oo.png"
+    },
+    {
+      "akshara_id": "r_au",
+      "base_id": "r",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        30,
+        94,
+        58
+      ],
+      "seam_source": "glyph",
+      "image": "r_au.png"
+    },
+    {
+      "akshara_id": "l_a",
+      "base_id": "l",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BB2"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "l_a.png"
+    },
+    {
+      "akshara_id": "l_aa",
+      "base_id": "l",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        61,
+        32,
+        93,
+        64
+      ],
+      "seam_source": "glyph",
+      "image": "l_aa.png"
+    },
+    {
+      "akshara_id": "l_i",
+      "base_id": "l",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        12,
+        11,
+        91,
+        84
+      ],
+      "seam_source": "diff",
+      "image": "l_i.png"
+    },
+    {
+      "akshara_id": "l_ii",
+      "base_id": "l",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        51,
+        7,
+        90,
+        50
+      ],
+      "seam_source": "diff",
+      "image": "l_ii.png"
+    },
+    {
+      "akshara_id": "l_u",
+      "base_id": "l",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        16,
+        91,
+        80
+      ],
+      "seam_source": "diff",
+      "image": "l_u.png"
+    },
+    {
+      "akshara_id": "l_uu",
+      "base_id": "l",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        22,
+        92,
+        73
+      ],
+      "seam_source": "diff",
+      "image": "l_uu.png"
+    },
+    {
+      "akshara_id": "l_e",
+      "base_id": "l",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        29,
+        40,
+        67
+      ],
+      "seam_source": "glyph",
+      "image": "l_e.png"
+    },
+    {
+      "akshara_id": "l_ee",
+      "base_id": "l",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        27,
+        38,
+        69
+      ],
+      "seam_source": "glyph",
+      "image": "l_ee.png"
+    },
+    {
+      "akshara_id": "l_ai",
+      "base_id": "l",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        35,
+        50,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "l_ai.png"
+    },
+    {
+      "akshara_id": "l_o",
+      "base_id": "l",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        34,
+        94,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "l_o.png"
+    },
+    {
+      "akshara_id": "l_oo",
+      "base_id": "l",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        33,
+        94,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "l_oo.png"
+    },
+    {
+      "akshara_id": "l_au",
+      "base_id": "l",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        36,
+        94,
+        60
+      ],
+      "seam_source": "glyph",
+      "image": "l_au.png"
+    },
+    {
+      "akshara_id": "v_a",
+      "base_id": "v",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BB5"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "v_a.png"
+    },
+    {
+      "akshara_id": "v_aa",
+      "base_id": "v",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        62,
+        33,
+        93,
+        64
+      ],
+      "seam_source": "glyph",
+      "image": "v_aa.png"
+    },
+    {
+      "akshara_id": "v_i",
+      "base_id": "v",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        12,
+        12,
+        91,
+        83
+      ],
+      "seam_source": "diff",
+      "image": "v_i.png"
+    },
+    {
+      "akshara_id": "v_ii",
+      "base_id": "v",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        13,
+        10,
+        91,
+        82
+      ],
+      "seam_source": "diff",
+      "image": "v_ii.png"
+    },
+    {
+      "akshara_id": "v_u",
+      "base_id": "v",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        15,
+        35,
+        90,
+        86
+      ],
+      "seam_source": "diff",
+      "image": "v_u.png"
+    },
+    {
+      "akshara_id": "v_uu",
+      "base_id": "v",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        15,
+        91,
+        80
+      ],
+      "seam_source": "diff",
+      "image": "v_uu.png"
+    },
+    {
+      "akshara_id": "v_e",
+      "base_id": "v",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        29,
+        40,
+        67
+      ],
+      "seam_source": "glyph",
+      "image": "v_e.png"
+    },
+    {
+      "akshara_id": "v_ee",
+      "base_id": "v",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        27,
+        38,
+        69
+      ],
+      "seam_source": "glyph",
+      "image": "v_ee.png"
+    },
+    {
+      "akshara_id": "v_ai",
+      "base_id": "v",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        35,
+        50,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "v_ai.png"
+    },
+    {
+      "akshara_id": "v_o",
+      "base_id": "v",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        34,
+        94,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "v_o.png"
+    },
+    {
+      "akshara_id": "v_oo",
+      "base_id": "v",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        33,
+        94,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "v_oo.png"
+    },
+    {
+      "akshara_id": "v_au",
+      "base_id": "v",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        36,
+        94,
+        60
+      ],
+      "seam_source": "glyph",
+      "image": "v_au.png"
+    },
+    {
+      "akshara_id": "zh_a",
+      "base_id": "zh",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BB4"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "zh_a.png"
+    },
+    {
+      "akshara_id": "zh_aa",
+      "base_id": "zh",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        60,
+        25,
+        92,
+        59
+      ],
+      "seam_source": "glyph",
+      "image": "zh_aa.png"
+    },
+    {
+      "akshara_id": "zh_i",
+      "base_id": "zh",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        52,
+        5,
+        86,
+        73
+      ],
+      "seam_source": "diff",
+      "image": "zh_i.png"
+    },
+    {
+      "akshara_id": "zh_ii",
+      "base_id": "zh",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        50,
+        5,
+        82,
+        30
+      ],
+      "seam_source": "diff",
+      "image": "zh_ii.png"
+    },
+    {
+      "akshara_id": "zh_u",
+      "base_id": "zh",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        15,
+        91,
+        81
+      ],
+      "seam_source": "diff",
+      "image": "zh_u.png"
+    },
+    {
+      "akshara_id": "zh_uu",
+      "base_id": "zh",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        18,
+        91,
+        78
+      ],
+      "seam_source": "diff",
+      "image": "zh_uu.png"
+    },
+    {
+      "akshara_id": "zh_e",
+      "base_id": "zh",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        22,
+        41,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "zh_e.png"
+    },
+    {
+      "akshara_id": "zh_ee",
+      "base_id": "zh",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        20,
+        39,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "zh_ee.png"
+    },
+    {
+      "akshara_id": "zh_ai",
+      "base_id": "zh",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        30,
+        51,
+        56
+      ],
+      "seam_source": "glyph",
+      "image": "zh_ai.png"
+    },
+    {
+      "akshara_id": "zh_o",
+      "base_id": "zh",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        30,
+        94,
+        58
+      ],
+      "seam_source": "glyph",
+      "image": "zh_o.png"
+    },
+    {
+      "akshara_id": "zh_oo",
+      "base_id": "zh",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        28,
+        94,
+        59
+      ],
+      "seam_source": "glyph",
+      "image": "zh_oo.png"
+    },
+    {
+      "akshara_id": "zh_au",
+      "base_id": "zh",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        32,
+        94,
+        57
+      ],
+      "seam_source": "glyph",
+      "image": "zh_au.png"
+    },
+    {
+      "akshara_id": "ll_a",
+      "base_id": "ll",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BB3"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "ll_a.png"
+    },
+    {
+      "akshara_id": "ll_aa",
+      "base_id": "ll",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        63,
+        33,
+        93,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "ll_aa.png"
+    },
+    {
+      "akshara_id": "ll_i",
+      "base_id": "ll",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        61,
+        15,
+        91,
+        80
+      ],
+      "seam_source": "glyph",
+      "image": "ll_i.png"
+    },
+    {
+      "akshara_id": "ll_ii",
+      "base_id": "ll",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        57,
+        12,
+        91,
+        37
+      ],
+      "seam_source": "glyph",
+      "image": "ll_ii.png"
+    },
+    {
+      "akshara_id": "ll_u",
+      "base_id": "ll",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        20,
+        92,
+        75
+      ],
+      "seam_source": "diff",
+      "image": "ll_u.png"
+    },
+    {
+      "akshara_id": "ll_uu",
+      "base_id": "ll",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        24,
+        92,
+        72
+      ],
+      "seam_source": "diff",
+      "image": "ll_uu.png"
+    },
+    {
+      "akshara_id": "ll_e",
+      "base_id": "ll",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        29,
+        38,
+        66
+      ],
+      "seam_source": "glyph",
+      "image": "ll_e.png"
+    },
+    {
+      "akshara_id": "ll_ee",
+      "base_id": "ll",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        28,
+        36,
+        68
+      ],
+      "seam_source": "glyph",
+      "image": "ll_ee.png"
+    },
+    {
+      "akshara_id": "ll_ai",
+      "base_id": "ll",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        35,
+        48,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "ll_ai.png"
+    },
+    {
+      "akshara_id": "ll_o",
+      "base_id": "ll",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        34,
+        94,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "ll_o.png"
+    },
+    {
+      "akshara_id": "ll_oo",
+      "base_id": "ll",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        34,
+        94,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "ll_oo.png"
+    },
+    {
+      "akshara_id": "ll_au",
+      "base_id": "ll",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        36,
+        94,
+        60
+      ],
+      "seam_source": "glyph",
+      "image": "ll_au.png"
+    },
+    {
+      "akshara_id": "rr_a",
+      "base_id": "rr",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BB1"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "rr_a.png"
+    },
+    {
+      "akshara_id": "rr_aa",
+      "base_id": "rr",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        59,
+        25,
+        92,
+        59
+      ],
+      "seam_source": "glyph",
+      "image": "rr_aa.png"
+    },
+    {
+      "akshara_id": "rr_i",
+      "base_id": "rr",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        14,
+        5,
+        85,
+        75
+      ],
+      "seam_source": "diff",
+      "image": "rr_i.png"
+    },
+    {
+      "akshara_id": "rr_ii",
+      "base_id": "rr",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        16,
+        5,
+        83,
+        37
+      ],
+      "seam_source": "diff",
+      "image": "rr_ii.png"
+    },
+    {
+      "akshara_id": "rr_u",
+      "base_id": "rr",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        15,
+        91,
+        81
+      ],
+      "seam_source": "diff",
+      "image": "rr_u.png"
+    },
+    {
+      "akshara_id": "rr_uu",
+      "base_id": "rr",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        22,
+        92,
+        73
+      ],
+      "seam_source": "diff",
+      "image": "rr_uu.png"
+    },
+    {
+      "akshara_id": "rr_e",
+      "base_id": "rr",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        22,
+        42,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "rr_e.png"
+    },
+    {
+      "akshara_id": "rr_ee",
+      "base_id": "rr",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        20,
+        40,
+        64
+      ],
+      "seam_source": "glyph",
+      "image": "rr_ee.png"
+    },
+    {
+      "akshara_id": "rr_ai",
+      "base_id": "rr",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        30,
+        52,
+        57
+      ],
+      "seam_source": "glyph",
+      "image": "rr_ai.png"
+    },
+    {
+      "akshara_id": "rr_o",
+      "base_id": "rr",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        30,
+        94,
+        59
+      ],
+      "seam_source": "glyph",
+      "image": "rr_o.png"
+    },
+    {
+      "akshara_id": "rr_oo",
+      "base_id": "rr",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        28,
+        93,
+        59
+      ],
+      "seam_source": "glyph",
+      "image": "rr_oo.png"
+    },
+    {
+      "akshara_id": "rr_au",
+      "base_id": "rr",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        32,
+        94,
+        57
+      ],
+      "seam_source": "glyph",
+      "image": "rr_au.png"
+    },
+    {
+      "akshara_id": "nnn_a",
+      "base_id": "nnn",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BA9"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "nnn_a.png"
+    },
+    {
+      "akshara_id": "nnn_aa",
+      "base_id": "nnn",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        66,
+        34,
+        93,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "nnn_aa.png"
+    },
+    {
+      "akshara_id": "nnn_i",
+      "base_id": "nnn",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        65,
+        19,
+        92,
+        76
+      ],
+      "seam_source": "glyph",
+      "image": "nnn_i.png"
+    },
+    {
+      "akshara_id": "nnn_ii",
+      "base_id": "nnn",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        62,
+        16,
+        92,
+        39
+      ],
+      "seam_source": "glyph",
+      "image": "nnn_ii.png"
+    },
+    {
+      "akshara_id": "nnn_u",
+      "base_id": "nnn",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        19,
+        92,
+        76
+      ],
+      "seam_source": "diff",
+      "image": "nnn_u.png"
+    },
+    {
+      "akshara_id": "nnn_uu",
+      "base_id": "nnn",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        25,
+        92,
+        70
+      ],
+      "seam_source": "diff",
+      "image": "nnn_uu.png"
+    },
+    {
+      "akshara_id": "nnn_e",
+      "base_id": "nnn",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        31,
+        35,
+        65
+      ],
+      "seam_source": "glyph",
+      "image": "nnn_e.png"
+    },
+    {
+      "akshara_id": "nnn_ee",
+      "base_id": "nnn",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        30,
+        32,
+        66
+      ],
+      "seam_source": "glyph",
+      "image": "nnn_ee.png"
+    },
+    {
+      "akshara_id": "nnn_ai",
+      "base_id": "nnn",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        36,
+        45,
+        59
+      ],
+      "seam_source": "glyph",
+      "image": "nnn_ai.png"
+    },
+    {
+      "akshara_id": "nnn_o",
+      "base_id": "nnn",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        35,
+        94,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "nnn_o.png"
+    },
+    {
+      "akshara_id": "nnn_oo",
+      "base_id": "nnn",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        34,
+        94,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "nnn_oo.png"
+    },
+    {
+      "akshara_id": "nnn_au",
+      "base_id": "nnn",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        37,
+        94,
+        59
+      ],
+      "seam_source": "glyph",
+      "image": "nnn_au.png"
+    }
+  ]
+}

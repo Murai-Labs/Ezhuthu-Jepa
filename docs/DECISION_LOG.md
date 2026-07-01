@@ -112,3 +112,40 @@ Follow-up: **ε (equivalence margin) remains UNSET** — the 4th question was no
 ε = 2.0 pp / non-overlapping CIs from DEC-0002 still stands and MUST be formally pre-registered at
 TASK P1.001 before any baseline run. Do not launch a baseline until ε is pinned with a prior date.
 Human Approval: Ramchand, 2026-07-01 (items 1–3). ε pending.
+
+---
+
+## DEC-0005 - PA.001 rendering: HarfBuzz+FreeType, hybrid seam localization, deterministic provenance
+
+Date: 2026-07-01
+Task/Gate: PA.001 (G1 phase)
+Decision: Implemented the Tamil rendering pipeline with three sub-decisions:
+1. **Shaping engine = HarfBuzz (`uharfbuzz`) + FreeType (`freetype-py`)**, not Pillow's text API.
+   Pillow in this environment has no Raqm (`features.check('raqm') == False`), so it cannot reorder
+   left vowel signs (ெ ே ை) or form u/uu ligatures — it would silently mis-render Tamil and corrupt
+   seam labels (§2.1 violation). HarfBuzz is the industry-standard shaper; FreeType rasterizes shaped
+   glyph IDs. Rejected: hacking libraqm DLLs into Pillow (Windows-fragile, less precise for seams).
+2. **Seam localization = glyph/diff hybrid.** Nirmala clusters all glyphs of an akshara to cluster 0,
+   so HB cluster IDs cannot isolate the sign. Instead: if the bare-consonant glyph survives in the
+   shaped output (aa, e/ee/ai, two-part o/oo/au) the seam is the union bbox of the non-base glyphs
+   ("glyph"); if the base is substituted into a ligature (i/ii/u/uu) the seam is the pixel-diff of the
+   ligature vs the bare consonant ("diff"); the inherent-'a' form has no seam ("none"). Verified on
+   all 216 (test_render) and by eye (montage): 138 glyph / 60 diff / 18 none.
+3. **Data-gen runs use a deterministic provenance block, not `write_provenance`.** Rendering has no
+   RNG, so forcing the RunConfig 5-identifier path (which requires a `seed`) would be a lie. The
+   render manifest records config_hash (render.yaml), code_sha, data_hash (font + config), and
+   environment, with `seed: "deterministic"`. Training/eval runs still use the full `write_provenance`.
+Rationale: correctness of seam labels is load-bearing for the entire experiment; a mis-rendered
+abugida would invalidate K1–K4. HarfBuzz is the only correct, reproducible path.
+Alternatives Considered: Pillow-only (rejected: wrong shaping); cluster-based seam (rejected: font
+merges clusters); pixel-diff for all signs (rejected: reorder breaks base alignment for left signs).
+Evidence / Source Docs: `src/ezhuthu_jepa/data/{grapheme,render,build_uyirmei}.py`,
+`configs/phase1/render.yaml`, `tests/test_grapheme.py` (9) + `tests/test_render.py` (9),
+`runs/pa001-render-001/render-manifest.json` (216 entries). Full suite 46 passed.
+Measured Result: PA.001 AC1 (216/216 exact base×sign recomposition) and AC2 (images to
+data/rendered/ + committed text-free manifest) both pass.
+Follow-up: **Ligature seams (i/ii/u/uu, 60 cases) span most of the glyph** — for these the vowel
+fuses with the base, so "mask the sign, keep the base visible" is only cleanly separable for the 138
+glyph-source cases. This shapes the PA.004 masking design and the K1 interpretation (see new
+uncertainty). Move now-used deps to `pinned` in locked-versions.yaml.
+Human Approval: pending.

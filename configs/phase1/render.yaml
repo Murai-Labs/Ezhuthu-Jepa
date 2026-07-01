@@ -1,0 +1,15 @@
+# Tamil akshara rendering config (TASK PA.001).
+# Loaded by ezhuthu_jepa.data.render.RenderConfig.from_yaml.
+#
+# font_path is a machine-local system font (Nirmala UI ships with Windows 11 and covers Tamil). It
+# is NOT committed (repo is text-free); the exact font + its version are captured per run in the
+# provenance manifest's environment record. Override font_path on other machines (e.g. Noto Sans
+# Tamil) and record the substitution in DECISION_LOG.
+
+font_path: "C:/Windows/Fonts/Nirmala.ttc"
+font_index: 0        # Nirmala UI Regular
+render_px: 96        # FreeType pixel size / HarfBuzz scale
+output_px: 96        # final square grayscale image side
+ink_threshold: 32    # grayscale cutoff for ink bounding box
+diff_threshold: 24   # per-pixel delta for ligature-vs-base seam localization
+margin_px: 6         # padding kept around the ink when cropping

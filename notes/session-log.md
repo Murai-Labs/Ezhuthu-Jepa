@@ -37,3 +37,14 @@ Per-session checkpoints. Append; never edit past entries.
   not answered; provisional 2.0 pp / non-overlapping CIs (DEC-0002) still stands, to be pinned at P1.001.
 - Ended at: 3/4 G0 methodology decisions locked; ε open. Next: confirm ε, then G0 sign-off → PA.001.
 - Open uncertainties carried forward: ε unset (see DEC-0004 follow-up); corpus skew limitation noted.
+
+### 2026-07-01 15:30 CT — PA.001 Tamil rendering pipeline
+- Started from: PA.001 (rendering pipeline). Probed env: Pillow 12.1.1 (no Raqm), numpy, Nirmala font.
+- Did: added `data/grapheme.py` (18×12=216 exact base×sign model), `data/render.py` (HarfBuzz shaping
+  + FreeType raster + glyph/diff seam hybrid), `data/build_uyirmei.py` (dataset+manifest builder),
+  `configs/phase1/render.yaml`; installed+pinned uharfbuzz/freetype-py/pyyaml/pillow/numpy. Tests
+  caught 2 real bugs (canvas clipping on 3-glyph au/o signs; ligature mislabeled as glyph) — both
+  fixed. Generated all 216 → `runs/pa001-render-001/render-manifest.json` (138 glyph/60 diff/18 none),
+  eyeballed via seam-overlay montage. Recorded DEC-0005; new uncertainty on ligature seams. 46 tests pass.
+- Ended at: PA.001 done. Next: PA.002 (Project Madurai frequency split) → PA.003 → P1.001 (ε).
+- Open uncertainties carried forward: ε unset; ligature vowels have no separable sign region (PA.004).

@@ -1,6 +1,6 @@
 # Ezhuthu-Jepa — Status
 
-Last updated: 2026-07-01 14:00 CT
+Last updated: 2026-07-01 15:30 CT
 
 ## Methodology Decisions (DEC-0004)
 
@@ -30,23 +30,28 @@ Last updated: 2026-07-01 14:00 CT
   9 tests. Manifest carries exactly the 5 identifiers; `validate_run_dir` rejects any missing.
 - [x] **Phase-0 config contract locked (TASK P0.004)** — `src/ezhuthu_jepa/config.py` (schema
   `0.1.0`), `configs/phase0/locked-versions.yaml`, schema-consumer audit, 18 tests.
+- [x] **Tamil rendering pipeline (TASK PA.001)** — `data/{grapheme,render,build_uyirmei}.py`;
+  HarfBuzz+FreeType shaping, glyph/diff seam hybrid. All 216 uyirmei rendered
+  (`runs/pa001-render-001/render-manifest.json`); 138 glyph / 60 diff / 18 none seam sources.
 - [ ] G0 review evidence signed off (`docs/GATE_G0_REVIEW.md` — drafted, awaiting human approval).
 
-Test suite: **28 passed** (`pytest -q`). Placeholder scan clean.
+Test suite: **46 passed** (`pytest -q`). Placeholder scan clean.
 
 ## Current Blockers
 
-- None blocking G0. Forward blocker: G1 cannot begin until the rendering + frequency-stratified
-  evaluation harness is frozen and ε is pre-registered (TASKS PA.001–PA.003, P1.001).
-- Claim boundary: nothing has been trained or measured. No scientific claim is supported yet; the
-  repo now supports "the operating system + provenance/config contract are in place."
+- None blocking. Forward blocker: G1 needs PA.002 (frequency split) + PA.003 (eval harness) frozen
+  and ε pre-registered (P1.001) before any baseline run.
+- Open uncertainty (feeds PA.004): ligature vowels (i/ii/u/uu, 60/216) have no cleanly separable
+  sign region — likely report K1 stratified by seam_source.
+- Claim boundary: nothing has been trained or measured. Repo supports "operating system +
+  provenance/config contract + exact rendered akshara dataset with seam labels are in place."
 
 ## Next Recommended Work
 
-1. **TASK PA.001** — Tamil rendering pipeline with exact grapheme decomposition (seam labels).
-2. **TASK PA.002** — frequency-stratified split + bottom-quartile cutoff (defines metric M's tail).
-3. **TASK PA.003** — akshara-recognition eval harness (metric M with bootstrap CIs).
-4. **TASK P1.001** — pre-register ε and the bottom-quartile cutoff **before** any baseline run.
+1. **TASK PA.002** — frequency-stratified split from Project Madurai (DEC-0004) + bottom-quartile cutoff.
+2. **TASK PA.003** — akshara-recognition eval harness (metric M with bootstrap CIs).
+3. **TASK P1.001** — pre-register ε and the bottom-quartile cutoff **before** any baseline run.
+4. **TASK PA.004** — seam-masking module; decide ligature-seam handling (stratify by seam_source).
 
 ---
 **Tracker rule:** Update this file and `CHECKPOINT.md` before every commit that changes project

@@ -13,9 +13,15 @@ config_schema_version: "0.1.0"   # ezhuthu_jepa.config.SCHEMA_VERSION — bump i
 runtime:
   python: ">=3.10"
 
-# Pinned now (used by the G0/Phase-0 skeleton and tests).
+# Pinned now (used by the G0/Phase-0 skeleton and the PA.001 rendering pipeline). Exact versions
+# are the ground truth captured per data-gen run in the render manifest's environment block.
 pinned:
   pytest: ">=7"
+  numpy: "2.4.3"           # PA.001 array ops / seam diff
+  pillow: "12.1.1"         # PA.001 raster save + resize (Pillow)
+  uharfbuzz: "0.55.0"      # PA.001 complex-text shaping (reordering, ligatures)
+  freetype-py: "2.13.2"    # PA.001 glyph-ID rasterization
+  pyyaml: "6.0.3"          # PA.001 loads configs/phase1/render.yaml
 
 # Deferred: pinned to exact versions at the task that introduces each dependency. Listed so the
 # roadmap is explicit and no one adds them ad hoc. NOT installed by the current pyproject.
@@ -27,11 +33,5 @@ deferred:
     pin_at: PA.005
   - name: timm
     pin_at: PA.005            # ViT backbone
-  - name: numpy
-    pin_at: PA.001            # rendering / array ops
-  - name: pillow
-    pin_at: PA.001            # glyph rendering raster
-  - name: pyyaml
-    pin_at: PA.005            # loading configs/phase1/*.yaml into RunConfig
   - name: gradio
     pin_at: P3.002            # transcription-aid demo
