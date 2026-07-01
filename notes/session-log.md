@@ -58,3 +58,13 @@ Per-session checkpoints. Append; never edit past entries.
   and resolved the ligature uncertainty. Regenerated 432 images (216×2). 56 tests pass. Recorded DEC-0006.
 - Ended at: PA.001 finalized multi-font. Next: PA.002 (Project Madurai frequency split).
 - Open uncertainties carried forward: ε unset; small n per (bucket×seam_source×font) stratum to watch.
+
+### 2026-07-01 17:15 CT — Figures convention + Figure F1 (DEC-0007)
+- Started from: question "are we capturing figures for the paper?" — gap found: the PA.001 montage had
+  only gone to scratch and was lost.
+- Did: added `figures/{provenance,f1_seam_localization}.py` (regenerable figures with `.prov.json`
+  sidecars citing source run-id + lineage hashes), `docs/FIGURES.md` index, governance line in
+  §8 (CLAUDE.md ≡ AGENTS.md re-verified identical), `tests/test_figures.py` (2). Generated and
+  committed **F1** (seam-localization montage, Noto) citing run pa001-render-001. 58 tests pass. DEC-0007.
+- Ended at: figures pipeline live; F1 captured. Next: PA.002; capture F2 (freq dist) there.
+- Open uncertainties carried forward: ε unset; small-n strata.

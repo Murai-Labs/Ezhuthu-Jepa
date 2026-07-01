@@ -151,6 +151,10 @@ Gate approval is recorded in `docs/DECISION_LOG.md`, with evidence preserved in 
 - Repo is **text-free**: raw/large/copyrighted data (manuscript imagery, rendered corpora) and
   checkpoints are gitignored (external drive); commit manifests, configs, code, docs, reports only.
 - Run IDs are monotonic/descriptive and never reused, even for failed attempts.
+- Paper figures live in `docs/figures/`, are **regenerated from a committed script** under
+  `src/ezhuthu_jepa/figures/` (never hand-drawn), and each carries a `<fig>.prov.json` sidecar citing
+  the source run-id + code SHA. `docs/FIGURES.md` indexes figure → paper section → generator → run. A
+  figure may only cite a run whose `provenance.json` is committed.
 
 ## 9. Verification
 

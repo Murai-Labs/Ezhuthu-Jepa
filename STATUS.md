@@ -1,6 +1,6 @@
 # Ezhuthu-Jepa — Status
 
-Last updated: 2026-07-01 16:30 CT
+Last updated: 2026-07-01 17:15 CT
 
 ## Methodology Decisions (DEC-0004, DEC-0006)
 
@@ -36,9 +36,12 @@ Last updated: 2026-07-01 16:30 CT
   HarfBuzz+FreeType shaping, glyph/diff seam hybrid, **multi-font (Noto+Nirmala)**. All 216 uyirmei
   rendered under both fonts → `runs/pa001-render-001/` (432 entries; noto 18/142/56, nirmala
   18/138/60 none/glyph/diff). Provenance unified for deterministic data-gen runs (DEC-0006).
+- [x] **Figures convention + Figure F1** (DEC-0007) — `docs/figures/f1_seam_localization.{png,prov.json}`,
+  generator `src/ezhuthu_jepa/figures/`, `docs/FIGURES.md` index. Figures regenerable + provenanced.
 - [ ] G0 review evidence signed off (`docs/GATE_G0_REVIEW.md` — drafted, awaiting human approval).
 
-Test suite: **56 passed** (`pytest -q`). Placeholder scan clean.
+Test suite: **58 passed** (`pytest -q`). Placeholder scan clean. Paper figures captured as milestones
+land (F1 done; F2–F5 planned in `docs/FIGURES.md`).
 
 ## Current Blockers
 

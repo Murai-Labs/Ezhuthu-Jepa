@@ -1,6 +1,6 @@
 # Ezhuthu-Jepa — Checkpoint
 
-Last updated: 2026-07-01 16:30 CT
+Last updated: 2026-07-01 17:15 CT
 
 ## Resume Point
 
@@ -30,7 +30,9 @@ Madurai), then **PA.003** (eval harness), **P1.001** (pre-register ε), **PA.004
   bottom-quartile split (defines metric M's tail); then PA.003 eval harness (report accuracy per
   frequency-bucket × seam_source × font, DEC-0006); then P1.001 pins ε. Data/train code loads configs
   via `RunConfig.from_dict(...)`; ALL runs (incl. deterministic data-gen) use `write_provenance(...)`
-  with `seed=SEED_DETERMINISTIC` where there is no RNG (DEC-0006).
+  with `seed=SEED_DETERMINISTIC` where there is no RNG (DEC-0006). Paper figures: add a generator
+  under `src/ezhuthu_jepa/figures/` + a `<fig>.prov.json` sidecar and a row in `docs/FIGURES.md`
+  (DEC-0007); F1 done, F2–F5 land with PA.002/PA.003/P1.003/P2.003.
 - Authorization gate status: G0 evidence drafted in `docs/GATE_G0_REVIEW.md`, **pending human
   approval**. LAUNCH-A not requested. No training run authorized. ε still unset (defer to P1.001).
 

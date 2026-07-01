@@ -187,3 +187,29 @@ Measured Result: 432 renders (216×2). Per-font seam split — noto 18/142/56, n
 Follow-up: PA.002 frequency split; PA.003 emits accuracy per (frequency-bucket × seam_source × font);
 PA.004 masking respects seam_source. New uncertainty resolved (stratify).
 Human Approval: Ramchand, 2026-07-01 (three choices). Implementation pending human review.
+
+---
+
+## DEC-0007 - Reproducible, provenanced figures convention (paper artifacts captured as we go)
+
+Date: 2026-07-01
+Task/Gate: cross-cutting (paper deliverable hygiene)
+Decision: Adopt a figures convention so paper visuals are captured continuously and traceably, not
+retrofitted at the end. Figures live in `docs/figures/` (committed — they are *reports*), are
+regenerated from committed scripts under `src/ezhuthu_jepa/figures/` (never hand-drawn), and each
+carries a `<fig>.prov.json` sidecar recording the figure's `code_sha` and the lineage inherited from
+its source run (run-id + that run's config/data hashes). Indexed in `docs/FIGURES.md`. Governance line
+added to §8 (CLAUDE.md ≡ AGENTS.md). Backfilled **Figure F1** (seam localization montage), which had
+previously been generated only to the ephemeral scratchpad and lost.
+Rationale: the earlier seam montage was discarded to scratch — a real gap for a paper deliverable in a
+provenance-first project. Operationalizes the pre-existing REPRODUCIBILITY rule that figures cite run
+IDs. Chosen option A (full convention + backfill F1) over B (F1 only) / C (defer to PA.003).
+Alternatives Considered: hand-made figures at write-up time (rejected: not reproducible, no lineage);
+gitignoring figure bytes (rejected: figures are small reports meant to be committed).
+Evidence / Source Docs: `src/ezhuthu_jepa/figures/{provenance,f1_seam_localization}.py`,
+`docs/figures/f1_seam_localization.{png,prov.json}`, `docs/FIGURES.md`, `tests/test_figures.py` (2).
+F1 cites source run `pa001-render-001`. Full suite 58 passed.
+Measured Result: F1 regenerable via `python -m ezhuthu_jepa.figures.f1_seam_localization`.
+Follow-up: capture F2 (frequency dist, PA.002), F3 (accuracy per bucket×seam_source×font, PA.003),
+F4 (K1/K3 main comparison, P1.003), F5 (K4 degradation, P2.003) as those runs land.
+Human Approval: pending.

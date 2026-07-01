@@ -1,0 +1,15 @@
+{
+  "figure_id": "F1",
+  "figure_file": "f1_seam_localization.png",
+  "paper_section": "Method — seam localization",
+  "caption": "Seam localization for consonants k/nn/zh across the 12 vowels (font: noto). Green box = separable-glyph vowel sign (union of non-base glyphs); orange box = ligature sign (diff vs the bare consonant); no box = inherent 'a'. The orange cases are where the vowel fuses with the base, so the sign is not cleanly separable — results are reported stratified by seam_source (DEC-0006).",
+  "created_at": "2026-07-01T20:27:24.862904+00:00",
+  "code_sha": "a29ebf8f6ffe4f38bcf58ceac5510f05fc1c2a03",
+  "code_dirty": true,
+  "source": {
+    "run_id": "pa001-render-001",
+    "config_hash": "sha256:42853db8c10758c0c8df5f09c071e540c72f130abee31b68e37b520e8672ff0b",
+    "data_hash": "sha256:83b7c25519a0b977d25fa63ce060e628c1cb822f16292058408d29bba61073d5"
+  },
+  "command": "python -m ezhuthu_jepa.figures.f1_seam_localization --font noto"
+}
