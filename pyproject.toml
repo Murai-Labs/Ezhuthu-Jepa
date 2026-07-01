@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ezhuthu-jepa"
+version = "0.0.0"
+description = "Grapheme-seam-masked JEPA for recovering undigitized Tamil manuscripts"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Ramchand Kumaresan", email = "ramchand@murailabs.com" }]
+license = { text = "MIT" }
+# Runtime deps are pinned at TASK P0.004 (configs/phase0/locked-versions.yaml). Kept empty here so
+# the G0 skeleton stays installable without committing to an unlocked toolchain.
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

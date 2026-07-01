@@ -1,0 +1,42 @@
+# Research repo stays text-free: raw/large/copyrighted data and checkpoints are NOT committed.
+# Commit manifests, configs, code, docs, reports only. Adjust paths to the project.
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.venv-*/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Raw / large / copyrighted data — keep text-free manifests, ignore bodies
+data/raw/
+data/interim/
+data/processed/
+# Rendered Tamil corpora and manuscript imagery live on the external drive, not in git
+data/rendered/
+data/manuscripts/
+
+# Run bodies: keep manifests/metrics/notes (committed), ignore heavy artifacts
+runs/**/checkpoint*
+runs/**/*.ckpt
+*.pt
+*.safetensors
+*.bin
+*.ckpt
+
+# Logs / scratch
+*.log
+.tmp/
+scratch/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Internal-only tracking files that must stay local (never pushed to public repos)
+GAPS.md
