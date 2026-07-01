@@ -1,0 +1,50 @@
+{
+  "manifest_version": "1",
+  "run_id": "pa001-render-001",
+  "created_at": "2026-07-01T20:11:04.648039+00:00",
+  "code_dirty": true,
+  "config": {
+    "fonts": [
+      {
+        "id": "noto",
+        "path": "fonts/NotoSansTamil.ttf",
+        "index": 0
+      },
+      {
+        "id": "nirmala",
+        "path": "C:/Windows/Fonts/Nirmala.ttc",
+        "index": 0
+      }
+    ],
+    "render_px": 96,
+    "output_px": 96,
+    "ink_threshold": 32,
+    "diff_threshold": 24,
+    "margin_px": 6
+  },
+  "identifiers": {
+    "config_hash": "sha256:42853db8c10758c0c8df5f09c071e540c72f130abee31b68e37b520e8672ff0b",
+    "code_sha": "3b46ba71e2efbc7b5c604b29f04770655efb4712",
+    "data_hash": "sha256:83b7c25519a0b977d25fa63ce060e628c1cb822f16292058408d29bba61073d5",
+    "seed": "deterministic",
+    "environment": {
+      "python": "3.13.14",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "processor": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
+      "torch": {
+        "installed": true,
+        "version": "2.10.0+cu130",
+        "cuda_available": true,
+        "cuda_version": "13.0",
+        "device_name": "NVIDIA GeForce RTX 5090"
+      },
+      "packages": {
+        "pillow": "12.1.1",
+        "numpy": "2.4.3",
+        "uharfbuzz": "0.55.0",
+        "freetype-py": "2.5.1",
+        "pyyaml": "6.0.3"
+      }
+    }
+  }
+}

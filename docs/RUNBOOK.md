@@ -7,11 +7,22 @@ Operational procedures. Exact, copy-pasteable commands only. Paths assume repo r
 ## Environment Setup
 
 ```bash
-# Placeholder until P0.004 locks the toolchain. Expected shape:
-python -m venv .venv
-source .venv/Scripts/activate        # Windows Git Bash; use .venv/bin/activate on Linux/macOS
-pip install -e .                     # editable install of src/ezhuthu_jepa
-pip install -r requirements.txt      # created at P0.004 from configs/phase0/locked-versions.yaml
+# Rendering toolchain (PA.001): pinned in configs/phase0/locked-versions.yaml.
+pip install numpy pillow uharfbuzz "freetype-py" pyyaml pytest
+
+# Fetch the reproducible OFL font (gitignored). Nirmala UI is a Windows-only bonus and needs no fetch.
+mkdir -p fonts
+curl -fsSL "https://github.com/google/fonts/raw/main/ofl/notosanstamil/NotoSansTamil%5Bwdth,wght%5D.ttf" \
+  -o fonts/NotoSansTamil.ttf
+```
+
+## Build the Rendered Akshara Dataset (PA.001)
+
+```bash
+# Renders all 216 uyirmei under every available font → data/rendered/ (gitignored) + committed
+# manifest + provenance under runs/. Deterministic (no RNG).
+PYTHONPATH=src python -m ezhuthu_jepa.data.build_uyirmei \
+  --config configs/phase1/render.yaml --out data/rendered/uyirmei --run-dir runs/pa001-render-001
 ```
 
 ## Run a Smoke Test

@@ -1,9 +1,9 @@
 """Build the 216-uyirmei rendered dataset + a committed manifest (TASK PA.001, AC2).
 
-Renders every vowel-consonant compound to ``--out`` (gitignored image bodies) and writes a text-free
-manifest with a provenance block to ``--run-dir`` (committed). Rendering is deterministic, so the
-provenance records no RNG seed (``seed: "deterministic"``) rather than a fake one — see DEC-0005.
-Training/eval runs use ``provenance.write_provenance`` with the full 5 identifiers instead.
+Renders every vowel-consonant compound under every available font (DEC-0006) to ``--out`` (gitignored
+image bodies), writes a text-free ``render-manifest.json`` to ``--run-dir``, and writes the run's
+``provenance.json`` via the unified ``write_provenance`` with ``seed=SEED_DETERMINISTIC`` (rendering
+has no RNG). Fonts whose path is absent on this machine are skipped with a logged note.
 
 Usage:
     python -m ezhuthu_jepa.data.build_uyirmei \
@@ -20,7 +20,7 @@ import sys
 import time
 from pathlib import Path
 
-from ..provenance import capture_code_state, capture_environment, hash_paths
+from ..provenance import SEED_DETERMINISTIC, hash_paths, validate_run_dir, write_provenance
 from .grapheme import enumerate_uyirmei
 from .render import RenderConfig, TamilRenderer, render_and_save
 
@@ -30,48 +30,68 @@ _PROVENANCE_PACKAGES = ["pillow", "numpy", "uharfbuzz", "freetype-py", "pyyaml"]
 
 def build(config_path: Path, out_dir: Path, run_dir: Path) -> Path:
     config = RenderConfig.from_yaml(config_path)
-    renderer = TamilRenderer(config)
     aksharas = enumerate_uyirmei()
-    total = len(aksharas)
 
-    entries = []
+    available = [f for f in config.fonts if f.available]
+    skipped = [f.id for f in config.fonts if not f.available]
+    if not available:
+        raise SystemExit(f"no configured font is available; checked {[f.path for f in config.fonts]}")
+    if skipped:
+        print(f"[build_uyirmei] skipping unavailable fonts: {skipped}", flush=True)
+
+    entries: list[dict] = []
     started = time.monotonic()
-    for i, aksh in enumerate(aksharas, start=1):
-        entries.append(render_and_save(renderer, aksh, out_dir))
-        if i % _PROGRESS_EVERY == 0 or i == total:
-            elapsed = time.monotonic() - started
-            eta = elapsed / i * (total - i)
-            print(f"[build_uyirmei] {i}/{total} rendered  elapsed={elapsed:5.1f}s  eta={eta:4.1f}s",
-                  flush=True)
+    total = len(aksharas) * len(available)
+    done = 0
+    for font in available:
+        renderer = TamilRenderer(font, config)
+        for aksh in aksharas:
+            entries.append(render_and_save(renderer, aksh, out_dir))
+            done += 1
+            if done % _PROGRESS_EVERY == 0 or done == total:
+                elapsed = time.monotonic() - started
+                eta = elapsed / done * (total - done)
+                print(f"[build_uyirmei] {done}/{total} rendered ({font.id})  "
+                      f"elapsed={elapsed:5.1f}s  eta={eta:4.1f}s", flush=True)
 
-    source_paths = [Path(config.font_path), config_path]
+    # Provenance: pin the exact font bytes + render config; deterministic (no RNG) seed.
+    source_paths = [Path(f.path) for f in available] + [config_path]
+    run_dir.mkdir(parents=True, exist_ok=True)
+    write_provenance(
+        run_dir,
+        config=config,
+        data_hash=hash_paths(source_paths),
+        run_id=run_dir.name,
+        seed=SEED_DETERMINISTIC,
+        package_names=_PROVENANCE_PACKAGES,
+    )
+
+    def _count(source: str) -> int:
+        return sum(1 for e in entries if e["seam_source"] == source)
+
     manifest = {
         "run_id": run_dir.name,
         "task": "PA.001",
         "created_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
-        "provenance": {
-            "config_hash": hash_paths([config_path]),
-            "code_sha": capture_code_state().sha,
-            "data_hash": hash_paths(source_paths),   # font + render config pin the inputs
-            "seed": "deterministic",                 # rendering has no RNG (DEC-0005)
-            "environment": capture_environment(_PROVENANCE_PACKAGES),
-        },
-        "config_snapshot": config.__dict__,
+        "provenance_ref": "provenance.json",
+        "fonts_rendered": [f.id for f in available],
+        "fonts_skipped": skipped,
         "counts": {
-            "total": total,
-            "with_sign": sum(1 for e in entries if e["has_sign"]),
-            "seam_glyph": sum(1 for e in entries if e["seam_source"] == "glyph"),
-            "seam_diff": sum(1 for e in entries if e["seam_source"] == "diff"),
-            "seam_none": sum(1 for e in entries if e["seam_source"] == "none"),
+            "total": len(entries),
+            "aksharas": len(aksharas),
+            "fonts": len(available),
+            "seam_glyph": _count("glyph"),
+            "seam_diff": _count("diff"),
+            "seam_none": _count("none"),
         },
         "image_dir": out_dir.as_posix(),
         "entries": entries,
     }
-
-    run_dir.mkdir(parents=True, exist_ok=True)
     manifest_path = run_dir / "render-manifest.json"
     manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"[build_uyirmei] wrote {total} images to {out_dir} and manifest {manifest_path}",
+
+    validate_run_dir(run_dir)  # self-check: the run's provenance has all 5 identifiers
+    print(f"[build_uyirmei] wrote {len(entries)} images to {out_dir}; manifest {manifest_path}",
           flush=True)
     return manifest_path
 

@@ -4,9 +4,12 @@ import json
 
 import pytest
 
+import dataclasses
+
 from ezhuthu_jepa.config import SCHEMA_VERSION, RunConfig
 from ezhuthu_jepa.provenance import (
     REQUIRED_IDENTIFIERS,
+    SEED_DETERMINISTIC,
     ProvenanceError,
     compute_config_hash,
     hash_paths,
@@ -95,3 +98,53 @@ def test_hash_paths_pins_content(tmp_path):
 def test_hash_paths_missing_file_raises(tmp_path):
     with pytest.raises(ProvenanceError, match="missing file"):
         hash_paths([tmp_path / "nope.txt"])
+
+
+# --- generalized provenance: seedless / non-RunConfig runs (DEC-0006) ---
+
+
+@dataclasses.dataclass(frozen=True)
+class _FakeRenderConfig:
+    font: str
+    px: int
+
+
+def test_deterministic_seed_with_dataclass_config(tmp_path):
+    run_dir = tmp_path / "render-run"
+    write_provenance(
+        run_dir,
+        config=_FakeRenderConfig(font="Noto", px=96),
+        data_hash="sha256:font",
+        run_id="render-run",
+        seed=SEED_DETERMINISTIC,
+    )
+    manifest = validate_run_dir(run_dir)  # deterministic is a non-empty, valid identifier
+    assert manifest["identifiers"]["seed"] == SEED_DETERMINISTIC
+    assert manifest["config"] == {"font": "Noto", "px": 96}
+
+
+def test_mapping_config_is_hashable(tmp_path):
+    run_dir = tmp_path / "map-run"
+    write_provenance(
+        run_dir,
+        config={"a": 1, "b": 2},
+        data_hash="sha256:x",
+        run_id="map-run",
+        seed=SEED_DETERMINISTIC,
+    )
+    # order-independent hashing over a mapping
+    assert compute_config_hash({"a": 1, "b": 2}) == compute_config_hash({"b": 2, "a": 1})
+
+
+def test_non_runconfig_without_seed_raises(tmp_path):
+    with pytest.raises(ProvenanceError, match="seed is required"):
+        write_provenance(
+            tmp_path / "r", config={"a": 1}, data_hash="sha256:x", run_id="r"
+        )
+
+
+def test_bad_seed_type_raises(tmp_path):
+    with pytest.raises(ProvenanceError, match="seed must be"):
+        write_provenance(
+            tmp_path / "r", config={"a": 1}, data_hash="sha256:x", run_id="r", seed=1.5
+        )

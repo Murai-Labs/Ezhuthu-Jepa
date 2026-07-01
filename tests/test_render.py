@@ -1,8 +1,8 @@
 """Renderer tests (TASK PA.001): all 216 render without clipping; seams land on the right side.
 
-These require the configured Tamil font. Where it is absent (e.g. a Linux CI box without Nirmala),
-the whole module skips rather than failing — the grapheme-model correctness (AC1) is covered font-free
-in test_grapheme.py.
+Parametrized over every configured font that is present on this machine; fonts absent here (e.g.
+Nirmala on Linux CI) are skipped individually. The grapheme-model correctness (AC1) is covered
+font-free in test_grapheme.py, so these can all skip without losing the exactness guarantee.
 """
 
 from pathlib import Path
@@ -21,18 +21,16 @@ from ezhuthu_jepa.data.render import (
 REPO_ROOT = Path(__file__).resolve().parents[1]
 RENDER_YAML = REPO_ROOT / "configs" / "phase1" / "render.yaml"
 
-
-@pytest.fixture(scope="module")
-def config() -> RenderConfig:
-    cfg = RenderConfig.from_yaml(RENDER_YAML)
-    if not Path(cfg.font_path).is_file():
-        pytest.skip(f"font not available: {cfg.font_path}")
-    return cfg
+_CONFIG = RenderConfig.from_yaml(RENDER_YAML)
+_AVAILABLE = [f for f in _CONFIG.fonts if f.available]
 
 
-@pytest.fixture(scope="module")
-def renderer(config: RenderConfig) -> TamilRenderer:
-    return TamilRenderer(config)
+@pytest.fixture(scope="module", params=[f.id for f in _AVAILABLE] or [pytest.param(None)])
+def renderer(request) -> TamilRenderer:
+    if request.param is None:
+        pytest.skip("no configured Tamil font is available on this machine")
+    font = next(f for f in _CONFIG.fonts if f.id == request.param)
+    return TamilRenderer(font, _CONFIG)
 
 
 def _center_x(r: RenderedAkshara) -> float:
@@ -40,9 +38,10 @@ def _center_x(r: RenderedAkshara) -> float:
     return (r.seam_bbox[0] + r.seam_bbox[2]) / 2
 
 
-def test_config_loads_from_yaml(config: RenderConfig):
-    assert config.font_index == 0
-    assert config.output_px == 96
+def test_config_loads_multifont():
+    assert len(_CONFIG.fonts) >= 1
+    assert {f.id for f in _CONFIG.fonts} >= {"noto"}
+    assert _CONFIG.output_px == 96
 
 
 def test_all_216_render_without_clipping(renderer: TamilRenderer):
@@ -50,7 +49,8 @@ def test_all_216_render_without_clipping(renderer: TamilRenderer):
         r = renderer.render(aksh)
         assert r.image.shape == (renderer.config.output_px, renderer.config.output_px)
         assert r.image.dtype == np.uint8
-        assert r.image.max() > renderer.config.ink_threshold  # has ink
+        assert r.image.max() > renderer.config.ink_threshold
+        assert r.font_id == renderer.font.id
 
 
 def test_inherent_a_has_no_seam(renderer: TamilRenderer):
@@ -61,22 +61,24 @@ def test_inherent_a_has_no_seam(renderer: TamilRenderer):
 
 
 def test_right_sign_is_a_separate_glyph(renderer: TamilRenderer):
-    r = renderer.render(compose("k", "aa"))  # கா — ா on the right
+    r = renderer.render(compose("k", "aa"))  # கா — ா on the right, separable in all Tamil fonts
     assert r.seam_source == "glyph"
     assert r.seam_bbox is not None
 
 
-def test_ligature_sign_uses_diff(renderer: TamilRenderer):
-    r = renderer.render(compose("k", "u"))  # கு — u fuses into a ligature
-    assert r.seam_source == "diff"
-    assert r.seam_bbox is not None
-
-
 def test_left_sign_is_left_of_right_sign(renderer: TamilRenderer):
-    # ெ (e) reorders to the LEFT; ா (aa) attaches on the RIGHT. Seam centers must reflect that.
+    # ெ (e) reorders to the LEFT; ா (aa) attaches on the RIGHT — true regardless of font.
     left = renderer.render(compose("k", "e"))
     right = renderer.render(compose("k", "aa"))
     assert _center_x(left) < _center_x(right)
+
+
+def test_seam_source_is_valid_and_font_may_ligate(renderer: TamilRenderer):
+    # 'u' fuses into a ligature in both Nirmala and Noto → diff. Other vowels are font-dependent.
+    assert renderer.render(compose("k", "u")).seam_source == "diff"
+    sources = {renderer.render(a).seam_source for a in enumerate_uyirmei()}
+    assert sources <= {"glyph", "diff", "none"}
+    assert {"none", "glyph"} <= sources  # 'a' + at least the right/left separable signs
 
 
 def test_seam_bbox_within_image(renderer: TamilRenderer):
@@ -90,14 +92,9 @@ def test_seam_bbox_within_image(renderer: TamilRenderer):
         assert 0 <= y0 < y1 <= out
 
 
-def test_all_three_seam_sources_appear(renderer: TamilRenderer):
-    sources = {renderer.render(a).seam_source for a in enumerate_uyirmei()}
-    assert {"none", "glyph", "diff"} <= sources
-
-
-def test_render_and_save_writes_png_and_manifest_entry(renderer: TamilRenderer, tmp_path: Path):
+def test_render_and_save_tags_font_in_filename(renderer: TamilRenderer, tmp_path: Path):
     entry = render_and_save(renderer, compose("m", "ii"), tmp_path)
+    assert entry["font_id"] == renderer.font.id
+    assert entry["image"] == f"m_ii__{renderer.font.id}.png"
     assert (tmp_path / entry["image"]).is_file()
-    assert entry["base_id"] == "m" and entry["sign_id"] == "ii"
     assert entry["codepoints"] == ["U+0BAE", "U+0BC0"]
-    assert entry["seam_source"] in {"glyph", "diff"}

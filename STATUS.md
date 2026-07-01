@@ -1,12 +1,14 @@
 # Ezhuthu-Jepa — Status
 
-Last updated: 2026-07-01 15:30 CT
+Last updated: 2026-07-01 16:30 CT
 
-## Methodology Decisions (DEC-0004)
+## Methodology Decisions (DEC-0004, DEC-0006)
 
-- Metric **M = bottom-quartile-frequency akshara top-1 accuracy** — confirmed.
+- Metric **M = bottom-quartile-frequency akshara top-1 accuracy** — confirmed; **reported stratified
+  by seam_source (glyph vs diff) and by font** (DEC-0006).
 - Cheap-baseline set = **block-JEPA, MAE-at-seam, base→sign probe** (the three) — confirmed.
 - Frequency corpus = **Project Madurai** — confirmed (resolves RISKS Q005).
+- Rendering is **multi-font (Noto + Nirmala)**; provenance **unified** for seedless data-gen runs.
 - **ε still UNSET** — provisional 2.0 pp / non-overlapping CIs stands; pin at P1.001 before any baseline.
 
 ## Current State
@@ -31,11 +33,12 @@ Last updated: 2026-07-01 15:30 CT
 - [x] **Phase-0 config contract locked (TASK P0.004)** — `src/ezhuthu_jepa/config.py` (schema
   `0.1.0`), `configs/phase0/locked-versions.yaml`, schema-consumer audit, 18 tests.
 - [x] **Tamil rendering pipeline (TASK PA.001)** — `data/{grapheme,render,build_uyirmei}.py`;
-  HarfBuzz+FreeType shaping, glyph/diff seam hybrid. All 216 uyirmei rendered
-  (`runs/pa001-render-001/render-manifest.json`); 138 glyph / 60 diff / 18 none seam sources.
+  HarfBuzz+FreeType shaping, glyph/diff seam hybrid, **multi-font (Noto+Nirmala)**. All 216 uyirmei
+  rendered under both fonts → `runs/pa001-render-001/` (432 entries; noto 18/142/56, nirmala
+  18/138/60 none/glyph/diff). Provenance unified for deterministic data-gen runs (DEC-0006).
 - [ ] G0 review evidence signed off (`docs/GATE_G0_REVIEW.md` — drafted, awaiting human approval).
 
-Test suite: **46 passed** (`pytest -q`). Placeholder scan clean.
+Test suite: **56 passed** (`pytest -q`). Placeholder scan clean.
 
 ## Current Blockers
 

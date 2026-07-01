@@ -5,24 +5,25 @@ seam the JEPA objective masks). Because Pillow lacks complex-text shaping, we sh
 (``uharfbuzz``) — which reorders left marks (ெ ே ை) and forms u/uu ligatures correctly — and
 rasterize specific glyph IDs with FreeType (``freetype-py``).
 
-Seam localization is a validated hybrid (Nirmala clusters every glyph of an akshara to cluster 0,
-so cluster IDs cannot isolate the sign):
+Rendering is **multi-font** (DEC-0006): each akshara is rendered under every configured font so the
+compositional claim can be checked for font-robustness rather than baked onto one font's quirks
+(e.g. கி is a ligature in Nirmala but a separate glyph in Noto Sans Tamil). A ``TamilRenderer`` is
+bound to one font; the builder iterates fonts.
 
-* **glyph** — when the sign is a separate glyph (aa on the right; e/ee/ai reordered left; the
-  two-part o/oo/au on both sides), the shaped output still contains the bare-consonant glyph, so the
-  seam is the union bbox of the *non-base* glyphs.
-* **diff** — when the sign fuses into a single ligature glyph (i, u, uu), there is no separate sign
-  glyph, so the seam is the pixel region where the ligature differs from the bare consonant rendered
-  at the same origin.
-* **none** — the inherent-'a' form has no dependent sign; there is nothing to mask.
+Seam localization is a validated hybrid (fonts cluster every glyph of an akshara to cluster 0, so
+cluster IDs cannot isolate the sign):
 
-All heavy pixel work is on ``numpy`` arrays; the final image is a fixed-size square grayscale raster,
-with the seam bbox reported in that final image's coordinate frame.
+* **glyph** — the sign is a separate glyph (aa on the right; e/ee/ai reordered left; the two-part
+  o/oo/au on both sides): the bare-consonant glyph survives, so the seam is the union bbox of the
+  *non-base* glyphs.
+* **diff** — the sign fuses into a ligature glyph (font-dependent: i/ii/u/uu): the base is
+  substituted away, so the seam is where the ligature differs from the bare consonant at the same origin.
+* **none** — the inherent-'a' form has no dependent sign.
 """
 
 from __future__ import annotations
 
-from dataclasses import dataclass, fields
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
@@ -43,27 +44,51 @@ class RenderError(RuntimeError):
 
 
 @dataclass(frozen=True)
+class FontSpec:
+    """One font to render with. ``id`` labels its outputs; ``path`` is machine-local (gitignored)."""
+
+    id: str
+    path: str
+    index: int = 0
+
+    @property
+    def available(self) -> bool:
+        return Path(self.path).is_file()
+
+
+@dataclass(frozen=True)
 class RenderConfig:
     """Rendering knobs. Loaded from ``configs/phase1/render.yaml`` (or constructed directly)."""
 
-    font_path: str
-    font_index: int = 0
+    fonts: tuple[FontSpec, ...]
     render_px: int = 96        # FreeType pixel size and HarfBuzz scale (positions come out in px)
     output_px: int = 96        # side of the final square grayscale image
     ink_threshold: int = 32    # grayscale value above which a pixel counts as ink
     diff_threshold: int = 24   # per-pixel delta above which the ligature differs from the base
     margin_px: int = 6         # padding kept around the ink when cropping
 
+    _SCALAR_KEYS = ("render_px", "output_px", "ink_threshold", "diff_threshold", "margin_px")
+
     @classmethod
     def from_yaml(cls, path: str | Path) -> "RenderConfig":
         data = yaml.safe_load(Path(path).read_text(encoding="utf-8")) or {}
-        allowed = {f.name for f in fields(cls)}
+        allowed = {"fonts", *cls._SCALAR_KEYS}
         unknown = set(data) - allowed
         if unknown:
             raise RenderError(f"unknown render-config key(s): {sorted(unknown)}")
-        if "font_path" not in data:
-            raise RenderError("render config must set 'font_path'")
-        return cls(**data)
+        raw_fonts = data.get("fonts")
+        if not raw_fonts or not isinstance(raw_fonts, list):
+            raise RenderError("render config must set a non-empty 'fonts' list")
+        fonts = []
+        for i, f in enumerate(raw_fonts):
+            if "id" not in f or "path" not in f:
+                raise RenderError(f"fonts[{i}] must have 'id' and 'path'")
+            fonts.append(FontSpec(id=f["id"], path=f["path"], index=f.get("index", 0)))
+        ids = [f.id for f in fonts]
+        if len(set(ids)) != len(ids):
+            raise RenderError(f"duplicate font ids: {ids}")
+        scalars = {k: data[k] for k in cls._SCALAR_KEYS if k in data}
+        return cls(fonts=tuple(fonts), **scalars)
 
 
 @dataclass(frozen=True)
@@ -79,6 +104,7 @@ class RenderedAkshara:
     """A rendered akshara plus its exact decomposition and seam label."""
 
     akshara_id: str
+    font_id: str
     base_id: str
     sign_id: str
     codepoint_labels: list[str]
@@ -89,25 +115,27 @@ class RenderedAkshara:
 
 
 def _union(boxes: list[BBox]) -> BBox:
-    xs0 = min(b[0] for b in boxes)
-    ys0 = min(b[1] for b in boxes)
-    xs1 = max(b[2] for b in boxes)
-    ys1 = max(b[3] for b in boxes)
-    return (xs0, ys0, xs1, ys1)
+    return (
+        min(b[0] for b in boxes),
+        min(b[1] for b in boxes),
+        max(b[2] for b in boxes),
+        max(b[3] for b in boxes),
+    )
 
 
 class TamilRenderer:
-    """Shapes and rasterizes Tamil aksharas, returning image + seam label."""
+    """Shapes and rasterizes Tamil aksharas for one font, returning image + seam label."""
 
-    def __init__(self, config: RenderConfig) -> None:
+    def __init__(self, font: FontSpec, config: RenderConfig) -> None:
+        self.font = font
         self.config = config
-        font_file = Path(config.font_path)
+        font_file = Path(font.path)
         if not font_file.is_file():
             raise RenderError(f"font not found: {font_file}")
-        self._ft = freetype.Face(str(font_file), index=config.font_index)
+        self._ft = freetype.Face(str(font_file), index=font.index)
         self._ft.set_pixel_sizes(0, config.render_px)
         blob = hb.Blob.from_file_path(str(font_file))
-        self._hb_face = hb.Face(blob, config.font_index)
+        self._hb_face = hb.Face(blob, font.index)
         # Scratch canvas geometry: wide enough for the widest aksharas (two-part o/oo/au signs shape
         # into left-mark + base + right-mark), tall enough for above/below marks. Validated against
         # the full 216 set by test_render's no-clipping check.
@@ -178,9 +206,9 @@ class TamilRenderer:
         ink = self._ink_bbox(canvas)
 
         # A separate sign keeps the bare-consonant glyph in the shaped output (aa/e/ee/ai and the
-        # two-part o/oo/au); a ligature (i/u/uu) substitutes the base away, so it is absent. That
-        # presence — not "is there a non-base glyph" — is what distinguishes the two seam sources
-        # (the ligature glyph is itself non-base, which earlier fooled the branch).
+        # two-part o/oo/au); a ligature substitutes the base away, so it is absent. That presence —
+        # not "is there a non-base glyph" — distinguishes the two seam sources (the ligature glyph is
+        # itself non-base, which earlier fooled the branch).
         base_present = any(gid in base_gids for gid, _ in boxes)
         nonbase = [box for gid, box in boxes if gid not in base_gids]
         seam_scratch: BBox | None
@@ -195,6 +223,7 @@ class TamilRenderer:
         image, seam_bbox = self._crop_pad_resize(canvas, ink, seam_scratch)
         return RenderedAkshara(
             akshara_id=akshara.id,
+            font_id=self.font.id,
             base_id=akshara.base_id,
             sign_id=akshara.sign_id,
             codepoint_labels=akshara.codepoint_labels(),
@@ -242,13 +271,14 @@ class TamilRenderer:
 
 
 def render_and_save(renderer: TamilRenderer, akshara: Akshara, image_dir: Path) -> dict[str, Any]:
-    """Render one akshara, save its PNG under ``image_dir``, and return a text-free manifest entry."""
+    """Render one akshara with one font, save its PNG, return a text-free manifest entry."""
     result = renderer.render(akshara)
     image_dir.mkdir(parents=True, exist_ok=True)
-    rel_name = f"{result.akshara_id}.png"
+    rel_name = f"{result.akshara_id}__{result.font_id}.png"
     Image.fromarray(result.image, mode="L").save(image_dir / rel_name)
     return {
         "akshara_id": result.akshara_id,
+        "font_id": result.font_id,
         "base_id": result.base_id,
         "sign_id": result.sign_id,
         "codepoints": result.codepoint_labels,

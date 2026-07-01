@@ -1,13 +1,25 @@
 # Tamil akshara rendering config (TASK PA.001).
 # Loaded by ezhuthu_jepa.data.render.RenderConfig.from_yaml.
 #
-# font_path is a machine-local system font (Nirmala UI ships with Windows 11 and covers Tamil). It
-# is NOT committed (repo is text-free); the exact font + its version are captured per run in the
-# provenance manifest's environment record. Override font_path on other machines (e.g. Noto Sans
-# Tamil) and record the substitution in DECISION_LOG.
+# Multi-font (DEC-0006): each akshara is rendered under every font below so the compositional claim
+# can be checked for font-robustness (ligature behavior differs by font: கி ligates in Nirmala but
+# is a separate glyph in Noto). Font files are machine-local and NOT committed (repo is text-free);
+# exact font bytes are pinned per run via the provenance data_hash. A font whose path is absent on a
+# given machine is skipped by the builder with a logged note.
+#
+#   Noto Sans Tamil (OFL, cross-platform) is the reproducible baseline; fetch it with:
+#     curl -fsSL "https://github.com/google/fonts/raw/main/ofl/notosanstamil/NotoSansTamil%5Bwdth,wght%5D.ttf" \
+#       -o fonts/NotoSansTamil.ttf
+#   Nirmala UI ships with Windows 11 (Windows-only bonus style).
 
-font_path: "C:/Windows/Fonts/Nirmala.ttc"
-font_index: 0        # Nirmala UI Regular
+fonts:
+  - id: noto                                    # reproducible OFL baseline
+    path: "fonts/NotoSansTamil.ttf"
+    index: 0
+  - id: nirmala                                 # Windows-only second style (skipped elsewhere)
+    path: "C:/Windows/Fonts/Nirmala.ttc"
+    index: 0
+
 render_px: 96        # FreeType pixel size / HarfBuzz scale
 output_px: 96        # final square grayscale image side
 ink_threshold: 32    # grayscale cutoff for ink bounding box

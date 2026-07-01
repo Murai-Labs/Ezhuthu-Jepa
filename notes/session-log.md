@@ -48,3 +48,13 @@ Per-session checkpoints. Append; never edit past entries.
   eyeballed via seam-overlay montage. Recorded DEC-0005; new uncertainty on ligature seams. 46 tests pass.
 - Ended at: PA.001 done. Next: PA.002 (Project Madurai frequency split) → PA.003 → P1.001 (ε).
 - Open uncertainties carried forward: ε unset; ligature vowels have no separable sign region (PA.004).
+
+### 2026-07-01 16:30 CT — PA.001 follow-through: multi-font + provenance + stratify (DEC-0006)
+- Started from: 3 multiple-choice decisions (multi-font / generalize provenance / stratify M).
+- Did: (1) generalized `write_provenance` to accept dataclass/mapping configs + SEED_DETERMINISTIC
+  (4 new tests); (2) reworked render.py to multi-font (FontSpec list), fetched Noto Sans Tamil (OFL,
+  gitignored), updated render.yaml/build_uyirmei/tests + render-config schema audit; build now writes
+  unified provenance.json via write_provenance; (3) bound seam_source stratification into PA.003/PA.004
+  and resolved the ligature uncertainty. Regenerated 432 images (216×2). 56 tests pass. Recorded DEC-0006.
+- Ended at: PA.001 finalized multi-font. Next: PA.002 (Project Madurai frequency split).
+- Open uncertainties carried forward: ε unset; small n per (bucket×seam_source×font) stratum to watch.

@@ -149,3 +149,41 @@ fuses with the base, so "mask the sign, keep the base visible" is only cleanly s
 glyph-source cases. This shapes the PA.004 masking design and the K1 interpretation (see new
 uncertainty). Move now-used deps to `pinned` in locked-versions.yaml.
 Human Approval: pending.
+
+---
+
+## DEC-0006 - PA.001 follow-through: multi-font, generalized provenance, seam_source stratification
+
+Date: 2026-07-01
+Task/Gate: PA.001 → PA.003/PA.004 (G1 phase)
+Decision: Three follow-up choices confirmed by Ramchand (multiple-choice review):
+1. **Multi-font rendering (Nirmala + Noto Sans Tamil).** Every akshara is rendered under every
+   configured font. Noto (OFL, fetched) is the cross-platform reproducible baseline; Nirmala
+   (Windows-only) is a second style, skipped where absent. `RenderConfig` changed from a single
+   `font_path`/`font_index` to a `fonts: tuple[FontSpec]` list (schema audit:
+   `notes/schema-audits/render-config.md`). Fonts are gitignored; pinned per run via the provenance
+   `data_hash`. Rationale: seam_source is font-dependent (கி ligates in Nirmala but is a separate
+   glyph in Noto), so multi-font tests font-robustness instead of baking in one font's quirks.
+2. **Generalized `write_provenance` for seedless runs.** The single provenance writer now accepts a
+   RunConfig, any frozen dataclass, or a mapping, and a `seed` that may be an int or
+   `SEED_DETERMINISTIC`. Data-gen runs (rendering) go through the same `write_provenance` /
+   `validate_run_dir` path as training runs — one honest provenance system, no fake seed. Supersedes
+   the separate deterministic-block approach floated in DEC-0005 item 3.
+3. **Report metric M stratified by `seam_source` (glyph vs diff).** The K1/K3 comparison is reported
+   separately for cleanly-separable-sign aksharas (glyph) and ligature aksharas (diff), keeping all
+   data while being honest about where base×sign composition is clean. Binds PA.003 (eval harness must
+   emit per-seam_source accuracy) and PA.004 (masking design). Resolves the ligature uncertainty.
+Rationale: font-robustness + one provenance path + honest stratification all strengthen the
+falsification while avoiding cherry-picking or a fake-seed integrity gap.
+Alternatives Considered (per the review options): Pillow+libraqm (rejected: fragile/regression);
+seed=0-everywhere (rejected: dishonest); exclude/secondary-bucket ligatures (rejected: drops 28% of
+the compound space / risks cherry-picking).
+Evidence / Source Docs: `src/ezhuthu_jepa/data/{render,build_uyirmei}.py`,
+`src/ezhuthu_jepa/provenance.py`, `configs/phase1/render.yaml`,
+`notes/schema-audits/render-config.md`, `runs/pa001-render-001/{provenance,render-manifest}.json`
+(432 entries, 2 fonts). Full suite 56 passed.
+Measured Result: 432 renders (216×2). Per-font seam split — noto 18/142/56, nirmala 18/138/60
+(none/glyph/diff) — confirms font-dependent ligation.
+Follow-up: PA.002 frequency split; PA.003 emits accuracy per (frequency-bucket × seam_source × font);
+PA.004 masking respects seam_source. New uncertainty resolved (stratify).
+Human Approval: Ramchand, 2026-07-01 (three choices). Implementation pending human review.

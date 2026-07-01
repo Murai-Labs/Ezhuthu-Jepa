@@ -1,52 +1,26 @@
 {
   "run_id": "pa001-render-001",
   "task": "PA.001",
-  "created_at": "2026-07-01T13:03:29-0500",
-  "provenance": {
-    "config_hash": "sha256:4287e156028b8cca0b2203b86bfb2fd48aa6ad68f0f5fe760326e6b75bd0fb21",
-    "code_sha": "e12804a14be4ef06756d978e04b289a6591f2317",
-    "data_hash": "sha256:b977eee3b88bc47e69465152af0e7a6e8edd3d97dceebbbdcab28dcb577210c6",
-    "seed": "deterministic",
-    "environment": {
-      "python": "3.13.14",
-      "platform": "Windows-11-10.0.26200-SP0",
-      "processor": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
-      "torch": {
-        "installed": true,
-        "version": "2.10.0+cu130",
-        "cuda_available": true,
-        "cuda_version": "13.0",
-        "device_name": "NVIDIA GeForce RTX 5090"
-      },
-      "packages": {
-        "pillow": "12.1.1",
-        "numpy": "2.4.3",
-        "uharfbuzz": "0.55.0",
-        "freetype-py": "2.5.1",
-        "pyyaml": "6.0.3"
-      }
-    }
-  },
-  "config_snapshot": {
-    "font_path": "C:/Windows/Fonts/Nirmala.ttc",
-    "font_index": 0,
-    "render_px": 96,
-    "output_px": 96,
-    "ink_threshold": 32,
-    "diff_threshold": 24,
-    "margin_px": 6
-  },
+  "created_at": "2026-07-01T15:11:04-0500",
+  "provenance_ref": "provenance.json",
+  "fonts_rendered": [
+    "noto",
+    "nirmala"
+  ],
+  "fonts_skipped": [],
   "counts": {
-    "total": 216,
-    "with_sign": 198,
-    "seam_glyph": 138,
-    "seam_diff": 60,
-    "seam_none": 18
+    "total": 432,
+    "aksharas": 216,
+    "fonts": 2,
+    "seam_glyph": 280,
+    "seam_diff": 116,
+    "seam_none": 36
   },
   "image_dir": "data/rendered/uyirmei",
   "entries": [
     {
       "akshara_id": "k_a",
+      "font_id": "noto",
       "base_id": "k",
       "sign_id": "a",
       "codepoints": [
@@ -55,10 +29,11 @@
       "has_sign": false,
       "seam_bbox": null,
       "seam_source": "none",
-      "image": "k_a.png"
+      "image": "k_a__noto.png"
     },
     {
       "akshara_id": "k_aa",
+      "font_id": "noto",
       "base_id": "k",
       "sign_id": "aa",
       "codepoints": [
@@ -67,16 +42,17 @@
       ],
       "has_sign": true,
       "seam_bbox": [
-        59,
-        30,
+        58,
+        29,
         92,
-        64
+        65
       ],
       "seam_source": "glyph",
-      "image": "k_aa.png"
+      "image": "k_aa__noto.png"
     },
     {
       "akshara_id": "k_i",
+      "font_id": "noto",
       "base_id": "k",
       "sign_id": "i",
       "codepoints": [
@@ -85,16 +61,17 @@
       ],
       "has_sign": true,
       "seam_bbox": [
-        5,
-        7,
+        37,
+        9,
         90,
-        88
+        84
       ],
-      "seam_source": "diff",
-      "image": "k_i.png"
+      "seam_source": "glyph",
+      "image": "k_i__noto.png"
     },
     {
       "akshara_id": "k_ii",
+      "font_id": "noto",
       "base_id": "k",
       "sign_id": "ii",
       "codepoints": [
@@ -103,16 +80,17 @@
       ],
       "has_sign": true,
       "seam_bbox": [
-        10,
+        43,
         6,
-        85,
-        90
+        86,
+        34
       ],
       "seam_source": "diff",
-      "image": "k_ii.png"
+      "image": "k_ii__noto.png"
     },
     {
       "akshara_id": "k_u",
+      "font_id": "noto",
       "base_id": "k",
       "sign_id": "u",
       "codepoints": [
@@ -121,16 +99,17 @@
       ],
       "has_sign": true,
       "seam_bbox": [
-        5,
-        12,
+        4,
+        8,
         90,
-        84
+        87
       ],
       "seam_source": "diff",
-      "image": "k_u.png"
+      "image": "k_u__noto.png"
     },
     {
       "akshara_id": "k_uu",
+      "font_id": "noto",
       "base_id": "k",
       "sign_id": "uu",
       "codepoints": [
@@ -139,16 +118,17 @@
       ],
       "has_sign": true,
       "seam_bbox": [
-        6,
-        40,
-        91,
-        69
+        36,
+        34,
+        92,
+        68
       ],
       "seam_source": "diff",
-      "image": "k_uu.png"
+      "image": "k_uu__noto.png"
     },
     {
       "akshara_id": "k_e",
+      "font_id": "noto",
       "base_id": "k",
       "sign_id": "e",
       "codepoints": [
@@ -158,15 +138,16 @@
       "has_sign": true,
       "seam_bbox": [
         3,
-        27,
-        43,
-        68
+        24,
+        46,
+        71
       ],
       "seam_source": "glyph",
-      "image": "k_e.png"
+      "image": "k_e__noto.png"
     },
     {
       "akshara_id": "k_ee",
+      "font_id": "noto",
       "base_id": "k",
       "sign_id": "ee",
       "codepoints": [
@@ -176,15 +157,16 @@
       "has_sign": true,
       "seam_bbox": [
         4,
-        25,
-        40,
-        71
+        22,
+        43,
+        74
       ],
       "seam_source": "glyph",
-      "image": "k_ee.png"
+      "image": "k_ee__noto.png"
     },
     {
       "akshara_id": "k_ai",
+      "font_id": "noto",
       "base_id": "k",
       "sign_id": "ai",
       "codepoints": [
@@ -199,10 +181,11 @@
         62
       ],
       "seam_source": "glyph",
-      "image": "k_ai.png"
+      "image": "k_ai__noto.png"
     },
     {
       "akshara_id": "k_o",
+      "font_id": "noto",
       "base_id": "k",
       "sign_id": "o",
       "codepoints": [
@@ -212,15 +195,16 @@
       "has_sign": true,
       "seam_bbox": [
         2,
-        33,
+        31,
         94,
-        63
+        65
       ],
       "seam_source": "glyph",
-      "image": "k_o.png"
+      "image": "k_o__noto.png"
     },
     {
       "akshara_id": "k_oo",
+      "font_id": "noto",
       "base_id": "k",
       "sign_id": "oo",
       "codepoints": [
@@ -230,15 +214,16 @@
       "has_sign": true,
       "seam_bbox": [
         3,
-        32,
+        29,
         93,
-        63
+        67
       ],
       "seam_source": "glyph",
-      "image": "k_oo.png"
+      "image": "k_oo__noto.png"
     },
     {
       "akshara_id": "k_au",
+      "font_id": "noto",
       "base_id": "k",
       "sign_id": "au",
       "codepoints": [
@@ -248,15 +233,16 @@
       "has_sign": true,
       "seam_bbox": [
         2,
-        35,
+        33,
         94,
-        61
+        63
       ],
       "seam_source": "glyph",
-      "image": "k_au.png"
+      "image": "k_au__noto.png"
     },
     {
       "akshara_id": "ng_a",
+      "font_id": "noto",
       "base_id": "ng",
       "sign_id": "a",
       "codepoints": [
@@ -265,10 +251,11 @@
       "has_sign": false,
       "seam_bbox": null,
       "seam_source": "none",
-      "image": "ng_a.png"
+      "image": "ng_a__noto.png"
     },
     {
       "akshara_id": "ng_aa",
+      "font_id": "noto",
       "base_id": "ng",
       "sign_id": "aa",
       "codepoints": [
@@ -279,14 +266,15 @@
       "seam_bbox": [
         62,
         32,
-        93,
-        63
+        92,
+        64
       ],
       "seam_source": "glyph",
-      "image": "ng_aa.png"
+      "image": "ng_aa__noto.png"
     },
     {
       "akshara_id": "ng_i",
+      "font_id": "noto",
       "base_id": "ng",
       "sign_id": "i",
       "codepoints": [
@@ -295,16 +283,17 @@
       ],
       "has_sign": true,
       "seam_bbox": [
-        12,
-        12,
+        48,
+        16,
         91,
-        83
+        80
       ],
-      "seam_source": "diff",
-      "image": "ng_i.png"
+      "seam_source": "glyph",
+      "image": "ng_i__noto.png"
     },
     {
       "akshara_id": "ng_ii",
+      "font_id": "noto",
       "base_id": "ng",
       "sign_id": "ii",
       "codepoints": [
@@ -313,16 +302,17 @@
       ],
       "has_sign": true,
       "seam_bbox": [
-        27,
+        48,
         11,
         91,
-        74
+        51
       ],
       "seam_source": "diff",
-      "image": "ng_ii.png"
+      "image": "ng_ii__noto.png"
     },
     {
       "akshara_id": "ng_u",
+      "font_id": "noto",
       "base_id": "ng",
       "sign_id": "u",
       "codepoints": [
@@ -331,16 +321,17 @@
       ],
       "has_sign": true,
       "seam_bbox": [
-        31,
-        25,
+        81,
+        61,
         90,
-        85
+        89
       ],
       "seam_source": "diff",
-      "image": "ng_u.png"
+      "image": "ng_u__noto.png"
     },
     {
       "akshara_id": "ng_uu",
+      "font_id": "noto",
       "base_id": "ng",
       "sign_id": "uu",
       "codepoints": [
@@ -349,16 +340,17 @@
       ],
       "has_sign": true,
       "seam_bbox": [
-        24,
-        27,
+        5,
+        49,
         91,
-        78
+        82
       ],
       "seam_source": "diff",
-      "image": "ng_uu.png"
+      "image": "ng_uu__noto.png"
     },
     {
       "akshara_id": "ng_e",
+      "font_id": "noto",
       "base_id": "ng",
       "sign_id": "e",
       "codepoints": [
@@ -368,15 +360,16 @@
       "has_sign": true,
       "seam_bbox": [
         3,
-        29,
-        40,
-        67
+        26,
+        42,
+        70
       ],
       "seam_source": "glyph",
-      "image": "ng_e.png"
+      "image": "ng_e__noto.png"
     },
     {
       "akshara_id": "ng_ee",
+      "font_id": "noto",
       "base_id": "ng",
       "sign_id": "ee",
       "codepoints": [
@@ -386,15 +379,16 @@
       "has_sign": true,
       "seam_bbox": [
         3,
-        27,
-        37,
-        69
+        24,
+        39,
+        71
       ],
       "seam_source": "glyph",
-      "image": "ng_ee.png"
+      "image": "ng_ee__noto.png"
     },
     {
       "akshara_id": "ng_ai",
+      "font_id": "noto",
       "base_id": "ng",
       "sign_id": "ai",
       "codepoints": [
@@ -409,10 +403,4007 @@
         61
       ],
       "seam_source": "glyph",
-      "image": "ng_ai.png"
+      "image": "ng_ai__noto.png"
     },
     {
       "akshara_id": "ng_o",
+      "font_id": "noto",
+      "base_id": "ng",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0B99",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        32,
+        94,
+        64
+      ],
+      "seam_source": "glyph",
+      "image": "ng_o__noto.png"
+    },
+    {
+      "akshara_id": "ng_oo",
+      "font_id": "noto",
+      "base_id": "ng",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0B99",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        31,
+        94,
+        65
+      ],
+      "seam_source": "glyph",
+      "image": "ng_oo__noto.png"
+    },
+    {
+      "akshara_id": "ng_au",
+      "font_id": "noto",
+      "base_id": "ng",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0B99",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        34,
+        94,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "ng_au__noto.png"
+    },
+    {
+      "akshara_id": "c_a",
+      "font_id": "noto",
+      "base_id": "c",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0B9A"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "c_a__noto.png"
+    },
+    {
+      "akshara_id": "c_aa",
+      "font_id": "noto",
+      "base_id": "c",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        55,
+        28,
+        92,
+        66
+      ],
+      "seam_source": "glyph",
+      "image": "c_aa__noto.png"
+    },
+    {
+      "akshara_id": "c_i",
+      "font_id": "noto",
+      "base_id": "c",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        39,
+        6,
+        89,
+        88
+      ],
+      "seam_source": "glyph",
+      "image": "c_i__noto.png"
+    },
+    {
+      "akshara_id": "c_ii",
+      "font_id": "noto",
+      "base_id": "c",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        40,
+        6,
+        84,
+        34
+      ],
+      "seam_source": "diff",
+      "image": "c_ii__noto.png"
+    },
+    {
+      "akshara_id": "c_u",
+      "font_id": "noto",
+      "base_id": "c",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        67,
+        41,
+        90,
+        76
+      ],
+      "seam_source": "diff",
+      "image": "c_u__noto.png"
+    },
+    {
+      "akshara_id": "c_uu",
+      "font_id": "noto",
+      "base_id": "c",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        14,
+        91,
+        82
+      ],
+      "seam_source": "diff",
+      "image": "c_uu__noto.png"
+    },
+    {
+      "akshara_id": "c_e",
+      "font_id": "noto",
+      "base_id": "c",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        23,
+        48,
+        73
+      ],
+      "seam_source": "glyph",
+      "image": "c_e__noto.png"
+    },
+    {
+      "akshara_id": "c_ee",
+      "font_id": "noto",
+      "base_id": "c",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        20,
+        46,
+        76
+      ],
+      "seam_source": "glyph",
+      "image": "c_ee__noto.png"
+    },
+    {
+      "akshara_id": "c_ai",
+      "font_id": "noto",
+      "base_id": "c",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        33,
+        56,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "c_ai__noto.png"
+    },
+    {
+      "akshara_id": "c_o",
+      "font_id": "noto",
+      "base_id": "c",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        30,
+        93,
+        66
+      ],
+      "seam_source": "glyph",
+      "image": "c_o__noto.png"
+    },
+    {
+      "akshara_id": "c_oo",
+      "font_id": "noto",
+      "base_id": "c",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        29,
+        93,
+        67
+      ],
+      "seam_source": "glyph",
+      "image": "c_oo__noto.png"
+    },
+    {
+      "akshara_id": "c_au",
+      "font_id": "noto",
+      "base_id": "c",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0B9A",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        33,
+        94,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "c_au__noto.png"
+    },
+    {
+      "akshara_id": "nj_a",
+      "font_id": "noto",
+      "base_id": "nj",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0B9E"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "nj_a__noto.png"
+    },
+    {
+      "akshara_id": "nj_aa",
+      "font_id": "noto",
+      "base_id": "nj",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        65,
+        25,
+        93,
+        54
+      ],
+      "seam_source": "glyph",
+      "image": "nj_aa__noto.png"
+    },
+    {
+      "akshara_id": "nj_i",
+      "font_id": "noto",
+      "base_id": "nj",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        52,
+        9,
+        92,
+        65
+      ],
+      "seam_source": "glyph",
+      "image": "nj_i__noto.png"
+    },
+    {
+      "akshara_id": "nj_ii",
+      "font_id": "noto",
+      "base_id": "nj",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        57,
+        5,
+        90,
+        26
+      ],
+      "seam_source": "diff",
+      "image": "nj_ii__noto.png"
+    },
+    {
+      "akshara_id": "nj_u",
+      "font_id": "noto",
+      "base_id": "nj",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        14,
+        93,
+        82
+      ],
+      "seam_source": "diff",
+      "image": "nj_u__noto.png"
+    },
+    {
+      "akshara_id": "nj_uu",
+      "font_id": "noto",
+      "base_id": "nj",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        22,
+        92,
+        73
+      ],
+      "seam_source": "diff",
+      "image": "nj_uu__noto.png"
+    },
+    {
+      "akshara_id": "nj_e",
+      "font_id": "noto",
+      "base_id": "nj",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        22,
+        37,
+        60
+      ],
+      "seam_source": "glyph",
+      "image": "nj_e__noto.png"
+    },
+    {
+      "akshara_id": "nj_ee",
+      "font_id": "noto",
+      "base_id": "nj",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        19,
+        35,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "nj_ee__noto.png"
+    },
+    {
+      "akshara_id": "nj_ai",
+      "font_id": "noto",
+      "base_id": "nj",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        30,
+        45,
+        54
+      ],
+      "seam_source": "glyph",
+      "image": "nj_ai__noto.png"
+    },
+    {
+      "akshara_id": "nj_o",
+      "font_id": "noto",
+      "base_id": "nj",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        28,
+        94,
+        57
+      ],
+      "seam_source": "glyph",
+      "image": "nj_o__noto.png"
+    },
+    {
+      "akshara_id": "nj_oo",
+      "font_id": "noto",
+      "base_id": "nj",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        27,
+        94,
+        58
+      ],
+      "seam_source": "glyph",
+      "image": "nj_oo__noto.png"
+    },
+    {
+      "akshara_id": "nj_au",
+      "font_id": "noto",
+      "base_id": "nj",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0B9E",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        31,
+        94,
+        56
+      ],
+      "seam_source": "glyph",
+      "image": "nj_au__noto.png"
+    },
+    {
+      "akshara_id": "tt_a",
+      "font_id": "noto",
+      "base_id": "tt",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0B9F"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "tt_a__noto.png"
+    },
+    {
+      "akshara_id": "tt_aa",
+      "font_id": "noto",
+      "base_id": "tt",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        53,
+        28,
+        92,
+        67
+      ],
+      "seam_source": "glyph",
+      "image": "tt_aa__noto.png"
+    },
+    {
+      "akshara_id": "tt_i",
+      "font_id": "noto",
+      "base_id": "tt",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        37,
+        14,
+        82,
+        90
+      ],
+      "seam_source": "diff",
+      "image": "tt_i__noto.png"
+    },
+    {
+      "akshara_id": "tt_ii",
+      "font_id": "noto",
+      "base_id": "tt",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        32,
+        24,
+        89,
+        80
+      ],
+      "seam_source": "diff",
+      "image": "tt_ii__noto.png"
+    },
+    {
+      "akshara_id": "tt_u",
+      "font_id": "noto",
+      "base_id": "tt",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        15,
+        5,
+        80,
+        91
+      ],
+      "seam_source": "diff",
+      "image": "tt_u__noto.png"
+    },
+    {
+      "akshara_id": "tt_uu",
+      "font_id": "noto",
+      "base_id": "tt",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        17,
+        5,
+        79,
+        91
+      ],
+      "seam_source": "diff",
+      "image": "tt_uu__noto.png"
+    },
+    {
+      "akshara_id": "tt_e",
+      "font_id": "noto",
+      "base_id": "tt",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        22,
+        49,
+        73
+      ],
+      "seam_source": "glyph",
+      "image": "tt_e__noto.png"
+    },
+    {
+      "akshara_id": "tt_ee",
+      "font_id": "noto",
+      "base_id": "tt",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        20,
+        46,
+        76
+      ],
+      "seam_source": "glyph",
+      "image": "tt_ee__noto.png"
+    },
+    {
+      "akshara_id": "tt_ai",
+      "font_id": "noto",
+      "base_id": "tt",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        33,
+        56,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "tt_ai__noto.png"
+    },
+    {
+      "akshara_id": "tt_o",
+      "font_id": "noto",
+      "base_id": "tt",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        30,
+        93,
+        66
+      ],
+      "seam_source": "glyph",
+      "image": "tt_o__noto.png"
+    },
+    {
+      "akshara_id": "tt_oo",
+      "font_id": "noto",
+      "base_id": "tt",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        28,
+        93,
+        68
+      ],
+      "seam_source": "glyph",
+      "image": "tt_oo__noto.png"
+    },
+    {
+      "akshara_id": "tt_au",
+      "font_id": "noto",
+      "base_id": "tt",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0B9F",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        33,
+        94,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "tt_au__noto.png"
+    },
+    {
+      "akshara_id": "nn_a",
+      "font_id": "noto",
+      "base_id": "nn",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BA3"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "nn_a__noto.png"
+    },
+    {
+      "akshara_id": "nn_aa",
+      "font_id": "noto",
+      "base_id": "nn",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        71,
+        36,
+        93,
+        59
+      ],
+      "seam_source": "glyph",
+      "image": "nn_aa__noto.png"
+    },
+    {
+      "akshara_id": "nn_i",
+      "font_id": "noto",
+      "base_id": "nn",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        69,
+        26,
+        93,
+        69
+      ],
+      "seam_source": "glyph",
+      "image": "nn_i__noto.png"
+    },
+    {
+      "akshara_id": "nn_ii",
+      "font_id": "noto",
+      "base_id": "nn",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        69,
+        25,
+        93,
+        40
+      ],
+      "seam_source": "diff",
+      "image": "nn_ii__noto.png"
+    },
+    {
+      "akshara_id": "nn_u",
+      "font_id": "noto",
+      "base_id": "nn",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        25,
+        93,
+        71
+      ],
+      "seam_source": "diff",
+      "image": "nn_u__noto.png"
+    },
+    {
+      "akshara_id": "nn_uu",
+      "font_id": "noto",
+      "base_id": "nn",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        29,
+        93,
+        67
+      ],
+      "seam_source": "diff",
+      "image": "nn_uu__noto.png"
+    },
+    {
+      "akshara_id": "nn_e",
+      "font_id": "noto",
+      "base_id": "nn",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        32,
+        31,
+        64
+      ],
+      "seam_source": "glyph",
+      "image": "nn_e__noto.png"
+    },
+    {
+      "akshara_id": "nn_ee",
+      "font_id": "noto",
+      "base_id": "nn",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        31,
+        28,
+        65
+      ],
+      "seam_source": "glyph",
+      "image": "nn_ee__noto.png"
+    },
+    {
+      "akshara_id": "nn_ai",
+      "font_id": "noto",
+      "base_id": "nn",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        38,
+        37,
+        58
+      ],
+      "seam_source": "glyph",
+      "image": "nn_ai__noto.png"
+    },
+    {
+      "akshara_id": "nn_o",
+      "font_id": "noto",
+      "base_id": "nn",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        35,
+        94,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "nn_o__noto.png"
+    },
+    {
+      "akshara_id": "nn_oo",
+      "font_id": "noto",
+      "base_id": "nn",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        34,
+        94,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "nn_oo__noto.png"
+    },
+    {
+      "akshara_id": "nn_au",
+      "font_id": "noto",
+      "base_id": "nn",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BA3",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        37,
+        95,
+        59
+      ],
+      "seam_source": "glyph",
+      "image": "nn_au__noto.png"
+    },
+    {
+      "akshara_id": "t_a",
+      "font_id": "noto",
+      "base_id": "t",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BA4"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "t_a__noto.png"
+    },
+    {
+      "akshara_id": "t_aa",
+      "font_id": "noto",
+      "base_id": "t",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        58,
+        20,
+        92,
+        56
+      ],
+      "seam_source": "glyph",
+      "image": "t_aa__noto.png"
+    },
+    {
+      "akshara_id": "t_i",
+      "font_id": "noto",
+      "base_id": "t",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        39,
+        5,
+        84,
+        67
+      ],
+      "seam_source": "glyph",
+      "image": "t_i__noto.png"
+    },
+    {
+      "akshara_id": "t_ii",
+      "font_id": "noto",
+      "base_id": "t",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        45,
+        5,
+        77,
+        26
+      ],
+      "seam_source": "diff",
+      "image": "t_ii__noto.png"
+    },
+    {
+      "akshara_id": "t_u",
+      "font_id": "noto",
+      "base_id": "t",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        9,
+        91,
+        86
+      ],
+      "seam_source": "diff",
+      "image": "t_u__noto.png"
+    },
+    {
+      "akshara_id": "t_uu",
+      "font_id": "noto",
+      "base_id": "t",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        20,
+        92,
+        76
+      ],
+      "seam_source": "diff",
+      "image": "t_uu__noto.png"
+    },
+    {
+      "akshara_id": "t_e",
+      "font_id": "noto",
+      "base_id": "t",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        16,
+        46,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "t_e__noto.png"
+    },
+    {
+      "akshara_id": "t_ee",
+      "font_id": "noto",
+      "base_id": "t",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        12,
+        43,
+        65
+      ],
+      "seam_source": "glyph",
+      "image": "t_ee__noto.png"
+    },
+    {
+      "akshara_id": "t_ai",
+      "font_id": "noto",
+      "base_id": "t",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        26,
+        53,
+        55
+      ],
+      "seam_source": "glyph",
+      "image": "t_ai__noto.png"
+    },
+    {
+      "akshara_id": "t_o",
+      "font_id": "noto",
+      "base_id": "t",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        25,
+        94,
+        59
+      ],
+      "seam_source": "glyph",
+      "image": "t_o__noto.png"
+    },
+    {
+      "akshara_id": "t_oo",
+      "font_id": "noto",
+      "base_id": "t",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        23,
+        93,
+        60
+      ],
+      "seam_source": "glyph",
+      "image": "t_oo__noto.png"
+    },
+    {
+      "akshara_id": "t_au",
+      "font_id": "noto",
+      "base_id": "t",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BA4",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        28,
+        94,
+        57
+      ],
+      "seam_source": "glyph",
+      "image": "t_au__noto.png"
+    },
+    {
+      "akshara_id": "n_a",
+      "font_id": "noto",
+      "base_id": "n",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BA8"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "n_a__noto.png"
+    },
+    {
+      "akshara_id": "n_aa",
+      "font_id": "noto",
+      "base_id": "n",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        57,
+        19,
+        92,
+        55
+      ],
+      "seam_source": "glyph",
+      "image": "n_aa__noto.png"
+    },
+    {
+      "akshara_id": "n_i",
+      "font_id": "noto",
+      "base_id": "n",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        37,
+        5,
+        82,
+        67
+      ],
+      "seam_source": "glyph",
+      "image": "n_i__noto.png"
+    },
+    {
+      "akshara_id": "n_ii",
+      "font_id": "noto",
+      "base_id": "n",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        42,
+        5,
+        75,
+        26
+      ],
+      "seam_source": "diff",
+      "image": "n_ii__noto.png"
+    },
+    {
+      "akshara_id": "n_u",
+      "font_id": "noto",
+      "base_id": "n",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        6,
+        8,
+        91,
+        88
+      ],
+      "seam_source": "diff",
+      "image": "n_u__noto.png"
+    },
+    {
+      "akshara_id": "n_uu",
+      "font_id": "noto",
+      "base_id": "n",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        19,
+        92,
+        76
+      ],
+      "seam_source": "diff",
+      "image": "n_uu__noto.png"
+    },
+    {
+      "akshara_id": "n_e",
+      "font_id": "noto",
+      "base_id": "n",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        15,
+        47,
+        64
+      ],
+      "seam_source": "glyph",
+      "image": "n_e__noto.png"
+    },
+    {
+      "akshara_id": "n_ee",
+      "font_id": "noto",
+      "base_id": "n",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        11,
+        44,
+        65
+      ],
+      "seam_source": "glyph",
+      "image": "n_ee__noto.png"
+    },
+    {
+      "akshara_id": "n_ai",
+      "font_id": "noto",
+      "base_id": "n",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        26,
+        54,
+        55
+      ],
+      "seam_source": "glyph",
+      "image": "n_ai__noto.png"
+    },
+    {
+      "akshara_id": "n_o",
+      "font_id": "noto",
+      "base_id": "n",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        24,
+        93,
+        59
+      ],
+      "seam_source": "glyph",
+      "image": "n_o__noto.png"
+    },
+    {
+      "akshara_id": "n_oo",
+      "font_id": "noto",
+      "base_id": "n",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        23,
+        93,
+        60
+      ],
+      "seam_source": "glyph",
+      "image": "n_oo__noto.png"
+    },
+    {
+      "akshara_id": "n_au",
+      "font_id": "noto",
+      "base_id": "n",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BA8",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        28,
+        94,
+        58
+      ],
+      "seam_source": "glyph",
+      "image": "n_au__noto.png"
+    },
+    {
+      "akshara_id": "p_a",
+      "font_id": "noto",
+      "base_id": "p",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BAA"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "p_a__noto.png"
+    },
+    {
+      "akshara_id": "p_aa",
+      "font_id": "noto",
+      "base_id": "p",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        56,
+        29,
+        92,
+        66
+      ],
+      "seam_source": "glyph",
+      "image": "p_aa__noto.png"
+    },
+    {
+      "akshara_id": "p_i",
+      "font_id": "noto",
+      "base_id": "p",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        36,
+        7,
+        90,
+        88
+      ],
+      "seam_source": "glyph",
+      "image": "p_i__noto.png"
+    },
+    {
+      "akshara_id": "p_ii",
+      "font_id": "noto",
+      "base_id": "p",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        39,
+        6,
+        83,
+        52
+      ],
+      "seam_source": "diff",
+      "image": "p_ii__noto.png"
+    },
+    {
+      "akshara_id": "p_u",
+      "font_id": "noto",
+      "base_id": "p",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        68,
+        61,
+        78,
+        90
+      ],
+      "seam_source": "diff",
+      "image": "p_u__noto.png"
+    },
+    {
+      "akshara_id": "p_uu",
+      "font_id": "noto",
+      "base_id": "p",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        7,
+        49,
+        89,
+        90
+      ],
+      "seam_source": "diff",
+      "image": "p_uu__noto.png"
+    },
+    {
+      "akshara_id": "p_e",
+      "font_id": "noto",
+      "base_id": "p",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        23,
+        48,
+        73
+      ],
+      "seam_source": "glyph",
+      "image": "p_e__noto.png"
+    },
+    {
+      "akshara_id": "p_ee",
+      "font_id": "noto",
+      "base_id": "p",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        20,
+        46,
+        76
+      ],
+      "seam_source": "glyph",
+      "image": "p_ee__noto.png"
+    },
+    {
+      "akshara_id": "p_ai",
+      "font_id": "noto",
+      "base_id": "p",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        33,
+        56,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "p_ai__noto.png"
+    },
+    {
+      "akshara_id": "p_o",
+      "font_id": "noto",
+      "base_id": "p",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        30,
+        93,
+        65
+      ],
+      "seam_source": "glyph",
+      "image": "p_o__noto.png"
+    },
+    {
+      "akshara_id": "p_oo",
+      "font_id": "noto",
+      "base_id": "p",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        29,
+        93,
+        67
+      ],
+      "seam_source": "glyph",
+      "image": "p_oo__noto.png"
+    },
+    {
+      "akshara_id": "p_au",
+      "font_id": "noto",
+      "base_id": "p",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BAA",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        33,
+        94,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "p_au__noto.png"
+    },
+    {
+      "akshara_id": "m_a",
+      "font_id": "noto",
+      "base_id": "m",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BAE"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "m_a__noto.png"
+    },
+    {
+      "akshara_id": "m_aa",
+      "font_id": "noto",
+      "base_id": "m",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        58,
+        30,
+        92,
+        66
+      ],
+      "seam_source": "glyph",
+      "image": "m_aa__noto.png"
+    },
+    {
+      "akshara_id": "m_i",
+      "font_id": "noto",
+      "base_id": "m",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        48,
+        10,
+        90,
+        86
+      ],
+      "seam_source": "glyph",
+      "image": "m_i__noto.png"
+    },
+    {
+      "akshara_id": "m_ii",
+      "font_id": "noto",
+      "base_id": "m",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        43,
+        6,
+        88,
+        38
+      ],
+      "seam_source": "diff",
+      "image": "m_ii__noto.png"
+    },
+    {
+      "akshara_id": "m_u",
+      "font_id": "noto",
+      "base_id": "m",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        11,
+        91,
+        85
+      ],
+      "seam_source": "diff",
+      "image": "m_u__noto.png"
+    },
+    {
+      "akshara_id": "m_uu",
+      "font_id": "noto",
+      "base_id": "m",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        15,
+        91,
+        81
+      ],
+      "seam_source": "diff",
+      "image": "m_uu__noto.png"
+    },
+    {
+      "akshara_id": "m_e",
+      "font_id": "noto",
+      "base_id": "m",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        24,
+        45,
+        71
+      ],
+      "seam_source": "glyph",
+      "image": "m_e__noto.png"
+    },
+    {
+      "akshara_id": "m_ee",
+      "font_id": "noto",
+      "base_id": "m",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        22,
+        43,
+        74
+      ],
+      "seam_source": "glyph",
+      "image": "m_ee__noto.png"
+    },
+    {
+      "akshara_id": "m_ai",
+      "font_id": "noto",
+      "base_id": "m",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        34,
+        53,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "m_ai__noto.png"
+    },
+    {
+      "akshara_id": "m_o",
+      "font_id": "noto",
+      "base_id": "m",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        31,
+        94,
+        65
+      ],
+      "seam_source": "glyph",
+      "image": "m_o__noto.png"
+    },
+    {
+      "akshara_id": "m_oo",
+      "font_id": "noto",
+      "base_id": "m",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        30,
+        93,
+        66
+      ],
+      "seam_source": "glyph",
+      "image": "m_oo__noto.png"
+    },
+    {
+      "akshara_id": "m_au",
+      "font_id": "noto",
+      "base_id": "m",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BAE",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        33,
+        94,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "m_au__noto.png"
+    },
+    {
+      "akshara_id": "y_a",
+      "font_id": "noto",
+      "base_id": "y",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BAF"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "y_a__noto.png"
+    },
+    {
+      "akshara_id": "y_aa",
+      "font_id": "noto",
+      "base_id": "y",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        60,
+        31,
+        92,
+        64
+      ],
+      "seam_source": "glyph",
+      "image": "y_aa__noto.png"
+    },
+    {
+      "akshara_id": "y_i",
+      "font_id": "noto",
+      "base_id": "y",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        45,
+        13,
+        91,
+        82
+      ],
+      "seam_source": "glyph",
+      "image": "y_i__noto.png"
+    },
+    {
+      "akshara_id": "y_ii",
+      "font_id": "noto",
+      "base_id": "y",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        48,
+        7,
+        90,
+        50
+      ],
+      "seam_source": "diff",
+      "image": "y_ii__noto.png"
+    },
+    {
+      "akshara_id": "y_u",
+      "font_id": "noto",
+      "base_id": "y",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        78,
+        61,
+        87,
+        90
+      ],
+      "seam_source": "diff",
+      "image": "y_u__noto.png"
+    },
+    {
+      "akshara_id": "y_uu",
+      "font_id": "noto",
+      "base_id": "y",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        49,
+        91,
+        84
+      ],
+      "seam_source": "diff",
+      "image": "y_uu__noto.png"
+    },
+    {
+      "akshara_id": "y_e",
+      "font_id": "noto",
+      "base_id": "y",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        25,
+        43,
+        71
+      ],
+      "seam_source": "glyph",
+      "image": "y_e__noto.png"
+    },
+    {
+      "akshara_id": "y_ee",
+      "font_id": "noto",
+      "base_id": "y",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        23,
+        41,
+        73
+      ],
+      "seam_source": "glyph",
+      "image": "y_ee__noto.png"
+    },
+    {
+      "akshara_id": "y_ai",
+      "font_id": "noto",
+      "base_id": "y",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        34,
+        51,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "y_ai__noto.png"
+    },
+    {
+      "akshara_id": "y_o",
+      "font_id": "noto",
+      "base_id": "y",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        32,
+        94,
+        64
+      ],
+      "seam_source": "glyph",
+      "image": "y_o__noto.png"
+    },
+    {
+      "akshara_id": "y_oo",
+      "font_id": "noto",
+      "base_id": "y",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        30,
+        93,
+        65
+      ],
+      "seam_source": "glyph",
+      "image": "y_oo__noto.png"
+    },
+    {
+      "akshara_id": "y_au",
+      "font_id": "noto",
+      "base_id": "y",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BAF",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        34,
+        94,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "y_au__noto.png"
+    },
+    {
+      "akshara_id": "r_a",
+      "font_id": "noto",
+      "base_id": "r",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BB0"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "r_a__noto.png"
+    },
+    {
+      "akshara_id": "r_aa",
+      "font_id": "noto",
+      "base_id": "r",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        51,
+        19,
+        91,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "r_aa__noto.png"
+    },
+    {
+      "akshara_id": "r_i",
+      "font_id": "noto",
+      "base_id": "r",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        38,
+        5,
+        77,
+        74
+      ],
+      "seam_source": "glyph",
+      "image": "r_i__noto.png"
+    },
+    {
+      "akshara_id": "r_ii",
+      "font_id": "noto",
+      "base_id": "r",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        37,
+        5,
+        73,
+        29
+      ],
+      "seam_source": "diff",
+      "image": "r_ii__noto.png"
+    },
+    {
+      "akshara_id": "r_u",
+      "font_id": "noto",
+      "base_id": "r",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        6,
+        8,
+        90,
+        88
+      ],
+      "seam_source": "diff",
+      "image": "r_u__noto.png"
+    },
+    {
+      "akshara_id": "r_uu",
+      "font_id": "noto",
+      "base_id": "r",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        11,
+        91,
+        85
+      ],
+      "seam_source": "diff",
+      "image": "r_uu__noto.png"
+    },
+    {
+      "akshara_id": "r_e",
+      "font_id": "noto",
+      "base_id": "r",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        16,
+        50,
+        68
+      ],
+      "seam_source": "glyph",
+      "image": "r_e__noto.png"
+    },
+    {
+      "akshara_id": "r_ee",
+      "font_id": "noto",
+      "base_id": "r",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        12,
+        48,
+        71
+      ],
+      "seam_source": "glyph",
+      "image": "r_ee__noto.png"
+    },
+    {
+      "akshara_id": "r_ai",
+      "font_id": "noto",
+      "base_id": "r",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        28,
+        58,
+        58
+      ],
+      "seam_source": "glyph",
+      "image": "r_ai__noto.png"
+    },
+    {
+      "akshara_id": "r_o",
+      "font_id": "noto",
+      "base_id": "r",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        25,
+        93,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "r_o__noto.png"
+    },
+    {
+      "akshara_id": "r_oo",
+      "font_id": "noto",
+      "base_id": "r",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        23,
+        93,
+        64
+      ],
+      "seam_source": "glyph",
+      "image": "r_oo__noto.png"
+    },
+    {
+      "akshara_id": "r_au",
+      "font_id": "noto",
+      "base_id": "r",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BB0",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        29,
+        94,
+        60
+      ],
+      "seam_source": "glyph",
+      "image": "r_au__noto.png"
+    },
+    {
+      "akshara_id": "l_a",
+      "font_id": "noto",
+      "base_id": "l",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BB2"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "l_a__noto.png"
+    },
+    {
+      "akshara_id": "l_aa",
+      "font_id": "noto",
+      "base_id": "l",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        62,
+        33,
+        92,
+        64
+      ],
+      "seam_source": "glyph",
+      "image": "l_aa__noto.png"
+    },
+    {
+      "akshara_id": "l_i",
+      "font_id": "noto",
+      "base_id": "l",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        48,
+        15,
+        91,
+        79
+      ],
+      "seam_source": "diff",
+      "image": "l_i__noto.png"
+    },
+    {
+      "akshara_id": "l_ii",
+      "font_id": "noto",
+      "base_id": "l",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        52,
+        10,
+        91,
+        59
+      ],
+      "seam_source": "diff",
+      "image": "l_ii__noto.png"
+    },
+    {
+      "akshara_id": "l_u",
+      "font_id": "noto",
+      "base_id": "l",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        16,
+        91,
+        83
+      ],
+      "seam_source": "diff",
+      "image": "l_u__noto.png"
+    },
+    {
+      "akshara_id": "l_uu",
+      "font_id": "noto",
+      "base_id": "l",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        24,
+        92,
+        74
+      ],
+      "seam_source": "diff",
+      "image": "l_uu__noto.png"
+    },
+    {
+      "akshara_id": "l_e",
+      "font_id": "noto",
+      "base_id": "l",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        26,
+        42,
+        70
+      ],
+      "seam_source": "glyph",
+      "image": "l_e__noto.png"
+    },
+    {
+      "akshara_id": "l_ee",
+      "font_id": "noto",
+      "base_id": "l",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        24,
+        39,
+        71
+      ],
+      "seam_source": "glyph",
+      "image": "l_ee__noto.png"
+    },
+    {
+      "akshara_id": "l_ai",
+      "font_id": "noto",
+      "base_id": "l",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        36,
+        49,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "l_ai__noto.png"
+    },
+    {
+      "akshara_id": "l_o",
+      "font_id": "noto",
+      "base_id": "l",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        32,
+        94,
+        64
+      ],
+      "seam_source": "glyph",
+      "image": "l_o__noto.png"
+    },
+    {
+      "akshara_id": "l_oo",
+      "font_id": "noto",
+      "base_id": "l",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        31,
+        94,
+        65
+      ],
+      "seam_source": "glyph",
+      "image": "l_oo__noto.png"
+    },
+    {
+      "akshara_id": "l_au",
+      "font_id": "noto",
+      "base_id": "l",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BB2",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        34,
+        94,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "l_au__noto.png"
+    },
+    {
+      "akshara_id": "v_a",
+      "font_id": "noto",
+      "base_id": "v",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BB5"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "v_a__noto.png"
+    },
+    {
+      "akshara_id": "v_aa",
+      "font_id": "noto",
+      "base_id": "v",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        63,
+        32,
+        93,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "v_aa__noto.png"
+    },
+    {
+      "akshara_id": "v_i",
+      "font_id": "noto",
+      "base_id": "v",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        50,
+        15,
+        91,
+        78
+      ],
+      "seam_source": "glyph",
+      "image": "v_i__noto.png"
+    },
+    {
+      "akshara_id": "v_ii",
+      "font_id": "noto",
+      "base_id": "v",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        53,
+        11,
+        91,
+        50
+      ],
+      "seam_source": "diff",
+      "image": "v_ii__noto.png"
+    },
+    {
+      "akshara_id": "v_u",
+      "font_id": "noto",
+      "base_id": "v",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        81,
+        57,
+        90,
+        88
+      ],
+      "seam_source": "diff",
+      "image": "v_u__noto.png"
+    },
+    {
+      "akshara_id": "v_uu",
+      "font_id": "noto",
+      "base_id": "v",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        7,
+        49,
+        91,
+        81
+      ],
+      "seam_source": "diff",
+      "image": "v_uu__noto.png"
+    },
+    {
+      "akshara_id": "v_e",
+      "font_id": "noto",
+      "base_id": "v",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        26,
+        42,
+        70
+      ],
+      "seam_source": "glyph",
+      "image": "v_e__noto.png"
+    },
+    {
+      "akshara_id": "v_ee",
+      "font_id": "noto",
+      "base_id": "v",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        24,
+        39,
+        71
+      ],
+      "seam_source": "glyph",
+      "image": "v_ee__noto.png"
+    },
+    {
+      "akshara_id": "v_ai",
+      "font_id": "noto",
+      "base_id": "v",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        35,
+        49,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "v_ai__noto.png"
+    },
+    {
+      "akshara_id": "v_o",
+      "font_id": "noto",
+      "base_id": "v",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        32,
+        94,
+        64
+      ],
+      "seam_source": "glyph",
+      "image": "v_o__noto.png"
+    },
+    {
+      "akshara_id": "v_oo",
+      "font_id": "noto",
+      "base_id": "v",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        31,
+        94,
+        65
+      ],
+      "seam_source": "glyph",
+      "image": "v_oo__noto.png"
+    },
+    {
+      "akshara_id": "v_au",
+      "font_id": "noto",
+      "base_id": "v",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BB5",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        34,
+        94,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "v_au__noto.png"
+    },
+    {
+      "akshara_id": "zh_a",
+      "font_id": "noto",
+      "base_id": "zh",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BB4"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "zh_a__noto.png"
+    },
+    {
+      "akshara_id": "zh_aa",
+      "font_id": "noto",
+      "base_id": "zh",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        58,
+        21,
+        92,
+        56
+      ],
+      "seam_source": "glyph",
+      "image": "zh_aa__noto.png"
+    },
+    {
+      "akshara_id": "zh_i",
+      "font_id": "noto",
+      "base_id": "zh",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        48,
+        5,
+        84,
+        67
+      ],
+      "seam_source": "glyph",
+      "image": "zh_i__noto.png"
+    },
+    {
+      "akshara_id": "zh_ii",
+      "font_id": "noto",
+      "base_id": "zh",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        45,
+        5,
+        78,
+        29
+      ],
+      "seam_source": "diff",
+      "image": "zh_ii__noto.png"
+    },
+    {
+      "akshara_id": "zh_u",
+      "font_id": "noto",
+      "base_id": "zh",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        10,
+        91,
+        85
+      ],
+      "seam_source": "diff",
+      "image": "zh_u__noto.png"
+    },
+    {
+      "akshara_id": "zh_uu",
+      "font_id": "noto",
+      "base_id": "zh",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        13,
+        91,
+        82
+      ],
+      "seam_source": "diff",
+      "image": "zh_uu__noto.png"
+    },
+    {
+      "akshara_id": "zh_e",
+      "font_id": "noto",
+      "base_id": "zh",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        16,
+        45,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "zh_e__noto.png"
+    },
+    {
+      "akshara_id": "zh_ee",
+      "font_id": "noto",
+      "base_id": "zh",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        13,
+        43,
+        65
+      ],
+      "seam_source": "glyph",
+      "image": "zh_ee__noto.png"
+    },
+    {
+      "akshara_id": "zh_ai",
+      "font_id": "noto",
+      "base_id": "zh",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        27,
+        53,
+        55
+      ],
+      "seam_source": "glyph",
+      "image": "zh_ai__noto.png"
+    },
+    {
+      "akshara_id": "zh_o",
+      "font_id": "noto",
+      "base_id": "zh",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        25,
+        94,
+        59
+      ],
+      "seam_source": "glyph",
+      "image": "zh_o__noto.png"
+    },
+    {
+      "akshara_id": "zh_oo",
+      "font_id": "noto",
+      "base_id": "zh",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        23,
+        93,
+        60
+      ],
+      "seam_source": "glyph",
+      "image": "zh_oo__noto.png"
+    },
+    {
+      "akshara_id": "zh_au",
+      "font_id": "noto",
+      "base_id": "zh",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BB4",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        29,
+        94,
+        57
+      ],
+      "seam_source": "glyph",
+      "image": "zh_au__noto.png"
+    },
+    {
+      "akshara_id": "ll_a",
+      "font_id": "noto",
+      "base_id": "ll",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BB3"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "ll_a__noto.png"
+    },
+    {
+      "akshara_id": "ll_aa",
+      "font_id": "noto",
+      "base_id": "ll",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        63,
+        32,
+        93,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "ll_aa__noto.png"
+    },
+    {
+      "akshara_id": "ll_i",
+      "font_id": "noto",
+      "base_id": "ll",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        57,
+        17,
+        91,
+        78
+      ],
+      "seam_source": "glyph",
+      "image": "ll_i__noto.png"
+    },
+    {
+      "akshara_id": "ll_ii",
+      "font_id": "noto",
+      "base_id": "ll",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        55,
+        13,
+        91,
+        36
+      ],
+      "seam_source": "diff",
+      "image": "ll_ii__noto.png"
+    },
+    {
+      "akshara_id": "ll_u",
+      "font_id": "noto",
+      "base_id": "ll",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        19,
+        92,
+        77
+      ],
+      "seam_source": "diff",
+      "image": "ll_u__noto.png"
+    },
+    {
+      "akshara_id": "ll_uu",
+      "font_id": "noto",
+      "base_id": "ll",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        22,
+        92,
+        74
+      ],
+      "seam_source": "diff",
+      "image": "ll_uu__noto.png"
+    },
+    {
+      "akshara_id": "ll_e",
+      "font_id": "noto",
+      "base_id": "ll",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        27,
+        40,
+        68
+      ],
+      "seam_source": "glyph",
+      "image": "ll_e__noto.png"
+    },
+    {
+      "akshara_id": "ll_ee",
+      "font_id": "noto",
+      "base_id": "ll",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        25,
+        37,
+        71
+      ],
+      "seam_source": "glyph",
+      "image": "ll_ee__noto.png"
+    },
+    {
+      "akshara_id": "ll_ai",
+      "font_id": "noto",
+      "base_id": "ll",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        36,
+        47,
+        60
+      ],
+      "seam_source": "glyph",
+      "image": "ll_ai__noto.png"
+    },
+    {
+      "akshara_id": "ll_o",
+      "font_id": "noto",
+      "base_id": "ll",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        32,
+        94,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "ll_o__noto.png"
+    },
+    {
+      "akshara_id": "ll_oo",
+      "font_id": "noto",
+      "base_id": "ll",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        31,
+        94,
+        65
+      ],
+      "seam_source": "glyph",
+      "image": "ll_oo__noto.png"
+    },
+    {
+      "akshara_id": "ll_au",
+      "font_id": "noto",
+      "base_id": "ll",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BB3",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        34,
+        94,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "ll_au__noto.png"
+    },
+    {
+      "akshara_id": "rr_a",
+      "font_id": "noto",
+      "base_id": "rr",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BB1"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "rr_a__noto.png"
+    },
+    {
+      "akshara_id": "rr_aa",
+      "font_id": "noto",
+      "base_id": "rr",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        59,
+        21,
+        92,
+        55
+      ],
+      "seam_source": "glyph",
+      "image": "rr_aa__noto.png"
+    },
+    {
+      "akshara_id": "rr_i",
+      "font_id": "noto",
+      "base_id": "rr",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        47,
+        5,
+        85,
+        67
+      ],
+      "seam_source": "glyph",
+      "image": "rr_i__noto.png"
+    },
+    {
+      "akshara_id": "rr_ii",
+      "font_id": "noto",
+      "base_id": "rr",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        46,
+        5,
+        79,
+        28
+      ],
+      "seam_source": "diff",
+      "image": "rr_ii__noto.png"
+    },
+    {
+      "akshara_id": "rr_u",
+      "font_id": "noto",
+      "base_id": "rr",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        11,
+        91,
+        86
+      ],
+      "seam_source": "diff",
+      "image": "rr_u__noto.png"
+    },
+    {
+      "akshara_id": "rr_uu",
+      "font_id": "noto",
+      "base_id": "rr",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        21,
+        92,
+        75
+      ],
+      "seam_source": "diff",
+      "image": "rr_uu__noto.png"
+    },
+    {
+      "akshara_id": "rr_e",
+      "font_id": "noto",
+      "base_id": "rr",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        16,
+        45,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "rr_e__noto.png"
+    },
+    {
+      "akshara_id": "rr_ee",
+      "font_id": "noto",
+      "base_id": "rr",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        13,
+        42,
+        65
+      ],
+      "seam_source": "glyph",
+      "image": "rr_ee__noto.png"
+    },
+    {
+      "akshara_id": "rr_ai",
+      "font_id": "noto",
+      "base_id": "rr",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        27,
+        52,
+        55
+      ],
+      "seam_source": "glyph",
+      "image": "rr_ai__noto.png"
+    },
+    {
+      "akshara_id": "rr_o",
+      "font_id": "noto",
+      "base_id": "rr",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        25,
+        94,
+        59
+      ],
+      "seam_source": "glyph",
+      "image": "rr_o__noto.png"
+    },
+    {
+      "akshara_id": "rr_oo",
+      "font_id": "noto",
+      "base_id": "rr",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        23,
+        93,
+        60
+      ],
+      "seam_source": "glyph",
+      "image": "rr_oo__noto.png"
+    },
+    {
+      "akshara_id": "rr_au",
+      "font_id": "noto",
+      "base_id": "rr",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BB1",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        28,
+        94,
+        57
+      ],
+      "seam_source": "glyph",
+      "image": "rr_au__noto.png"
+    },
+    {
+      "akshara_id": "nnn_a",
+      "font_id": "noto",
+      "base_id": "nnn",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0BA9"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "nnn_a__noto.png"
+    },
+    {
+      "akshara_id": "nnn_aa",
+      "font_id": "noto",
+      "base_id": "nnn",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        66,
+        34,
+        93,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "nnn_aa__noto.png"
+    },
+    {
+      "akshara_id": "nnn_i",
+      "font_id": "noto",
+      "base_id": "nnn",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        61,
+        20,
+        92,
+        74
+      ],
+      "seam_source": "glyph",
+      "image": "nnn_i__noto.png"
+    },
+    {
+      "akshara_id": "nnn_ii",
+      "font_id": "noto",
+      "base_id": "nnn",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        60,
+        17,
+        92,
+        38
+      ],
+      "seam_source": "diff",
+      "image": "nnn_ii__noto.png"
+    },
+    {
+      "akshara_id": "nnn_u",
+      "font_id": "noto",
+      "base_id": "nnn",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        18,
+        92,
+        78
+      ],
+      "seam_source": "diff",
+      "image": "nnn_u__noto.png"
+    },
+    {
+      "akshara_id": "nnn_uu",
+      "font_id": "noto",
+      "base_id": "nnn",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        25,
+        93,
+        71
+      ],
+      "seam_source": "diff",
+      "image": "nnn_uu__noto.png"
+    },
+    {
+      "akshara_id": "nnn_e",
+      "font_id": "noto",
+      "base_id": "nnn",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        29,
+        37,
+        67
+      ],
+      "seam_source": "glyph",
+      "image": "nnn_e__noto.png"
+    },
+    {
+      "akshara_id": "nnn_ee",
+      "font_id": "noto",
+      "base_id": "nnn",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        27,
+        34,
+        69
+      ],
+      "seam_source": "glyph",
+      "image": "nnn_ee__noto.png"
+    },
+    {
+      "akshara_id": "nnn_ai",
+      "font_id": "noto",
+      "base_id": "nnn",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        36,
+        44,
+        60
+      ],
+      "seam_source": "glyph",
+      "image": "nnn_ai__noto.png"
+    },
+    {
+      "akshara_id": "nnn_o",
+      "font_id": "noto",
+      "base_id": "nnn",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        33,
+        94,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "nnn_o__noto.png"
+    },
+    {
+      "akshara_id": "nnn_oo",
+      "font_id": "noto",
+      "base_id": "nnn",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        32,
+        94,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "nnn_oo__noto.png"
+    },
+    {
+      "akshara_id": "nnn_au",
+      "font_id": "noto",
+      "base_id": "nnn",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0BA9",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        35,
+        94,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "nnn_au__noto.png"
+    },
+    {
+      "akshara_id": "k_a",
+      "font_id": "nirmala",
+      "base_id": "k",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0B95"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "k_a__nirmala.png"
+    },
+    {
+      "akshara_id": "k_aa",
+      "font_id": "nirmala",
+      "base_id": "k",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0B95",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        59,
+        30,
+        92,
+        64
+      ],
+      "seam_source": "glyph",
+      "image": "k_aa__nirmala.png"
+    },
+    {
+      "akshara_id": "k_i",
+      "font_id": "nirmala",
+      "base_id": "k",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0B95",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        7,
+        90,
+        88
+      ],
+      "seam_source": "diff",
+      "image": "k_i__nirmala.png"
+    },
+    {
+      "akshara_id": "k_ii",
+      "font_id": "nirmala",
+      "base_id": "k",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0B95",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        10,
+        6,
+        85,
+        90
+      ],
+      "seam_source": "diff",
+      "image": "k_ii__nirmala.png"
+    },
+    {
+      "akshara_id": "k_u",
+      "font_id": "nirmala",
+      "base_id": "k",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0B95",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        5,
+        12,
+        90,
+        84
+      ],
+      "seam_source": "diff",
+      "image": "k_u__nirmala.png"
+    },
+    {
+      "akshara_id": "k_uu",
+      "font_id": "nirmala",
+      "base_id": "k",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0B95",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        6,
+        40,
+        91,
+        69
+      ],
+      "seam_source": "diff",
+      "image": "k_uu__nirmala.png"
+    },
+    {
+      "akshara_id": "k_e",
+      "font_id": "nirmala",
+      "base_id": "k",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0B95",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        27,
+        43,
+        68
+      ],
+      "seam_source": "glyph",
+      "image": "k_e__nirmala.png"
+    },
+    {
+      "akshara_id": "k_ee",
+      "font_id": "nirmala",
+      "base_id": "k",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0B95",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        4,
+        25,
+        40,
+        71
+      ],
+      "seam_source": "glyph",
+      "image": "k_ee__nirmala.png"
+    },
+    {
+      "akshara_id": "k_ai",
+      "font_id": "nirmala",
+      "base_id": "k",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0B95",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        34,
+        53,
+        62
+      ],
+      "seam_source": "glyph",
+      "image": "k_ai__nirmala.png"
+    },
+    {
+      "akshara_id": "k_o",
+      "font_id": "nirmala",
+      "base_id": "k",
+      "sign_id": "o",
+      "codepoints": [
+        "U+0B95",
+        "U+0BCA"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        33,
+        94,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "k_o__nirmala.png"
+    },
+    {
+      "akshara_id": "k_oo",
+      "font_id": "nirmala",
+      "base_id": "k",
+      "sign_id": "oo",
+      "codepoints": [
+        "U+0B95",
+        "U+0BCB"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        32,
+        93,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "k_oo__nirmala.png"
+    },
+    {
+      "akshara_id": "k_au",
+      "font_id": "nirmala",
+      "base_id": "k",
+      "sign_id": "au",
+      "codepoints": [
+        "U+0B95",
+        "U+0BCC"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        2,
+        35,
+        94,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "k_au__nirmala.png"
+    },
+    {
+      "akshara_id": "ng_a",
+      "font_id": "nirmala",
+      "base_id": "ng",
+      "sign_id": "a",
+      "codepoints": [
+        "U+0B99"
+      ],
+      "has_sign": false,
+      "seam_bbox": null,
+      "seam_source": "none",
+      "image": "ng_a__nirmala.png"
+    },
+    {
+      "akshara_id": "ng_aa",
+      "font_id": "nirmala",
+      "base_id": "ng",
+      "sign_id": "aa",
+      "codepoints": [
+        "U+0B99",
+        "U+0BBE"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        62,
+        32,
+        93,
+        63
+      ],
+      "seam_source": "glyph",
+      "image": "ng_aa__nirmala.png"
+    },
+    {
+      "akshara_id": "ng_i",
+      "font_id": "nirmala",
+      "base_id": "ng",
+      "sign_id": "i",
+      "codepoints": [
+        "U+0B99",
+        "U+0BBF"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        12,
+        12,
+        91,
+        83
+      ],
+      "seam_source": "diff",
+      "image": "ng_i__nirmala.png"
+    },
+    {
+      "akshara_id": "ng_ii",
+      "font_id": "nirmala",
+      "base_id": "ng",
+      "sign_id": "ii",
+      "codepoints": [
+        "U+0B99",
+        "U+0BC0"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        27,
+        11,
+        91,
+        74
+      ],
+      "seam_source": "diff",
+      "image": "ng_ii__nirmala.png"
+    },
+    {
+      "akshara_id": "ng_u",
+      "font_id": "nirmala",
+      "base_id": "ng",
+      "sign_id": "u",
+      "codepoints": [
+        "U+0B99",
+        "U+0BC1"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        31,
+        25,
+        90,
+        85
+      ],
+      "seam_source": "diff",
+      "image": "ng_u__nirmala.png"
+    },
+    {
+      "akshara_id": "ng_uu",
+      "font_id": "nirmala",
+      "base_id": "ng",
+      "sign_id": "uu",
+      "codepoints": [
+        "U+0B99",
+        "U+0BC2"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        24,
+        27,
+        91,
+        78
+      ],
+      "seam_source": "diff",
+      "image": "ng_uu__nirmala.png"
+    },
+    {
+      "akshara_id": "ng_e",
+      "font_id": "nirmala",
+      "base_id": "ng",
+      "sign_id": "e",
+      "codepoints": [
+        "U+0B99",
+        "U+0BC6"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        29,
+        40,
+        67
+      ],
+      "seam_source": "glyph",
+      "image": "ng_e__nirmala.png"
+    },
+    {
+      "akshara_id": "ng_ee",
+      "font_id": "nirmala",
+      "base_id": "ng",
+      "sign_id": "ee",
+      "codepoints": [
+        "U+0B99",
+        "U+0BC7"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        27,
+        37,
+        69
+      ],
+      "seam_source": "glyph",
+      "image": "ng_ee__nirmala.png"
+    },
+    {
+      "akshara_id": "ng_ai",
+      "font_id": "nirmala",
+      "base_id": "ng",
+      "sign_id": "ai",
+      "codepoints": [
+        "U+0B99",
+        "U+0BC8"
+      ],
+      "has_sign": true,
+      "seam_bbox": [
+        3,
+        35,
+        49,
+        61
+      ],
+      "seam_source": "glyph",
+      "image": "ng_ai__nirmala.png"
+    },
+    {
+      "akshara_id": "ng_o",
+      "font_id": "nirmala",
       "base_id": "ng",
       "sign_id": "o",
       "codepoints": [
@@ -427,10 +4418,11 @@
         62
       ],
       "seam_source": "glyph",
-      "image": "ng_o.png"
+      "image": "ng_o__nirmala.png"
     },
     {
       "akshara_id": "ng_oo",
+      "font_id": "nirmala",
       "base_id": "ng",
       "sign_id": "oo",
       "codepoints": [
@@ -445,10 +4437,11 @@
         63
       ],
       "seam_source": "glyph",
-      "image": "ng_oo.png"
+      "image": "ng_oo__nirmala.png"
     },
     {
       "akshara_id": "ng_au",
+      "font_id": "nirmala",
       "base_id": "ng",
       "sign_id": "au",
       "codepoints": [
@@ -463,10 +4456,11 @@
         60
       ],
       "seam_source": "glyph",
-      "image": "ng_au.png"
+      "image": "ng_au__nirmala.png"
     },
     {
       "akshara_id": "c_a",
+      "font_id": "nirmala",
       "base_id": "c",
       "sign_id": "a",
       "codepoints": [
@@ -475,10 +4469,11 @@
       "has_sign": false,
       "seam_bbox": null,
       "seam_source": "none",
-      "image": "c_a.png"
+      "image": "c_a__nirmala.png"
     },
     {
       "akshara_id": "c_aa",
+      "font_id": "nirmala",
       "base_id": "c",
       "sign_id": "aa",
       "codepoints": [
@@ -493,10 +4488,11 @@
         65
       ],
       "seam_source": "glyph",
-      "image": "c_aa.png"
+      "image": "c_aa__nirmala.png"
     },
     {
       "akshara_id": "c_i",
+      "font_id": "nirmala",
       "base_id": "c",
       "sign_id": "i",
       "codepoints": [
@@ -511,10 +4507,11 @@
         90
       ],
       "seam_source": "diff",
-      "image": "c_i.png"
+      "image": "c_i__nirmala.png"
     },
     {
       "akshara_id": "c_ii",
+      "font_id": "nirmala",
       "base_id": "c",
       "sign_id": "ii",
       "codepoints": [
@@ -529,10 +4526,11 @@
         90
       ],
       "seam_source": "diff",
-      "image": "c_ii.png"
+      "image": "c_ii__nirmala.png"
     },
     {
       "akshara_id": "c_u",
+      "font_id": "nirmala",
       "base_id": "c",
       "sign_id": "u",
       "codepoints": [
@@ -547,10 +4545,11 @@
         77
       ],
       "seam_source": "diff",
-      "image": "c_u.png"
+      "image": "c_u__nirmala.png"
     },
     {
       "akshara_id": "c_uu",
+      "font_id": "nirmala",
       "base_id": "c",
       "sign_id": "uu",
       "codepoints": [
@@ -565,10 +4564,11 @@
         80
       ],
       "seam_source": "diff",
-      "image": "c_uu.png"
+      "image": "c_uu__nirmala.png"
     },
     {
       "akshara_id": "c_e",
+      "font_id": "nirmala",
       "base_id": "c",
       "sign_id": "e",
       "codepoints": [
@@ -583,10 +4583,11 @@
         69
       ],
       "seam_source": "glyph",
-      "image": "c_e.png"
+      "image": "c_e__nirmala.png"
     },
     {
       "akshara_id": "c_ee",
+      "font_id": "nirmala",
       "base_id": "c",
       "sign_id": "ee",
       "codepoints": [
@@ -601,10 +4602,11 @@
         72
       ],
       "seam_source": "glyph",
-      "image": "c_ee.png"
+      "image": "c_ee__nirmala.png"
     },
     {
       "akshara_id": "c_ai",
+      "font_id": "nirmala",
       "base_id": "c",
       "sign_id": "ai",
       "codepoints": [
@@ -619,10 +4621,11 @@
         62
       ],
       "seam_source": "glyph",
-      "image": "c_ai.png"
+      "image": "c_ai__nirmala.png"
     },
     {
       "akshara_id": "c_o",
+      "font_id": "nirmala",
       "base_id": "c",
       "sign_id": "o",
       "codepoints": [
@@ -637,10 +4640,11 @@
         63
       ],
       "seam_source": "glyph",
-      "image": "c_o.png"
+      "image": "c_o__nirmala.png"
     },
     {
       "akshara_id": "c_oo",
+      "font_id": "nirmala",
       "base_id": "c",
       "sign_id": "oo",
       "codepoints": [
@@ -655,10 +4659,11 @@
         64
       ],
       "seam_source": "glyph",
-      "image": "c_oo.png"
+      "image": "c_oo__nirmala.png"
     },
     {
       "akshara_id": "c_au",
+      "font_id": "nirmala",
       "base_id": "c",
       "sign_id": "au",
       "codepoints": [
@@ -673,10 +4678,11 @@
         61
       ],
       "seam_source": "glyph",
-      "image": "c_au.png"
+      "image": "c_au__nirmala.png"
     },
     {
       "akshara_id": "nj_a",
+      "font_id": "nirmala",
       "base_id": "nj",
       "sign_id": "a",
       "codepoints": [
@@ -685,10 +4691,11 @@
       "has_sign": false,
       "seam_bbox": null,
       "seam_source": "none",
-      "image": "nj_a.png"
+      "image": "nj_a__nirmala.png"
     },
     {
       "akshara_id": "nj_aa",
+      "font_id": "nirmala",
       "base_id": "nj",
       "sign_id": "aa",
       "codepoints": [
@@ -703,10 +4710,11 @@
         57
       ],
       "seam_source": "glyph",
-      "image": "nj_aa.png"
+      "image": "nj_aa__nirmala.png"
     },
     {
       "akshara_id": "nj_i",
+      "font_id": "nirmala",
       "base_id": "nj",
       "sign_id": "i",
       "codepoints": [
@@ -721,10 +4729,11 @@
         71
       ],
       "seam_source": "glyph",
-      "image": "nj_i.png"
+      "image": "nj_i__nirmala.png"
     },
     {
       "akshara_id": "nj_ii",
+      "font_id": "nirmala",
       "base_id": "nj",
       "sign_id": "ii",
       "codepoints": [
@@ -739,10 +4748,11 @@
         30
       ],
       "seam_source": "glyph",
-      "image": "nj_ii.png"
+      "image": "nj_ii__nirmala.png"
     },
     {
       "akshara_id": "nj_u",
+      "font_id": "nirmala",
       "base_id": "nj",
       "sign_id": "u",
       "codepoints": [
@@ -757,10 +4767,11 @@
         79
       ],
       "seam_source": "diff",
-      "image": "nj_u.png"
+      "image": "nj_u__nirmala.png"
     },
     {
       "akshara_id": "nj_uu",
+      "font_id": "nirmala",
       "base_id": "nj",
       "sign_id": "uu",
       "codepoints": [
@@ -775,10 +4786,11 @@
         72
       ],
       "seam_source": "diff",
-      "image": "nj_uu.png"
+      "image": "nj_uu__nirmala.png"
     },
     {
       "akshara_id": "nj_e",
+      "font_id": "nirmala",
       "base_id": "nj",
       "sign_id": "e",
       "codepoints": [
@@ -793,10 +4805,11 @@
         61
       ],
       "seam_source": "glyph",
-      "image": "nj_e.png"
+      "image": "nj_e__nirmala.png"
     },
     {
       "akshara_id": "nj_ee",
+      "font_id": "nirmala",
       "base_id": "nj",
       "sign_id": "ee",
       "codepoints": [
@@ -811,10 +4824,11 @@
         62
       ],
       "seam_source": "glyph",
-      "image": "nj_ee.png"
+      "image": "nj_ee__nirmala.png"
     },
     {
       "akshara_id": "nj_ai",
+      "font_id": "nirmala",
       "base_id": "nj",
       "sign_id": "ai",
       "codepoints": [
@@ -829,10 +4843,11 @@
         56
       ],
       "seam_source": "glyph",
-      "image": "nj_ai.png"
+      "image": "nj_ai__nirmala.png"
     },
     {
       "akshara_id": "nj_o",
+      "font_id": "nirmala",
       "base_id": "nj",
       "sign_id": "o",
       "codepoints": [
@@ -847,10 +4862,11 @@
         58
       ],
       "seam_source": "glyph",
-      "image": "nj_o.png"
+      "image": "nj_o__nirmala.png"
     },
     {
       "akshara_id": "nj_oo",
+      "font_id": "nirmala",
       "base_id": "nj",
       "sign_id": "oo",
       "codepoints": [
@@ -865,10 +4881,11 @@
         58
       ],
       "seam_source": "glyph",
-      "image": "nj_oo.png"
+      "image": "nj_oo__nirmala.png"
     },
     {
       "akshara_id": "nj_au",
+      "font_id": "nirmala",
       "base_id": "nj",
       "sign_id": "au",
       "codepoints": [
@@ -883,10 +4900,11 @@
         56
       ],
       "seam_source": "glyph",
-      "image": "nj_au.png"
+      "image": "nj_au__nirmala.png"
     },
     {
       "akshara_id": "tt_a",
+      "font_id": "nirmala",
       "base_id": "tt",
       "sign_id": "a",
       "codepoints": [
@@ -895,10 +4913,11 @@
       "has_sign": false,
       "seam_bbox": null,
       "seam_source": "none",
-      "image": "tt_a.png"
+      "image": "tt_a__nirmala.png"
     },
     {
       "akshara_id": "tt_aa",
+      "font_id": "nirmala",
       "base_id": "tt",
       "sign_id": "aa",
       "codepoints": [
@@ -913,10 +4932,11 @@
         66
       ],
       "seam_source": "glyph",
-      "image": "tt_aa.png"
+      "image": "tt_aa__nirmala.png"
     },
     {
       "akshara_id": "tt_i",
+      "font_id": "nirmala",
       "base_id": "tt",
       "sign_id": "i",
       "codepoints": [
@@ -931,10 +4951,11 @@
         88
       ],
       "seam_source": "diff",
-      "image": "tt_i.png"
+      "image": "tt_i__nirmala.png"
     },
     {
       "akshara_id": "tt_ii",
+      "font_id": "nirmala",
       "base_id": "tt",
       "sign_id": "ii",
       "codepoints": [
@@ -949,10 +4970,11 @@
         77
       ],
       "seam_source": "diff",
-      "image": "tt_ii.png"
+      "image": "tt_ii__nirmala.png"
     },
     {
       "akshara_id": "tt_u",
+      "font_id": "nirmala",
       "base_id": "tt",
       "sign_id": "u",
       "codepoints": [
@@ -967,10 +4989,11 @@
         91
       ],
       "seam_source": "diff",
-      "image": "tt_u.png"
+      "image": "tt_u__nirmala.png"
     },
     {
       "akshara_id": "tt_uu",
+      "font_id": "nirmala",
       "base_id": "tt",
       "sign_id": "uu",
       "codepoints": [
@@ -985,10 +5008,11 @@
         91
       ],
       "seam_source": "diff",
-      "image": "tt_uu.png"
+      "image": "tt_uu__nirmala.png"
     },
     {
       "akshara_id": "tt_e",
+      "font_id": "nirmala",
       "base_id": "tt",
       "sign_id": "e",
       "codepoints": [
@@ -1003,10 +5027,11 @@
         69
       ],
       "seam_source": "glyph",
-      "image": "tt_e.png"
+      "image": "tt_e__nirmala.png"
     },
     {
       "akshara_id": "tt_ee",
+      "font_id": "nirmala",
       "base_id": "tt",
       "sign_id": "ee",
       "codepoints": [
@@ -1021,10 +5046,11 @@
         71
       ],
       "seam_source": "glyph",
-      "image": "tt_ee.png"
+      "image": "tt_ee__nirmala.png"
     },
     {
       "akshara_id": "tt_ai",
+      "font_id": "nirmala",
       "base_id": "tt",
       "sign_id": "ai",
       "codepoints": [
@@ -1039,10 +5065,11 @@
         62
       ],
       "seam_source": "glyph",
-      "image": "tt_ai.png"
+      "image": "tt_ai__nirmala.png"
     },
     {
       "akshara_id": "tt_o",
+      "font_id": "nirmala",
       "base_id": "tt",
       "sign_id": "o",
       "codepoints": [
@@ -1057,10 +5084,11 @@
         63
       ],
       "seam_source": "glyph",
-      "image": "tt_o.png"
+      "image": "tt_o__nirmala.png"
     },
     {
       "akshara_id": "tt_oo",
+      "font_id": "nirmala",
       "base_id": "tt",
       "sign_id": "oo",
       "codepoints": [
@@ -1075,10 +5103,11 @@
         64
       ],
       "seam_source": "glyph",
-      "image": "tt_oo.png"
+      "image": "tt_oo__nirmala.png"
     },
     {
       "akshara_id": "tt_au",
+      "font_id": "nirmala",
       "base_id": "tt",
       "sign_id": "au",
       "codepoints": [
@@ -1093,10 +5122,11 @@
         61
       ],
       "seam_source": "glyph",
-      "image": "tt_au.png"
+      "image": "tt_au__nirmala.png"
     },
     {
       "akshara_id": "nn_a",
+      "font_id": "nirmala",
       "base_id": "nn",
       "sign_id": "a",
       "codepoints": [
@@ -1105,10 +5135,11 @@
       "has_sign": false,
       "seam_bbox": null,
       "seam_source": "none",
-      "image": "nn_a.png"
+      "image": "nn_a__nirmala.png"
     },
     {
       "akshara_id": "nn_aa",
+      "font_id": "nirmala",
       "base_id": "nn",
       "sign_id": "aa",
       "codepoints": [
@@ -1123,10 +5154,11 @@
         59
       ],
       "seam_source": "glyph",
-      "image": "nn_aa.png"
+      "image": "nn_aa__nirmala.png"
     },
     {
       "akshara_id": "nn_i",
+      "font_id": "nirmala",
       "base_id": "nn",
       "sign_id": "i",
       "codepoints": [
@@ -1141,10 +5173,11 @@
         70
       ],
       "seam_source": "glyph",
-      "image": "nn_i.png"
+      "image": "nn_i__nirmala.png"
     },
     {
       "akshara_id": "nn_ii",
+      "font_id": "nirmala",
       "base_id": "nn",
       "sign_id": "ii",
       "codepoints": [
@@ -1159,10 +5192,11 @@
         41
       ],
       "seam_source": "glyph",
-      "image": "nn_ii.png"
+      "image": "nn_ii__nirmala.png"
     },
     {
       "akshara_id": "nn_u",
+      "font_id": "nirmala",
       "base_id": "nn",
       "sign_id": "u",
       "codepoints": [
@@ -1177,10 +5211,11 @@
         70
       ],
       "seam_source": "diff",
-      "image": "nn_u.png"
+      "image": "nn_u__nirmala.png"
     },
     {
       "akshara_id": "nn_uu",
+      "font_id": "nirmala",
       "base_id": "nn",
       "sign_id": "uu",
       "codepoints": [
@@ -1195,10 +5230,11 @@
         66
       ],
       "seam_source": "diff",
-      "image": "nn_uu.png"
+      "image": "nn_uu__nirmala.png"
     },
     {
       "akshara_id": "nn_e",
+      "font_id": "nirmala",
       "base_id": "nn",
       "sign_id": "e",
       "codepoints": [
@@ -1213,10 +5249,11 @@
         62
       ],
       "seam_source": "glyph",
-      "image": "nn_e.png"
+      "image": "nn_e__nirmala.png"
     },
     {
       "akshara_id": "nn_ee",
+      "font_id": "nirmala",
       "base_id": "nn",
       "sign_id": "ee",
       "codepoints": [
@@ -1231,10 +5268,11 @@
         63
       ],
       "seam_source": "glyph",
-      "image": "nn_ee.png"
+      "image": "nn_ee__nirmala.png"
     },
     {
       "akshara_id": "nn_ai",
+      "font_id": "nirmala",
       "base_id": "nn",
       "sign_id": "ai",
       "codepoints": [
@@ -1249,10 +5287,11 @@
         58
       ],
       "seam_source": "glyph",
-      "image": "nn_ai.png"
+      "image": "nn_ai__nirmala.png"
     },
     {
       "akshara_id": "nn_o",
+      "font_id": "nirmala",
       "base_id": "nn",
       "sign_id": "o",
       "codepoints": [
@@ -1267,10 +5306,11 @@
         59
       ],
       "seam_source": "glyph",
-      "image": "nn_o.png"
+      "image": "nn_o__nirmala.png"
     },
     {
       "akshara_id": "nn_oo",
+      "font_id": "nirmala",
       "base_id": "nn",
       "sign_id": "oo",
       "codepoints": [
@@ -1285,10 +5325,11 @@
         60
       ],
       "seam_source": "glyph",
-      "image": "nn_oo.png"
+      "image": "nn_oo__nirmala.png"
     },
     {
       "akshara_id": "nn_au",
+      "font_id": "nirmala",
       "base_id": "nn",
       "sign_id": "au",
       "codepoints": [
@@ -1303,10 +5344,11 @@
         58
       ],
       "seam_source": "glyph",
-      "image": "nn_au.png"
+      "image": "nn_au__nirmala.png"
     },
     {
       "akshara_id": "t_a",
+      "font_id": "nirmala",
       "base_id": "t",
       "sign_id": "a",
       "codepoints": [
@@ -1315,10 +5357,11 @@
       "has_sign": false,
       "seam_bbox": null,
       "seam_source": "none",
-      "image": "t_a.png"
+      "image": "t_a__nirmala.png"
     },
     {
       "akshara_id": "t_aa",
+      "font_id": "nirmala",
       "base_id": "t",
       "sign_id": "aa",
       "codepoints": [
@@ -1333,10 +5376,11 @@
         59
       ],
       "seam_source": "glyph",
-      "image": "t_aa.png"
+      "image": "t_aa__nirmala.png"
     },
     {
       "akshara_id": "t_i",
+      "font_id": "nirmala",
       "base_id": "t",
       "sign_id": "i",
       "codepoints": [
@@ -1351,10 +5395,11 @@
         91
       ],
       "seam_source": "diff",
-      "image": "t_i.png"
+      "image": "t_i__nirmala.png"
     },
     {
       "akshara_id": "t_ii",
+      "font_id": "nirmala",
       "base_id": "t",
       "sign_id": "ii",
       "codepoints": [
@@ -1369,10 +5414,11 @@
         91
       ],
       "seam_source": "diff",
-      "image": "t_ii.png"
+      "image": "t_ii__nirmala.png"
     },
     {
       "akshara_id": "t_u",
+      "font_id": "nirmala",
       "base_id": "t",
       "sign_id": "u",
       "codepoints": [
@@ -1387,10 +5433,11 @@
         83
       ],
       "seam_source": "diff",
-      "image": "t_u.png"
+      "image": "t_u__nirmala.png"
     },
     {
       "akshara_id": "t_uu",
+      "font_id": "nirmala",
       "base_id": "t",
       "sign_id": "uu",
       "codepoints": [
@@ -1405,10 +5452,11 @@
         74
       ],
       "seam_source": "diff",
-      "image": "t_uu.png"
+      "image": "t_uu__nirmala.png"
     },
     {
       "akshara_id": "t_e",
+      "font_id": "nirmala",
       "base_id": "t",
       "sign_id": "e",
       "codepoints": [
@@ -1423,10 +5471,11 @@
         63
       ],
       "seam_source": "glyph",
-      "image": "t_e.png"
+      "image": "t_e__nirmala.png"
     },
     {
       "akshara_id": "t_ee",
+      "font_id": "nirmala",
       "base_id": "t",
       "sign_id": "ee",
       "codepoints": [
@@ -1441,10 +5490,11 @@
         65
       ],
       "seam_source": "glyph",
-      "image": "t_ee.png"
+      "image": "t_ee__nirmala.png"
     },
     {
       "akshara_id": "t_ai",
+      "font_id": "nirmala",
       "base_id": "t",
       "sign_id": "ai",
       "codepoints": [
@@ -1459,10 +5509,11 @@
         57
       ],
       "seam_source": "glyph",
-      "image": "t_ai.png"
+      "image": "t_ai__nirmala.png"
     },
     {
       "akshara_id": "t_o",
+      "font_id": "nirmala",
       "base_id": "t",
       "sign_id": "o",
       "codepoints": [
@@ -1477,10 +5528,11 @@
         59
       ],
       "seam_source": "glyph",
-      "image": "t_o.png"
+      "image": "t_o__nirmala.png"
     },
     {
       "akshara_id": "t_oo",
+      "font_id": "nirmala",
       "base_id": "t",
       "sign_id": "oo",
       "codepoints": [
@@ -1495,10 +5547,11 @@
         60
       ],
       "seam_source": "glyph",
-      "image": "t_oo.png"
+      "image": "t_oo__nirmala.png"
     },
     {
       "akshara_id": "t_au",
+      "font_id": "nirmala",
       "base_id": "t",
       "sign_id": "au",
       "codepoints": [
@@ -1513,10 +5566,11 @@
         57
       ],
       "seam_source": "glyph",
-      "image": "t_au.png"
+      "image": "t_au__nirmala.png"
     },
     {
       "akshara_id": "n_a",
+      "font_id": "nirmala",
       "base_id": "n",
       "sign_id": "a",
       "codepoints": [
@@ -1525,10 +5579,11 @@
       "has_sign": false,
       "seam_bbox": null,
       "seam_source": "none",
-      "image": "n_a.png"
+      "image": "n_a__nirmala.png"
     },
     {
       "akshara_id": "n_aa",
+      "font_id": "nirmala",
       "base_id": "n",
       "sign_id": "aa",
       "codepoints": [
@@ -1543,10 +5598,11 @@
         59
       ],
       "seam_source": "glyph",
-      "image": "n_aa.png"
+      "image": "n_aa__nirmala.png"
     },
     {
       "akshara_id": "n_i",
+      "font_id": "nirmala",
       "base_id": "n",
       "sign_id": "i",
       "codepoints": [
@@ -1561,10 +5617,11 @@
         75
       ],
       "seam_source": "glyph",
-      "image": "n_i.png"
+      "image": "n_i__nirmala.png"
     },
     {
       "akshara_id": "n_ii",
+      "font_id": "nirmala",
       "base_id": "n",
       "sign_id": "ii",
       "codepoints": [
@@ -1579,10 +5636,11 @@
         30
       ],
       "seam_source": "glyph",
-      "image": "n_ii.png"
+      "image": "n_ii__nirmala.png"
     },
     {
       "akshara_id": "n_u",
+      "font_id": "nirmala",
       "base_id": "n",
       "sign_id": "u",
       "codepoints": [
@@ -1597,10 +5655,11 @@
         83
       ],
       "seam_source": "diff",
-      "image": "n_u.png"
+      "image": "n_u__nirmala.png"
     },
     {
       "akshara_id": "n_uu",
+      "font_id": "nirmala",
       "base_id": "n",
       "sign_id": "uu",
       "codepoints": [
@@ -1615,10 +5674,11 @@
         74
       ],
       "seam_source": "diff",
-      "image": "n_uu.png"
+      "image": "n_uu__nirmala.png"
     },
     {
       "akshara_id": "n_e",
+      "font_id": "nirmala",
       "base_id": "n",
       "sign_id": "e",
       "codepoints": [
@@ -1633,10 +5693,11 @@
         64
       ],
       "seam_source": "glyph",
-      "image": "n_e.png"
+      "image": "n_e__nirmala.png"
     },
     {
       "akshara_id": "n_ee",
+      "font_id": "nirmala",
       "base_id": "n",
       "sign_id": "ee",
       "codepoints": [
@@ -1651,10 +5712,11 @@
         65
       ],
       "seam_source": "glyph",
-      "image": "n_ee.png"
+      "image": "n_ee__nirmala.png"
     },
     {
       "akshara_id": "n_ai",
+      "font_id": "nirmala",
       "base_id": "n",
       "sign_id": "ai",
       "codepoints": [
@@ -1669,10 +5731,11 @@
         57
       ],
       "seam_source": "glyph",
-      "image": "n_ai.png"
+      "image": "n_ai__nirmala.png"
     },
     {
       "akshara_id": "n_o",
+      "font_id": "nirmala",
       "base_id": "n",
       "sign_id": "o",
       "codepoints": [
@@ -1687,10 +5750,11 @@
         59
       ],
       "seam_source": "glyph",
-      "image": "n_o.png"
+      "image": "n_o__nirmala.png"
     },
     {
       "akshara_id": "n_oo",
+      "font_id": "nirmala",
       "base_id": "n",
       "sign_id": "oo",
       "codepoints": [
@@ -1705,10 +5769,11 @@
         60
       ],
       "seam_source": "glyph",
-      "image": "n_oo.png"
+      "image": "n_oo__nirmala.png"
     },
     {
       "akshara_id": "n_au",
+      "font_id": "nirmala",
       "base_id": "n",
       "sign_id": "au",
       "codepoints": [
@@ -1723,10 +5788,11 @@
         58
       ],
       "seam_source": "glyph",
-      "image": "n_au.png"
+      "image": "n_au__nirmala.png"
     },
     {
       "akshara_id": "p_a",
+      "font_id": "nirmala",
       "base_id": "p",
       "sign_id": "a",
       "codepoints": [
@@ -1735,10 +5801,11 @@
       "has_sign": false,
       "seam_bbox": null,
       "seam_source": "none",
-      "image": "p_a.png"
+      "image": "p_a__nirmala.png"
     },
     {
       "akshara_id": "p_aa",
+      "font_id": "nirmala",
       "base_id": "p",
       "sign_id": "aa",
       "codepoints": [
@@ -1753,10 +5820,11 @@
         66
       ],
       "seam_source": "glyph",
-      "image": "p_aa.png"
+      "image": "p_aa__nirmala.png"
     },
     {
       "akshara_id": "p_i",
+      "font_id": "nirmala",
       "base_id": "p",
       "sign_id": "i",
       "codepoints": [
@@ -1771,10 +5839,11 @@
         90
       ],
       "seam_source": "diff",
-      "image": "p_i.png"
+      "image": "p_i__nirmala.png"
     },
     {
       "akshara_id": "p_ii",
+      "font_id": "nirmala",
       "base_id": "p",
       "sign_id": "ii",
       "codepoints": [
@@ -1789,10 +5858,11 @@
         49
       ],
       "seam_source": "diff",
-      "image": "p_ii.png"
+      "image": "p_ii__nirmala.png"
     },
     {
       "akshara_id": "p_u",
+      "font_id": "nirmala",
       "base_id": "p",
       "sign_id": "u",
       "codepoints": [
@@ -1807,10 +5877,11 @@
         89
       ],
       "seam_source": "diff",
-      "image": "p_u.png"
+      "image": "p_u__nirmala.png"
     },
     {
       "akshara_id": "p_uu",
+      "font_id": "nirmala",
       "base_id": "p",
       "sign_id": "uu",
       "codepoints": [
@@ -1825,10 +5896,11 @@
         85
       ],
       "seam_source": "diff",
-      "image": "p_uu.png"
+      "image": "p_uu__nirmala.png"
     },
     {
       "akshara_id": "p_e",
+      "font_id": "nirmala",
       "base_id": "p",
       "sign_id": "e",
       "codepoints": [
@@ -1843,10 +5915,11 @@
         69
       ],
       "seam_source": "glyph",
-      "image": "p_e.png"
+      "image": "p_e__nirmala.png"
     },
     {
       "akshara_id": "p_ee",
+      "font_id": "nirmala",
       "base_id": "p",
       "sign_id": "ee",
       "codepoints": [
@@ -1861,10 +5934,11 @@
         71
       ],
       "seam_source": "glyph",
-      "image": "p_ee.png"
+      "image": "p_ee__nirmala.png"
     },
     {
       "akshara_id": "p_ai",
+      "font_id": "nirmala",
       "base_id": "p",
       "sign_id": "ai",
       "codepoints": [
@@ -1879,10 +5953,11 @@
         62
       ],
       "seam_source": "glyph",
-      "image": "p_ai.png"
+      "image": "p_ai__nirmala.png"
     },
     {
       "akshara_id": "p_o",
+      "font_id": "nirmala",
       "base_id": "p",
       "sign_id": "o",
       "codepoints": [
@@ -1897,10 +5972,11 @@
         63
       ],
       "seam_source": "glyph",
-      "image": "p_o.png"
+      "image": "p_o__nirmala.png"
     },
     {
       "akshara_id": "p_oo",
+      "font_id": "nirmala",
       "base_id": "p",
       "sign_id": "oo",
       "codepoints": [
@@ -1915,10 +5991,11 @@
         64
       ],
       "seam_source": "glyph",
-      "image": "p_oo.png"
+      "image": "p_oo__nirmala.png"
     },
     {
       "akshara_id": "p_au",
+      "font_id": "nirmala",
       "base_id": "p",
       "sign_id": "au",
       "codepoints": [
@@ -1933,10 +6010,11 @@
         61
       ],
       "seam_source": "glyph",
-      "image": "p_au.png"
+      "image": "p_au__nirmala.png"
     },
     {
       "akshara_id": "m_a",
+      "font_id": "nirmala",
       "base_id": "m",
       "sign_id": "a",
       "codepoints": [
@@ -1945,10 +6023,11 @@
       "has_sign": false,
       "seam_bbox": null,
       "seam_source": "none",
-      "image": "m_a.png"
+      "image": "m_a__nirmala.png"
     },
     {
       "akshara_id": "m_aa",
+      "font_id": "nirmala",
       "base_id": "m",
       "sign_id": "aa",
       "codepoints": [
@@ -1963,10 +6042,11 @@
         65
       ],
       "seam_source": "glyph",
-      "image": "m_aa.png"
+      "image": "m_aa__nirmala.png"
     },
     {
       "akshara_id": "m_i",
+      "font_id": "nirmala",
       "base_id": "m",
       "sign_id": "i",
       "codepoints": [
@@ -1981,10 +6061,11 @@
         87
       ],
       "seam_source": "diff",
-      "image": "m_i.png"
+      "image": "m_i__nirmala.png"
     },
     {
       "akshara_id": "m_ii",
+      "font_id": "nirmala",
       "base_id": "m",
       "sign_id": "ii",
       "codepoints": [
@@ -1999,10 +6080,11 @@
         48
       ],
       "seam_source": "diff",
-      "image": "m_ii.png"
+      "image": "m_ii__nirmala.png"
     },
     {
       "akshara_id": "m_u",
+      "font_id": "nirmala",
       "base_id": "m",
       "sign_id": "u",
       "codepoints": [
@@ -2017,10 +6099,11 @@
         79
       ],
       "seam_source": "diff",
-      "image": "m_u.png"
+      "image": "m_u__nirmala.png"
     },
     {
       "akshara_id": "m_uu",
+      "font_id": "nirmala",
       "base_id": "m",
       "sign_id": "uu",
       "codepoints": [
@@ -2035,10 +6118,11 @@
         77
       ],
       "seam_source": "diff",
-      "image": "m_uu.png"
+      "image": "m_uu__nirmala.png"
     },
     {
       "akshara_id": "m_e",
+      "font_id": "nirmala",
       "base_id": "m",
       "sign_id": "e",
       "codepoints": [
@@ -2053,10 +6137,11 @@
         68
       ],
       "seam_source": "glyph",
-      "image": "m_e.png"
+      "image": "m_e__nirmala.png"
     },
     {
       "akshara_id": "m_ee",
+      "font_id": "nirmala",
       "base_id": "m",
       "sign_id": "ee",
       "codepoints": [
@@ -2071,10 +6156,11 @@
         70
       ],
       "seam_source": "glyph",
-      "image": "m_ee.png"
+      "image": "m_ee__nirmala.png"
     },
     {
       "akshara_id": "m_ai",
+      "font_id": "nirmala",
       "base_id": "m",
       "sign_id": "ai",
       "codepoints": [
@@ -2089,10 +6175,11 @@
         61
       ],
       "seam_source": "glyph",
-      "image": "m_ai.png"
+      "image": "m_ai__nirmala.png"
     },
     {
       "akshara_id": "m_o",
+      "font_id": "nirmala",
       "base_id": "m",
       "sign_id": "o",
       "codepoints": [
@@ -2107,10 +6194,11 @@
         62
       ],
       "seam_source": "glyph",
-      "image": "m_o.png"
+      "image": "m_o__nirmala.png"
     },
     {
       "akshara_id": "m_oo",
+      "font_id": "nirmala",
       "base_id": "m",
       "sign_id": "oo",
       "codepoints": [
@@ -2125,10 +6213,11 @@
         63
       ],
       "seam_source": "glyph",
-      "image": "m_oo.png"
+      "image": "m_oo__nirmala.png"
     },
     {
       "akshara_id": "m_au",
+      "font_id": "nirmala",
       "base_id": "m",
       "sign_id": "au",
       "codepoints": [
@@ -2143,10 +6232,11 @@
         60
       ],
       "seam_source": "glyph",
-      "image": "m_au.png"
+      "image": "m_au__nirmala.png"
     },
     {
       "akshara_id": "y_a",
+      "font_id": "nirmala",
       "base_id": "y",
       "sign_id": "a",
       "codepoints": [
@@ -2155,10 +6245,11 @@
       "has_sign": false,
       "seam_bbox": null,
       "seam_source": "none",
-      "image": "y_a.png"
+      "image": "y_a__nirmala.png"
     },
     {
       "akshara_id": "y_aa",
+      "font_id": "nirmala",
       "base_id": "y",
       "sign_id": "aa",
       "codepoints": [
@@ -2173,10 +6264,11 @@
         64
       ],
       "seam_source": "glyph",
-      "image": "y_aa.png"
+      "image": "y_aa__nirmala.png"
     },
     {
       "akshara_id": "y_i",
+      "font_id": "nirmala",
       "base_id": "y",
       "sign_id": "i",
       "codepoints": [
@@ -2191,10 +6283,11 @@
         83
       ],
       "seam_source": "diff",
-      "image": "y_i.png"
+      "image": "y_i__nirmala.png"
     },
     {
       "akshara_id": "y_ii",
+      "font_id": "nirmala",
       "base_id": "y",
       "sign_id": "ii",
       "codepoints": [
@@ -2209,10 +6302,11 @@
         84
       ],
       "seam_source": "diff",
-      "image": "y_ii.png"
+      "image": "y_ii__nirmala.png"
     },
     {
       "akshara_id": "y_u",
+      "font_id": "nirmala",
       "base_id": "y",
       "sign_id": "u",
       "codepoints": [
@@ -2227,10 +6321,11 @@
         87
       ],
       "seam_source": "diff",
-      "image": "y_u.png"
+      "image": "y_u__nirmala.png"
     },
     {
       "akshara_id": "y_uu",
+      "font_id": "nirmala",
       "base_id": "y",
       "sign_id": "uu",
       "codepoints": [
@@ -2245,10 +6340,11 @@
         82
       ],
       "seam_source": "diff",
-      "image": "y_uu.png"
+      "image": "y_uu__nirmala.png"
     },
     {
       "akshara_id": "y_e",
+      "font_id": "nirmala",
       "base_id": "y",
       "sign_id": "e",
       "codepoints": [
@@ -2263,10 +6359,11 @@
         67
       ],
       "seam_source": "glyph",
-      "image": "y_e.png"
+      "image": "y_e__nirmala.png"
     },
     {
       "akshara_id": "y_ee",
+      "font_id": "nirmala",
       "base_id": "y",
       "sign_id": "ee",
       "codepoints": [
@@ -2281,10 +6378,11 @@
         69
       ],
       "seam_source": "glyph",
-      "image": "y_ee.png"
+      "image": "y_ee__nirmala.png"
     },
     {
       "akshara_id": "y_ai",
+      "font_id": "nirmala",
       "base_id": "y",
       "sign_id": "ai",
       "codepoints": [
@@ -2299,10 +6397,11 @@
         61
       ],
       "seam_source": "glyph",
-      "image": "y_ai.png"
+      "image": "y_ai__nirmala.png"
     },
     {
       "akshara_id": "y_o",
+      "font_id": "nirmala",
       "base_id": "y",
       "sign_id": "o",
       "codepoints": [
@@ -2317,10 +6416,11 @@
         62
       ],
       "seam_source": "glyph",
-      "image": "y_o.png"
+      "image": "y_o__nirmala.png"
     },
     {
       "akshara_id": "y_oo",
+      "font_id": "nirmala",
       "base_id": "y",
       "sign_id": "oo",
       "codepoints": [
@@ -2335,10 +6435,11 @@
         63
       ],
       "seam_source": "glyph",
-      "image": "y_oo.png"
+      "image": "y_oo__nirmala.png"
     },
     {
       "akshara_id": "y_au",
+      "font_id": "nirmala",
       "base_id": "y",
       "sign_id": "au",
       "codepoints": [
@@ -2353,10 +6454,11 @@
         60
       ],
       "seam_source": "glyph",
-      "image": "y_au.png"
+      "image": "y_au__nirmala.png"
     },
     {
       "akshara_id": "r_a",
+      "font_id": "nirmala",
       "base_id": "r",
       "sign_id": "a",
       "codepoints": [
@@ -2365,10 +6467,11 @@
       "has_sign": false,
       "seam_bbox": null,
       "seam_source": "none",
-      "image": "r_a.png"
+      "image": "r_a__nirmala.png"
     },
     {
       "akshara_id": "r_aa",
+      "font_id": "nirmala",
       "base_id": "r",
       "sign_id": "aa",
       "codepoints": [
@@ -2383,10 +6486,11 @@
         60
       ],
       "seam_source": "glyph",
-      "image": "r_aa.png"
+      "image": "r_aa__nirmala.png"
     },
     {
       "akshara_id": "r_i",
+      "font_id": "nirmala",
       "base_id": "r",
       "sign_id": "i",
       "codepoints": [
@@ -2401,10 +6505,11 @@
         75
       ],
       "seam_source": "glyph",
-      "image": "r_i.png"
+      "image": "r_i__nirmala.png"
     },
     {
       "akshara_id": "r_ii",
+      "font_id": "nirmala",
       "base_id": "r",
       "sign_id": "ii",
       "codepoints": [
@@ -2419,10 +6524,11 @@
         30
       ],
       "seam_source": "glyph",
-      "image": "r_ii.png"
+      "image": "r_ii__nirmala.png"
     },
     {
       "akshara_id": "r_u",
+      "font_id": "nirmala",
       "base_id": "r",
       "sign_id": "u",
       "codepoints": [
@@ -2437,10 +6543,11 @@
         84
       ],
       "seam_source": "diff",
-      "image": "r_u.png"
+      "image": "r_u__nirmala.png"
     },
     {
       "akshara_id": "r_uu",
+      "font_id": "nirmala",
       "base_id": "r",
       "sign_id": "uu",
       "codepoints": [
@@ -2455,10 +6562,11 @@
         81
       ],
       "seam_source": "diff",
-      "image": "r_uu.png"
+      "image": "r_uu__nirmala.png"
     },
     {
       "akshara_id": "r_e",
+      "font_id": "nirmala",
       "base_id": "r",
       "sign_id": "e",
       "codepoints": [
@@ -2473,10 +6581,11 @@
         65
       ],
       "seam_source": "glyph",
-      "image": "r_e.png"
+      "image": "r_e__nirmala.png"
     },
     {
       "akshara_id": "r_ee",
+      "font_id": "nirmala",
       "base_id": "r",
       "sign_id": "ee",
       "codepoints": [
@@ -2491,10 +6600,11 @@
         66
       ],
       "seam_source": "glyph",
-      "image": "r_ee.png"
+      "image": "r_ee__nirmala.png"
     },
     {
       "akshara_id": "r_ai",
+      "font_id": "nirmala",
       "base_id": "r",
       "sign_id": "ai",
       "codepoints": [
@@ -2509,10 +6619,11 @@
         58
       ],
       "seam_source": "glyph",
-      "image": "r_ai.png"
+      "image": "r_ai__nirmala.png"
     },
     {
       "akshara_id": "r_o",
+      "font_id": "nirmala",
       "base_id": "r",
       "sign_id": "o",
       "codepoints": [
@@ -2527,10 +6638,11 @@
         60
       ],
       "seam_source": "glyph",
-      "image": "r_o.png"
+      "image": "r_o__nirmala.png"
     },
     {
       "akshara_id": "r_oo",
+      "font_id": "nirmala",
       "base_id": "r",
       "sign_id": "oo",
       "codepoints": [
@@ -2545,10 +6657,11 @@
         60
       ],
       "seam_source": "glyph",
-      "image": "r_oo.png"
+      "image": "r_oo__nirmala.png"
     },
     {
       "akshara_id": "r_au",
+      "font_id": "nirmala",
       "base_id": "r",
       "sign_id": "au",
       "codepoints": [
@@ -2563,10 +6676,11 @@
         58
       ],
       "seam_source": "glyph",
-      "image": "r_au.png"
+      "image": "r_au__nirmala.png"
     },
     {
       "akshara_id": "l_a",
+      "font_id": "nirmala",
       "base_id": "l",
       "sign_id": "a",
       "codepoints": [
@@ -2575,10 +6689,11 @@
       "has_sign": false,
       "seam_bbox": null,
       "seam_source": "none",
-      "image": "l_a.png"
+      "image": "l_a__nirmala.png"
     },
     {
       "akshara_id": "l_aa",
+      "font_id": "nirmala",
       "base_id": "l",
       "sign_id": "aa",
       "codepoints": [
@@ -2593,10 +6708,11 @@
         64
       ],
       "seam_source": "glyph",
-      "image": "l_aa.png"
+      "image": "l_aa__nirmala.png"
     },
     {
       "akshara_id": "l_i",
+      "font_id": "nirmala",
       "base_id": "l",
       "sign_id": "i",
       "codepoints": [
@@ -2611,10 +6727,11 @@
         84
       ],
       "seam_source": "diff",
-      "image": "l_i.png"
+      "image": "l_i__nirmala.png"
     },
     {
       "akshara_id": "l_ii",
+      "font_id": "nirmala",
       "base_id": "l",
       "sign_id": "ii",
       "codepoints": [
@@ -2629,10 +6746,11 @@
         50
       ],
       "seam_source": "diff",
-      "image": "l_ii.png"
+      "image": "l_ii__nirmala.png"
     },
     {
       "akshara_id": "l_u",
+      "font_id": "nirmala",
       "base_id": "l",
       "sign_id": "u",
       "codepoints": [
@@ -2647,10 +6765,11 @@
         80
       ],
       "seam_source": "diff",
-      "image": "l_u.png"
+      "image": "l_u__nirmala.png"
     },
     {
       "akshara_id": "l_uu",
+      "font_id": "nirmala",
       "base_id": "l",
       "sign_id": "uu",
       "codepoints": [
@@ -2665,10 +6784,11 @@
         73
       ],
       "seam_source": "diff",
-      "image": "l_uu.png"
+      "image": "l_uu__nirmala.png"
     },
     {
       "akshara_id": "l_e",
+      "font_id": "nirmala",
       "base_id": "l",
       "sign_id": "e",
       "codepoints": [
@@ -2683,10 +6803,11 @@
         67
       ],
       "seam_source": "glyph",
-      "image": "l_e.png"
+      "image": "l_e__nirmala.png"
     },
     {
       "akshara_id": "l_ee",
+      "font_id": "nirmala",
       "base_id": "l",
       "sign_id": "ee",
       "codepoints": [
@@ -2701,10 +6822,11 @@
         69
       ],
       "seam_source": "glyph",
-      "image": "l_ee.png"
+      "image": "l_ee__nirmala.png"
     },
     {
       "akshara_id": "l_ai",
+      "font_id": "nirmala",
       "base_id": "l",
       "sign_id": "ai",
       "codepoints": [
@@ -2719,10 +6841,11 @@
         61
       ],
       "seam_source": "glyph",
-      "image": "l_ai.png"
+      "image": "l_ai__nirmala.png"
     },
     {
       "akshara_id": "l_o",
+      "font_id": "nirmala",
       "base_id": "l",
       "sign_id": "o",
       "codepoints": [
@@ -2737,10 +6860,11 @@
         62
       ],
       "seam_source": "glyph",
-      "image": "l_o.png"
+      "image": "l_o__nirmala.png"
     },
     {
       "akshara_id": "l_oo",
+      "font_id": "nirmala",
       "base_id": "l",
       "sign_id": "oo",
       "codepoints": [
@@ -2755,10 +6879,11 @@
         63
       ],
       "seam_source": "glyph",
-      "image": "l_oo.png"
+      "image": "l_oo__nirmala.png"
     },
     {
       "akshara_id": "l_au",
+      "font_id": "nirmala",
       "base_id": "l",
       "sign_id": "au",
       "codepoints": [
@@ -2773,10 +6898,11 @@
         60
       ],
       "seam_source": "glyph",
-      "image": "l_au.png"
+      "image": "l_au__nirmala.png"
     },
     {
       "akshara_id": "v_a",
+      "font_id": "nirmala",
       "base_id": "v",
       "sign_id": "a",
       "codepoints": [
@@ -2785,10 +6911,11 @@
       "has_sign": false,
       "seam_bbox": null,
       "seam_source": "none",
-      "image": "v_a.png"
+      "image": "v_a__nirmala.png"
     },
     {
       "akshara_id": "v_aa",
+      "font_id": "nirmala",
       "base_id": "v",
       "sign_id": "aa",
       "codepoints": [
@@ -2803,10 +6930,11 @@
         64
       ],
       "seam_source": "glyph",
-      "image": "v_aa.png"
+      "image": "v_aa__nirmala.png"
     },
     {
       "akshara_id": "v_i",
+      "font_id": "nirmala",
       "base_id": "v",
       "sign_id": "i",
       "codepoints": [
@@ -2821,10 +6949,11 @@
         83
       ],
       "seam_source": "diff",
-      "image": "v_i.png"
+      "image": "v_i__nirmala.png"
     },
     {
       "akshara_id": "v_ii",
+      "font_id": "nirmala",
       "base_id": "v",
       "sign_id": "ii",
       "codepoints": [
@@ -2839,10 +6968,11 @@
         82
       ],
       "seam_source": "diff",
-      "image": "v_ii.png"
+      "image": "v_ii__nirmala.png"
     },
     {
       "akshara_id": "v_u",
+      "font_id": "nirmala",
       "base_id": "v",
       "sign_id": "u",
       "codepoints": [
@@ -2857,10 +6987,11 @@
         86
       ],
       "seam_source": "diff",
-      "image": "v_u.png"
+      "image": "v_u__nirmala.png"
     },
     {
       "akshara_id": "v_uu",
+      "font_id": "nirmala",
       "base_id": "v",
       "sign_id": "uu",
       "codepoints": [
@@ -2875,10 +7006,11 @@
         80
       ],
       "seam_source": "diff",
-      "image": "v_uu.png"
+      "image": "v_uu__nirmala.png"
     },
     {
       "akshara_id": "v_e",
+      "font_id": "nirmala",
       "base_id": "v",
       "sign_id": "e",
       "codepoints": [
@@ -2893,10 +7025,11 @@
         67
       ],
       "seam_source": "glyph",
-      "image": "v_e.png"
+      "image": "v_e__nirmala.png"
     },
     {
       "akshara_id": "v_ee",
+      "font_id": "nirmala",
       "base_id": "v",
       "sign_id": "ee",
       "codepoints": [
@@ -2911,10 +7044,11 @@
         69
       ],
       "seam_source": "glyph",
-      "image": "v_ee.png"
+      "image": "v_ee__nirmala.png"
     },
     {
       "akshara_id": "v_ai",
+      "font_id": "nirmala",
       "base_id": "v",
       "sign_id": "ai",
       "codepoints": [
@@ -2929,10 +7063,11 @@
         61
       ],
       "seam_source": "glyph",
-      "image": "v_ai.png"
+      "image": "v_ai__nirmala.png"
     },
     {
       "akshara_id": "v_o",
+      "font_id": "nirmala",
       "base_id": "v",
       "sign_id": "o",
       "codepoints": [
@@ -2947,10 +7082,11 @@
         62
       ],
       "seam_source": "glyph",
-      "image": "v_o.png"
+      "image": "v_o__nirmala.png"
     },
     {
       "akshara_id": "v_oo",
+      "font_id": "nirmala",
       "base_id": "v",
       "sign_id": "oo",
       "codepoints": [
@@ -2965,10 +7101,11 @@
         63
       ],
       "seam_source": "glyph",
-      "image": "v_oo.png"
+      "image": "v_oo__nirmala.png"
     },
     {
       "akshara_id": "v_au",
+      "font_id": "nirmala",
       "base_id": "v",
       "sign_id": "au",
       "codepoints": [
@@ -2983,10 +7120,11 @@
         60
       ],
       "seam_source": "glyph",
-      "image": "v_au.png"
+      "image": "v_au__nirmala.png"
     },
     {
       "akshara_id": "zh_a",
+      "font_id": "nirmala",
       "base_id": "zh",
       "sign_id": "a",
       "codepoints": [
@@ -2995,10 +7133,11 @@
       "has_sign": false,
       "seam_bbox": null,
       "seam_source": "none",
-      "image": "zh_a.png"
+      "image": "zh_a__nirmala.png"
     },
     {
       "akshara_id": "zh_aa",
+      "font_id": "nirmala",
       "base_id": "zh",
       "sign_id": "aa",
       "codepoints": [
@@ -3013,10 +7152,11 @@
         59
       ],
       "seam_source": "glyph",
-      "image": "zh_aa.png"
+      "image": "zh_aa__nirmala.png"
     },
     {
       "akshara_id": "zh_i",
+      "font_id": "nirmala",
       "base_id": "zh",
       "sign_id": "i",
       "codepoints": [
@@ -3031,10 +7171,11 @@
         73
       ],
       "seam_source": "diff",
-      "image": "zh_i.png"
+      "image": "zh_i__nirmala.png"
     },
     {
       "akshara_id": "zh_ii",
+      "font_id": "nirmala",
       "base_id": "zh",
       "sign_id": "ii",
       "codepoints": [
@@ -3049,10 +7190,11 @@
         30
       ],
       "seam_source": "diff",
-      "image": "zh_ii.png"
+      "image": "zh_ii__nirmala.png"
     },
     {
       "akshara_id": "zh_u",
+      "font_id": "nirmala",
       "base_id": "zh",
       "sign_id": "u",
       "codepoints": [
@@ -3067,10 +7209,11 @@
         81
       ],
       "seam_source": "diff",
-      "image": "zh_u.png"
+      "image": "zh_u__nirmala.png"
     },
     {
       "akshara_id": "zh_uu",
+      "font_id": "nirmala",
       "base_id": "zh",
       "sign_id": "uu",
       "codepoints": [
@@ -3085,10 +7228,11 @@
         78
       ],
       "seam_source": "diff",
-      "image": "zh_uu.png"
+      "image": "zh_uu__nirmala.png"
     },
     {
       "akshara_id": "zh_e",
+      "font_id": "nirmala",
       "base_id": "zh",
       "sign_id": "e",
       "codepoints": [
@@ -3103,10 +7247,11 @@
         62
       ],
       "seam_source": "glyph",
-      "image": "zh_e.png"
+      "image": "zh_e__nirmala.png"
     },
     {
       "akshara_id": "zh_ee",
+      "font_id": "nirmala",
       "base_id": "zh",
       "sign_id": "ee",
       "codepoints": [
@@ -3121,10 +7266,11 @@
         63
       ],
       "seam_source": "glyph",
-      "image": "zh_ee.png"
+      "image": "zh_ee__nirmala.png"
     },
     {
       "akshara_id": "zh_ai",
+      "font_id": "nirmala",
       "base_id": "zh",
       "sign_id": "ai",
       "codepoints": [
@@ -3139,10 +7285,11 @@
         56
       ],
       "seam_source": "glyph",
-      "image": "zh_ai.png"
+      "image": "zh_ai__nirmala.png"
     },
     {
       "akshara_id": "zh_o",
+      "font_id": "nirmala",
       "base_id": "zh",
       "sign_id": "o",
       "codepoints": [
@@ -3157,10 +7304,11 @@
         58
       ],
       "seam_source": "glyph",
-      "image": "zh_o.png"
+      "image": "zh_o__nirmala.png"
     },
     {
       "akshara_id": "zh_oo",
+      "font_id": "nirmala",
       "base_id": "zh",
       "sign_id": "oo",
       "codepoints": [
@@ -3175,10 +7323,11 @@
         59
       ],
       "seam_source": "glyph",
-      "image": "zh_oo.png"
+      "image": "zh_oo__nirmala.png"
     },
     {
       "akshara_id": "zh_au",
+      "font_id": "nirmala",
       "base_id": "zh",
       "sign_id": "au",
       "codepoints": [
@@ -3193,10 +7342,11 @@
         57
       ],
       "seam_source": "glyph",
-      "image": "zh_au.png"
+      "image": "zh_au__nirmala.png"
     },
     {
       "akshara_id": "ll_a",
+      "font_id": "nirmala",
       "base_id": "ll",
       "sign_id": "a",
       "codepoints": [
@@ -3205,10 +7355,11 @@
       "has_sign": false,
       "seam_bbox": null,
       "seam_source": "none",
-      "image": "ll_a.png"
+      "image": "ll_a__nirmala.png"
     },
     {
       "akshara_id": "ll_aa",
+      "font_id": "nirmala",
       "base_id": "ll",
       "sign_id": "aa",
       "codepoints": [
@@ -3223,10 +7374,11 @@
         63
       ],
       "seam_source": "glyph",
-      "image": "ll_aa.png"
+      "image": "ll_aa__nirmala.png"
     },
     {
       "akshara_id": "ll_i",
+      "font_id": "nirmala",
       "base_id": "ll",
       "sign_id": "i",
       "codepoints": [
@@ -3241,10 +7393,11 @@
         80
       ],
       "seam_source": "glyph",
-      "image": "ll_i.png"
+      "image": "ll_i__nirmala.png"
     },
     {
       "akshara_id": "ll_ii",
+      "font_id": "nirmala",
       "base_id": "ll",
       "sign_id": "ii",
       "codepoints": [
@@ -3259,10 +7412,11 @@
         37
       ],
       "seam_source": "glyph",
-      "image": "ll_ii.png"
+      "image": "ll_ii__nirmala.png"
     },
     {
       "akshara_id": "ll_u",
+      "font_id": "nirmala",
       "base_id": "ll",
       "sign_id": "u",
       "codepoints": [
@@ -3277,10 +7431,11 @@
         75
       ],
       "seam_source": "diff",
-      "image": "ll_u.png"
+      "image": "ll_u__nirmala.png"
     },
     {
       "akshara_id": "ll_uu",
+      "font_id": "nirmala",
       "base_id": "ll",
       "sign_id": "uu",
       "codepoints": [
@@ -3295,10 +7450,11 @@
         72
       ],
       "seam_source": "diff",
-      "image": "ll_uu.png"
+      "image": "ll_uu__nirmala.png"
     },
     {
       "akshara_id": "ll_e",
+      "font_id": "nirmala",
       "base_id": "ll",
       "sign_id": "e",
       "codepoints": [
@@ -3313,10 +7469,11 @@
         66
       ],
       "seam_source": "glyph",
-      "image": "ll_e.png"
+      "image": "ll_e__nirmala.png"
     },
     {
       "akshara_id": "ll_ee",
+      "font_id": "nirmala",
       "base_id": "ll",
       "sign_id": "ee",
       "codepoints": [
@@ -3331,10 +7488,11 @@
         68
       ],
       "seam_source": "glyph",
-      "image": "ll_ee.png"
+      "image": "ll_ee__nirmala.png"
     },
     {
       "akshara_id": "ll_ai",
+      "font_id": "nirmala",
       "base_id": "ll",
       "sign_id": "ai",
       "codepoints": [
@@ -3349,10 +7507,11 @@
         61
       ],
       "seam_source": "glyph",
-      "image": "ll_ai.png"
+      "image": "ll_ai__nirmala.png"
     },
     {
       "akshara_id": "ll_o",
+      "font_id": "nirmala",
       "base_id": "ll",
       "sign_id": "o",
       "codepoints": [
@@ -3367,10 +7526,11 @@
         61
       ],
       "seam_source": "glyph",
-      "image": "ll_o.png"
+      "image": "ll_o__nirmala.png"
     },
     {
       "akshara_id": "ll_oo",
+      "font_id": "nirmala",
       "base_id": "ll",
       "sign_id": "oo",
       "codepoints": [
@@ -3385,10 +7545,11 @@
         62
       ],
       "seam_source": "glyph",
-      "image": "ll_oo.png"
+      "image": "ll_oo__nirmala.png"
     },
     {
       "akshara_id": "ll_au",
+      "font_id": "nirmala",
       "base_id": "ll",
       "sign_id": "au",
       "codepoints": [
@@ -3403,10 +7564,11 @@
         60
       ],
       "seam_source": "glyph",
-      "image": "ll_au.png"
+      "image": "ll_au__nirmala.png"
     },
     {
       "akshara_id": "rr_a",
+      "font_id": "nirmala",
       "base_id": "rr",
       "sign_id": "a",
       "codepoints": [
@@ -3415,10 +7577,11 @@
       "has_sign": false,
       "seam_bbox": null,
       "seam_source": "none",
-      "image": "rr_a.png"
+      "image": "rr_a__nirmala.png"
     },
     {
       "akshara_id": "rr_aa",
+      "font_id": "nirmala",
       "base_id": "rr",
       "sign_id": "aa",
       "codepoints": [
@@ -3433,10 +7596,11 @@
         59
       ],
       "seam_source": "glyph",
-      "image": "rr_aa.png"
+      "image": "rr_aa__nirmala.png"
     },
     {
       "akshara_id": "rr_i",
+      "font_id": "nirmala",
       "base_id": "rr",
       "sign_id": "i",
       "codepoints": [
@@ -3451,10 +7615,11 @@
         75
       ],
       "seam_source": "diff",
-      "image": "rr_i.png"
+      "image": "rr_i__nirmala.png"
     },
     {
       "akshara_id": "rr_ii",
+      "font_id": "nirmala",
       "base_id": "rr",
       "sign_id": "ii",
       "codepoints": [
@@ -3469,10 +7634,11 @@
         37
       ],
       "seam_source": "diff",
-      "image": "rr_ii.png"
+      "image": "rr_ii__nirmala.png"
     },
     {
       "akshara_id": "rr_u",
+      "font_id": "nirmala",
       "base_id": "rr",
       "sign_id": "u",
       "codepoints": [
@@ -3487,10 +7653,11 @@
         81
       ],
       "seam_source": "diff",
-      "image": "rr_u.png"
+      "image": "rr_u__nirmala.png"
     },
     {
       "akshara_id": "rr_uu",
+      "font_id": "nirmala",
       "base_id": "rr",
       "sign_id": "uu",
       "codepoints": [
@@ -3505,10 +7672,11 @@
         73
       ],
       "seam_source": "diff",
-      "image": "rr_uu.png"
+      "image": "rr_uu__nirmala.png"
     },
     {
       "akshara_id": "rr_e",
+      "font_id": "nirmala",
       "base_id": "rr",
       "sign_id": "e",
       "codepoints": [
@@ -3523,10 +7691,11 @@
         63
       ],
       "seam_source": "glyph",
-      "image": "rr_e.png"
+      "image": "rr_e__nirmala.png"
     },
     {
       "akshara_id": "rr_ee",
+      "font_id": "nirmala",
       "base_id": "rr",
       "sign_id": "ee",
       "codepoints": [
@@ -3541,10 +7710,11 @@
         64
       ],
       "seam_source": "glyph",
-      "image": "rr_ee.png"
+      "image": "rr_ee__nirmala.png"
     },
     {
       "akshara_id": "rr_ai",
+      "font_id": "nirmala",
       "base_id": "rr",
       "sign_id": "ai",
       "codepoints": [
@@ -3559,10 +7729,11 @@
         57
       ],
       "seam_source": "glyph",
-      "image": "rr_ai.png"
+      "image": "rr_ai__nirmala.png"
     },
     {
       "akshara_id": "rr_o",
+      "font_id": "nirmala",
       "base_id": "rr",
       "sign_id": "o",
       "codepoints": [
@@ -3577,10 +7748,11 @@
         59
       ],
       "seam_source": "glyph",
-      "image": "rr_o.png"
+      "image": "rr_o__nirmala.png"
     },
     {
       "akshara_id": "rr_oo",
+      "font_id": "nirmala",
       "base_id": "rr",
       "sign_id": "oo",
       "codepoints": [
@@ -3595,10 +7767,11 @@
         59
       ],
       "seam_source": "glyph",
-      "image": "rr_oo.png"
+      "image": "rr_oo__nirmala.png"
     },
     {
       "akshara_id": "rr_au",
+      "font_id": "nirmala",
       "base_id": "rr",
       "sign_id": "au",
       "codepoints": [
@@ -3613,10 +7786,11 @@
         57
       ],
       "seam_source": "glyph",
-      "image": "rr_au.png"
+      "image": "rr_au__nirmala.png"
     },
     {
       "akshara_id": "nnn_a",
+      "font_id": "nirmala",
       "base_id": "nnn",
       "sign_id": "a",
       "codepoints": [
@@ -3625,10 +7799,11 @@
       "has_sign": false,
       "seam_bbox": null,
       "seam_source": "none",
-      "image": "nnn_a.png"
+      "image": "nnn_a__nirmala.png"
     },
     {
       "akshara_id": "nnn_aa",
+      "font_id": "nirmala",
       "base_id": "nnn",
       "sign_id": "aa",
       "codepoints": [
@@ -3643,10 +7818,11 @@
         62
       ],
       "seam_source": "glyph",
-      "image": "nnn_aa.png"
+      "image": "nnn_aa__nirmala.png"
     },
     {
       "akshara_id": "nnn_i",
+      "font_id": "nirmala",
       "base_id": "nnn",
       "sign_id": "i",
       "codepoints": [
@@ -3661,10 +7837,11 @@
         76
       ],
       "seam_source": "glyph",
-      "image": "nnn_i.png"
+      "image": "nnn_i__nirmala.png"
     },
     {
       "akshara_id": "nnn_ii",
+      "font_id": "nirmala",
       "base_id": "nnn",
       "sign_id": "ii",
       "codepoints": [
@@ -3679,10 +7856,11 @@
         39
       ],
       "seam_source": "glyph",
-      "image": "nnn_ii.png"
+      "image": "nnn_ii__nirmala.png"
     },
     {
       "akshara_id": "nnn_u",
+      "font_id": "nirmala",
       "base_id": "nnn",
       "sign_id": "u",
       "codepoints": [
@@ -3697,10 +7875,11 @@
         76
       ],
       "seam_source": "diff",
-      "image": "nnn_u.png"
+      "image": "nnn_u__nirmala.png"
     },
     {
       "akshara_id": "nnn_uu",
+      "font_id": "nirmala",
       "base_id": "nnn",
       "sign_id": "uu",
       "codepoints": [
@@ -3715,10 +7894,11 @@
         70
       ],
       "seam_source": "diff",
-      "image": "nnn_uu.png"
+      "image": "nnn_uu__nirmala.png"
     },
     {
       "akshara_id": "nnn_e",
+      "font_id": "nirmala",
       "base_id": "nnn",
       "sign_id": "e",
       "codepoints": [
@@ -3733,10 +7913,11 @@
         65
       ],
       "seam_source": "glyph",
-      "image": "nnn_e.png"
+      "image": "nnn_e__nirmala.png"
     },
     {
       "akshara_id": "nnn_ee",
+      "font_id": "nirmala",
       "base_id": "nnn",
       "sign_id": "ee",
       "codepoints": [
@@ -3751,10 +7932,11 @@
         66
       ],
       "seam_source": "glyph",
-      "image": "nnn_ee.png"
+      "image": "nnn_ee__nirmala.png"
     },
     {
       "akshara_id": "nnn_ai",
+      "font_id": "nirmala",
       "base_id": "nnn",
       "sign_id": "ai",
       "codepoints": [
@@ -3769,10 +7951,11 @@
         59
       ],
       "seam_source": "glyph",
-      "image": "nnn_ai.png"
+      "image": "nnn_ai__nirmala.png"
     },
     {
       "akshara_id": "nnn_o",
+      "font_id": "nirmala",
       "base_id": "nnn",
       "sign_id": "o",
       "codepoints": [
@@ -3787,10 +7970,11 @@
         61
       ],
       "seam_source": "glyph",
-      "image": "nnn_o.png"
+      "image": "nnn_o__nirmala.png"
     },
     {
       "akshara_id": "nnn_oo",
+      "font_id": "nirmala",
       "base_id": "nnn",
       "sign_id": "oo",
       "codepoints": [
@@ -3805,10 +7989,11 @@
         61
       ],
       "seam_source": "glyph",
-      "image": "nnn_oo.png"
+      "image": "nnn_oo__nirmala.png"
     },
     {
       "akshara_id": "nnn_au",
+      "font_id": "nirmala",
       "base_id": "nnn",
       "sign_id": "au",
       "codepoints": [
@@ -3823,7 +8008,7 @@
         59
       ],
       "seam_source": "glyph",
-      "image": "nnn_au.png"
+      "image": "nnn_au__nirmala.png"
     }
   ]
 }

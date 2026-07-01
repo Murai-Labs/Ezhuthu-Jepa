@@ -28,6 +28,13 @@ Carry uncertainties forward each session until resolved.
   seam_source (glyph vs diff), or (c) treat ligature aksharas as a separate reported bucket. Likely
   report stratified by seam_source so the claim is honest about where composition is clean.
 
+### 2026-07-01 — RESOLVED: stratify M by seam_source (references entry above)
+- Resolution: Ramchand chose option (b) — report metric M stratified by seam_source (glyph vs diff),
+  keeping all 216 (DEC-0006). Multi-font (Noto+Nirmala) also adopted, so ligation is reported per
+  font (a vowel that ligates in one font may separate in another). Binds PA.003 (per-seam_source
+  accuracy) and PA.004 (mask carries seam_source). Residual: smaller n per (bucket × seam_source ×
+  font) stratum in the tail — watch CI width at PA.003/P1.001.
+
 ### 2026-07-01 — Rendered-glyph fidelity vs real paleographic forms
 - Why it matters: seam labels are learned on renders; transfer to manuscript glyph shapes is the
   whole K4 question. See RISKS Q006.

@@ -15,11 +15,13 @@ un-provenanced results cannot silently reach the paper.
 
 from __future__ import annotations
 
+import dataclasses
 import hashlib
 import json
 import platform
 import subprocess
 import sys
+from collections.abc import Mapping
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from importlib import metadata
@@ -30,6 +32,10 @@ from .config import RunConfig
 
 MANIFEST_FILENAME = "provenance.json"
 MANIFEST_VERSION = "1"
+
+# Sentinel seed for deterministic runs (e.g. data generation) that have no RNG. Honest alternative
+# to inventing a fake integer seed (AGENTS.md §2.4); still a non-empty, traceable identifier.
+SEED_DETERMINISTIC = "deterministic"
 
 # Exactly the five identifier categories a run manifest must carry. The validator asserts set
 # equality against this — no missing, no extra.
@@ -53,10 +59,38 @@ def _canonical_json(obj: Any) -> str:
     return json.dumps(obj, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
 
 
-def compute_config_hash(config: RunConfig) -> str:
+def _config_to_dict(config: Any) -> dict[str, Any]:
+    """Canonical dict for any supported config: RunConfig, a frozen dataclass, or a plain mapping."""
+    if hasattr(config, "to_canonical_dict"):
+        return dict(config.to_canonical_dict())
+    if dataclasses.is_dataclass(config) and not isinstance(config, type):
+        return dataclasses.asdict(config)
+    if isinstance(config, Mapping):
+        return dict(config)
+    raise ProvenanceError(
+        f"config must be a RunConfig, dataclass, or mapping; got {type(config).__name__}"
+    )
+
+
+def compute_config_hash(config: Any) -> str:
     """sha256 of the config's canonical form. Order-independent and stable across processes."""
-    payload = _canonical_json(config.to_canonical_dict())
+    payload = _canonical_json(_config_to_dict(config))
     return "sha256:" + hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+def _resolve_seed(config: Any, seed: int | str | None) -> int | str:
+    """Resolve the run seed: explicit wins; else a RunConfig's seed; else it must be given."""
+    if seed is None:
+        if isinstance(config, RunConfig):
+            return config.seed
+        raise ProvenanceError(
+            "seed is required for a non-RunConfig config (use SEED_DETERMINISTIC for RNG-free runs)"
+        )
+    if seed == SEED_DETERMINISTIC:
+        return SEED_DETERMINISTIC
+    if isinstance(seed, bool) or not isinstance(seed, int):
+        raise ProvenanceError(f"seed must be an int or {SEED_DETERMINISTIC!r}, got {seed!r}")
+    return seed
 
 
 def _find_repo_root(start: Path) -> Path:
@@ -155,24 +189,30 @@ def capture_environment(package_names: list[str] | None = None) -> dict[str, Any
 
 def build_manifest(
     *,
-    config: RunConfig,
+    config: Any,
     data_hash: str,
     run_id: str,
+    seed: int | str | None = None,
     repo_root: Path | None = None,
     package_names: list[str] | None = None,
 ) -> dict[str, Any]:
-    """Assemble a run manifest carrying exactly the five required identifiers."""
+    """Assemble a run manifest carrying exactly the five required identifiers.
+
+    ``config`` may be a RunConfig (seed defaults to ``config.seed``), any frozen dataclass, or a
+    mapping. ``seed`` overrides, and accepts :data:`SEED_DETERMINISTIC` for RNG-free runs.
+    """
     if not run_id or not run_id.strip():
         raise ProvenanceError("run_id must be a non-empty string")
     if not isinstance(data_hash, str) or not data_hash.strip():
         raise ProvenanceError("data_hash must be a non-empty string")
 
+    resolved_seed = _resolve_seed(config, seed)
     code = capture_code_state(repo_root)
     identifiers: dict[str, Any] = {
         "config_hash": compute_config_hash(config),
         "code_sha": code.sha,
         "data_hash": data_hash,
-        "seed": config.seed,
+        "seed": resolved_seed,
         "environment": capture_environment(package_names),
     }
     # Fail loudly if the identifier set ever drifts from REQUIRED_IDENTIFIERS.
@@ -185,7 +225,7 @@ def build_manifest(
         "run_id": run_id,
         "created_at": datetime.now(timezone.utc).isoformat(),
         "code_dirty": code.dirty,
-        "config": config.to_canonical_dict(),
+        "config": _config_to_dict(config),
         "identifiers": identifiers,
     }
 
@@ -193,9 +233,10 @@ def build_manifest(
 def write_provenance(
     run_dir: Path,
     *,
-    config: RunConfig,
+    config: Any,
     data_hash: str,
     run_id: str,
+    seed: int | str | None = None,
     repo_root: Path | None = None,
     package_names: list[str] | None = None,
 ) -> Path:
@@ -210,6 +251,7 @@ def write_provenance(
         config=config,
         data_hash=data_hash,
         run_id=run_id,
+        seed=seed,
         repo_root=repo_root,
         package_names=package_names,
     )

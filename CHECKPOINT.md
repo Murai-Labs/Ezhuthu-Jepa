@@ -1,6 +1,6 @@
 # Ezhuthu-Jepa — Checkpoint
 
-Last updated: 2026-07-01 15:30 CT
+Last updated: 2026-07-01 16:30 CT
 
 ## Resume Point
 
@@ -9,8 +9,9 @@ To verify a clean state and continue:
 ```bash
 cd /c/Github/Ezhuthu-Jepa
 git status -sb
-PYTHONIOENCODING=utf-8 python -m pytest -q          # expect: 46 passed
-# Regenerate the rendered dataset (deterministic; images are gitignored):
+PYTHONIOENCODING=utf-8 python -m pytest -q          # expect: 56 passed
+# Fetch the OFL font (gitignored) if missing, then regenerate the multi-font dataset (deterministic):
+curl -fsSL "https://github.com/google/fonts/raw/main/ofl/notosanstamil/NotoSansTamil%5Bwdth,wght%5D.ttf" -o fonts/NotoSansTamil.ttf
 PYTHONIOENCODING=utf-8 PYTHONPATH=src python -m ezhuthu_jepa.data.build_uyirmei
 nvidia-smi                 # confirm RTX 5090 available before any GPU work
 ```
@@ -23,12 +24,13 @@ Madurai), then **PA.003** (eval harness), **P1.001** (pre-register ε), **PA.004
 - Phase: **G0 code done; PA.001 done.** LAUNCH-A / G1 not started.
 - What is done: operating system + provenance writer + config contract (P0.003/P0.004), and the Tamil
   rendering pipeline (PA.001): `data/{grapheme,render,build_uyirmei}.py`, HarfBuzz+FreeType shaping,
-  glyph/diff seam hybrid. All 216 uyirmei rendered → `runs/pa001-render-001/render-manifest.json`
-  (138 glyph / 60 diff / 18 none). Full suite 46 passed.
+  glyph/diff seam hybrid, **multi-font (Noto+Nirmala)**. All 216 uyirmei rendered under both fonts →
+  `runs/pa001-render-001/` (432 entries + unified `provenance.json`). Full suite 56 passed.
 - What is next: PA.002 computes compound frequencies from Project Madurai and freezes the
-  bottom-quartile split (defines metric M's tail); then PA.003 eval harness; then P1.001 pins ε.
-  Data/train code must load configs via `RunConfig.from_dict(...)`; training/eval runs call
-  `write_provenance(...)` (data-gen runs use the render-manifest provenance block, DEC-0005).
+  bottom-quartile split (defines metric M's tail); then PA.003 eval harness (report accuracy per
+  frequency-bucket × seam_source × font, DEC-0006); then P1.001 pins ε. Data/train code loads configs
+  via `RunConfig.from_dict(...)`; ALL runs (incl. deterministic data-gen) use `write_provenance(...)`
+  with `seed=SEED_DETERMINISTIC` where there is no RNG (DEC-0006).
 - Authorization gate status: G0 evidence drafted in `docs/GATE_G0_REVIEW.md`, **pending human
   approval**. LAUNCH-A not requested. No training run authorized. ε still unset (defer to P1.001).
 

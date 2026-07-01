@@ -93,15 +93,17 @@ n ≥ 3 seeds, 95 % bootstrap CIs. ε = 2.0 pp / non-overlapping CIs (pre-regist
   1. For a sample of aksharas, the renderer emits image + `{base_id, sign_id, seam_bbox}` and the
      recomposition base×sign matches the source codepoint sequence 100 % on the sample.
   2. Output writes to `data/rendered/` (gitignored) with a committed text-free manifest.
-- **Evidence of completion:** `runs/pa001-render-001/render-manifest.json` (216 entries),
-  `src/ezhuthu_jepa/data/{grapheme,render,build_uyirmei}.py`, `configs/phase1/render.yaml`,
-  `tests/test_grapheme.py` (9) + `tests/test_render.py` (9). Counts: 138 glyph / 60 diff / 18 none.
-- **Validation:** `pytest -k "grapheme or render"` (18 pass); full suite 46 pass.
-- **Measurements / logs:** 216 rendered; seam_source breakdown in manifest `counts`.
+- **Evidence of completion:** `runs/pa001-render-001/{provenance,render-manifest}.json` (432 entries,
+  2 fonts), `src/ezhuthu_jepa/data/{grapheme,render,build_uyirmei}.py`, `configs/phase1/render.yaml`,
+  `tests/test_grapheme.py` (9) + `tests/test_render.py` (parametrized/font). Per-font seam counts:
+  noto 18/142/56, nirmala 18/138/60 (none/glyph/diff).
+- **Validation:** `pytest -k "grapheme or render"`; full suite 56 pass.
+- **Measurements / logs:** 432 rendered (216×2 fonts); seam_source breakdown per font in manifest.
 - **Dependencies:** P0.004
 - **Blocking gate:** G1
-- **Notes:** shaping via HarfBuzz+FreeType, seam via glyph/diff hybrid (DEC-0005). Ligature vowels
-  (i/ii/u/uu) have no cleanly separable sign region — open uncertainty feeding PA.004 masking design.
+- **Notes:** shaping via HarfBuzz+FreeType, seam via glyph/diff hybrid; multi-font + generalized
+  provenance + seam_source stratification (DEC-0005, DEC-0006). Ligature vowels handled by reporting
+  stratified by seam_source (not excluded).
 - **Estimated effort:** 6
 - **Done:** [x]
 
@@ -127,11 +129,13 @@ n ≥ 3 seeds, 95 % bootstrap CIs. ε = 2.0 pp / non-overlapping CIs (pre-regist
 - **What:** A linear-probe / light-finetune evaluator reporting top-1 accuracy stratified by
   frequency bucket, with 95 % bootstrap CIs.
 - **Where:** `src/ezhuthu_jepa/eval/akshara_probe.py`, `tests/test_probe.py`
-- **Why:** spec §4 (Eval) · AGENTS.md §2.6, §6 · M and its CIs must be frozen before baselines run.
+- **Why:** spec §4 (Eval) · AGENTS.md §2.6, §6 · DEC-0006 · M and its CIs must be frozen before baselines run.
 - **Inputs:** PA.002
 - **Acceptance criteria:**
   1. Given a frozen encoder, it emits `metrics.json` with per-bucket top-1 accuracy + bootstrap CIs.
   2. The bottom-quartile bucket accuracy (metric M) is a named field.
+  3. Accuracy is also reported **stratified by `seam_source` (glyph vs diff)** and by font (DEC-0006),
+     so the compositional claim is honest about where base×sign composition is cleanly separable.
 - **Evidence of completion:** `metrics.json` schema + passing `pytest -k probe`.
 - **Validation:** `pytest -k probe`
 - **Measurements / logs:** per-bucket accuracy, CI width.
@@ -143,11 +147,13 @@ n ≥ 3 seeds, 95 % bootstrap CIs. ε = 2.0 pp / non-overlapping CIs (pre-regist
 #### TASK PA.004: Seam-masking module (base visible, vowel-sign region masked)
 - **What:** The masking function that hides the dependent vowel-sign region and keeps the base visible.
 - **Where:** `src/ezhuthu_jepa/masking/seam.py`, `tests/test_seam_mask.py`
-- **Why:** spec §1 (the mechanism) · AGENTS.md §2.1 · this is the intervention under test.
+- **Why:** spec §1 (the mechanism) · AGENTS.md §2.1 · DEC-0006 · this is the intervention under test.
 - **Inputs:** PA.001
 - **Acceptance criteria:**
-  1. Given an image + `seam_bbox`, the mask covers the vowel-sign region and leaves the base pixels.
+  1. Given an image + `seam_bbox` (from the render manifest), the mask covers the vowel-sign region
+     and leaves the base pixels; for `seam_source=="diff"` (ligatures) the mask covers the diff region.
   2. A block-masking variant with matched mask ratio is exposed behind the same interface (K1 baseline).
+  3. Each masked sample carries its `seam_source` so downstream metrics can stratify (DEC-0006).
 - **Evidence of completion:** passing `pytest -k seam_mask`.
 - **Validation:** `pytest -k seam_mask`
 - **Measurements / logs:** realized mask ratio (must match block variant).

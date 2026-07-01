@@ -19,6 +19,9 @@ data/processed/
 data/rendered/
 data/manuscripts/
 
+# Font binaries are machine-local (system fonts) or fetched (OFL); pinned per run via provenance
+fonts/
+
 # Run bodies: keep manifests/metrics/notes (committed), ignore heavy artifacts
 runs/**/checkpoint*
 runs/**/*.ckpt
