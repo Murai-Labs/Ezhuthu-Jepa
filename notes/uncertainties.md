@@ -14,6 +14,11 @@ Carry uncertainties forward each session until resolved.
   undefined until a corpus provides compound counts. See RISKS Q005.
 - Status: Open — resolve in TASK PA.002, cite the corpus, freeze the cutoff before P1.001.
 
+### 2026-07-01 — RESOLVED: corpus = Project Madurai (references entry above)
+- Resolution: Ramchand chose Project Madurai (DEC-0004). RISKS Q005 marked Resolved. Residual note:
+  classical/literary skew vs manuscript-domain frequency is a known limitation to state in the paper;
+  optional second-corpus robustness check tracked but not required for G1.
+
 ### 2026-07-01 — Rendered-glyph fidelity vs real paleographic forms
 - Why it matters: seam labels are learned on renders; transfer to manuscript glyph shapes is the
   whole K4 question. See RISKS Q006.

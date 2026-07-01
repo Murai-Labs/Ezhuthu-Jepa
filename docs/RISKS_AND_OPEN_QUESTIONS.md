@@ -53,11 +53,13 @@ sample (P2.002) + K4 run (P2.003). If it vanishes under missing-puḷḷi, the p
 
 ### Q005 - Corpus frequency source for the bottom-quartile cutoff
 
-**Status:** Open
-**Blocking Impact:** Medium
+**Status:** Resolved 2026-07-01 — **Project Madurai** e-texts (DEC-0004).
+**Blocking Impact:** Medium (was) → resolved.
 **Needed For:** Defining metric M precisely (which compounds are "long tail").
-**Resolution Path:** TASK PA.002 — pick and cite a Tamil corpus for compound counts; freeze the
-bottom-quartile cutoff as a recorded number before ε pre-registration (P1.001).
+**Resolution:** Project Madurai chosen for compound counts: large, open, citable, thematically
+adjacent to the manuscript domain. Known skew toward classical/literary Tamil is accepted; an
+optional second-corpus robustness check may be reported. TASK PA.002 computes and freezes the
+bottom-quartile cutoff (a recorded number) from this corpus before ε pre-registration (P1.001).
 
 ---
 

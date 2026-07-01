@@ -1,6 +1,13 @@
 # Ezhuthu-Jepa — Status
 
-Last updated: 2026-07-01 13:30 CT
+Last updated: 2026-07-01 14:00 CT
+
+## Methodology Decisions (DEC-0004)
+
+- Metric **M = bottom-quartile-frequency akshara top-1 accuracy** — confirmed.
+- Cheap-baseline set = **block-JEPA, MAE-at-seam, base→sign probe** (the three) — confirmed.
+- Frequency corpus = **Project Madurai** — confirmed (resolves RISKS Q005).
+- **ε still UNSET** — provisional 2.0 pp / non-overlapping CIs stands; pin at P1.001 before any baseline.
 
 ## Current State
 

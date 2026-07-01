@@ -105,11 +105,11 @@ n ≥ 3 seeds, 95 % bootstrap CIs. ε = 2.0 pp / non-overlapping CIs (pre-regist
 - **What:** A train/eval split stratified by compound corpus frequency, with the bottom-quartile
   long-tail bucket defined and frozen.
 - **Where:** `src/ezhuthu_jepa/data/frequency_split.py`, `configs/phase1/split.yaml`, `tests/test_split.py`
-- **Why:** spec §2, §4 (eval stratified by frequency) · AGENTS.md §6 · M is defined on this split.
+- **Why:** spec §2, §4 (eval stratified by frequency) · AGENTS.md §6 · DEC-0004 · M is defined on this split.
 - **Inputs:** PA.001
 - **Acceptance criteria:**
-  1. Compound frequencies are computed from a cited corpus count; the bottom-quartile cutoff is a
-     recorded number.
+  1. Compound frequencies are computed from **Project Madurai** e-texts (DEC-0004); the
+     bottom-quartile cutoff is a recorded number with the corpus snapshot cited/hashed.
   2. Train and eval glyph instances are physically disjoint (no leakage); a test asserts empty overlap.
 - **Evidence of completion:** `data/rendered/split-manifest.json` (text-free), passing `pytest -k split`.
 - **Validation:** `pytest -k split`

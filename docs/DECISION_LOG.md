@@ -83,3 +83,32 @@ identifiers; missing identifier rejected; out-of-contract config raises a typed 
 Follow-up: PA-phase data/train code must call `write_provenance(...)` before any run and load configs
 via `RunConfig.from_dict(...)`. Re-audit the schema when PA.004/PA.005 add behavioral consumers.
 Human Approval: pending.
+
+---
+
+## DEC-0004 - Metric M, cheap-baseline set, and frequency corpus confirmed by Ramchand
+
+Date: 2026-07-01
+Task/Gate: G0 → G1 (methodology confirmation)
+Decision: Three of four G0 methodology questions resolved by Ramchand:
+1. **Metric M = bottom-quartile-frequency akshara top-1 accuracy** (n ≥ 3 seeds, 95% bootstrap CIs).
+   Confirmed as the single primary metric the paper lives or dies on; aggregate accuracy stays barred.
+   Alternatives (unseen-compound recall as co-primary, per-compound macro, top-3) considered and rejected
+   for v1 — kept as possible secondary reports, not the headline.
+2. **Cheap-baseline set = the three (block-masking JEPA, MAE-at-seam, base→sign premise probe).**
+   No 4th baseline added. Whole-akshara classifier foil and random-position mask control were offered
+   and declined; block-masking JEPA already stands in for the "structured-but-not-seam" control.
+3. **Frequency corpus = Project Madurai.** Compound frequencies (hence the bottom-quartile cutoff)
+   are computed from Project Madurai e-texts: large, open, citable, and thematically adjacent to the
+   manuscript domain and the literal downstream user. Skews classical/literary — acknowledged; a
+   second-corpus robustness check may be reported but is not required for G1.
+Rationale: Leanest defensible falsification path that stays faithful to the spec's K1/K2/K3 and keeps
+the single-5090 budget. Project Madurai maximizes reproducibility + mission fit for defining "long tail".
+Alternatives Considered: see the four-option decision prompt (2026-07-01); rejected options noted above.
+Evidence / Source Docs: this entry supersedes the provisional metric note in DEC-0002 (metric now
+confirmed, not provisional); resolves RISKS Q005; task PA.002 updated to cite Project Madurai.
+Measured Result: N/A (methodology).
+Follow-up: **ε (equivalence margin) remains UNSET** — the 4th question was not answered. Provisional
+ε = 2.0 pp / non-overlapping CIs from DEC-0002 still stands and MUST be formally pre-registered at
+TASK P1.001 before any baseline run. Do not launch a baseline until ε is pinned with a prior date.
+Human Approval: Ramchand, 2026-07-01 (items 1–3). ε pending.

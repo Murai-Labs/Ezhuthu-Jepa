@@ -29,3 +29,11 @@ Per-session checkpoints. Append; never edit past entries.
   (9) + `test_config.py` (18). Full suite 28 passed; placeholder scan clean. Recorded DEC-0003.
 - Ended at: P0.001–P0.004 done. Next: PA.001 (rendering pipeline) → PA.002/PA.003 → P1.001 (ε).
 - Open uncertainties carried forward: see `notes/uncertainties.md` (unchanged; ε still provisional).
+
+### 2026-07-01 14:00 CT — G0 methodology confirmation
+- Started from: G0 review packet; four-question decision prompt to Ramchand.
+- Did: recorded DEC-0004 — Metric M = bottom-quartile top-1 acc (confirmed), cheap-baseline set = the
+  three (confirmed), frequency corpus = Project Madurai (resolves RISKS Q005, updates PA.002). ε was
+  not answered; provisional 2.0 pp / non-overlapping CIs (DEC-0002) still stands, to be pinned at P1.001.
+- Ended at: 3/4 G0 methodology decisions locked; ε open. Next: confirm ε, then G0 sign-off → PA.001.
+- Open uncertainties carried forward: ε unset (see DEC-0004 follow-up); corpus skew limitation noted.
