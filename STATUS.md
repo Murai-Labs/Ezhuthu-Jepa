@@ -10,6 +10,9 @@ Last updated: 2026-07-02 CT
 > GPU-h, not ~15) — the cheap-baseline gate working as designed. Reusable assets (benchmark, eval harness,
 > rendering pipeline, provenance system, pretraining loop) and the honest negative survive. **No further
 > compute; the full n≥3 sweep was intentionally not run.**
+>
+> **📄 Full writeup: [`docs/REPORT.md`](docs/REPORT.md)** — hypothesis, methods, results, honest caveats,
+> reusable artifacts, reproducibility.
 
 ## Methodology Decisions (DEC-0004, DEC-0006)
 
