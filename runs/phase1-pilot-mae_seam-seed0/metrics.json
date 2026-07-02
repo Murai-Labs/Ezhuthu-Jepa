@@ -1,0 +1,17 @@
+{
+  "run_id": "phase1-pilot-mae_seam-seed0",
+  "task": "PA.005",
+  "objective": "mae_seam",
+  "device": "cuda",
+  "n_train_instances": 19800,
+  "n_tokens": 144,
+  "n_mask": 36,
+  "encoder_params_m": 5.351,
+  "steps": 8000,
+  "resumed_from_step": 0,
+  "final_loss": 0.3834661841392517,
+  "throughput_img_s": 4323.3,
+  "peak_mem_mb": 1718.3,
+  "elapsed_s": 236.9,
+  "encoder_checkpoint": "encoder.pt"
+}

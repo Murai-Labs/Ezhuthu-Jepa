@@ -9,7 +9,7 @@ To verify a clean state and continue:
 ```bash
 cd /c/Github/Ezhuthu-Jepa
 git status -sb
-PYTHONIOENCODING=utf-8 python -m pytest -q          # expect: 114 passed
+PYTHONIOENCODING=utf-8 python -m pytest -q          # expect: 124 passed
 nvidia-smi                 # confirm RTX 5090 available before any GPU work
 # Regenerate gitignored data if missing (deterministic): the OFL font, then the augmented index.
 curl -fsSL "https://github.com/google/fonts/raw/main/ofl/notosanstamil/NotoSansTamil%5Bwdth,wght%5D.ttf" -o fonts/NotoSansTamil.ttf
@@ -23,7 +23,8 @@ then **P1.003** (full n≥3-seed sweep, clean tree). Do NOT launch the sweep bef
 
 ## Current Checkpoint
 
-- Phase: **G0 APPROVED; PA.001–PA.006 + P1.001b + P1.002 (K2) + resume-state done; ε amended (DEC-0013).** LAUNCH-A / G1 sweep not started.
+- Phase: **G0 APPROVED; PA.001–PA.006 + P1.001b + P1.002 + resume + sweep infra + pilot done.
+  LAUNCH-A BLOCKED (DEC-0017): pilot → latent JEPA < pixel baseline; recipe iteration (PA.005b) needed.**
 - What is done: operating system + provenance writer + config contract (P0.003/P0.004), and the Tamil
   rendering pipeline (PA.001): `data/{grapheme,render,build_uyirmei}.py`, HarfBuzz+FreeType shaping,
   glyph/diff seam hybrid, **multi-font (Noto+Nirmala)**. All 216 uyirmei rendered under both fonts →
@@ -51,9 +52,14 @@ then **P1.003** (full n≥3-seed sweep, clean tree). Do NOT launch the sweep bef
 - Done: **P1.002 (K2)** — `eval/base_to_sign_probe.py`, run `phase1-k2probe-001`. **Kill-gate PASSES**
   (base 0.509 ≫ chance 0.091). **Caveat (DEC-0016, negative-results):** signal is sign-LOCATION not
   base-ink (location control beats base in every stratum) → live K1 risk (block may match seam).
-- What is next: **LAUNCH-A** (all preconditions met — harness/ε/smoke/resume/ledger/K2; needs a longer
-  1-seed pilot + Ramchand sign-off, and the K2 caveat surfaced) → P1.003 sweep (clean tree,
-  checkpoint_every>0). Do NOT run the sweep before LAUNCH-A.
+- Done: **sweep orchestrator** (`train/sweep.py` + `sweep.yaml`/`pilot.yaml`, 6 tests) with a code-level
+  LAUNCH-A gate (refuses ≥3-seed run without `--launch-a-approved`); target-encoder fix in `encoder.pt`.
+- BLOCKER: **LAUNCH-A pilot (DEC-0017)** — `phase1-pilot-*` 1-seed 8k: metric_M seam 0.239, block 0.326
+  (both < pixel 0.359), mae 0.532. Latent JEPA underperforms raw pixels; target-encoder fix did not
+  rescue → recipe deficiency. See `notes/negative-results/pilot-latent-jepa-underperforms-pixel-baseline.md`.
+- What is next: **AWAIT Ramchand's DEC-0017 choice (A recipe iteration / B reframe to MAE / C conclude).**
+  Recommended A = PA.005b: LR cosine decay + I-JEPA recipe fidelity, re-pilot until latent ≥ pixels. Do
+  NOT launch the sweep (sweep.py refuses it) and make no further recipe/compute changes without direction.
 - Authorization gate status: **G0 approved** (DEC-0008); **ε pre-registered** (DEC-0009). LAUNCH-A
   **not yet approved** — do not launch the full Stage-A sweep (P1.003) until it is. No full training run authorized (smokes only).
 

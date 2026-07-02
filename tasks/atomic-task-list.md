@@ -355,8 +355,28 @@ n ≥ 3 seeds, 95 % bootstrap CIs. ε = 2.0 pp / non-overlapping CIs (pre-regist
 - **Estimated effort:** 2
 - **Done:** [x]
 
+#### TASK PA.005b: I-JEPA recipe iteration (BLOCKER for LAUNCH-A; DEC-0017)
+- **What:** Lift the latent JEPA encoder above the raw-pixel baseline on the pilot (currently seam 0.239,
+  block 0.326 < pixel 0.359; mae 0.532). Leading fix: **LR cosine decay** (loss plateaued under constant
+  LR); then verify the recipe vs the I-JEPA paper (multi-block context/target masking, weight-decay
+  schedule, target LayerNorm, mask-scale sweep). Re-pilot (1 seed) until latent ≥ pixel baseline.
+- **Where:** `src/ezhuthu_jepa/train/pretrain.py` (+ scheduler), `configs/phase1/{pilot,sweep}.yaml`
+- **Why:** DEC-0017 · the pilot blocked LAUNCH-A; the sweep is meaningless while latent < pixels.
+- **Inputs:** PA.005, pilot (`phase1-pilot-*`)
+- **Acceptance criteria:**
+  1. A 1-seed pilot shows seam-JEPA (and block-JEPA) metric_M ≥ the pixel baseline (0.359), with the
+     seam/block/mae ordering interpretable (not all below pixels).
+  2. Recipe changes recorded; provenance per re-pilot run.
+- **Status:** NOT STARTED — awaiting Ramchand's DEC-0017 choice (A recipe iteration / B reframe / C conclude).
+- **Blocking gate:** LAUNCH-A
+- **Estimated effort:** 5
+- **Done:** [ ]
+
 #### TASK P1.003: K1 + K3 sweep — seam-JEPA vs block-JEPA vs MAE-at-seam on M
 - **What:** The full n ≥ 3-seed comparison of the three objectives, evaluated on metric M.
+- **Status:** BLOCKED by DEC-0017 (latent JEPA < pixel baseline on the pilot) and LAUNCH-A. Infra ready:
+  `train/sweep.py` + `configs/phase1/sweep.yaml` (the orchestrator refuses this ≥3-seed run without
+  `--launch-a-approved`). Do NOT run until PA.005b clears the pixel baseline and LAUNCH-A is signed.
 - **Where:** `configs/phase1/sweep.yaml`, run dirs under `runs/phase1-sweep-*`
 - **Why:** spec §3 K1/K3 · AGENTS.md §3 · the primary falsification + the latent-vs-pixel ablation.
 - **Inputs:** LA.001, PA.005, P1.001, P1.002

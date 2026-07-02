@@ -129,3 +129,27 @@ Interpretation:    After removing absolute location + scale (mask sign → crop 
                    but modest. See notes/negative-results/…-location-not-composition.md (Update 2026-07-02).
 Next Action:       Feed the revised (less pessimistic, not green-light) K1-risk read into the LAUNCH-A packet.
                    K1/K3 test whether a learned encoder amplifies the ~8 pp ligature signal into a M win.
+
+### Runs: phase1-pilot-{seam,block,mae}-seed0 + phase1-pilotprobe-*-001 (LAUNCH-A pilot — BLOCKS the sweep)
+
+Run IDs:           phase1-pilot-{seam_jepa,block_jepa,mae_seam}-seed0 (pretrain);
+                   phase1-pilotprobe-{…}-001 (metric_M via encoder: jepa)
+Task ID:           LAUNCH-A pilot (precondition)
+Date:              2026-07-02
+Git Commit:        2ac86eb (dirty: sweep.py + pilot configs + target-encoder fix uncommitted at run time;
+                   committed this turn. A pilot, not the gated sweep.)
+Exact Command:     python -m ezhuthu_jepa.train.sweep --config configs/phase1/pilot.yaml --execute
+                   (seam/block re-run after the target-encoder fix; probes via akshara_probe encoder: jepa)
+Config Path:       configs/phase1/pilot.yaml (8000 steps, 1 seed, all 3 objectives)
+Seed:              0
+Environment:       RTX 5090, torch 2.10.0+cu130, bf16; ~3.2–4.3k img/s, 1.7–1.9 GB
+Metrics Path:      runs/phase1-pilot-*/metrics.json ; runs/phase1-pilotprobe-*-001/metrics.json
+Status:            success (pipeline) — but **latent arms FAIL the pilot bar** (below the pixel baseline)
+Interpretation:    metric_M (target encoder): seam 0.239 [0.230,0.248], block 0.326 [0.316,0.336],
+                   mae 0.532 [0.521,0.542]; pixel baseline 0.359. Both latent arms < raw pixels; MAE
+                   dominates. Target-encoder fix (save+probe EMA target) did not rescue → genuine recipe
+                   deficiency, not eval artifact. **Blocks LAUNCH-A (DEC-0017).** Loss plateaued under
+                   constant LR → leading fix is LR cosine decay + I-JEPA recipe fidelity. 1 seed, NOT a
+                   K1/K3 result. See notes/negative-results/pilot-latent-jepa-underperforms-pixel-baseline.md.
+Next Action:       PA.005b recipe iteration (pending Ramchand's A/B/C choice in DEC-0017). Do NOT launch
+                   the sweep until latent JEPA ≥ pixel baseline on the pilot.

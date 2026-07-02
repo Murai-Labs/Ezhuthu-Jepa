@@ -15,7 +15,8 @@ Last updated: 2026-07-02 CT
 ## Current State
 
 - Repo state: pushed to Murai-Labs/Ezhuthu-Jepa (public). Phase-1 code landing.
-- Current phase: **G0 complete; PA.001–PA.006 + P1.001b + P1.002 (K2) + resume-state done; LAUNCH-A / G1 sweep not started.**
+- Current phase: **G0 complete; PA.001–PA.006 + P1.001b + P1.002 (K2) + resume-state + sweep infra + pilot done.
+  LAUNCH-A BLOCKED (DEC-0017): pilot shows latent JEPA < pixel baseline — recipe iteration needed before the sweep.**
 - Stack decision: single RTX 5090; from-scratch I-JEPA-style ViT-Tiny/8 (torch.nn, no timm); PyTorch
   with `dtype=` policy (never `torch_dtype=`). Config contract locked at schema `0.1.0`; torch
   2.10.0+cu130 now pinned in `configs/phase0/locked-versions.yaml`.
@@ -84,16 +85,27 @@ Last updated: 2026-07-02 CT
   `phase1-baseink-001`. With absolute location removed, base-ink still predicts sign 0.331 [0.326,0.336] ≫
   chance 0.091 → a **real (modest) compositional signal exists**, partially reversing the K2 read. Clean
   estimate = diff−glyph gap ≈8.2pp (0.388 vs 0.306, non-overlapping CIs = ligature reshaping); consonant
-  control 0.381 confirms the normalisation. **Balanced K1-risk read (below).**
+  control 0.381 confirms the normalisation.
+- [x] **Sweep orchestrator + LAUNCH-A code gate (TASK P1.003 infra)** — `train/sweep.py` (+ `sweep.yaml`,
+  `pilot.yaml`, 6 tests). One base config → every {objective × seed} arm; **refuses the ≥3-seed full sweep
+  without `--launch-a-approved`.** Target-encoder fix: `encoder.pt` now saves the EMA target; the probe
+  uses it for latent objectives (I-JEPA downstream convention).
+- [🚫] **LAUNCH-A pilot — BLOCKS the sweep (DEC-0017)** — `phase1-pilot-*` (1 seed, 8k steps) + probes.
+  metric_M (target encoder): **seam 0.239, block 0.326 — both BELOW the 0.359 pixel baseline**; mae 0.532.
+  The latent I-JEPA recipe underperforms raw pixels; the target-encoder fix did not rescue it → genuine
+  recipe deficiency. **LAUNCH-A is blocked; recipe iteration (PA.005b) is required first.** See
+  `notes/negative-results/pilot-latent-jepa-underperforms-pixel-baseline.md` + `notes/stuck-log.md`.
 
 Test suite: **117 passed** (`pytest -q`; +25 for P1.001b/PA.005/resume/K2/base-ink). Placeholder +
 `torch_dtype` scans clean. `compileall src` clean. Figures: F1, F2, F3 done; F4–F5 planned.
 
 ## Current Blockers
 
-- None blocking. G0 approved; ε pre-registered; eval harness + comparator frozen; pretraining loop
-  smoke-passes. Forward: the full sweep (P1.003) needs LAUNCH-A approval, which needs PA.006 (compute
-  ledger). No full training run authorized yet.
+- **BLOCKER (DEC-0017): LAUNCH-A is blocked.** The 1-seed pilot shows both latent JEPA arms below the
+  raw-pixel baseline on metric_M (seam 0.239, block 0.326 vs pixel 0.359); MAE 0.532. The latent recipe
+  is not competitive; launching the sweep now would compare broken encoders. **Needs recipe iteration
+  (PA.005b) — leading fix: LR cosine decay + I-JEPA recipe fidelity — until latent ≥ pixels on the pilot.**
+  Escalated to Ramchand (options A/B/C in DEC-0017). No further compute/recipe changes without direction.
 - Open uncertainty (feeds PA.004): ligature vowels (i/ii/u/uu, 60/216) have no cleanly separable
   sign region — likely report K1 stratified by seam_source.
 - Claim boundary: nothing has been trained or measured. Repo supports "operating system +
@@ -101,20 +113,22 @@ Test suite: **117 passed** (`pytest -q`; +25 for P1.001b/PA.005/resume/K2/base-i
 
 ## Next Recommended Work
 
-1. **TASK LA.001 (LAUNCH-A)** — assemble the gate review and get Ramchand's sign-off. All preconditions
-   met: eval harness frozen ✓, ε pre-registered ✓, 1-seed smoke passes ✓, resume-state ✓, compute ledger
-   ✓ (DEC-0015), K2 premise PASSES ✓ (DEC-0016). Needs: a longer 1-seed **pilot** confirming convergence
-   (provisional 50k-step budget), then human approval. **Surface the K2 caveat in the packet** (below).
-2. **TASK P1.003** (full n≥3-seed sweep, clean tree, checkpoint_every>0) → **P1.004** (G1 decision vs ε
-   via the McNemar comparator). **Do NOT launch P1.003 before LAUNCH-A is approved.**
+**AWAITING RAMCHAND'S DECISION (DEC-0017, A/B/C).** The pilot blocked LAUNCH-A. Options:
+1. **(A) TASK PA.005b — recipe iteration** [recommended]: add LR cosine decay (loss plateaued under
+   constant LR), verify the I-JEPA recipe vs the paper (multi-block masking, WD schedule, target LN,
+   mask-scale), re-pilot until latent JEPA ≥ pixel baseline. Cheap; then re-attempt LAUNCH-A.
+2. **(B) Reframe to "seam, not target"** (MAE-at-seam) — Section 1's null clause permits it; MAE already
+   works (0.532). Narrower, honest.
+3. **(C)** If (A) fails, conclude honestly (the latent mechanism loses to the cheap baselines).
+- Then, only after latent ≥ pixels: **LAUNCH-A** (gate review + sign-off) → **P1.003** sweep (the
+  orchestrator refuses it until `--launch-a-approved`) → **P1.004** G1 decision.
 
-**Live risk to weigh at LAUNCH-A/G1 (from K2 + base-ink probe, DEC-0016 + P1.002b):** base→sign is largely
-sign-LOCATION, but a location-normalised probe shows a real (modest) base-ink compositional signal too —
-concentrated in ligatures (diff−glyph ≈8.2pp). So the mechanism is **not empty**: seam-JEPA has genuine
-structure to latch onto, strongest in 'diff' forms. But geometry still dominates, so block-JEPA staying
-competitive on M is a real risk (the cheap baseline K1 must defeat). Net: **less pessimistic than the raw
-K2 caveat, not a green light** — whether a learned encoder amplifies the ~8pp ligature signal into a
-bottom-quartile-M win is exactly what K1/K3 decide. Weigh before spending the ~15 GPU-h sweep.
+**Two live risks already on record for the eventual G1 (do not lose these):**
+- *K2 (DEC-0016 + P1.002b):* base→sign is largely sign-LOCATION; the pure base-ink compositional signal
+  is real but modest (diff−glyph ≈8.2pp, ligatures). Mechanism not empty, but block-JEPA competitiveness
+  on M is a risk.
+- *Pilot (DEC-0017):* even trained, latent JEPA currently loses to raw pixels and to MAE. The recipe must
+  clear the pixel baseline before the seam-vs-block comparison means anything.
 
 ---
 **Tracker rule:** Update this file and `CHECKPOINT.md` before every commit that changes project

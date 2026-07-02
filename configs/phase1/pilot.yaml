@@ -1,0 +1,38 @@
+# LAUNCH-A pilot — 1 seed, all three objectives (precondition for the full sweep).
+# Loaded by ezhuthu_jepa.train.sweep.run_sweep (1 seed → allowed without --launch-a-approved).
+#
+# Purpose: confirm the full-scale pipeline runs end-to-end (all 21.6k train, checkpoint/resume), that the
+# loss converges healthily, and that the trained encoder plugs into the probe (encoder: jepa) for a real
+# metric_M. NOT a K1/K3 result (1 seed, no CI adjudication). Its loss trajectory informs whether the
+# provisional 50k-step budget (DEC-0015) is right before the operator commits to the sweep.
+
+run_prefix: "phase1-pilot"
+objectives: ["seam_jepa", "block_jepa", "mae_seam"]
+seeds: [0]
+
+base:
+  mask_ratio: 0.25
+  index_jsonl: "data/rendered/augmented/index.jsonl"
+  image_dir: "data/rendered/augmented"
+  exclude_no_sign: true
+  limit_instances: 0
+  img_size: 96
+  patch_size: 8
+  embed_dim: 192
+  depth: 12
+  num_heads: 3
+  pred_dim: 96
+  pred_depth: 4
+  pred_heads: 3
+  batch_size: 128
+  max_steps: 8000
+  lr: 0.001
+  weight_decay: 0.05
+  warmup_steps: 500
+  ema_base: 0.996
+  ema_final: 1.0
+  grad_clip: 1.0
+  device: "cuda"
+  amp_dtype: "bf16"
+  log_every: 200
+  checkpoint_every: 2000

@@ -1,0 +1,41 @@
+{
+  "manifest_version": "1",
+  "run_id": "phase1-pilotprobe-block_jepa-001",
+  "created_at": "2026-07-02T16:29:37.736500+00:00",
+  "code_dirty": true,
+  "config": {
+    "image_dir": "data/rendered/augmented",
+    "split_manifest": "",
+    "render_manifest": "",
+    "index_jsonl": "data/rendered/augmented/index.jsonl",
+    "ridge_lambda": 1.0,
+    "bootstrap_n": 2000,
+    "seed": 42,
+    "encoder": "jepa",
+    "downsample": 32,
+    "checkpoint": "runs/phase1-pilot-block_jepa-seed0/encoder.pt"
+  },
+  "identifiers": {
+    "config_hash": "sha256:a6d9843241008489abf4caf121695c0199a7b7e7fc68cd79739d48a7738dbdce",
+    "code_sha": "618cb710d1119b4dd20fdccadc65b51880285bd7",
+    "data_hash": "sha256:4abd63f965b7acba8456d95bdbfb984d5b28e46f588e7385689d06e922009ec1",
+    "seed": 42,
+    "environment": {
+      "python": "3.13.14",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "processor": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
+      "torch": {
+        "installed": true,
+        "version": "2.10.0+cu130",
+        "cuda_available": true,
+        "cuda_version": "13.0",
+        "device_name": "NVIDIA GeForce RTX 5090"
+      },
+      "packages": {
+        "numpy": "2.4.3",
+        "pillow": "12.1.1",
+        "pyyaml": "6.0.3"
+      }
+    }
+  }
+}

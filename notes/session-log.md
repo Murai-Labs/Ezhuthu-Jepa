@@ -218,3 +218,21 @@ Per-session checkpoints. Append; never edit past entries.
 - Open uncertainties: does a learned seam-JEPA encoder amplify the ~8pp ligature signal into a
   bottom-quartile-M win? Only K1/K3 answer. The glyph 0.306 floor (residual relative-mask geometry) means
   even this probe isn't a perfectly clean composition measure; the diff−glyph gap is the robust estimate.
+
+### 2026-07-02 CT — sweep orchestrator + LAUNCH-A pilot (BLOCKS the sweep)
+- Started from: base-ink done (user: "yes proceed" — build pilot/sweep configs so LAUNCH-A is one command
+  away; the pilot confirms convergence).
+- Did: `train/sweep.py` (one base config → {objective×seed} arms) with a **code-level LAUNCH-A gate**
+  (refuses ≥3-seed run without `--launch-a-approved`) + `sweep.yaml`/`pilot.yaml` + 6 tests. Ran the
+  1-seed pilot (3 objectives × 8k steps). Probed each encoder. Latent arms came in BELOW the pixel
+  baseline (seam 0.255, block 0.286 vs 0.359); MAE 0.532. Hypothesised the probe used the wrong encoder
+  (context, not the I-JEPA EMA target) → added target-encoder save + probe-uses-target; re-ran seam/block.
+- Result: target-encoder fix did NOT rescue — seam 0.239, block 0.326, still < pixel 0.359; mae 0.532.
+  **Genuine recipe deficiency: latent I-JEPA underperforms raw pixels at this scale.** BLOCKS LAUNCH-A
+  (DEC-0017). Loss plateaued under constant LR → leading fix is LR cosine decay + I-JEPA recipe fidelity.
+  Recorded: stuck-log, negative-results, DEC-0017, EXPERIMENT_LOG, task PA.005b, STATUS/CHECKPOINT.
+- Ended at: **LAUNCH-A blocked; escalated to Ramchand (DEC-0017 A/B/C).** Sweep infra ready but gated.
+  124 tests pass; scans clean. Made no further recipe/compute changes pending direction.
+- Open uncertainties: is the latent recipe fixable by LR cosine decay + paper-fidelity, or does the
+  fancy latent objective genuinely lose to MAE/pixels here (→ reframe to "seam, not target", or conclude)?
+  This is the Murai-Labs thesis live: the outer objective must earn its keep over the cheap baselines.

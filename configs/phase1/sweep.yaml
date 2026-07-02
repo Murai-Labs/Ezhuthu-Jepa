@@ -1,0 +1,42 @@
+# Full Stage-A sweep — {seam_jepa, block_jepa, mae_seam} × 3 seeds (TASK P1.003).
+# Loaded by ezhuthu_jepa.train.sweep.run_sweep.
+#
+# ONE base config → every arm derives from it, so architecture / compute / mask-ratio are identical and
+# only the objective (and seed) changes — the clean K1/K3 design. GATED BY LAUNCH-A: the orchestrator
+# REFUSES to execute this (>=3 seeds) without --launch-a-approved, which the operator passes only after
+# docs/GATE_LAUNCH_A_REVIEW.md is signed. 50,000 steps is the provisional budget (DEC-0015); the pilot
+# (configs/phase1/pilot.yaml) confirms convergence before the operator commits.
+
+run_prefix: "phase1-sweep"
+objectives: ["seam_jepa", "block_jepa", "mae_seam"]
+seeds: [0, 1, 2]
+
+base:
+  mask_ratio: 0.25
+  index_jsonl: "data/rendered/augmented/index.jsonl"
+  image_dir: "data/rendered/augmented"
+  exclude_no_sign: true
+  limit_instances: 0            # full 21.6k train (noto); eval font held out
+  # ViT-Tiny/8 (identical across arms)
+  img_size: 96
+  patch_size: 8
+  embed_dim: 192
+  depth: 12
+  num_heads: 3
+  pred_dim: 96
+  pred_depth: 4
+  pred_heads: 3
+  # optimisation (identical across arms)
+  batch_size: 128
+  max_steps: 50000
+  lr: 0.001
+  weight_decay: 0.05
+  warmup_steps: 2000
+  ema_base: 0.996
+  ema_final: 1.0
+  grad_clip: 1.0
+  # runtime
+  device: "cuda"
+  amp_dtype: "bf16"
+  log_every: 200
+  checkpoint_every: 2000        # resume-state each 2k steps (>30min run → AGENTS.md §4)

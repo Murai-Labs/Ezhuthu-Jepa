@@ -468,3 +468,37 @@ understate what a learned encoder extracts (K1/K3 adjudicate). Optional future: 
 base-ink probe to isolate pure composition (non-gating).
 Human Approval: agent's methodological call under the K2 mandate; the caveat is flagged for Ramchand at
 LAUNCH-A (it materially affects the K1 risk assessment).
+
+## DEC-0017 - LAUNCH-A BLOCKED: pilot shows latent I-JEPA underperforms the pixel baseline
+
+Date: 2026-07-02
+Task/Gate: LAUNCH-A (pilot precondition, spec §4)
+Decision: **Block LAUNCH-A / the full sweep (P1.003).** The 1-seed pilot (`phase1-pilot-*`, 8k steps,
+ViT-Tiny/8, mask 0.25, constant LR) shows both latent arms below the raw-pixel baseline on metric_M
+(seam 0.239, block 0.326 with the I-JEPA target encoder; pixel baseline 0.359), while MAE-at-seam
+dominates at 0.532. The target-encoder fix (save + probe the EMA target, the I-JEPA downstream
+representation; commit this turn) did not rescue them, so this is a genuine recipe/scale deficiency,
+not an eval-protocol artifact. Launching the ~15 GPU-h sweep now would compare broken latent encoders
+(K1 = noise) and hand K3 to MAE as an artifact. **Do not launch until latent JEPA is competitive with
+the pixel baseline on the pilot.**
+Rationale: this is the pilot doing its job — catching an under-baked mechanism for ~1 GPU-h before the
+expensive run, and the Murai-Labs thesis in action (the fancy latent objective must beat the cheap
+baselines; so far it does not). Cheap-baseline gate discipline: MAE + raw pixels are the baselines, and
+they currently win.
+Alternatives Considered: (a) launch anyway and report — rejected (wastes ~15 GPU-h comparing broken
+encoders, pollutes the K1/K3 record); (b) declare the project killed now — rejected (the recipe is
+admittedly simplified vs the I-JEPA paper; one cheap iteration is owed before a kill).
+Options escalated to Ramchand: (A) **recipe iteration** [recommended] — add LR cosine decay (loss
+plateaued under constant LR), verify the recipe vs the I-JEPA paper (multi-block masking, WD schedule,
+target LayerNorm, mask-scale), re-pilot until latent ≥ pixels; (B) **reframe to "seam, not target"**
+(MAE-at-seam), which Section 1's null-hypothesis clause explicitly permits; (C) if (A) fails, conclude
+honestly. Recommend (A) first.
+Evidence / Source Docs: `notes/negative-results/pilot-latent-jepa-underperforms-pixel-baseline.md`,
+`notes/stuck-log.md` (2026-07-02), runs `phase1-pilot-{seam,block,mae}-seed0`,
+`phase1-pilotprobe-*-001`; `src/ezhuthu_jepa/train/{sweep.py,pretrain.py}`.
+Measured Result: metric_M — seam 0.239 [0.230,0.248], block 0.326 [0.316,0.336], mae 0.532
+[0.521,0.542]; pixel baseline 0.359. 1 seed, non-adjudicating.
+Follow-up: NEW task PA.005b (recipe iteration) before any LAUNCH-A retry. LAUNCH-A gate review stays
+unsigned. Sweep orchestrator (`sweep.py`) already refuses the ≥3-seed run without `--launch-a-approved`.
+Human Approval: **REQUIRED** — Ramchand chooses A/B/C. The agent will not iterate the recipe or launch
+anything further without direction.

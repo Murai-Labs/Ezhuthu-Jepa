@@ -110,6 +110,20 @@ def test_pretrain_smoke_encoder_loads_into_probe(synthetic_index, tmp_path):
     assert np.isfinite(feats).all()
 
 
+def test_pretrain_saves_target_encoder_for_latent_only(synthetic_index, tmp_path):
+    import torch
+
+    latent = tmp_path / "lat"
+    P.train(_tiny_config(synthetic_index, "seam_jepa"), latent)
+    ck_latent = torch.load(latent / "encoder.pt", weights_only=False)
+    assert ck_latent["target_encoder"] is not None          # latent → EMA target saved for probing
+
+    pixel = tmp_path / "pix"
+    P.train(_tiny_config(synthetic_index, "mae_seam"), pixel)
+    ck_pixel = torch.load(pixel / "encoder.pt", weights_only=False)
+    assert ck_pixel["target_encoder"] is None               # pixel/MAE → no target encoder
+
+
 def test_pretrain_rejects_unknown_objective(synthetic_index):
     with pytest.raises(ValueError):
         _tiny_config(synthetic_index, "not_an_objective")

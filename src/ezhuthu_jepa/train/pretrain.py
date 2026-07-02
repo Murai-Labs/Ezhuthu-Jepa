@@ -491,7 +491,13 @@ def train(cfg: PretrainConfig, run_dir: Path, resume: bool = False) -> Path:
     executed = max(1, cfg.max_steps - start_step)
 
     torch.save(
-        {"arch": _arch_dict(cfg), "context_encoder": context.state_dict()},
+        {
+            "arch": _arch_dict(cfg),
+            "context_encoder": context.state_dict(),
+            # I-JEPA's downstream representation is the EMA TARGET encoder (it sees full images);
+            # saved for latent objectives so the probe uses it. None for pixel (MAE) — no target encoder.
+            "target_encoder": target.state_dict() if target is not None else None,
+        },
         run_dir / "encoder.pt",
     )
     payload = {
@@ -530,11 +536,13 @@ def _arch_dict(cfg: PretrainConfig) -> dict:
 
 
 # --------------------------------------------------------------------------------------------------
-# Probe adapter — lets the frozen PA.003 harness load a trained context encoder (encoder: jepa).
+# Probe adapter — lets the frozen PA.003 harness load a trained encoder (encoder: jepa).
+# For latent objectives the downstream representation is the EMA TARGET encoder (I-JEPA convention);
+# for pixel (MAE) there is only the context encoder. `load_probe_encoder` picks the right one.
 # --------------------------------------------------------------------------------------------------
 
 class JepaEncoder:
-    """Frozen context encoder wrapped for the akshara probe: mean-pooled token features."""
+    """Frozen encoder wrapped for the akshara probe: mean-pooled token features over the full image."""
 
     name = "jepa"
 
@@ -560,7 +568,11 @@ class JepaEncoder:
 
 
 def load_probe_encoder(checkpoint: str, device: str = "cuda") -> JepaEncoder:
-    """Load a PA.005 ``encoder.pt`` for use as the probe's frozen encoder (PA.003 ``encoder: jepa``)."""
+    """Load a PA.005 ``encoder.pt`` as the probe's frozen encoder (PA.003 ``encoder: jepa``).
+
+    Uses the EMA **target** encoder when present (latent objectives — the I-JEPA downstream
+    representation), else the context encoder (pixel/MAE, which has no target encoder).
+    """
     ckpt = torch.load(checkpoint, map_location="cpu", weights_only=False)
     arch = ckpt["arch"]
     cfg = PretrainConfig(
@@ -569,7 +581,8 @@ def load_probe_encoder(checkpoint: str, device: str = "cuda") -> JepaEncoder:
         img_size=arch["img_size"], patch_size=arch["patch_size"], embed_dim=arch["embed_dim"],
         depth=arch["depth"], num_heads=arch["num_heads"], mlp_ratio=arch["mlp_ratio"],
     )
-    return JepaEncoder(cfg, ckpt["context_encoder"], device=device)
+    state = ckpt.get("target_encoder") or ckpt["context_encoder"]
+    return JepaEncoder(cfg, state, device=device)
 
 
 def main(argv: list[str] | None = None) -> int:
