@@ -68,3 +68,13 @@ Per-session checkpoints. Append; never edit past entries.
   committed **F1** (seam-localization montage, Noto) citing run pa001-render-001. 58 tests pass. DEC-0007.
 - Ended at: figures pipeline live; F1 captured. Next: PA.002; capture F2 (freq dist) there.
 - Open uncertainties carried forward: ε unset; small-n strata.
+
+### 2026-07-01 17:45 CT — G0 approved + ε pre-registered
+- Started from: Ramchand sign-off ("G0 signed off and p1.001 approved").
+- Did: recorded G0 approval (DEC-0008, `GATE_G0_REVIEW.md` → Approved) and pre-registered ε (DEC-0009,
+  `notes/decision-gates/g1-cheap-baseline.md`): ε = 2.0 pp + non-overlapping 95 % CIs (n≥3), bottom
+  quartile by Project Madurai freq (membership frozen at PA.002, no reopening). Marked P1.001 done;
+  resolved the ε uncertainty; updated trackers. No baseline has run, so pre-registration precedes results.
+- Ended at: G0 approved, ε locked, P1.001 done. Next: PA.002 (freq split + figure F2). LAUNCH-A still
+  pending before the P1.003 sweep.
+- Open uncertainties carried forward: small n per (bucket×seam_source×font) stratum in the tail.

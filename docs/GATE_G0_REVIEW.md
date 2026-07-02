@@ -8,8 +8,9 @@ no run is traceable and no gate is adjudicable.
 
 ## Gate Status
 
-Status: Not yet approved (drafted 2026-07-01). Approval is recorded in `docs/DECISION_LOG.md`
-(DEC-0001); this file preserves the review evidence.
+Status: **Approved 2026-07-01 by Ramchand.** Approval is recorded in `docs/DECISION_LOG.md`
+(DEC-0008); this file preserves the review evidence. Phase-0 code (P0.003/P0.004) and PA.001 are
+already complete; G1-phase work continues (PA.002 → PA.003 → sweep).
 
 ## Required Evidence
 
@@ -34,8 +35,9 @@ operating system is in place — it makes **no scientific claim** whatsoever.
 
 ## Required Next Work Before Approval
 
-- Human (Ramchand) confirms the derived gate chain, metric M, and ε provisional values match intent.
-- Confirm `python -m compileall src && pytest -q` passes on the target machine.
+- ~~Human (Ramchand) confirms the derived gate chain, metric M, and ε values match intent.~~ Done
+  (DEC-0004 metric/baselines/corpus; DEC-0009 ε pre-registered).
+- ~~Confirm `pytest -q` passes on the target machine.~~ Done (58 passed).
 
 ## Approval Template (paste into docs/DECISION_LOG.md when granted)
 

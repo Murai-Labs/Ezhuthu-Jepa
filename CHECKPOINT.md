@@ -1,6 +1,6 @@
 # Ezhuthu-Jepa — Checkpoint
 
-Last updated: 2026-07-01 17:15 CT
+Last updated: 2026-07-01 17:45 CT
 
 ## Resume Point
 
@@ -21,7 +21,7 @@ Madurai), then **PA.003** (eval harness), **P1.001** (pre-register ε), **PA.004
 
 ## Current Checkpoint
 
-- Phase: **G0 code done; PA.001 done.** LAUNCH-A / G1 not started.
+- Phase: **G0 APPROVED (DEC-0008); PA.001 done; ε PRE-REGISTERED (DEC-0009).** LAUNCH-A / G1 sweep not started.
 - What is done: operating system + provenance writer + config contract (P0.003/P0.004), and the Tamil
   rendering pipeline (PA.001): `data/{grapheme,render,build_uyirmei}.py`, HarfBuzz+FreeType shaping,
   glyph/diff seam hybrid, **multi-font (Noto+Nirmala)**. All 216 uyirmei rendered under both fonts →
@@ -33,8 +33,8 @@ Madurai), then **PA.003** (eval harness), **P1.001** (pre-register ε), **PA.004
   with `seed=SEED_DETERMINISTIC` where there is no RNG (DEC-0006). Paper figures: add a generator
   under `src/ezhuthu_jepa/figures/` + a `<fig>.prov.json` sidecar and a row in `docs/FIGURES.md`
   (DEC-0007); F1 done, F2–F5 land with PA.002/PA.003/P1.003/P2.003.
-- Authorization gate status: G0 evidence drafted in `docs/GATE_G0_REVIEW.md`, **pending human
-  approval**. LAUNCH-A not requested. No training run authorized. ε still unset (defer to P1.001).
+- Authorization gate status: **G0 approved** (DEC-0008); **ε pre-registered** (DEC-0009). LAUNCH-A
+  **not yet approved** — do not launch the full Stage-A sweep (P1.003) until it is. No training run authorized.
 
 ## Do Not Do
 

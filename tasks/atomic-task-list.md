@@ -231,13 +231,15 @@ n ≥ 3 seeds, 95 % bootstrap CIs. ε = 2.0 pp / non-overlapping CIs (pre-regist
   1. ε = 2.0 pp on M with the binding adjudicator "non-overlapping 95 % bootstrap CIs, n ≥ 3 seeds",
      stated with a one-line justification.
   2. Recorded with a date **before** any P1.002+ or full-sweep run.
-- **Evidence of completion:** DECISION_LOG entry + gate-doc ε section.
-- **Validation:** human review; timestamp precedes baseline run dates.
+- **Evidence of completion:** DEC-0009 + `notes/decision-gates/g1-cheap-baseline.md` (ε section,
+  dated 2026-07-01, approved by Ramchand; before any baseline run).
+- **Validation:** human review; timestamp precedes all baseline runs (none have run).
 - **Measurements / logs:** n/a
-- **Dependencies:** P0.001, PA.002
+- **Dependencies:** P0.001 (ε margin/rule pre-registered independent of PA.002; the bottom-quartile
+  compound *membership* is computed at PA.002 and does not reopen ε).
 - **Blocking gate:** G1
 - **Estimated effort:** 1
-- **Done:** [ ]
+- **Done:** [x]
 
 #### TASK P1.002: K2 premise probe — base→sign predictability
 - **What:** A supervised probe predicting vowel-sign class from the consonant-base region only.

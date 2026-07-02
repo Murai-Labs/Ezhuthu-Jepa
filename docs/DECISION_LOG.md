@@ -213,3 +213,46 @@ Measured Result: F1 regenerable via `python -m ezhuthu_jepa.figures.f1_seam_loca
 Follow-up: capture F2 (frequency dist, PA.002), F3 (accuracy per bucket×seam_source×font, PA.003),
 F4 (K1/K3 main comparison, P1.003), F5 (K4 degradation, P2.003) as those runs land.
 Human Approval: pending.
+
+---
+
+## DEC-0008 - G0 gate APPROVED
+
+Date: 2026-07-01
+Task/Gate: G0
+Decision: G0 (Repo Skeleton Ready) **approved** by Ramchand. The operating system is accepted:
+governance contract (CLAUDE.md ≡ AGENTS.md), trackers, docs, append-only notes, atomic task list,
+provenance + config contract, and the PA.001 rendering pipeline. This approval also confirms as
+reviewed-and-accepted the standing implementation decisions taken in the G0/PA.001 phase whose entries
+were marked "pending": DEC-0001 (scaffold), DEC-0003 (stdlib config/provenance), DEC-0005 (HarfBuzz
+rendering), DEC-0007 (figures convention). Per the append-only log rule this entry grants that approval
+rather than overwriting those entries.
+Rationale: skeleton + Phase-0 code + PA.001 complete and verified (58 tests pass); gate chain, metric M,
+baselines, corpus, and ε all confirmed (DEC-0004, DEC-0009).
+Evidence / Source Docs: `docs/GATE_G0_REVIEW.md` (Approved), full suite 58 passed.
+Measured Result: N/A (gate).
+Follow-up: G1-phase data/eval work (PA.002 → PA.003) proceeds. LAUNCH-A remains the next gate, before
+the full Stage-A sweep; no training run is authorized yet.
+Human Approval: Ramchand, 2026-07-01.
+
+---
+
+## DEC-0009 - ε PRE-REGISTERED (G1 falsification threshold locked)
+
+Date: 2026-07-01
+Task/Gate: G1 (TASK P1.001)
+Decision: ε and the G1 decision rule are **pre-registered before any baseline run** (approved by
+Ramchand 2026-07-01): **ε = 2.0 pp on metric M**, with the binding adjudicator **"> ε AND
+non-overlapping 95 % bootstrap CIs across n ≥ 3 seeds."** Bottom-quartile cutoff = lowest 25 % of the
+216 uyirmei by Project Madurai frequency (membership computed deterministically at PA.002, which does
+not reopen ε). Reported stratified by seam_source and font (DEC-0006). Full record:
+`notes/decision-gates/g1-cheap-baseline.md`.
+Rationale: fixing the margin/rule before results exist is the whole point of the cheap-baseline gate —
+it cannot be rationalized after seeing the sweep. Formalizes the provisional value from DEC-0002.
+Alternatives Considered: CIs-only (no pp floor) / 3.0 pp / 1.0 pp — see the earlier ε decision prompt;
+2.0 pp chosen as the balanced margin (sub-2pp ≈ seed noise at probe scale).
+Evidence / Source Docs: `notes/decision-gates/g1-cheap-baseline.md`, `docs/GATE_G1_REVIEW.md`.
+Measured Result: N/A (pre-registration; no baseline has run).
+Follow-up: P1.002 (K2 probe) and P1.003 (sweep) are evaluated against this fixed ε; P1.004 appends the
+PASS/BLOCK outcome. Bottom-quartile membership frozen at PA.002.
+Human Approval: Ramchand, 2026-07-01.

@@ -1,6 +1,6 @@
 # Ezhuthu-Jepa — Status
 
-Last updated: 2026-07-01 17:15 CT
+Last updated: 2026-07-01 17:45 CT
 
 ## Methodology Decisions (DEC-0004, DEC-0006)
 
@@ -9,7 +9,8 @@ Last updated: 2026-07-01 17:15 CT
 - Cheap-baseline set = **block-JEPA, MAE-at-seam, base→sign probe** (the three) — confirmed.
 - Frequency corpus = **Project Madurai** — confirmed (resolves RISKS Q005).
 - Rendering is **multi-font (Noto + Nirmala)**; provenance **unified** for seedless data-gen runs.
-- **ε still UNSET** — provisional 2.0 pp / non-overlapping CIs stands; pin at P1.001 before any baseline.
+- **ε PRE-REGISTERED** (DEC-0009): 2.0 pp on M + non-overlapping 95 % CIs (n ≥ 3), before any baseline.
+- **G0 gate APPROVED** (DEC-0008, `GATE_G0_REVIEW.md`).
 
 ## Current State
 
@@ -45,8 +46,8 @@ land (F1 done; F2–F5 planned in `docs/FIGURES.md`).
 
 ## Current Blockers
 
-- None blocking. Forward blocker: G1 needs PA.002 (frequency split) + PA.003 (eval harness) frozen
-  and ε pre-registered (P1.001) before any baseline run.
+- None blocking. G0 approved; ε pre-registered. Forward: G1 still needs PA.002 (frequency split) +
+  PA.003 (eval harness) frozen; and the full sweep (P1.003) needs LAUNCH-A approval. No run authorized yet.
 - Open uncertainty (feeds PA.004): ligature vowels (i/ii/u/uu, 60/216) have no cleanly separable
   sign region — likely report K1 stratified by seam_source.
 - Claim boundary: nothing has been trained or measured. Repo supports "operating system +
@@ -54,10 +55,11 @@ land (F1 done; F2–F5 planned in `docs/FIGURES.md`).
 
 ## Next Recommended Work
 
-1. **TASK PA.002** — frequency-stratified split from Project Madurai (DEC-0004) + bottom-quartile cutoff.
-2. **TASK PA.003** — akshara-recognition eval harness (metric M with bootstrap CIs).
-3. **TASK P1.001** — pre-register ε and the bottom-quartile cutoff **before** any baseline run.
-4. **TASK PA.004** — seam-masking module; decide ligature-seam handling (stratify by seam_source).
+1. **TASK PA.002** — frequency-stratified split from Project Madurai (DEC-0004); freeze bottom-quartile
+   membership (does not reopen ε). Capture figure F2 (frequency distribution + cutoff).
+2. **TASK PA.003** — akshara-recognition eval harness (metric M, per bucket × seam_source × font, CIs).
+3. **TASK PA.004** — seam-masking module (mask carries seam_source; ligatures via diff region).
+4. Then **P1.002** (K2 probe) → LAUNCH-A → **P1.003** (sweep) → **P1.004** (G1 decision vs ε).
 
 ---
 **Tracker rule:** Update this file and `CHECKPOINT.md` before every commit that changes project

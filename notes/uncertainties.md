@@ -42,4 +42,5 @@ Carry uncertainties forward each session until resolved.
 
 ### 2026-07-01 — Provisional ε = 2.0 pp not yet formally pre-registered
 - Why it matters: G1 is un-adjudicable without a pre-registered ε dated before baseline runs.
-- Status: Open — DEC-0002 records it provisionally; TASK P1.001 formalizes it.
+- Status: **Resolved 2026-07-01** — ε = 2.0 pp + non-overlapping 95 % CIs (n ≥ 3) pre-registered and
+  approved by Ramchand before any baseline (DEC-0009; `notes/decision-gates/g1-cheap-baseline.md`).
