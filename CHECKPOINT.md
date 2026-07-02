@@ -2,6 +2,10 @@
 
 Last updated: 2026-07-02 CT
 
+> **⛔ PROJECT CONCLUDED (DEC-0019).** G1 = BLOCK: the latent seam-JEPA thesis is falsified by the pilot
+> (block > seam; MAE ≫ latent). No resume point — no further work planned. This file is retained for the
+> record. Reusable assets + the honest negative survive (see DEC-0019).
+
 ## Resume Point
 
 To verify a clean state and continue:

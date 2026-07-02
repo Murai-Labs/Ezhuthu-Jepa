@@ -254,3 +254,17 @@ Per-session checkpoints. Append; never edit past entries.
 - Open uncertainties: does the seam MASK help at all with a pixel target (MAE-seam vs MAE-block)? If not,
   seam is not special even for MAE → stronger kill. Would anti-collapse surgery (VICReg/multi-block/
   ViT-Small) lift latent above the baselines? Prior now against it; not worth the compute without a decision.
+
+### 2026-07-02 CT — PROJECT CONCLUDED (G1 = BLOCK, DEC-0019)
+- Started from: PA.005b kill signal escalated to Ramchand.
+- Did: Ramchand's decision — "Goal was to use a JEPA model to help Tamil — we end it here." Recorded the
+  G1 = BLOCK conclusion (DEC-0019): the latent seam-JEPA thesis is falsified by the 1-seed pilot (block
+  0.335 > seam 0.290 beyond ε; MAE 0.532 ≫ latent). Filled the GATE_G1_REVIEW pilot comparison table,
+  set STATUS/CHECKPOINT to CONCLUDED. Full n≥3 sweep intentionally NOT run (budget preserved). Section 3
+  cheap-baseline gate worked as designed — killed for ~2 GPU-h, not ~15 + months.
+- Ended at: **Project concluded.** Reusable assets survive: frequency-stratified benchmark + font-holdout
+  split, encoder-agnostic eval harness (metric M + bootstrap CIs + paired McNemar), multi-font Tamil
+  rendering + seam-labelling pipeline, provenance/config contract, switchable seam/block/MAE pretraining
+  loop with resume. The honest negative is itself a citable result.
+- Open uncertainties: none actionable under this thesis. Any revival needs a materially different approach
+  (separate decision), not a re-run of the falsified latent-seam hypothesis.

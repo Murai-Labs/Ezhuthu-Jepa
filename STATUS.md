@@ -2,6 +2,15 @@
 
 Last updated: 2026-07-02 CT
 
+> # ⛔ PROJECT CONCLUDED — G1 = BLOCK (DEC-0019, 2026-07-02)
+> The thesis (seam-masked **latent** JEPA beats block-masking / MAE-at-seam on metric M) is **falsified**
+> by the 1-seed LAUNCH-A pilot: **block-JEPA (0.335) > seam-JEPA (0.290)** beyond ε (K1 reversed) and
+> **MAE-at-seam (0.532) ≫ latent seam-JEPA (0.290)** (K3 reversed). Both mandated cheap baselines exceed
+> the mechanism; recipe iteration (cosine LR + scale) did not reverse it. Killed fast and cheaply (~2
+> GPU-h, not ~15) — the cheap-baseline gate working as designed. Reusable assets (benchmark, eval harness,
+> rendering pipeline, provenance system, pretraining loop) and the honest negative survive. **No further
+> compute; the full n≥3 sweep was intentionally not run.**
+
 ## Methodology Decisions (DEC-0004, DEC-0006)
 
 - Metric **M = bottom-quartile-frequency akshara top-1 accuracy** — confirmed; **reported stratified
@@ -102,14 +111,9 @@ Test suite: **117 passed** (`pytest -q`; +25 for P1.001b/PA.005/resume/K2/base-i
 
 ## Current Blockers
 
-- **BLOCKER (DEC-0018): cheap-baseline kill signal — potential Section 3 re-scope/termination.** Ramchand
-  chose option A (recipe iteration, PA.005b). Added LR cosine decay + swept steps. Result at the matched
-  16k-cosine recipe: **block-JEPA 0.335 > seam-JEPA 0.290 (K1 REVERSED, non-overlapping CIs); MAE-at-seam
-  0.532 ≫ latent (K3 REVERSED); both latent arms < pixel baseline 0.359; seam degrades at 50k (0.212).**
-  Both mandated cheap baselines exceed the mechanism beyond ε — the Section 3 falsification condition (1
-  seed, strong/consistent). Recipe iteration did NOT reverse it. **Do NOT launch the sweep.** Escalated to
-  Ramchand: suggested last cheap test = MAE-at-block vs MAE-at-seam, then re-scope/reframe/conclude. No
-  further compute or direction changes without Ramchand.
+- **N/A — project concluded (DEC-0019).** G1 = BLOCK on the pilot; no further work planned. See the
+  banner above and DEC-0016/0017/0018/0019. The sweep orchestrator (`sweep.py`) still gates the full run
+  behind `--launch-a-approved`, which was never granted.
 - Open uncertainty (feeds PA.004): ligature vowels (i/ii/u/uu, 60/216) have no cleanly separable
   sign region — likely report K1 stratified by seam_source.
 - Claim boundary: nothing has been trained or measured. Repo supports "operating system +
@@ -117,22 +121,11 @@ Test suite: **117 passed** (`pytest -q`; +25 for P1.001b/PA.005/resume/K2/base-i
 
 ## Next Recommended Work
 
-**AWAITING RAMCHAND'S DECISION (DEC-0017, A/B/C).** The pilot blocked LAUNCH-A. Options:
-1. **(A) TASK PA.005b — recipe iteration** [recommended]: add LR cosine decay (loss plateaued under
-   constant LR), verify the I-JEPA recipe vs the paper (multi-block masking, WD schedule, target LN,
-   mask-scale), re-pilot until latent JEPA ≥ pixel baseline. Cheap; then re-attempt LAUNCH-A.
-2. **(B) Reframe to "seam, not target"** (MAE-at-seam) — Section 1's null clause permits it; MAE already
-   works (0.532). Narrower, honest.
-3. **(C)** If (A) fails, conclude honestly (the latent mechanism loses to the cheap baselines).
-- Then, only after latent ≥ pixels: **LAUNCH-A** (gate review + sign-off) → **P1.003** sweep (the
-  orchestrator refuses it until `--launch-a-approved`) → **P1.004** G1 decision.
+**None — project concluded (DEC-0019).** No further tasks planned under this thesis.
 
-**Two live risks already on record for the eventual G1 (do not lose these):**
-- *K2 (DEC-0016 + P1.002b):* base→sign is largely sign-LOCATION; the pure base-ink compositional signal
-  is real but modest (diff−glyph ≈8.2pp, ligatures). Mechanism not empty, but block-JEPA competitiveness
-  on M is a risk.
-- *Pilot (DEC-0017):* even trained, latent JEPA currently loses to raw pixels and to MAE. The recipe must
-  clear the pixel baseline before the seam-vs-block comparison means anything.
+Optional future work (separate decision, not scheduled): open-release the reusable assets + honest
+negative as a short report; revisit only with a materially different hypothesis (pixel-target-at-seam on
+its own terms, larger scale, or an anti-collapse latent recipe) — not under the falsified latent thesis.
 
 ---
 **Tracker rule:** Update this file and `CHECKPOINT.md` before every commit that changes project

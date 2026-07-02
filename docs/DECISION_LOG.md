@@ -547,3 +547,45 @@ reframe survive?); (ii) **re-scope/reframe** per Section 3; (iii) **conclude** w
 the last cheap datapoint, then decide (ii)/(iii); do NOT launch the full sweep.
 Human Approval: **REQUIRED** — this is a potential project re-scope/termination (Section 3). No further
 compute or direction changes without Ramchand.
+
+## DEC-0019 - G1 = BLOCK; PROJECT CONCLUDED (Section 3 cheap-baseline falsification)
+
+Date: 2026-07-02
+Task/Gate: G1 (final)
+Decision: **Conclude the Ezhuthu-JEPA project.** Ramchand's call: "Goal was to use a JEPA model to help
+Tamil — we end it here." The central thesis (seam-masked **latent** JEPA beats {block-masking JEPA,
+MAE-at-seam} on M = bottom-quartile-frequency akshara accuracy) is **falsified** by the LAUNCH-A pilot:
+at the matched best recipe, **block-JEPA (0.335) > seam-JEPA (0.290)** beyond ε with non-overlapping CIs
+(K1 reversed), and **MAE-at-seam (0.532) ≫ latent seam-JEPA (0.290)** (K3 reversed). Both mandated cheap
+baselines exceed the mechanism; recipe iteration (cosine LR + scale, DEC-0018) did not reverse it, and
+more training degraded the latent representation. G1 = **BLOCK**.
+Rationale: this is the Section 3 gate working as designed and the Murai-Labs thesis confirmed — the
+latent outer objective did not earn its keep over a simpler pixel-reconstruction target on this task at
+evenings-scale. The pilot delivered the kill for ~2 GPU-hours instead of the ~15 GPU-h full sweep and
+months of downstream work. Scope-integrity win: killed fast, cheaply, honestly.
+Basis + honest caveat: the decision rests on a **1-seed pilot**, not the pre-registered n≥3 sweep. The
+formal G1 rule wanted n≥3 with non-overlapping CIs; Ramchand elected to conclude on the pilot because the
+signal is strong, consistent across three recipe variants, and adverse on **both** kill criteria — so the
+full sweep would most likely spend the budget to confirm a kill. Recorded as a limitation, not hidden.
+What the negative result means (for any future write-up): on rendered multi-font Tamil aksharas at
+evenings-scale (ViT-Tiny/8, ~20k augmented instances), (1) masking the grapheme **seam** did not beat
+generic **block** masking for compositional recognition, and (2) a **latent** JEPA target was clearly
+worse than **pixel** reconstruction (MAE) — the latter both stronger and stable. The K2 premise (base→
+sign) held only via sign *location*, with a modest base-ink composition signal in ligatures (DEC-0016,
+P1.002b) — consistent with a weak compositional prior that the latent objective failed to exploit.
+Reusable assets that survive the conclusion (open-release candidates): the frequency-stratified
+akshara-recognition **benchmark** + augmented font-holdout split (PA.002/PA.4b), the encoder-agnostic
+**eval harness** with metric M + bootstrap CIs + paired McNemar (PA.003/P1.001b), the multi-font Tamil
+**rendering + seam-labelling pipeline** (PA.001/PA.004), the **provenance/config contract** (P0.003/4),
+and the switchable seam/block/MAE **pretraining loop** with resume (PA.005). The honest negative itself
+is a citable result.
+Evidence / Source Docs: `docs/GATE_G1_REVIEW.md` (pilot comparison table), DEC-0016/0017/0018,
+`notes/negative-results/{pilot-latent-jepa-underperforms-pixel-baseline.md,k2-base-ink-signal-is-location-not-composition.md}`,
+`notes/stuck-log.md`, runs `phase1-k2probe-001`, `phase1-baseink-001`, `phase1-pilot*`.
+Measured Result: seam 0.290 < block 0.335 (K1 reversed); seam 0.290 ≪ MAE 0.532 (K3 reversed); both < /
+mixed vs pixel 0.359. Section 3 falsification met (pilot, n=1).
+Follow-up: G2–G3 not entered. Full n≥3 sweep NOT run (budget preserved; `sweep.py` still gates it). No
+further compute. Optional (future, separate decision): open-release the benchmark + harness + honest
+negative as a short report; revisit only with a materially different approach (e.g. pixel-target-at-seam
+as its own hypothesis, larger scale, or anti-collapse latent recipe) — not under this thesis.
+Human Approval: **Ramchand, 2026-07-02 — CONCLUDE.**

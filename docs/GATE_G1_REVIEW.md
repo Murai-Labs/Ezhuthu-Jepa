@@ -9,8 +9,10 @@ lives or dies here."*
 
 ## Gate Status
 
-Status: Not yet approved. Approval is recorded in `docs/DECISION_LOG.md`; this file preserves the
-review evidence.
+Status: **BLOCK → PROJECT CONCLUDED (2026-07-02, DEC-0019).** Decided on the **1-seed LAUNCH-A pilot**
+(not the full n≥3 sweep): both cheap baselines exceed the mechanism on M, on both kill criteria. Ramchand
+elected to conclude rather than spend ~15 GPU-h formalising a strongly-indicated kill. This is a
+first-class negative result (§2.5), not a failure to hide.
 
 ## Null Hypothesis Under Test
 
@@ -24,12 +26,27 @@ prior kill-gate: if it cannot beat chance clearly, terminate before scaling.
 
 | Requirement | Evidence (path) | Status |
 |-------------|-----------------|--------|
-| ε + cutoff pre-registered before runs | `docs/DECISION_LOG.md` (P1.001) | Missing |
-| K2 premise probe result on M's split | run-id `phase1-k2probe-001`, `metrics.json` | Missing |
-| seam-JEPA × n≥3 seeds on M | run-ids `phase1-sweep-seamjepa-seed*` | Missing |
-| block-JEPA × n≥3 seeds on M (K1 baseline) | run-ids `phase1-sweep-blockjepa-seed*` | Missing |
-| MAE-at-seam × n≥3 seeds on M (K3 baseline) | run-ids `phase1-sweep-maeseam-seed*` | Missing |
-| Comparison table vs ε with CIs | `notes/decision-gates/g1-cheap-baseline.md` | Missing |
+| ε + cutoff pre-registered before runs | `docs/DECISION_LOG.md` (DEC-0009/0013) | ✅ Done |
+| K2 premise probe result on M's split | run-id `phase1-k2probe-001`, `metrics.json` | ✅ Done (PASS, caveat DEC-0016) |
+| seam-JEPA on M | `phase1-pilot*-seam_jepa-*` (1 seed pilot; full sweep not run) | ⚠ Pilot only |
+| block-JEPA on M (K1 baseline) | `phase1-pilot*-block_jepa-*` (1 seed pilot) | ⚠ Pilot only |
+| MAE-at-seam on M (K3 baseline) | `phase1-pilot-mae_seam-*` (1 seed pilot) | ⚠ Pilot only |
+| Comparison table vs ε with CIs | this file (below) + DEC-0018 | ✅ Done (pilot) |
+
+## Pilot Comparison Table (1 seed, target-encoder probe, metric M on the augmented font-holdout eval)
+
+| Arm | Recipe | metric_M | vs seam | vs pixel 0.359 |
+|-----|--------|---------:|---------|----------------|
+| seam-JEPA (mechanism) | 16k cosine | 0.290 [.280,.300] | — | below |
+| block-JEPA (K1 baseline) | 16k cosine | **0.335** [.325,.345] | **+4.5 pp, non-overlapping** | below |
+| MAE-at-seam (K3 baseline) | 8k | **0.532** [.521,.542] | **+24 pp** | above |
+| seam-JEPA | 50k cosine | 0.212 [.204,.221] | degrades with scale | below |
+
+**K1 verdict:** block-JEPA **exceeds** seam-JEPA beyond ε=2 pp (non-overlapping CIs) → the seam prior is
+**not earned**. **K3 verdict:** MAE-at-seam **exceeds** latent seam-JEPA by ~24 pp → the latent target
+**loses to the pixel target**. Both cheap baselines win. (Section 3 falsification; n=1 pilot — the full
+n≥3 sweep was not run because the pilot signal is strong and consistent on both criteria, and running it
+would spend ~15 GPU-h to confirm a likely kill.)
 
 ## Decision Rule
 
