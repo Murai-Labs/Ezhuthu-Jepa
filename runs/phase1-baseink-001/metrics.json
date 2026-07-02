@@ -1,0 +1,50 @@
+{
+  "run_id": "phase1-baseink-001",
+  "task": "P1.002b (exploratory, non-gating)",
+  "encoder": "pixel32",
+  "n_train": 19800,
+  "n_eval": 29700,
+  "normalisation": {
+    "canvas": 64,
+    "margin": 4,
+    "ink_threshold": 32,
+    "removes": "absolute location + scale; preserves base-ink shape"
+  },
+  "base_ink_to_sign": {
+    "overall": {
+      "accuracy": 0.3311784511784512,
+      "ci_low": 0.3261607744107744,
+      "ci_high": 0.3363644781144781,
+      "n": 29700
+    },
+    "chance": 0.09090909090909091,
+    "majority": 0.09090909090909091,
+    "above_chance": true,
+    "by_seam_source": {
+      "diff": {
+        "accuracy": 0.3883333333333333,
+        "ci_low": 0.37821944444444444,
+        "ci_high": 0.39855555555555555,
+        "n": 9000
+      },
+      "glyph": {
+        "accuracy": 0.30632850241545895,
+        "ci_low": 0.30019323671497583,
+        "ci_high": 0.3125144927536232,
+        "n": 20700
+      }
+    }
+  },
+  "base_ink_to_consonant_control": {
+    "overall": {
+      "accuracy": 0.38087542087542087,
+      "ci_low": 0.3751170033670034,
+      "ci_high": 0.3865993265993266,
+      "n": 29700
+    },
+    "chance": 0.05555555555555555,
+    "majority": 0.05555555555555555,
+    "normalisation_preserved_ink": true
+  },
+  "interpretation": "High consonant accuracy + near-chance sign accuracy ⇒ the base ink does NOT linearly encode the sign; the naive K2 signal was location (DEC-0016). Above-chance sign accuracy in the 'diff' (ligature) stratum ⇒ real but likely weak compositional structure a learned encoder may amplify. Exploratory — informs the K1 risk read, not a gate."
+}

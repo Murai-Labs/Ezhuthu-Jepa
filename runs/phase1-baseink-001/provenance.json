@@ -1,0 +1,40 @@
+{
+  "manifest_version": "1",
+  "run_id": "phase1-baseink-001",
+  "created_at": "2026-07-02T15:46:59.130393+00:00",
+  "code_dirty": true,
+  "config": {
+    "index_jsonl": "data/rendered/augmented/index.jsonl",
+    "image_dir": "data/rendered/augmented",
+    "ridge_lambda": 1.0,
+    "bootstrap_n": 2000,
+    "seed": 42,
+    "downsample": 32,
+    "ink_threshold": 32,
+    "canvas": 64,
+    "margin": 4
+  },
+  "identifiers": {
+    "config_hash": "sha256:dc0eacebd68971fd22fde15d04480ee09589ea4d1f6bb393582a46e195dc8454",
+    "code_sha": "fd4f0369ea3de1028edeb204458ff1d2f2a998ef",
+    "data_hash": "sha256:4abd63f965b7acba8456d95bdbfb984d5b28e46f588e7385689d06e922009ec1",
+    "seed": 42,
+    "environment": {
+      "python": "3.13.14",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "processor": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
+      "torch": {
+        "installed": true,
+        "version": "2.10.0+cu130",
+        "cuda_available": true,
+        "cuda_version": "13.0",
+        "device_name": "NVIDIA GeForce RTX 5090"
+      },
+      "packages": {
+        "numpy": "2.4.3",
+        "pillow": "12.1.1",
+        "pyyaml": "6.0.3"
+      }
+    }
+  }
+}

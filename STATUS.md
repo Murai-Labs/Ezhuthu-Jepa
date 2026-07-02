@@ -78,12 +78,16 @@ Last updated: 2026-07-02 CT
   foundation build (10²–10³×) explicitly out of scope; H100/Lambda exclusion for K1–K4 stands.
 - [x] **K2 premise probe (TASK P1.002, DEC-0016)** — `eval/base_to_sign_probe.py`, run `phase1-k2probe-001`.
   **Kill-gate PASSES**: base-region 0.509 [0.503,0.515] ≫ chance 0.091 (~5.6×). **First-class caveat (§2.5):**
-  the signal is sign-LOCATION not base-ink — a location control beats base in every stratum (glyph 0.695>0.604,
-  diff 0.457>0.291), weakest in the ligature stratum. Recorded in `notes/negative-results/`. **Raises a live K1
-  risk** (block-JEPA may match seam-JEPA on M) — to weigh at LAUNCH-A/G1.
+  the naive signal is sign-LOCATION-dominated — a location control beats base in every stratum. Recorded in
+  `notes/negative-results/`.
+- [x] **Location-normalised base-ink probe (TASK P1.002b, exploratory)** — `eval/base_ink_probe.py`, run
+  `phase1-baseink-001`. With absolute location removed, base-ink still predicts sign 0.331 [0.326,0.336] ≫
+  chance 0.091 → a **real (modest) compositional signal exists**, partially reversing the K2 read. Clean
+  estimate = diff−glyph gap ≈8.2pp (0.388 vs 0.306, non-overlapping CIs = ligature reshaping); consonant
+  control 0.381 confirms the normalisation. **Balanced K1-risk read (below).**
 
-Test suite: **114 passed** (`pytest -q`; +22 for P1.001b/PA.005/resume/K2). Placeholder + `torch_dtype`
-scans clean. `compileall src` clean. Figures: F1, F2, F3 done; F4–F5 planned.
+Test suite: **117 passed** (`pytest -q`; +25 for P1.001b/PA.005/resume/K2/base-ink). Placeholder +
+`torch_dtype` scans clean. `compileall src` clean. Figures: F1, F2, F3 done; F4–F5 planned.
 
 ## Current Blockers
 
@@ -104,10 +108,13 @@ scans clean. `compileall src` clean. Figures: F1, F2, F3 done; F4–F5 planned.
 2. **TASK P1.003** (full n≥3-seed sweep, clean tree, checkpoint_every>0) → **P1.004** (G1 decision vs ε
    via the McNemar comparator). **Do NOT launch P1.003 before LAUNCH-A is approved.**
 
-**Live risk to weigh at LAUNCH-A/G1 (from K2, DEC-0016):** base→sign predictability is sign-LOCATION, not
-base-ink composition (a location control beats the base probe in every stratum). Since block-JEPA is also
-position-aware, there is real risk it matches seam-JEPA on M — precisely the cheap baseline K1 must defeat.
-This does not block (K2 beats chance), but it should temper priors on a strong K1 win.
+**Live risk to weigh at LAUNCH-A/G1 (from K2 + base-ink probe, DEC-0016 + P1.002b):** base→sign is largely
+sign-LOCATION, but a location-normalised probe shows a real (modest) base-ink compositional signal too —
+concentrated in ligatures (diff−glyph ≈8.2pp). So the mechanism is **not empty**: seam-JEPA has genuine
+structure to latch onto, strongest in 'diff' forms. But geometry still dominates, so block-JEPA staying
+competitive on M is a real risk (the cheap baseline K1 must defeat). Net: **less pessimistic than the raw
+K2 caveat, not a green light** — whether a learned encoder amplifies the ~8pp ligature signal into a
+bottom-quartile-M win is exactly what K1/K3 decide. Weigh before spending the ~15 GPU-h sweep.
 
 ---
 **Tracker rule:** Update this file and `CHECKPOINT.md` before every commit that changes project

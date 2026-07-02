@@ -340,6 +340,21 @@ n ≥ 3 seeds, 95 % bootstrap CIs. ε = 2.0 pp / non-overlapping CIs (pre-regist
 - **Estimated effort:** 3
 - **Done:** [x]
 
+#### TASK P1.002b: Location-normalised base-ink composition probe (EXPLORATORY, non-gating)
+- **What:** Measure the *pure* base-ink→sign signal (absolute location + scale removed) with a
+  consonant-prediction positive control — sharpens the K2 caveat / K1-risk read (DEC-0016). Not a gate.
+- **Where:** `src/ezhuthu_jepa/eval/base_ink_probe.py`, `configs/phase1/base_ink_probe.yaml`, `tests/test_base_ink.py`
+- **Why:** user-requested before committing sweep budget; isolate whether base ink carries composition.
+- **Evidence of completion:** run `phase1-baseink-001`. base-ink→sign 0.331 [0.326,0.336] ≫ chance 0.091
+  (real signal survives location removal); glyph 0.306 vs diff 0.388 (gap ≈8.2pp = ligature composition,
+  non-overlapping CIs); consonant control 0.381 (chance 0.056) → normalisation preserved ink. Balanced read:
+  mechanism not empty (modest ligature signal), but geometry still dominates → K1 risk real, softened.
+- **Validation:** full run + `pytest -k base_ink` (3 pass). Recorded in negative-results (Update 2026-07-02).
+- **Dependencies:** P1.002
+- **Blocking gate:** G1 (informational)
+- **Estimated effort:** 2
+- **Done:** [x]
+
 #### TASK P1.003: K1 + K3 sweep — seam-JEPA vs block-JEPA vs MAE-at-seam on M
 - **What:** The full n ≥ 3-seed comparison of the three objectives, evaluated on metric M.
 - **Where:** `configs/phase1/sweep.yaml`, run dirs under `runs/phase1-sweep-*`

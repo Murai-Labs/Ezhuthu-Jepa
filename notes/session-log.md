@@ -199,3 +199,22 @@ Per-session checkpoints. Append; never edit past entries.
 - Open uncertainties: **live K1 risk** — if the exploitable structure is largely location, block-JEPA
   (position-aware) may match seam-JEPA on M; a learned encoder might still extract base-ink composition a
   pixel probe cannot. K1/K3 adjudicate. Weigh this heavily before spending the sweep budget.
+
+### 2026-07-02 CT — P1.002b location-normalised base-ink probe (sharpens the K2 caveat)
+- Started from: K2 done (user: "So lets do b" — prototype the location-normalised base-ink probe).
+- Did: `eval/base_ink_probe.py` + config + `tests/test_base_ink.py` (3). Mask sign → crop to base ink →
+  letterbox centred (removes absolute location + scale) → predict sign, with a consonant-prediction
+  positive control. Two synthetic-test bugs found + fixed (both mine, not the probe): a 3×chance control
+  threshold impossible at 3 classes → 2×chance; and a test template that encoded the consonant by row
+  POSITION, which the normaliser correctly strips → re-encoded class by shape inside a fixed frame.
+- Result (run `phase1-baseink-001`): base-ink→sign 0.331 [0.326,0.336] ≫ chance 0.091 — a REAL base-ink
+  compositional signal survives location removal (partially reverses the K2 "it's all location" read).
+  Consonant control 0.381 (chance 0.056) → normalisation preserved ink. glyph 0.306 vs diff 0.388
+  (non-overlapping CIs): the ~8.2pp gap is genuine ligature-reshaping composition over a residual geometry
+  floor. Balanced read: mechanism not empty, but geometry still dominates → K1 risk real, softened, not a
+  green light. Recorded in negative-results (Update), EXPERIMENT_LOG, schema audit, task P1.002b, STATUS.
+  117 tests pass; scans clean.
+- Ended at: exploratory analysis done. Next: LAUNCH-A packet (fold in the balanced K1-risk read) → P1.003.
+- Open uncertainties: does a learned seam-JEPA encoder amplify the ~8pp ligature signal into a
+  bottom-quartile-M win? Only K1/K3 answer. The glyph 0.306 floor (residual relative-mask geometry) means
+  even this probe isn't a perfectly clean composition measure; the diff−glyph gap is the robust estimate.

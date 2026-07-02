@@ -71,3 +71,20 @@ Every field has ≥1 consumer. `from_yaml` rejects unknown keys. The verdict log
 CI_low > chance AND > majority; the sign-location control is *attribution*, not pass/fail) is DEC-0016.
 Test coverage: `tests/test_base_to_sign.py` (base/geometry image helpers, premise holds when base encodes
 sign, no-sign exclusion).
+
+## D. `ezhuthu_jepa.eval.base_ink_probe.BaseInkProbeConfig` — new schema (P1.002b, exploratory)
+
+| Field | Consumer(s) | Read? |
+|-------|-------------|-------|
+| `index_jsonl` | `_load`; `run_base_ink_probe` data_hash | ✓ |
+| `image_dir` | `_load` (image paths) | ✓ |
+| `ridge_lambda` | `_probe` → `fit_ridge` | ✓ |
+| `bootstrap_n` | `bootstrap_ci` / `_stratify` | ✓ |
+| `seed` | bootstrap seeds + provenance seed | ✓ |
+| `downsample` | `PixelEncoder(downsample=…)` | ✓ |
+| `ink_threshold`,`canvas`,`margin` | `location_normalised_base` (crop/letterbox geometry) | ✓ |
+
+Every field has ≥1 consumer. Non-gating exploratory analysis (run `phase1-baseink-001`) refining the K2
+caveat: measures base-ink→sign after removing absolute location, with a consonant-prediction positive
+control. Test coverage: `tests/test_base_ink.py` (normaliser centres ink; sign found when base encodes it
++ control high; sign ~chance when base is sign-invariant + control high).

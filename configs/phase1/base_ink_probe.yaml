@@ -1,0 +1,18 @@
+# Location-normalised base-ink composition probe — EXPLORATORY, non-gating (sharpens DEC-0016).
+# Loaded by ezhuthu_jepa.eval.base_ink_probe.BaseInkProbeConfig.from_yaml.
+#
+# Isolates the pure compositional signal: after masking the sign and letterboxing the remaining base ink
+# into a centred canvas (absolute location + scale removed), does the base-ink SHAPE predict the vowel
+# sign? A consonant-prediction positive control on the same normalised image guards against "we broke the
+# image" — the control must stay high. This is NOT the K2 gate (that is phase1-k2probe-001); it informs
+# the K1 risk read before the sweep.
+
+index_jsonl: "data/rendered/augmented/index.jsonl"   # PA.4b.2 per-instance index (gitignored)
+image_dir: "data/rendered/augmented"                 # gitignored image bodies
+ridge_lambda: 1.0
+bootstrap_n: 2000
+seed: 42
+downsample: 32
+ink_threshold: 32
+canvas: 64
+margin: 4

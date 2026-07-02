@@ -104,3 +104,28 @@ Interpretation:    base-region probe = 0.509 [0.503, 0.515] vs chance/majority 0
                    See notes/negative-results/k2-base-ink-signal-is-location-not-composition.md.
 Next Action:       Flag at LAUNCH-A/G1 as a live K1 risk. Proceed (gate not tripped); K1/K3 adjudicate
                    whether a learned encoder converts this structure into rare-compound recognition.
+
+### Run: phase1-baseink-001 (P1.002b — location-normalised base-ink probe; EXPLORATORY, non-gating)
+
+Run ID:            phase1-baseink-001
+Task ID:           P1.002b (exploratory; sharpens DEC-0016)
+Date:              2026-07-02
+Git Commit:        2ac86eb (dirty: exploratory code uncommitted at run time; committed next)
+Exact Command:     PYTHONPATH=src python -m ezhuthu_jepa.eval.base_ink_probe --config configs/phase1/base_ink_probe.yaml --run-dir runs/phase1-baseink-001
+Config Path:       configs/phase1/base_ink_probe.yaml
+Config Hash:       sha256:dc0eacebd68971fd…
+Data Hash:         sha256:4abd63f965b7acba…  (data/rendered/augmented/index.jsonl)
+Seed:              42
+Environment:       numpy/pillow/pyyaml (pixel32 ridge; see provenance.json)
+Metrics Path:      runs/phase1-baseink-001/metrics.json
+Status:            success (exploratory analysis — NOT a gate)
+Interpretation:    After removing absolute location + scale (mask sign → crop base ink → letterbox centred),
+                   base-ink predicts the sign at 0.331 [0.326, 0.336] ≫ chance 0.091 → a REAL base-ink
+                   compositional signal exists (partially reverses the K2 "signal is location" read).
+                   Consonant control 0.381 (chance 0.056) confirms the normalisation preserved ink shape.
+                   BUT sign-invariant 'glyph' forms still score 0.306 (residual relative-mask geometry /
+                   imperfect masking = a floor), and the clean compositional estimate is the diff−glyph gap
+                   ≈ 8.2 pp (0.388 vs 0.306, non-overlapping CIs) — genuine ligature reshaping signal, real
+                   but modest. See notes/negative-results/…-location-not-composition.md (Update 2026-07-02).
+Next Action:       Feed the revised (less pessimistic, not green-light) K1-risk read into the LAUNCH-A packet.
+                   K1/K3 test whether a learned encoder amplifies the ~8 pp ligature signal into a M win.

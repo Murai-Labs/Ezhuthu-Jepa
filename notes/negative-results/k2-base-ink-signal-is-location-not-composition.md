@@ -52,3 +52,33 @@ be strongest.
   report base→sign with the location-control ablation and the glyph/diff split, not a bare "51% ≫ 9%".
 - Consider (future) a base-ink-only variant that removes the location cue (e.g. re-centre each masked
   region to a canonical position) to measure pure compositional signal — optional, not gating.
+
+## Update 2026-07-02 — location-normalised base-ink probe (run `phase1-baseink-001`) partially reverses the read
+
+Ran the follow-up above (`eval/base_ink_probe.py`): mask the sign, crop to the remaining base ink, and
+letterbox it centred into a fixed canvas — removing **absolute** location and scale — then predict the
+sign, with a consonant-prediction **positive control** on the same image.
+
+| Measurement | Overall | glyph | diff (ligature) | chance |
+|-------------|--------:|------:|----------------:|-------:|
+| base-ink → SIGN | **0.331** [0.326, 0.336] | 0.306 [0.300, 0.313] | **0.388** [0.378, 0.399] | 0.091 |
+| base-ink → CONSONANT (control) | **0.381** | — | — | 0.056 |
+
+Reading:
+- **The control passes** (consonant 0.381 = 6.8× chance) → the normalisation preserved real ink shape, so
+  the sign numbers are trustworthy, not an artefact of a destroyed image.
+- **A real base-ink compositional signal exists after all.** Even with absolute location removed, base-ink
+  predicts the sign at 0.331 ≫ 0.091 chance. This *partially reverses* the headline above: the naive K2
+  signal was **not** purely location.
+- **But it is modest and mostly geometry still.** 'glyph' forms have a sign-*invariant* base yet score
+  0.306 — a residual cue survives normalisation (the **relative** position of the masked bite within the
+  base silhouette, and/or imperfect sign masking). So 0.306 is a geometry *floor*, not composition.
+- **The clean compositional estimate is the diff − glyph gap ≈ 8.2 pp** (0.388 vs 0.306, non-overlapping
+  CIs): genuine base-ink signal from **ligature reshaping**, above the shared geometry floor. Real, robust,
+  but small — and concentrated exactly where the thesis expects it ('diff'/ligatures).
+
+**Revised K1-risk read:** the mechanism is *not* empty — seam-JEPA has a genuine (if small) compositional
+structure to latch onto, strongest in ligatures. But base→sign is still geometry-dominated, so block-JEPA
+remaining competitive on M is a live risk. Net: less pessimistic than the headline, not a green light.
+Whether a learned encoder amplifies the ~8 pp ligature signal into a bottom-quartile-M win is exactly what
+K1/K3 must show. Exploratory (P1.002b, non-gating); does not change the K2 gate verdict (PASS).
