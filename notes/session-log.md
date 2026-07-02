@@ -113,3 +113,15 @@ Per-session checkpoints. Append; never edit past entries.
   power (raises a re-pre-registration question) and that augmentation must transform seam_bbox.
 - Ended at: PA.004 done; PA.005 PAUSED for decisions (ViT size, augmentation, decision rule).
 - Open uncertainties: McNemar-vs-CI decision rule (see uncertainties 2026-07-01); seam_bbox under augmentation.
+
+### 2026-07-01 20:15 CT — PA.005 decisions + augmentation core (PA.4b.1)
+- Started from: 3 PA.005 decisions from Ramchand — ViT-Tiny/8 auto-escalate; full augmentation +
+  held-out-font eval; decision rule = paired McNemar primary + CI secondary.
+- Did: **amended the ε pre-registration** (g1-cheap-baseline.md, dated before any sweep result:
+  McNemar α=0.05 Bonferroni primary + ε=2pp min effect + CI secondary); DEC-0013. Added task-plan
+  entries PA.4b.1/PA.4b.2/P1.001b. Built `data/augment.py` (deterministic affine+stroke+blur+noise
+  with **seam_bbox transformed in lockstep**) + `tests/test_augment.py` (6, incl. >95%-ink-in-bbox
+  across seeds). 91 tests pass.
+- Ended at: augmentation core done. Next: PA.4b.2 (augmented dataset + font-holdout split) → P1.001b
+  (McNemar comparator) → PA.005 (torch pretrain).
+- Open uncertainties: verify I-JEPA recipe vs paper at PA.005; confirm CI actually shrinks post-augment.

@@ -32,4 +32,30 @@ prior unearned). Premise gate (K2): if the base→sign probe cannot beat chance 
 
 Supersedes the *provisional* ε in DEC-0002; formalized in DEC-0009.
 
+---
+
+## ε AMENDMENT — 2026-07-01 (decision rule: paired McNemar primary + CI secondary)
+
+Amended by Ramchand on 2026-07-01, still **before any baseline/sweep result exists** (no P1.003 run
+yet), so this remains a valid pre-registration and cannot be rationalized after seeing data. This
+amends (does not erase) the original ε pre-registration above.
+
+**Reason:** the "non-overlapping 95% CI" rule alone is statistically low-power for a 2 pp effect on the
+54-compound bottom quartile (would need ~150–200 eval instances/class). A paired test on *identical*
+eval instances is ~3–5× more powerful because per-item correctness is correlated across arms.
+
+**Amended decision rule (primary + secondary):**
+- **Primary adjudicator — paired McNemar's test** on identical eval instances across arms
+  (seam-JEPA vs block-JEPA; seam-JEPA vs MAE-at-seam), computed on metric M (bottom-quartile set).
+  A win requires **both**: (i) McNemar significant at α = 0.05 **after Bonferroni correction** for the
+  comparisons made, in seam-JEPA's favour; **and** (ii) the effect size on M ≥ **ε = 2.0 pp** (the
+  original margin, retained so a significant-but-trivial difference is not called a mechanism win).
+- **Secondary (reported, not decisive) — non-overlapping 95% bootstrap CIs** on M per arm, for
+  interpretability and continuity with the original pre-registration.
+- **Requirements:** the augmented, held-out-font eval set is **frozen and identical across all arms and
+  seeds** (required for pairing); n ≥ 3 seeds; seed-frozen eval augmentation.
+
+ε (the 2.0 pp minimum effect size) is unchanged; only the significance adjudicator is upgraded. Recorded
+in DEC-0013. Original ε pre-registration (DEC-0009) stands as the CI/secondary rule.
+
 <!-- P1.004 PASS/BLOCK decision is appended below after the P1.003 sweep completes. Do not edit above. -->

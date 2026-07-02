@@ -48,8 +48,11 @@ Last updated: 2026-07-01 19:45 CT
 - [x] **Seam masking + block control (TASK PA.004, DEC-0012)** — `masking/seam.py`, 10 tests. Seam mask
   covers the sign; matched block mask (same size, random location) is the clean K1 control.
 
-Test suite: **85 passed** (`pytest -q`). Placeholder scan clean. Figures: F1, F2, F3 done; F4–F5 planned.
-PA.005 research (I-JEPA recipe + augmentation/decision-rule) gathered — see subagent-log; awaiting decisions.
+- [x] **PA.005 decisions (DEC-0013)** — ViT-Tiny/8 (auto-escalate); full augmentation + held-out-font
+  eval; **decision rule amended to paired McNemar primary + CI secondary** (ε=2pp retained as min effect;
+  re-pre-registered before any result). Augmentation core `data/augment.py` built (transforms seam_bbox).
+
+Test suite: **91 passed** (`pytest -q`). Placeholder scan clean. Figures: F1, F2, F3 done; F4–F5 planned.
 
 ## Current Blockers
 
@@ -62,13 +65,11 @@ PA.005 research (I-JEPA recipe + augmentation/decision-rule) gathered — see su
 
 ## Next Recommended Work
 
-1. **TASK PA.005** — I-JEPA-style ViT pretraining loop (seam/block/MAE switchable); registers the JEPA
-   encoder for the PA.003 harness. **First training code → introduces torch.** PAUSED for decisions:
-   ViT sizing (ViT-Tiny/8 proposed), augmentation strategy (to shrink metric-M CI), and the
-   decision-rule question (McNemar vs non-overlapping CI — would re-pre-register ε).
-2. **TASK PA.006** — compute-ledger pre-commit for K1–K4.
-3. **TASK P1.002** — K2 base→sign premise probe.
-4. Then LAUNCH-A → **P1.003** (sweep) → **P1.004** (G1 decision vs ε).
+1. **TASK PA.4b.2** — augmented dataset (~100 train/150 eval per class) + font-holdout split (frozen
+   shared eval for McNemar). Uses `data/augment.py`.
+2. **TASK P1.001b** — add the McNemar comparator (primary) to the PA.003 harness.
+3. **TASK PA.005** — I-JEPA ViT-Tiny/8 pretraining loop (seam/block/MAE). **Introduces torch.**
+4. **TASK PA.006** — compute ledger → LAUNCH-A → **P1.002** (K2) → **P1.003** (sweep) → **P1.004** (G1 decision).
 
 ---
 **Tracker rule:** Update this file and `CHECKPOINT.md` before every commit that changes project

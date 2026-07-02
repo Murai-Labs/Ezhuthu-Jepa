@@ -174,9 +174,60 @@ n ≥ 3 seeds, 95 % bootstrap CIs. ε = 2.0 pp / non-overlapping CIs (pre-regist
 - **Estimated effort:** 4
 - **Done:** [x]
 
+#### TASK PA.4b.1: Augmentation transform (image + seam_bbox together)
+- **What:** Deterministic augmentation of a glyph image that transforms its `seam_bbox` in lockstep.
+- **Where:** `src/ezhuthu_jepa/data/augment.py`, `tests/test_augment.py`
+- **Why:** spec §4 · DEC-0013 · AGENTS.md §2.1 · shrinks metric M's CI; a warp that leaves seam_bbox
+  stale would misalign the mask (DEC-0012).
+- **Inputs:** PA.001
+- **Acceptance criteria:**
+  1. Affine (rotation/translate/shear/scale) + stroke dilate/erode + blur/noise, each within safe
+     ranges; a fixed (seed, index) is deterministic and reproducible.
+  2. The returned `seam_bbox` is the image transform applied to the original bbox corners (axis-aligned
+     re-fit), verified to still contain the transformed sign region on a test sample.
+- **Evidence of completion:** `augment.py`, passing `pytest -k augment`.
+- **Validation:** `pytest -k augment`
+- **Dependencies:** PA.001
+- **Blocking gate:** G1
+- **Estimated effort:** 5
+- **Done:** [ ]
+
+#### TASK PA.4b.2: Augmented dataset + font-holdout split
+- **What:** Generate ~100 train / ~150 eval augmented instances per (akshara), train-font vs eval-font
+  held out; rewrite the split-manifest (frozen, shared eval) keeping the PA.002 frequency buckets.
+- **Where:** `src/ezhuthu_jepa/data/build_augmented.py`, `configs/phase1/augment.yaml`, `runs/pa4b-augment-001/`
+- **Why:** spec §4 · DEC-0013 · frozen shared eval set is required for paired McNemar.
+- **Inputs:** PA.4b.1, PA.002
+- **Acceptance criteria:**
+  1. Held-out font: no eval instance shares a source font with training for the same class; instances
+     physically disjoint; eval set frozen (seeded) and identical across future arms.
+  2. Split-manifest carries per-instance {akshara_id, bucket, seam_source, seam_bbox, split, aug_index}.
+- **Evidence of completion:** `runs/pa4b-augment-001/{split-manifest,provenance}.json`; images gitignored.
+- **Validation:** `pytest -k augment`; manifest disjointness check.
+- **Dependencies:** PA.4b.1
+- **Blocking gate:** G1
+- **Estimated effort:** 5
+- **Done:** [ ]
+
+#### TASK P1.001b: Re-run the eval harness with the McNemar comparator
+- **What:** Extend the PA.003 harness with a paired-McNemar comparator (primary) alongside the bootstrap
+  CI (secondary), on identical eval instances across arms (DEC-0013).
+- **Where:** `src/ezhuthu_jepa/eval/akshara_probe.py` (compare fn), `tests/test_probe.py`
+- **Why:** DEC-0013 (amended ε) · AGENTS.md §2.6 · the G1 adjudicator.
+- **Inputs:** PA.003, PA.4b.2
+- **Acceptance criteria:**
+  1. Given two arms' per-eval-instance correctness, computes McNemar χ²/exact p on M with Bonferroni.
+  2. Reports both the McNemar verdict (primary) and non-overlapping-CI verdict (secondary).
+- **Evidence of completion:** compare function + passing `pytest -k mcnemar`.
+- **Validation:** `pytest -k mcnemar`
+- **Dependencies:** PA.003
+- **Blocking gate:** G1
+- **Estimated effort:** 2
+- **Done:** [ ]
+
 #### TASK PA.005: I-JEPA-style ViT pretraining loop (single-5090, seam/block/MAE switchable)
-- **What:** A pretraining entry point that trains the small ViT under a selectable objective
-  {seam-JEPA, block-JEPA, MAE-at-seam}, with provenance + ≤100-step progress logging.
+- **What:** A pretraining entry point that trains **ViT-Tiny/8 (auto-escalate to Small)** under a
+  selectable objective {seam-JEPA, block-JEPA, MAE-at-seam}, with provenance + ≤100-step progress logging.
 - **Where:** `src/ezhuthu_jepa/train/pretrain.py`, `configs/phase1/pretrain.yaml`
 - **Why:** spec §4 (Backbone) · AGENTS.md §2.4, §4 · one loop, one switched variable = clean K1/K3.
 - **Inputs:** PA.003, PA.004, P0.003

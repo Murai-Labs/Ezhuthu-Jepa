@@ -334,3 +334,35 @@ Follow-up: **PA.005 pretraining loop** consumes these masks. Two research inputs
 (b) augmentation + a **paired-McNemar vs non-overlapping-CI** decision-rule question (see uncertainties
 2026-07-01). Forward constraint: augmentation must transform `seam_bbox` with the image.
 Human Approval: pending.
+
+---
+
+## DEC-0013 - PA.005 design decisions: ViT size, augmentation + held-out font, McNemar decision rule
+
+Date: 2026-07-01
+Task/Gate: G1 (PA.005 prep; amends DEC-0009)
+Decision: Three choices confirmed by Ramchand for the training + evaluation design:
+1. **ViT-Tiny/8, auto-escalate.** Start with ViT-Tiny/8 (~5.5M/encoder, patch 8 → 144 tokens, narrow
+   predictor); escalate to ViT-Small/8 only if the frozen linear probe is clearly capacity-bound.
+   Config-swappable; keeps the core evenings-scale on the single 5090.
+2. **Full augmentation + held-out-font eval.** Build an augmentation pipeline (safe affine/stroke/
+   noise ranges) producing ~100 train and ~150 eval instances per class; **train on one font +
+   augments, evaluate on the held-out font + augments**. This shrinks metric M's CI toward ~1 pp and
+   measures real generalization, not augmentation memorization. **Augmentation must transform the
+   `seam_bbox` with the image** (affine on bbox corners; re-derive for elastic) or the seam mask
+   misaligns (DEC-0012 forward note). Changes the PA.002 instance split from per-akshara-random to
+   font-holdout; the frequency stratification (bottom quartile) is unaffected (corpus-based).
+3. **Decision rule = paired McNemar primary + non-overlapping CI secondary.** Amends the DEC-0009 ε
+   rule; recorded as a fresh pre-registration in `notes/decision-gates/g1-cheap-baseline.md` dated
+   before any sweep result. ε = 2.0 pp retained as the minimum effect size; McNemar (α=0.05, Bonferroni)
+   on identical eval instances is the significance test. Requires a frozen shared eval set across arms/seeds.
+Rationale: the three together make a 2 pp win on the long tail statistically adjudicable at feasible
+compute, honestly (held-out font, frozen shared eval), while keeping the core cheap.
+Alternatives Considered (per the decision prompt): ViT-Small upfront (rejected: 4× compute unproven
+need); moderate/no augmentation (rejected: CI too wide to adjudicate ε); McNemar-only or CI-only
+(rejected: BOTH is most defensible — power + interpretability).
+Evidence / Source Docs: `notes/decision-gates/g1-cheap-baseline.md` (ε amendment), subagent-log 19:40.
+Measured Result: N/A (design).
+Follow-up: NEW task **PA.4b augmentation pipeline + font-holdout split** before PA.005; PA.003 harness
+gains the McNemar comparator; PA.005 uses ViT-Tiny/8. Verify the I-JEPA recipe against the paper at build.
+Human Approval: Ramchand, 2026-07-01 (three choices).
