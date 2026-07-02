@@ -37,6 +37,17 @@ PYTHONPATH=src python -m ezhuthu_jepa.data.frequency_split \
 PYTHONPATH=src python -m ezhuthu_jepa.figures.f2_frequency_distribution
 ```
 
+## Evaluate a Frozen Encoder — Metric M (PA.003)
+
+```bash
+# Fits a linear probe on the PA.002 split's train instances, evaluates top-1 accuracy per
+# frequency-bucket × seam_source × font with 95% bootstrap CIs → runs/<run>/metrics.json.
+# Default encoder = PixelEncoder baseline; PA.005 swaps in the JEPA encoder via configs/phase1/probe.yaml.
+PYTHONPATH=src python -m ezhuthu_jepa.eval.akshara_probe \
+  --config configs/phase1/probe.yaml --run-dir runs/pa003-probe-001
+PYTHONPATH=src python -m ezhuthu_jepa.figures.f3_probe_accuracy   # Figure F3
+```
+
 ## Run a Smoke Test
 
 ```bash

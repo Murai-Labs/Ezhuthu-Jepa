@@ -1,0 +1,17 @@
+# Akshara-recognition probe config (TASK PA.003).
+# Loaded by ezhuthu_jepa.eval.akshara_probe.ProbeConfig.from_yaml.
+#
+# Evaluates a frozen encoder on the PA.002 split. The default encoder is the weak PixelEncoder
+# baseline so the harness runs today; PA.005 registers the I-JEPA encoder and re-runs on the same
+# split. Metric M = bottom-quartile (q1_bottom) top-1 accuracy; reported with bootstrap CIs and
+# stratified by seam_source and font (DEC-0006). The metric machinery is frozen here, before the
+# K1/K3 sweep, so the comparison is judged on a fixed metric.
+
+split_manifest: "runs/pa002-split-001/split-manifest.json"
+render_manifest: "runs/pa001-render-001/render-manifest.json"
+image_dir: "data/rendered/uyirmei"          # gitignored image bodies
+ridge_lambda: 1.0
+bootstrap_n: 2000
+seed: 42
+encoder: "pixel32"                           # baseline; PA.005 swaps in the JEPA encoder
+downsample: 32

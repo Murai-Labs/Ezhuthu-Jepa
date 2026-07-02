@@ -1,0 +1,39 @@
+{
+  "manifest_version": "1",
+  "run_id": "pa003-probe-001",
+  "created_at": "2026-07-02T01:10:32.621994+00:00",
+  "code_dirty": true,
+  "config": {
+    "split_manifest": "runs/pa002-split-001/split-manifest.json",
+    "render_manifest": "runs/pa001-render-001/render-manifest.json",
+    "image_dir": "data/rendered/uyirmei",
+    "ridge_lambda": 1.0,
+    "bootstrap_n": 2000,
+    "seed": 42,
+    "encoder": "pixel32",
+    "downsample": 32
+  },
+  "identifiers": {
+    "config_hash": "sha256:341c38919eec439b55bd6c65602be585e4e0dab48f30efe9f1b01800b1388261",
+    "code_sha": "59d61f428db7b5801eac39f7767996a24407d39a",
+    "data_hash": "sha256:5b4b45937df0134a44c8a82743a8251d90587f8b1ddfd7255534c5025d437de5",
+    "seed": 42,
+    "environment": {
+      "python": "3.13.14",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "processor": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
+      "torch": {
+        "installed": true,
+        "version": "2.10.0+cu130",
+        "cuda_available": true,
+        "cuda_version": "13.0",
+        "device_name": "NVIDIA GeForce RTX 5090"
+      },
+      "packages": {
+        "numpy": "2.4.3",
+        "pillow": "12.1.1",
+        "pyyaml": "6.0.3"
+      }
+    }
+  }
+}

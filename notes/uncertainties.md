@@ -44,3 +44,13 @@ Carry uncertainties forward each session until resolved.
 - Why it matters: G1 is un-adjudicable without a pre-registered ε dated before baseline runs.
 - Status: **Resolved 2026-07-01** — ε = 2.0 pp + non-overlapping 95 % CIs (n ≥ 3) pre-registered and
   approved by Ramchand before any baseline (DEC-0009; `notes/decision-gates/g1-cheap-baseline.md`).
+
+### 2026-07-01 — Bottom-quartile CI width vs the 2pp ε (statistical power for G1)
+- Why it matters: PA.003's baseline gives metric M (n=54) a 95 % CI of ~±0.12 (0.222–0.463). To
+  adjudicate a 2 pp win with *non-overlapping* CIs on the bottom quartile, the CIs must be far tighter
+  than that. With only 54 tail compounds and few instances per class, ε=2pp may be statistically
+  unreachable unless PA.005 adds many augmented render instances per akshara (more eval n) and/or the
+  JEPA encoder sharply reduces variance.
+- Status: Open — quantify at PA.005/P1.003. If CIs stay ~±0.1 at the real encoder, either increase
+  instances-per-akshara (augmentation) before the sweep or revisit the ε rule with Ramchand (would be
+  a new pre-registration, dated before results). Flag now so it is not discovered mid-sweep.

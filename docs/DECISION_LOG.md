@@ -283,3 +283,31 @@ Evidence / Source Docs: `runs/pa002-split-001/{split-manifest,provenance}.json`,
 Measured Result: bottom quartile frozen (54); most frequent k_a/t_a/v_a; rarest ங_* + 9 unseen.
 Follow-up: PA.003 eval harness reports M on this split, stratified by seam_source × font.
 Human Approval: pending.
+
+---
+
+## DEC-0011 - PA.003: akshara-recognition eval harness; metric M machinery frozen
+
+Date: 2026-07-01
+Task/Gate: G1 (TASK PA.003)
+Decision: Built the evaluation harness that computes metric M. Design choices:
+1. **Encoder-agnostic** (`Encoder` Protocol): the harness takes a frozen encoder and fits a numpy
+   ridge linear probe (one-hot targets, closed form, bias term) — no torch/sklearn dependency. A
+   built-in **PixelEncoder** (downsample 32² + flatten) is the runnable baseline today; the I-JEPA
+   encoder from PA.005 plugs into the same interface and re-runs on the identical split.
+2. **Metric machinery frozen before the sweep** (AGENTS.md §2.6): metrics.json reports top-1 accuracy
+   overall, per frequency bucket (bottom = **metric M**, a named field), per seam_source, and per font,
+   each with a **95 % bootstrap CI**. Per-stratum bootstrap seeds use a stable crc32 offset (not
+   Python's randomized `hash`) so CIs are reproducible.
+Rationale: freezing M + its CI protocol now means the K1/K3 sweep (P1.003) is judged on a fixed metric.
+Alternatives Considered: sklearn LogisticRegression (rejected: adds a dep; ridge is sufficient for a
+linear probe); nearest-centroid (rejected: weaker, less standard as a "linear probe").
+Evidence / Source Docs: `src/ezhuthu_jepa/eval/akshara_probe.py`, `configs/phase1/probe.yaml`,
+`tests/test_probe.py` (6), `runs/pa003-probe-001/{metrics,provenance}.json`,
+`docs/figures/f3_probe_accuracy.{png,prov.json}`. Full suite 75 passed.
+Measured Result (baseline PixelEncoder, 1-shot cross-font — a REFERENCE, not the science result):
+overall 0.403; **metric_M 0.333 [0.222, 0.463]**; buckets q1/q2/q3/q4 = 0.333/0.241/0.389/0.648;
+seam_source glyph/diff/none = 0.348/0.421/0.778.
+Follow-up: PA.004 (masking) → PA.005 (JEPA pretrain loop; registers the encoder) → re-run this harness
+to get the real M per objective for the K1/K3 sweep.
+Human Approval: pending.

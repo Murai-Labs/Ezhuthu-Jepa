@@ -142,13 +142,17 @@ n ≥ 3 seeds, 95 % bootstrap CIs. ε = 2.0 pp / non-overlapping CIs (pre-regist
   2. The bottom-quartile bucket accuracy (metric M) is a named field.
   3. Accuracy is also reported **stratified by `seam_source` (glyph vs diff)** and by font (DEC-0006),
      so the compositional claim is honest about where base×sign composition is cleanly separable.
-- **Evidence of completion:** `metrics.json` schema + passing `pytest -k probe`.
-- **Validation:** `pytest -k probe`
-- **Measurements / logs:** per-bucket accuracy, CI width.
+- **Evidence of completion:** `src/ezhuthu_jepa/eval/akshara_probe.py`, `configs/phase1/probe.yaml`,
+  `tests/test_probe.py` (6). `runs/pa003-probe-001/{metrics,provenance}.json`; Figure F3.
+- **Validation:** `pytest -k probe` (6 pass); full suite 75 pass.
+- **Measurements / logs:** baseline PixelEncoder — overall 0.403, **metric_M 0.333 [0.222,0.463]**;
+  by_bucket q1/q2/q3/q4 = 0.333/0.241/0.389/0.648; by seam_source glyph/diff/none = 0.348/0.421/0.778.
 - **Dependencies:** PA.002
 - **Blocking gate:** G1
+- **Notes:** encoder-agnostic (Protocol); PixelEncoder is a weak reference (1-shot cross-font) so the
+  harness + metric M machinery are frozen NOW. JEPA encoder plugs in at PA.005 and re-runs on this split.
 - **Estimated effort:** 5
-- **Done:** [ ]
+- **Done:** [x]
 
 #### TASK PA.004: Seam-masking module (base visible, vowel-sign region masked)
 - **What:** The masking function that hides the dependent vowel-sign region and keeps the base visible.

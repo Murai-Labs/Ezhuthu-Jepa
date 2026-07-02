@@ -90,3 +90,16 @@ Per-session checkpoints. Append; never edit past entries.
   Generated F2. 69 tests pass. DEC-0010.
 - Ended at: PA.002 done. Next: PA.003 eval harness (metric M per bucket×seam_source×font) + F3.
 - Open uncertainties carried forward: small-n strata; PA.003 will show CI widths on the tail.
+
+### 2026-07-01 19:15 CT — PA.003 eval harness (metric M) + Figure F3
+- Started from: PA.003.
+- Did: added `eval/akshara_probe.py` (encoder-agnostic ridge linear probe, bootstrap CIs, stratified
+  by bucket × seam_source × font; metric_M named field), `configs/phase1/probe.yaml`,
+  `tests/test_probe.py` (6), `figures/f3_probe_accuracy.py`. Fixed a reproducibility bug (used
+  randomized `hash()` for per-stratum bootstrap seed → switched to stable crc32). Ran on the real
+  PA.002 split: baseline PixelEncoder metric_M = 0.333 [0.222,0.463], clear freq gradient (q4=0.648).
+  Generated F3. 75 tests pass. DEC-0011.
+- Ended at: PA.003 done; metric M machinery frozen before the sweep. Next: PA.004 (masking) → PA.005
+  (JEPA pretrain, introduces torch). LAUNCH-A still gates the full sweep.
+- Open uncertainties: bottom-quartile CI width (±0.12) is wide at n=54 with the weak baseline — watch
+  whether the JEPA encoder + augmented instances (PA.005) tighten it enough to adjudicate ε=2pp.

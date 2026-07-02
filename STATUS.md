@@ -1,6 +1,6 @@
 # Ezhuthu-Jepa — Status
 
-Last updated: 2026-07-01 18:30 CT
+Last updated: 2026-07-01 19:15 CT
 
 ## Methodology Decisions (DEC-0004, DEC-0006)
 
@@ -42,8 +42,11 @@ Last updated: 2026-07-01 18:30 CT
 - [x] **Frequency-stratified split (TASK PA.002, DEC-0010)** — 172 Project Madurai works, 4.85M uyirmei
   counted, 207/216 seen; bottom quartile (54) frozen in `runs/pa002-split-001/split-manifest.json`;
   deterministic leak-free train/eval split; Figure F2 captured.
+- [x] **Eval harness / metric M (TASK PA.003, DEC-0011)** — encoder-agnostic ridge linear probe with
+  bootstrap CIs, stratified by bucket × seam_source × font. Frozen before the sweep. Baseline
+  PixelEncoder metric_M = 0.333 [0.222,0.463] (reference); `runs/pa003-probe-001/metrics.json`; Figure F3.
 
-Test suite: **69 passed** (`pytest -q`). Placeholder scan clean. Figures: F1, F2 done; F3–F5 planned.
+Test suite: **75 passed** (`pytest -q`). Placeholder scan clean. Figures: F1, F2, F3 done; F4–F5 planned.
 
 ## Current Blockers
 
@@ -56,11 +59,11 @@ Test suite: **69 passed** (`pytest -q`). Placeholder scan clean. Figures: F1, F2
 
 ## Next Recommended Work
 
-1. **TASK PA.003** — akshara-recognition eval harness (metric M on the PA.002 split, per bucket ×
-   seam_source × font, bootstrap CIs). Capture figure F3.
-2. **TASK PA.004** — seam-masking module (mask carries seam_source; ligatures via diff region).
-3. **TASK PA.005** — I-JEPA-style ViT pretraining loop (seam/block/MAE switchable).
-4. Then **P1.002** (K2 probe) → LAUNCH-A → **P1.003** (sweep) → **P1.004** (G1 decision vs ε).
+1. **TASK PA.004** — seam-masking module (mask carries seam_source; ligatures via diff region).
+2. **TASK PA.005** — I-JEPA-style ViT pretraining loop (seam/block/MAE switchable); registers the JEPA
+   encoder that plugs into the PA.003 harness. **First real training code → introduces torch (LAUNCH-A gate territory).**
+3. **TASK P1.002** — K2 base→sign premise probe.
+4. Then LAUNCH-A → **P1.003** (sweep) → **P1.004** (G1 decision vs ε).
 
 ---
 **Tracker rule:** Update this file and `CHECKPOINT.md` before every commit that changes project

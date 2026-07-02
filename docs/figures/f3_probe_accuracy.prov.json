@@ -1,0 +1,15 @@
+{
+  "figure_id": "F3",
+  "figure_file": "f3_probe_accuracy.png",
+  "paper_section": "Results — recognition accuracy (baseline encoder)",
+  "caption": "Akshara-recognition top-1 accuracy (baseline PixelEncoder) on the PA.002 split, by frequency bucket and seam_source, with 95% bootstrap CIs. Orange = bottom quartile (metric M). Reference numbers from a weak encoder + 1-shot cross-font data; the JEPA encoder replaces it at PA.005. The metric machinery is frozen here before the K1/K3 sweep.",
+  "created_at": "2026-07-02T01:11:16.752987+00:00",
+  "code_sha": "59d61f428db7b5801eac39f7767996a24407d39a",
+  "code_dirty": true,
+  "source": {
+    "run_id": "pa003-probe-001",
+    "config_hash": "sha256:341c38919eec439b55bd6c65602be585e4e0dab48f30efe9f1b01800b1388261",
+    "data_hash": "sha256:5b4b45937df0134a44c8a82743a8251d90587f8b1ddfd7255534c5025d437de5"
+  },
+  "command": "python -m ezhuthu_jepa.figures.f3_probe_accuracy"
+}
