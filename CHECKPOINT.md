@@ -9,7 +9,7 @@ To verify a clean state and continue:
 ```bash
 cd /c/Github/Ezhuthu-Jepa
 git status -sb
-PYTHONIOENCODING=utf-8 python -m pytest -q          # expect: 110 passed
+PYTHONIOENCODING=utf-8 python -m pytest -q          # expect: 114 passed
 nvidia-smi                 # confirm RTX 5090 available before any GPU work
 # Regenerate gitignored data if missing (deterministic): the OFL font, then the augmented index.
 curl -fsSL "https://github.com/google/fonts/raw/main/ofl/notosanstamil/NotoSansTamil%5Bwdth,wght%5D.ttf" -o fonts/NotoSansTamil.ttf
@@ -17,12 +17,13 @@ PYTHONIOENCODING=utf-8 PYTHONPATH=src python -m ezhuthu_jepa.data.build_augmente
   --config configs/phase1/augment.yaml --run-dir runs/pa4b-augment-001   # only if data/rendered/augmented absent
 ```
 
-Next controlled task: see `tasks/atomic-task-list.md` → **TASK PA.006** (compute-hour ledger), then a
-resume-state for >30min runs, then **LAUNCH-A**, then **P1.002** (K2 probe) → **P1.003** (full sweep).
+Next controlled task: see `tasks/atomic-task-list.md` → **LAUNCH-A** (assemble the gate packet — all
+preconditions met incl. K2; run a longer 1-seed pilot + get Ramchand's sign-off, surfacing the K2 caveat),
+then **P1.003** (full n≥3-seed sweep, clean tree). Do NOT launch the sweep before LAUNCH-A.
 
 ## Current Checkpoint
 
-- Phase: **G0 APPROVED; PA.001–PA.006 + P1.001b + resume-state done; ε amended (DEC-0013).** LAUNCH-A / G1 sweep not started.
+- Phase: **G0 APPROVED; PA.001–PA.006 + P1.001b + P1.002 (K2) + resume-state done; ε amended (DEC-0013).** LAUNCH-A / G1 sweep not started.
 - What is done: operating system + provenance writer + config contract (P0.003/P0.004), and the Tamil
   rendering pipeline (PA.001): `data/{grapheme,render,build_uyirmei}.py`, HarfBuzz+FreeType shaping,
   glyph/diff seam hybrid, **multi-font (Noto+Nirmala)**. All 216 uyirmei rendered under both fonts →
@@ -47,8 +48,12 @@ resume-state for >30min runs, then **LAUNCH-A**, then **P1.002** (K2 probe) → 
   reproduces identical final weights (CPU + GPU). Provenance now written before the loop.
 - Done: **PA.006** compute ledger — `docs/decisions/compute-ledger.md` (DEC-0015): ~15 GPU-h program on
   one 5090, **hard ceiling 40 GPU-h**; unit costs measured from the smokes.
-- What is next: **LAUNCH-A** (all preconditions met; needs a longer 1-seed pilot + Ramchand sign-off) →
-  P1.002 (K2 probe, parallel-ok) → P1.003 sweep (clean tree, checkpoint_every>0). Do NOT run the sweep before LAUNCH-A.
+- Done: **P1.002 (K2)** — `eval/base_to_sign_probe.py`, run `phase1-k2probe-001`. **Kill-gate PASSES**
+  (base 0.509 ≫ chance 0.091). **Caveat (DEC-0016, negative-results):** signal is sign-LOCATION not
+  base-ink (location control beats base in every stratum) → live K1 risk (block may match seam).
+- What is next: **LAUNCH-A** (all preconditions met — harness/ε/smoke/resume/ledger/K2; needs a longer
+  1-seed pilot + Ramchand sign-off, and the K2 caveat surfaced) → P1.003 sweep (clean tree,
+  checkpoint_every>0). Do NOT run the sweep before LAUNCH-A.
 - Authorization gate status: **G0 approved** (DEC-0008); **ε pre-registered** (DEC-0009). LAUNCH-A
   **not yet approved** — do not launch the full Stage-A sweep (P1.003) until it is. No full training run authorized (smokes only).
 

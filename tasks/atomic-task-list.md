@@ -328,13 +328,17 @@ n ≥ 3 seeds, 95 % bootstrap CIs. ε = 2.0 pp / non-overlapping CIs (pre-regist
 - **Acceptance criteria:**
   1. The probe runs on the frozen split and beats the majority-class baseline clearly (report accuracy + CI).
   2. Emits a provenance manifest; progress every ≤100 steps.
-- **Evidence of completion:** run-id `phase1-k2probe-001`, `metrics.json`.
-- **Validation:** full run; `pytest -k base_to_sign`
-- **Measurements / logs:** probe accuracy vs chance, seed.
+- **Evidence of completion:** `src/ezhuthu_jepa/eval/base_to_sign_probe.py`, `configs/phase1/k2_probe.yaml`,
+  `tests/test_base_to_sign.py` (4); run-id `phase1-k2probe-001`, `metrics.json`. **PASS:** base-region
+  0.509 [0.503,0.515] ≫ chance/majority 0.091 (~5.6×) → kill-gate not tripped. **Caveat (DEC-0016, §2.5):**
+  signal is sign-LOCATION not base-ink — a location control beats base in every stratum (glyph 0.695>0.604,
+  diff 0.457>0.291); recorded in `notes/negative-results/`. Raises the K1 risk (block-JEPA may match seam).
+- **Validation:** full run + `pytest -k base_to_sign` (4 pass).
+- **Measurements / logs:** base/geometry/majority accuracy + CIs, stratified by seam_source/font; seed 42.
 - **Dependencies:** PA.003
 - **Blocking gate:** G1
 - **Estimated effort:** 3
-- **Done:** [ ]
+- **Done:** [x]
 
 #### TASK P1.003: K1 + K3 sweep — seam-JEPA vs block-JEPA vs MAE-at-seam on M
 - **What:** The full n ≥ 3-seed comparison of the three objectives, evaluated on metric M.

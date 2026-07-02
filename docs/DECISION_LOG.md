@@ -432,3 +432,39 @@ Follow-up: the LAUNCH-A gate review cites this ledger as evidence; the sweep con
 checkpoint_every and per-seed run dirs. Revisit the 50k step budget if the pilot shows non-convergence.
 Human Approval: ledger pre-committed by the agent under §1; the 40-GPU-h ceiling + sweep launch require
 Ramchand's sign-off at LAUNCH-A.
+
+## DEC-0016 - K2 premise verdict criterion + honest signal-attribution finding (TASK P1.002)
+
+Date: 2026-07-02
+Task/Gate: G1 (K2 premise gate; spec §3, AGENTS.md §3)
+Decision: Two decisions from building + running the K2 base→sign probe (`phase1-k2probe-001`):
+1. **Verdict criterion = the contract's kill-gate, not "base beats geometry".** The K2 gate passes iff
+   the base-region probe clearly beats **chance and the majority baseline** (the "can it beat chance"
+   test AGENTS.md §3 specifies). It does, decisively: base = 0.509 [0.503, 0.515] vs chance/majority
+   0.091 (~5.6×) on the augmented font-holdout eval. Sign LOCATION is legitimately available to the JEPA
+   predictor (it is told which positions to reconstruct), so a mask-geometry control is **not** the
+   pass/fail — it is reported as signal *attribution*. (An earlier draft used "base must beat the
+   geometry control" as the gate; rejected as testing a stronger, different claim than K2, and using a
+   flawed instrument — a bright rectangle is a stronger locator than base_only's black hole.)
+2. **Record the geometry-dominance finding as a first-class caveat (§2.5), not bury it.** A
+   sign-location-only control (seam bbox on a blank canvas) **beats** the base-region probe in *every*
+   stratum (glyph 0.695 > 0.604; diff 0.457 > 0.291). So the base→sign signal is sign location, not
+   base-ink composition, and the base-ink signal is weakest in the ligature ('diff') stratum where the
+   thesis most expects it. The premise HOLDS (structure is exploitable) but the motivating story ("the
+   base *shape* tells you the sign") is not supported by a linear pixel probe.
+Rationale: honest gating — pass on the contract's criterion, but do not oversell. The finding raises the
+stakes on K1 (if the structure is largely location, block-JEPA may match seam-JEPA on M — exactly the
+cheap baseline K1 must defeat), which is the right thing to surface *before* the expensive sweep.
+Alternatives Considered: (a) gate on base>geometry → rejected (wrong claim + flawed instrument); (b) drop
+the geometry control and report bare "51% ≫ 9%" → rejected (dishonest — hides that it is location);
+(c) call K2 a FAIL → rejected (it beats chance decisively; the contract's kill criterion is not met).
+Evidence / Source Docs: `runs/phase1-k2probe-001/metrics.json`,
+`notes/negative-results/k2-base-ink-signal-is-location-not-composition.md`,
+`src/ezhuthu_jepa/eval/base_to_sign_probe.py`.
+Measured Result: base 0.509 [0.503,0.515]; location-control 0.623; glyph 0.604 vs 0.695; diff 0.291 vs
+0.457; majority/chance 0.091. premise_holds = True (kill-gate); base_beats_location_control = False.
+Follow-up: cite in the LAUNCH-A packet and the G1 review as a live risk to K1; a raw-pixel probe may
+understate what a learned encoder extracts (K1/K3 adjudicate). Optional future: a location-normalised
+base-ink probe to isolate pure composition (non-gating).
+Human Approval: agent's methodological call under the K2 mandate; the caveat is flagged for Ramchand at
+LAUNCH-A (it materially affects the K1 risk assessment).

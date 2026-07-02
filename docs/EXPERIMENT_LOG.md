@@ -79,3 +79,28 @@ Interpretation:    ViT-Tiny/8 = 5.35M-param encoder; 144 tokens; n_mask=36 (0.25
                    result;** they prove the loop runs, not that any objective wins.
 Next Action:       PA.006 compute ledger → LAUNCH-A → P1.003 full n≥3-seed sweep (clean tree, real
                    schedule). Do NOT infer K1/K3 from smoke losses.
+
+### Run: phase1-k2probe-001 (P1.002 — K2 base→sign premise; PASS with a caveat)
+
+Run ID:            phase1-k2probe-001
+Task ID:           P1.002
+Date:              2026-07-02
+Git Commit:        2ac86eb (dirty: P1.002 code uncommitted at run time; committed next)
+Exact Command:     PYTHONPATH=src python -m ezhuthu_jepa.eval.base_to_sign_probe --config configs/phase1/k2_probe.yaml --run-dir runs/phase1-k2probe-001
+Config Path:       configs/phase1/k2_probe.yaml
+Config Hash:       sha256:d13ddb773dfa4357…
+Data Hash:         sha256:4abd63f965b7acba…  (data/rendered/augmented/index.jsonl)
+Seed:              42
+Environment:       numpy/pillow/pyyaml (pixel32 ridge probe; see provenance.json)
+Checkpoint Path:   n/a
+Metrics Path:      runs/phase1-k2probe-001/metrics.json
+Status:            success — K2 kill-gate PASSES (base-region >> chance)
+Interpretation:    base-region probe = 0.509 [0.503, 0.515] vs chance/majority 0.091 (~5.6x) -> the seam
+                   carries exploitable structure; do NOT kill. Caveat (first-class, DEC-0016): the signal
+                   is sign LOCATION, not base-ink composition — a location-only control beats the base
+                   probe in every stratum (glyph 0.695>0.604; diff 0.457>0.291), and base-ink is weakest
+                   in the ligature stratum where composition should be strongest. Raises the K1 risk that
+                   block-JEPA (also position-aware) may match seam-JEPA on M.
+                   See notes/negative-results/k2-base-ink-signal-is-location-not-composition.md.
+Next Action:       Flag at LAUNCH-A/G1 as a live K1 risk. Proceed (gate not tripped); K1/K3 adjudicate
+                   whether a learned encoder converts this structure into rare-compound recognition.

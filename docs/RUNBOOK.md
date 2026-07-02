@@ -71,6 +71,16 @@ PYTHONPATH=src python -m ezhuthu_jepa.eval.akshara_probe \
 #   checkpoint: runs/<pretrain-run>/encoder.pt
 ```
 
+## K2 Premise Probe — base→sign predictability (P1.002)
+
+```bash
+# Predicts the vowel-SIGN from the consonant-BASE region (sign masked out) on the augmented index.
+# PASSES iff base-region >> chance/majority (the kill-gate). Also reports a sign-LOCATION-only control
+# and a glyph-vs-diff split so the result is honest about *where* the signal comes from. ~30 s (54k load).
+PYTHONPATH=src python -m ezhuthu_jepa.eval.base_to_sign_probe \
+  --config configs/phase1/k2_probe.yaml --run-dir runs/phase1-k2probe-001
+```
+
 ## Pretraining Loop — seam / block / MAE (PA.005)
 
 ```bash

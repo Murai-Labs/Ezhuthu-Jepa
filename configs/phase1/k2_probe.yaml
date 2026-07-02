@@ -1,0 +1,16 @@
+# K2 premise probe — base→sign predictability (TASK P1.002, spec §3 K2).
+# Loaded by ezhuthu_jepa.eval.base_to_sign_probe.K2ProbeConfig.from_yaml.
+#
+# Predicts the vowel-SIGN class from the consonant-BASE region alone (sign masked out) on the frozen
+# augmented index (train noto / eval held-out nirmala). The premise holds only if the base-region
+# probe clearly beats BOTH the majority-class baseline AND the mask-geometry-only control (so the
+# signal is the base ink, not the masked hole's shape). Inherent-'a' forms (no sign) are excluded as
+# degenerate. If the premise fails, that is a KILL-before-scale signal (a first-class negative result).
+
+index_jsonl: "data/rendered/augmented/index.jsonl"   # PA.4b.2 per-instance index (gitignored)
+image_dir: "data/rendered/augmented"                 # gitignored image bodies
+ridge_lambda: 1.0
+bootstrap_n: 2000
+seed: 42
+downsample: 32
+exclude_no_sign: true

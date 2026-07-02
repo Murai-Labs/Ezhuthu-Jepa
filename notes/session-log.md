@@ -182,3 +182,20 @@ Per-session checkpoints. Append; never edit past entries.
   human sign-off) and P1.002 (K2 premise probe, parallelizable). No full sweep until LAUNCH-A.
 - Open uncertainties: the 50k-step budget is provisional — the pilot must show convergence or the ledger
   and sweep config revise upward (which also re-checks the 40 GPU-h ceiling headroom).
+
+### 2026-07-02 CT — P1.002 K2 premise probe (base→sign) — PASS with an honest caveat
+- Started from: PA.006 done → P1.002 (user: "start P1.002").
+- Did: `eval/base_to_sign_probe.py` + `configs/phase1/k2_probe.yaml` + `tests/test_base_to_sign.py` (4).
+  Predicts vowel-SIGN from the consonant-BASE region (sign masked) on the augmented font-holdout index,
+  inherent-'a' excluded. Built a sign-LOCATION-only control and glyph/diff stratification from the start
+  (senior-review instinct). Run `phase1-k2probe-001`: base 0.509 [0.503,0.515] ≫ chance/majority 0.091
+  (~5.6×) → **K2 kill-gate PASSES**. BUT the location control (0.623) beats the base probe in EVERY
+  stratum (glyph 0.695>0.604; diff 0.457>0.291) → the signal is sign LOCATION, not base-ink composition,
+  weakest exactly in the ligature stratum. Fixed my initial over-strong verdict (base>geometry) to the
+  contract's kill-gate criterion (beats chance) — location is fair game for JEPA (it knows masked
+  positions). Recorded DEC-0016 + `notes/negative-results/k2-base-ink-signal-is-location-not-composition.md`.
+  114 tests pass; placeholder + torch_dtype scans clean.
+- Ended at: P1.002 done, gate PASSES. Next: LAUNCH-A packet (surface the K2 caveat) → P1.003 sweep.
+- Open uncertainties: **live K1 risk** — if the exploitable structure is largely location, block-JEPA
+  (position-aware) may match seam-JEPA on M; a learned encoder might still extract base-ink composition a
+  pixel probe cannot. K1/K3 adjudicate. Weigh this heavily before spending the sweep budget.

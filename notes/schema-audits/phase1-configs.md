@@ -54,3 +54,20 @@ Every field has ≥1 present consumer. `amp_dtype` uses `dtype=` autocast only (
 - Test coverage: `tests/test_pretrain.py` (objective switch, no-sign exclusion, fixed mask ratio,
   end-to-end run, probe adapter, bad-objective rejection, resume reproduces uninterrupted run, resume
   refuses on config mismatch, resume with no state raises).
+
+## C. `ezhuthu_jepa.eval.base_to_sign_probe.K2ProbeConfig` — new schema (P1.002)
+
+| Field | Consumer(s) | Read? |
+|-------|-------------|-------|
+| `index_jsonl` | `_load` (reads instances); `run_k2_probe` data_hash | ✓ |
+| `image_dir` | `_load` (image paths) | ✓ |
+| `ridge_lambda` | `_probe_accuracy` → `fit_ridge` | ✓ |
+| `bootstrap_n` | `bootstrap_ci` / `_stratify` | ✓ |
+| `seed` | bootstrap seeds + provenance seed | ✓ |
+| `downsample` | `PixelEncoder(downsample=…)` | ✓ |
+| `exclude_no_sign` | `_load` (drops inherent-'a' forms — degenerate single-class) | ✓ |
+
+Every field has ≥1 consumer. `from_yaml` rejects unknown keys. The verdict logic (kill-gate = base-region
+CI_low > chance AND > majority; the sign-location control is *attribution*, not pass/fail) is DEC-0016.
+Test coverage: `tests/test_base_to_sign.py` (base/geometry image helpers, premise holds when base encodes
+sign, no-sign exclusion).

@@ -15,7 +15,7 @@ Last updated: 2026-07-02 CT
 ## Current State
 
 - Repo state: pushed to Murai-Labs/Ezhuthu-Jepa (public). Phase-1 code landing.
-- Current phase: **G0 complete; PA.001–PA.006 + P1.001b + resume-state done; LAUNCH-A / G1 sweep not started.**
+- Current phase: **G0 complete; PA.001–PA.006 + P1.001b + P1.002 (K2) + resume-state done; LAUNCH-A / G1 sweep not started.**
 - Stack decision: single RTX 5090; from-scratch I-JEPA-style ViT-Tiny/8 (torch.nn, no timm); PyTorch
   with `dtype=` policy (never `torch_dtype=`). Config contract locked at schema `0.1.0`; torch
   2.10.0+cu130 now pinned in `configs/phase0/locked-versions.yaml`.
@@ -76,9 +76,14 @@ Last updated: 2026-07-02 CT
   measured from the smokes (seam 50ms/step, 169 steps/epoch, probe ~4min); planned full run 50k steps;
   program total **~15 GPU-h** on one 5090; **hard ceiling 40 RTX-5090 GPU-h** (halt for approval). Full-
   foundation build (10²–10³×) explicitly out of scope; H100/Lambda exclusion for K1–K4 stands.
+- [x] **K2 premise probe (TASK P1.002, DEC-0016)** — `eval/base_to_sign_probe.py`, run `phase1-k2probe-001`.
+  **Kill-gate PASSES**: base-region 0.509 [0.503,0.515] ≫ chance 0.091 (~5.6×). **First-class caveat (§2.5):**
+  the signal is sign-LOCATION not base-ink — a location control beats base in every stratum (glyph 0.695>0.604,
+  diff 0.457>0.291), weakest in the ligature stratum. Recorded in `notes/negative-results/`. **Raises a live K1
+  risk** (block-JEPA may match seam-JEPA on M) — to weigh at LAUNCH-A/G1.
 
-Test suite: **110 passed** (`pytest -q`; +18 for P1.001b/PA.005/resume). Placeholder + `torch_dtype` scans
-clean. `compileall src` clean. Figures: F1, F2, F3 done; F4–F5 planned.
+Test suite: **114 passed** (`pytest -q`; +22 for P1.001b/PA.005/resume/K2). Placeholder + `torch_dtype`
+scans clean. `compileall src` clean. Figures: F1, F2, F3 done; F4–F5 planned.
 
 ## Current Blockers
 
@@ -93,12 +98,16 @@ clean. `compileall src` clean. Figures: F1, F2, F3 done; F4–F5 planned.
 ## Next Recommended Work
 
 1. **TASK LA.001 (LAUNCH-A)** — assemble the gate review and get Ramchand's sign-off. All preconditions
-   are now met: eval harness frozen ✓, ε pre-registered ✓, 1-seed smoke passes ✓, resume-state ✓,
-   compute ledger committed ✓ (DEC-0015). Needs: a slightly longer 1-seed **pilot** confirming
-   convergence (per the ledger's provisional 50k-step budget), then human approval.
-2. **TASK P1.002** (K2 base→sign premise probe) — cheap kill-gate; can run in parallel with the pilot.
-3. **TASK P1.003** (full n≥3-seed sweep, clean tree, checkpoint_every>0) → **P1.004** (G1 decision vs ε
+   met: eval harness frozen ✓, ε pre-registered ✓, 1-seed smoke passes ✓, resume-state ✓, compute ledger
+   ✓ (DEC-0015), K2 premise PASSES ✓ (DEC-0016). Needs: a longer 1-seed **pilot** confirming convergence
+   (provisional 50k-step budget), then human approval. **Surface the K2 caveat in the packet** (below).
+2. **TASK P1.003** (full n≥3-seed sweep, clean tree, checkpoint_every>0) → **P1.004** (G1 decision vs ε
    via the McNemar comparator). **Do NOT launch P1.003 before LAUNCH-A is approved.**
+
+**Live risk to weigh at LAUNCH-A/G1 (from K2, DEC-0016):** base→sign predictability is sign-LOCATION, not
+base-ink composition (a location control beats the base probe in every stratum). Since block-JEPA is also
+position-aware, there is real risk it matches seam-JEPA on M — precisely the cheap baseline K1 must defeat.
+This does not block (K2 beats chance), but it should temper priors on a strong K1 win.
 
 ---
 **Tracker rule:** Update this file and `CHECKPOINT.md` before every commit that changes project
