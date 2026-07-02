@@ -311,3 +311,26 @@ seam_source glyph/diff/none = 0.348/0.421/0.778.
 Follow-up: PA.004 (masking) → PA.005 (JEPA pretrain loop; registers the encoder) → re-run this harness
 to get the real M per objective for the K1/K3 sweep.
 Human Approval: pending.
+
+---
+
+## DEC-0012 - PA.004: seam masking + matched block-masking control
+
+Date: 2026-07-01
+Task/Gate: G1 (TASK PA.004)
+Decision: Implemented `masking/seam.py`: a boolean pixel `MaskSpec` for two maskers behind one
+interface — **seam** (covers the recorded vowel-sign `seam_bbox`, keeps the base visible) and **block**
+(the K1 control: a box of the SAME width/height as the seam at a RANDOM location, so only the mask
+*location* differs, holding ratio/shape fixed per spec §3). Masks carry `seam_source` for downstream
+stratification (DEC-0006); the inherent-'a' form yields an empty mask (nothing to hide). `apply_mask`
+supports MAE-style pixel targets; `mask_for_entry` reads a render-manifest entry.
+Rationale: this is the intervention under test; the same-size-box-elsewhere control is the cleanest K1
+(structured mask, only the seam location varies). MAE-at-seam (K3) reuses the seam mask with a pixel
+target at PA.005, so PA.004 stays objective-agnostic.
+Evidence / Source Docs: `src/ezhuthu_jepa/masking/seam.py`, `tests/test_seam_mask.py` (10). Full suite 85 passed.
+Measured Result: seam and block masks share mask ratio (asserted); block placement varies off the seam.
+Follow-up: **PA.005 pretraining loop** consumes these masks. Two research inputs gathered in parallel
+(subagent-log 19:40) shape PA.005 and raise a pre-registration question: (a) I-JEPA ViT-Tiny/8 recipe;
+(b) augmentation + a **paired-McNemar vs non-overlapping-CI** decision-rule question (see uncertainties
+2026-07-01). Forward constraint: augmentation must transform `seam_bbox` with the image.
+Human Approval: pending.

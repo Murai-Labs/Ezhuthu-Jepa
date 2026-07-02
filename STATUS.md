@@ -1,6 +1,6 @@
 # Ezhuthu-Jepa — Status
 
-Last updated: 2026-07-01 19:15 CT
+Last updated: 2026-07-01 19:45 CT
 
 ## Methodology Decisions (DEC-0004, DEC-0006)
 
@@ -45,8 +45,11 @@ Last updated: 2026-07-01 19:15 CT
 - [x] **Eval harness / metric M (TASK PA.003, DEC-0011)** — encoder-agnostic ridge linear probe with
   bootstrap CIs, stratified by bucket × seam_source × font. Frozen before the sweep. Baseline
   PixelEncoder metric_M = 0.333 [0.222,0.463] (reference); `runs/pa003-probe-001/metrics.json`; Figure F3.
+- [x] **Seam masking + block control (TASK PA.004, DEC-0012)** — `masking/seam.py`, 10 tests. Seam mask
+  covers the sign; matched block mask (same size, random location) is the clean K1 control.
 
-Test suite: **75 passed** (`pytest -q`). Placeholder scan clean. Figures: F1, F2, F3 done; F4–F5 planned.
+Test suite: **85 passed** (`pytest -q`). Placeholder scan clean. Figures: F1, F2, F3 done; F4–F5 planned.
+PA.005 research (I-JEPA recipe + augmentation/decision-rule) gathered — see subagent-log; awaiting decisions.
 
 ## Current Blockers
 
@@ -59,9 +62,11 @@ Test suite: **75 passed** (`pytest -q`). Placeholder scan clean. Figures: F1, F2
 
 ## Next Recommended Work
 
-1. **TASK PA.004** — seam-masking module (mask carries seam_source; ligatures via diff region).
-2. **TASK PA.005** — I-JEPA-style ViT pretraining loop (seam/block/MAE switchable); registers the JEPA
-   encoder that plugs into the PA.003 harness. **First real training code → introduces torch (LAUNCH-A gate territory).**
+1. **TASK PA.005** — I-JEPA-style ViT pretraining loop (seam/block/MAE switchable); registers the JEPA
+   encoder for the PA.003 harness. **First training code → introduces torch.** PAUSED for decisions:
+   ViT sizing (ViT-Tiny/8 proposed), augmentation strategy (to shrink metric-M CI), and the
+   decision-rule question (McNemar vs non-overlapping CI — would re-pre-register ε).
+2. **TASK PA.006** — compute-ledger pre-commit for K1–K4.
 3. **TASK P1.002** — K2 base→sign premise probe.
 4. Then LAUNCH-A → **P1.003** (sweep) → **P1.004** (G1 decision vs ε).
 

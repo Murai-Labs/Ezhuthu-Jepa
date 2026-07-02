@@ -1,6 +1,6 @@
 # Ezhuthu-Jepa — Checkpoint
 
-Last updated: 2026-07-01 19:15 CT
+Last updated: 2026-07-01 19:45 CT
 
 ## Resume Point
 
@@ -21,7 +21,7 @@ Madurai), then **PA.003** (eval harness), **P1.001** (pre-register ε), **PA.004
 
 ## Current Checkpoint
 
-- Phase: **G0 APPROVED (DEC-0008); PA.001 + PA.002 + PA.003 done; ε PRE-REGISTERED (DEC-0009).** LAUNCH-A / G1 sweep not started.
+- Phase: **G0 APPROVED (DEC-0008); PA.001–PA.004 done; ε PRE-REGISTERED (DEC-0009).** PA.005 paused for decisions. LAUNCH-A / G1 sweep not started.
 - What is done: operating system + provenance writer + config contract (P0.003/P0.004), and the Tamil
   rendering pipeline (PA.001): `data/{grapheme,render,build_uyirmei}.py`, HarfBuzz+FreeType shaping,
   glyph/diff seam hybrid, **multi-font (Noto+Nirmala)**. All 216 uyirmei rendered under both fonts →
@@ -31,9 +31,12 @@ Madurai), then **PA.003** (eval harness), **P1.001** (pre-register ε), **PA.004
 - PA.003 done: eval harness `eval/akshara_probe.py` — encoder-agnostic ridge probe, metric M with
   bootstrap CIs, stratified by bucket × seam_source × font, frozen before the sweep. Baseline
   PixelEncoder metric_M = 0.333 (reference). `runs/pa003-probe-001/metrics.json`; Figure F3.
-- What is next: **PA.004** seam-masking module, then **PA.005** I-JEPA pretraining loop (registers the
-  JEPA encoder that plugs into the PA.003 harness). PA.005 introduces **torch** — use `dtype=`, never
-  `torch_dtype=`; pin it in locked-versions. **Do not launch the full sweep before LAUNCH-A.**
+- PA.004 done: `masking/seam.py` — seam mask + matched block control (K1), carries seam_source.
+- What is next: **PA.005** I-JEPA pretraining loop — PAUSED for 3 decisions (ViT size, augmentation,
+  decision-rule McNemar-vs-CI). Research gathered (subagent-log 19:40; I-JEPA ViT-Tiny/8 recipe +
+  augmentation stats). PA.005 introduces **torch** — use `dtype=`, never `torch_dtype=`; pin it.
+  **Do not launch the full sweep before LAUNCH-A.** If switching the ε decision rule to McNemar, that
+  is a NEW pre-registration dated before results (DEC-0009 change).
 - To rebuild PA.002/PA.003: see `docs/RUNBOOK.md` (frequency split; evaluate a frozen encoder).
 - Authorization gate status: **G0 approved** (DEC-0008); **ε pre-registered** (DEC-0009). LAUNCH-A
   **not yet approved** — do not launch the full Stage-A sweep (P1.003) until it is. No training run authorized.

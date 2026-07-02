@@ -54,3 +54,13 @@ Carry uncertainties forward each session until resolved.
 - Status: Open — quantify at PA.005/P1.003. If CIs stay ~±0.1 at the real encoder, either increase
   instances-per-akshara (augmentation) before the sweep or revisit the ε rule with Ramchand (would be
   a new pre-registration, dated before results). Flag now so it is not discovered mid-sweep.
+
+### 2026-07-01 — Decision rule: paired McNemar may be far more powerful than non-overlapping CIs
+- Why it matters: PA.005-prep research (subagent-log 19:40) indicates the pre-registered "non-overlapping
+  95% CI" rule (DEC-0009) is low-power — it needs each arm's CI half-width < 1pp (~150-200 eval
+  instances/class) to detect a 2pp effect. A **paired McNemar test on identical eval instances across
+  arms** detects the same 2pp at ~3-5× smaller n because per-item outcomes are correlated. Our arms
+  (seam/block/MAE) CAN be evaluated on identical eval instances, so paired testing is available.
+- Status: OPEN — decision for Ramchand at PA.005. If we switch the adjudicator to McNemar, that is a
+  CHANGE to the pre-registered ε rule and MUST be a new pre-registration dated before any sweep result
+  (append to `notes/decision-gates/g1-cheap-baseline.md`, new DEC entry). Do not switch silently.

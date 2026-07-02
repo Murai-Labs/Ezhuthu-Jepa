@@ -164,13 +164,15 @@ n ≥ 3 seeds, 95 % bootstrap CIs. ε = 2.0 pp / non-overlapping CIs (pre-regist
      and leaves the base pixels; for `seam_source=="diff"` (ligatures) the mask covers the diff region.
   2. A block-masking variant with matched mask ratio is exposed behind the same interface (K1 baseline).
   3. Each masked sample carries its `seam_source` so downstream metrics can stratify (DEC-0006).
-- **Evidence of completion:** passing `pytest -k seam_mask`.
-- **Validation:** `pytest -k seam_mask`
-- **Measurements / logs:** realized mask ratio (must match block variant).
+- **Evidence of completion:** `src/ezhuthu_jepa/masking/seam.py`, `tests/test_seam_mask.py` (10 pass).
+- **Validation:** `pytest -k seam_mask` (10 pass); full suite 85 pass.
+- **Measurements / logs:** seam and matched block masks share mask ratio (asserted); carries seam_source.
 - **Dependencies:** PA.001
 - **Blocking gate:** G1
+- **Notes:** block = same-size box at random location (only location differs from seam → clean K1).
+  'a' forms → empty mask. Forward: PA.005 augmentation must transform seam_bbox with the image.
 - **Estimated effort:** 4
-- **Done:** [ ]
+- **Done:** [x]
 
 #### TASK PA.005: I-JEPA-style ViT pretraining loop (single-5090, seam/block/MAE switchable)
 - **What:** A pretraining entry point that trains the small ViT under a selectable objective

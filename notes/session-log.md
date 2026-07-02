@@ -103,3 +103,13 @@ Per-session checkpoints. Append; never edit past entries.
   (JEPA pretrain, introduces torch). LAUNCH-A still gates the full sweep.
 - Open uncertainties: bottom-quartile CI width (±0.12) is wide at n=54 with the weak baseline — watch
   whether the JEPA encoder + augmented instances (PA.005) tighten it enough to adjudicate ε=2pp.
+
+### 2026-07-01 19:45 CT — PA.004 seam masking + PA.005 research (parallel agents)
+- Started from: PA.004; launched 2 background research agents (I-JEPA recipe; augmentation/CI) per
+  Ramchand's "use parallel agents" directive, built masking in main context meanwhile.
+- Did: added `masking/seam.py` (seam mask + matched block K1 control, carries seam_source) +
+  `tests/test_seam_mask.py` (10). 85 tests pass. DEC-0012. Both agents returned (subagent-log 19:40):
+  I-JEPA ViT-Tiny/8 recipe; augmentation stats flagged that paired McNemar >> non-overlapping CI for
+  power (raises a re-pre-registration question) and that augmentation must transform seam_bbox.
+- Ended at: PA.004 done; PA.005 PAUSED for decisions (ViT size, augmentation, decision rule).
+- Open uncertainties: McNemar-vs-CI decision rule (see uncertainties 2026-07-01); seam_bbox under augmentation.
