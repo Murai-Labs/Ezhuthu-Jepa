@@ -17,7 +17,7 @@ Instances with no sign (inherent-'a' forms, ``seam_source == none``) have no sea
 excluded from pretraining by default — the same exclusion for every arm, so the comparison stays fair.
 
 Backbone: ViT-Tiny/8 (patch 8 on 96 px → 12×12 = 144 tokens), config-swappable to ViT-Small/8
-(DEC-0013). Uses ``dtype=`` autocast (bf16) — never the deprecated ``torch_dtype=`` (AGENTS.md §6).
+(DEC-0013). Uses ``dtype=`` autocast (bf16), per the AGENTS.md §6 dtype policy (no deprecated kwarg).
 
 A run writes ``provenance.json`` (five identifiers), ``metrics.json`` (loss/throughput/memory), and
 ``encoder.pt`` (context-encoder weights + arch) so the frozen probe (PA.003) can load it as
@@ -42,7 +42,7 @@ import yaml
 from PIL import Image
 
 from ..config import RunConfig, SCHEMA_VERSION
-from ..provenance import hash_paths, validate_run_dir, write_provenance
+from ..provenance import compute_config_hash, hash_paths, validate_run_dir, write_provenance
 
 # Imported lazily-at-callsite would hide the hard dependency; PA.005 *is* where torch enters.
 import torch
@@ -88,8 +88,9 @@ class PretrainConfig:
     grad_clip: float = 1.0
     # --- runtime ---
     device: str = "cuda"
-    amp_dtype: str = "bf16"           # bf16 | fp16 | fp32 (autocast); dtype= policy, never torch_dtype
+    amp_dtype: str = "bf16"           # bf16 | fp16 | fp32 for autocast dtype= (AGENTS.md §6 policy)
     log_every: int = 50
+    checkpoint_every: int = 0         # steps between resume-state writes; 0 = none (short smoke runs)
 
     def __post_init__(self) -> None:
         # Reuse the locked contract's validation for the identity fields (objective/seed/mask_ratio).
@@ -103,6 +104,8 @@ class PretrainConfig:
             raise ValueError(f"img_size {self.img_size} must be divisible by patch_size {self.patch_size}")
         if self.amp_dtype not in ("bf16", "fp16", "fp32"):
             raise ValueError(f"amp_dtype must be bf16|fp16|fp32, got {self.amp_dtype!r}")
+        if self.checkpoint_every < 0:
+            raise ValueError(f"checkpoint_every must be >= 0, got {self.checkpoint_every}")
 
     @property
     def grid(self) -> int:
@@ -316,6 +319,48 @@ def _amp_dtype(name: str) -> torch.dtype:
     return {"bf16": torch.bfloat16, "fp16": torch.float16, "fp32": torch.float32}[name]
 
 
+RESUME_FILENAME = "resume-state.pt"
+
+
+class ResumeError(RuntimeError):
+    """Raised when a resume-state file is missing or does not match the current config/seed."""
+
+
+def _save_resume_state(run_dir: Path, step: int, cfg: PretrainConfig, context, predictor, target, opt, rng) -> None:
+    """Atomically write the full training state so an interrupted run can continue bit-for-bit."""
+    payload = {
+        "step": step,
+        "config_hash": compute_config_hash(cfg),
+        "seed": cfg.seed,
+        "context": context.state_dict(),
+        "predictor": predictor.state_dict(),
+        "target": target.state_dict() if target is not None else None,
+        "optimizer": opt.state_dict(),
+        "np_rng_state": rng.bit_generator.state,
+        "torch_rng_state": torch.get_rng_state(),
+    }
+    tmp = run_dir / (RESUME_FILENAME + ".tmp")
+    torch.save(payload, tmp)
+    tmp.replace(run_dir / RESUME_FILENAME)     # rename is atomic → never a half-written resume file
+
+
+def _load_resume_state(run_dir: Path, cfg: PretrainConfig) -> dict:
+    """Load + validate a resume-state against the current config (hash + seed must match)."""
+    path = run_dir / RESUME_FILENAME
+    if not path.is_file():
+        raise ResumeError(f"no {RESUME_FILENAME} in {run_dir}; nothing to resume")
+    state = torch.load(path, map_location="cpu", weights_only=False)
+    current = compute_config_hash(cfg)
+    if state["config_hash"] != current:
+        raise ResumeError(
+            f"resume config hash mismatch (state {state['config_hash']} != current {current}); "
+            "the config changed since the interrupted run — refusing to resume"
+        )
+    if state["seed"] != cfg.seed:
+        raise ResumeError(f"resume seed mismatch: state {state['seed']} != current {cfg.seed}")
+    return state
+
+
 def _patch_pixels(images: torch.Tensor, mask_idx: torch.Tensor, patch: int, grid: int) -> torch.Tensor:
     """Normalised pixel targets for masked patches: (B, n_mask, patch*patch)."""
     b = images.shape[0]
@@ -327,7 +372,7 @@ def _patch_pixels(images: torch.Tensor, mask_idx: torch.Tensor, patch: int, grid
     return (tgt - mean) / std
 
 
-def train(cfg: PretrainConfig, run_dir: Path) -> Path:
+def train(cfg: PretrainConfig, run_dir: Path, resume: bool = False) -> Path:
     torch.manual_seed(cfg.seed)
     rng = np.random.default_rng(cfg.seed)
     device = torch.device(cfg.device if (cfg.device != "cuda" or torch.cuda.is_available()) else "cpu")
@@ -352,6 +397,33 @@ def train(cfg: PretrainConfig, run_dir: Path) -> Path:
         f"encoder_params={n_params/1e6:.2f}M steps={cfg.max_steps}",
         flush=True,
     )
+
+    # Provenance is a precondition, recorded before the loop (AGENTS.md §2.4) so a crashed run keeps
+    # its five identifiers; on --resume it already exists from the original launch and is validated.
+    run_dir.mkdir(parents=True, exist_ok=True)
+    if resume:
+        state = _load_resume_state(run_dir, cfg)
+        context.load_state_dict(state["context"])
+        predictor.load_state_dict(state["predictor"])
+        if latent and state["target"] is not None:
+            target.load_state_dict(state["target"])
+        opt.load_state_dict(state["optimizer"])
+        rng.bit_generator.state = state["np_rng_state"]
+        torch.set_rng_state(state["torch_rng_state"])
+        start_step = int(state["step"])
+        validate_run_dir(run_dir)
+        print(f"[pretrain] RESUME from step {start_step}/{cfg.max_steps} ({run_dir})", flush=True)
+    else:
+        start_step = 0
+        write_provenance(
+            run_dir,
+            config=cfg,
+            data_hash=hash_paths([Path(cfg.index_jsonl)]),
+            run_id=run_dir.name,
+            seed=cfg.seed,
+            package_names=["numpy", "pillow", "pyyaml", "torch"],
+        )
+
     if device.type == "cuda":
         torch.cuda.reset_peak_memory_stats(device)
 
@@ -360,7 +432,7 @@ def train(cfg: PretrainConfig, run_dir: Path) -> Path:
     started = time.monotonic()
     running = 0.0
     final_loss = float("nan")
-    for step in range(1, cfg.max_steps + 1):
+    for step in range(start_step + 1, cfg.max_steps + 1):
         idx = rng.integers(0, len(instances), cfg.batch_size)
         batch = [instances[i] for i in idx]
         imgs = images[idx].to(device, non_blocking=True)
@@ -397,6 +469,9 @@ def train(cfg: PretrainConfig, run_dir: Path) -> Path:
                 for tp, cp in zip(target.parameters(), context.parameters()):
                     tp.mul_(m).add_(cp.detach(), alpha=1.0 - m)
 
+        if cfg.checkpoint_every and step % cfg.checkpoint_every == 0 and step < cfg.max_steps:
+            _save_resume_state(run_dir, step, cfg, context, predictor, target, opt, rng)
+
         running += loss.item()
         final_loss = loss.item()
         if step % cfg.log_every == 0 or step == cfg.max_steps:
@@ -413,16 +488,8 @@ def train(cfg: PretrainConfig, run_dir: Path) -> Path:
 
     elapsed = time.monotonic() - started
     peak_mem = torch.cuda.max_memory_allocated(device) / 1e6 if device.type == "cuda" else 0.0
+    executed = max(1, cfg.max_steps - start_step)
 
-    run_dir.mkdir(parents=True, exist_ok=True)
-    write_provenance(
-        run_dir,
-        config=cfg,
-        data_hash=hash_paths([Path(cfg.index_jsonl)]),
-        run_id=run_dir.name,
-        seed=cfg.seed,
-        package_names=["numpy", "pillow", "pyyaml", "torch"],
-    )
     torch.save(
         {"arch": _arch_dict(cfg), "context_encoder": context.state_dict()},
         run_dir / "encoder.pt",
@@ -437,8 +504,9 @@ def train(cfg: PretrainConfig, run_dir: Path) -> Path:
         "n_mask": cfg.n_mask,
         "encoder_params_m": round(n_params / 1e6, 3),
         "steps": cfg.max_steps,
+        "resumed_from_step": start_step,
         "final_loss": float(final_loss),
-        "throughput_img_s": round(cfg.max_steps * cfg.batch_size / elapsed, 1),
+        "throughput_img_s": round(executed * cfg.batch_size / elapsed, 1),
         "peak_mem_mb": round(peak_mem, 1),
         "elapsed_s": round(elapsed, 1),
         "encoder_checkpoint": "encoder.pt",
@@ -509,11 +577,12 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--config", type=Path, default=Path("configs/phase1/pretrain.yaml"))
     parser.add_argument("--run-dir", type=Path, default=Path("runs/phaseA-smoke-001"))
     parser.add_argument("--objective", type=str, default=None, help="override objective from config")
+    parser.add_argument("--resume", action="store_true", help="continue from <run-dir>/resume-state.pt")
     args = parser.parse_args(argv)
     cfg = PretrainConfig.from_yaml(args.config)
     if args.objective:
         cfg = PretrainConfig(**{**asdict(cfg), "objective": args.objective})
-    train(cfg, args.run_dir)
+    train(cfg, args.run_dir, resume=args.resume)
     return 0
 
 

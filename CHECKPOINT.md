@@ -9,7 +9,7 @@ To verify a clean state and continue:
 ```bash
 cd /c/Github/Ezhuthu-Jepa
 git status -sb
-PYTHONIOENCODING=utf-8 python -m pytest -q          # expect: 107 passed
+PYTHONIOENCODING=utf-8 python -m pytest -q          # expect: 110 passed
 nvidia-smi                 # confirm RTX 5090 available before any GPU work
 # Regenerate gitignored data if missing (deterministic): the OFL font, then the augmented index.
 curl -fsSL "https://github.com/google/fonts/raw/main/ofl/notosanstamil/NotoSansTamil%5Bwdth,wght%5D.ttf" -o fonts/NotoSansTamil.ttf
@@ -42,8 +42,11 @@ resume-state for >30min runs, then **LAUNCH-A**, then **P1.002** (K2 probe) → 
 - Done: **PA.005** — `train/pretrain.py` I-JEPA ViT-Tiny/8, {seam/block/mae} by config; smoke runs
   `phaseA-smoke-001/-002/-003` (provenance + metrics + `encoder.pt`); JEPA encoder wired into the
   probe (`encoder: jepa`); torch 2.10.0+cu130 pinned. Regenerate via RUNBOOK "Pretraining Loop".
-- What is next: **PA.006** compute-hour ledger (use smoke throughput 2.5–3.5k img/s) → add resume-state
-  for >30min runs → **LAUNCH-A** → P1.002 (K2) → P1.003 sweep (clean tree). Do NOT run the sweep before LAUNCH-A.
+- Done: **Resume-state (§4)** — `checkpoint_every>0` writes atomic `resume-state.pt` (weights/optim/EMA/
+  RNG); `--resume` validates config-hash+seed and continues from the saved step. Verified interrupt→resume
+  reproduces identical final weights (CPU + GPU). Provenance now written before the loop.
+- What is next: **PA.006** compute-hour ledger (use smoke throughput 2.5–3.5k img/s) → **LAUNCH-A** →
+  P1.002 (K2) → P1.003 sweep (clean tree, checkpoint_every>0). Do NOT run the sweep before LAUNCH-A.
 - Authorization gate status: **G0 approved** (DEC-0008); **ε pre-registered** (DEC-0009). LAUNCH-A
   **not yet approved** — do not launch the full Stage-A sweep (P1.003) until it is. No full training run authorized (smokes only).
 

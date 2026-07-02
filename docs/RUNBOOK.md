@@ -97,9 +97,9 @@ pytest -k "pretrain or mcnemar or probe"                  # Phase-1 focused
 
 ```bash
 # ONLY after LAUNCH-A approval (docs/GATE_LAUNCH_A_REVIEW.md signed) and on a CLEAN committed tree.
-# Provenance (incl. code_sha + dirty flag) is recorded before the loop starts. The full sweep uses a
-# dedicated sweep config (P1.003) that sets limit_instances=0, the real step budget, and per-seed dirs.
-# The seed is a config field (one config per seed) — there is no --seed flag.
+# Provenance (incl. code_sha + dirty flag) is recorded BEFORE the loop starts. The full sweep uses a
+# dedicated sweep config (P1.003) that sets limit_instances=0, the real step budget, per-seed dirs, and
+# checkpoint_every > 0 so an interrupted >30min run is resumable. Seed is a config field (one per seed).
 PYTHONPATH=src python -m ezhuthu_jepa.train.pretrain \
   --config configs/phase1/sweep-seamjepa-seed0.yaml --run-dir runs/phase1-sweep-seamjepa-seed0
 ```
@@ -107,9 +107,13 @@ PYTHONPATH=src python -m ezhuthu_jepa.train.pretrain \
 ## Resume an Interrupted Run
 
 ```bash
-# NOT YET IMPLEMENTED. The PA.005 smoke is short (<30 s) and needs no resume. Runs >30 min (the
-# P1.003 sweep) require a per-epoch resume-state file + config/seed re-validation (AGENTS.md §4);
-# build that before launching the full sweep.
+# Runs with checkpoint_every > 0 write runs/<run-id>/resume-state.pt every N steps (weights, optimizer,
+# EMA target, and NumPy+torch RNG states — atomic rename, never half-written). Restart with the SAME
+# config + --resume; it validates the config hash + seed against the interrupted run and continues from
+# the saved step. A changed config (or seed) is refused (ResumeError). resume-state.pt is a *.pt →
+# gitignored. Provenance is not rewritten on resume (the original launch's manifest is validated).
+PYTHONPATH=src python -m ezhuthu_jepa.train.pretrain \
+  --config configs/phase1/sweep-seamjepa-seed0.yaml --run-dir runs/phase1-sweep-seamjepa-seed0 --resume
 ```
 
 ## Pre-Run Checklist

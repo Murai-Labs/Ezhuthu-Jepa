@@ -39,11 +39,18 @@ locked contract governs them without a schema bump.
 | `batch_size`,`max_steps`,`lr`,`weight_decay`,`warmup_steps`,`grad_clip` | `train` optimiser/loop | ✓ |
 | `ema_base`,`ema_final` | `train` EMA momentum schedule (latent objectives) | ✓ |
 | `device`,`amp_dtype`,`log_every` | `train` runtime/autocast/progress | ✓ |
+| `checkpoint_every` | `train` (writes `resume-state.pt` every N steps; 0 = none); `__post_init__` (>=0) | ✓ |
 
 Every field has ≥1 present consumer. `amp_dtype` uses `dtype=` autocast only (AGENTS.md §6 — no
 `torch_dtype=`; grep-clean across `src`).
 
 - Config hashing: `PretrainConfig` is a frozen dataclass → `provenance.compute_config_hash` hashes
   `dataclasses.asdict`. Adding/removing a field changes the hash of PA.005 runs (but not RunConfig's).
+- Resume-state (AGENTS.md §4): with `checkpoint_every > 0`, `train` writes `resume-state.pt` (weights,
+  optimizer, EMA target, NumPy+torch RNG states) atomically every N steps. `--resume` loads it and
+  **validates `config_hash` + `seed`** against the current config (`ResumeError` on mismatch), then
+  continues from the saved step. Provenance is written **before** the loop (precondition, §2.4) and is
+  **not** rewritten on resume. `resume-state.pt` is `*.pt` → gitignored.
 - Test coverage: `tests/test_pretrain.py` (objective switch, no-sign exclusion, fixed mask ratio,
-  end-to-end run, probe adapter, bad-objective rejection).
+  end-to-end run, probe adapter, bad-objective rejection, resume reproduces uninterrupted run, resume
+  refuses on config mismatch, resume with no state raises).

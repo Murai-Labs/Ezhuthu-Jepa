@@ -41,3 +41,4 @@ grad_clip: 1.0
 device: "cuda"
 amp_dtype: "bf16"
 log_every: 10
+checkpoint_every: 0           # 0 = no resume-state (smoke is <30 s); the full sweep sets this > 0

@@ -154,3 +154,17 @@ Per-session checkpoints. Append; never edit past entries.
 - Ended at: PA.001–PA.005 + P1.001b done. Next: PA.006 compute ledger → resume-state → LAUNCH-A → P1.003.
 - Open uncertainties: verify the I-JEPA recipe (EMA schedule, predictor depth, mask scale) vs the paper
   before the full sweep; smokes are 30 steps and prove nothing about K1/K3; resume-state not yet built.
+
+### 2026-07-02 CT — Resume-state for the pretraining loop (AGENTS.md §4)
+- Started from: post-PA.005 (user: "Resume state first - clean dirty tree. Then do PA.006").
+- Did: added `checkpoint_every` + `resume-state.pt` to `train/pretrain.py`. Every N steps the loop
+  atomically (tmp+rename) saves weights, optimizer, EMA target, and NumPy+torch RNG states. `--resume`
+  loads it, **validates config-hash + seed** (`ResumeError` on mismatch), restores everything, and
+  continues from the saved step. Provenance is now written **before** the loop (precondition, §2.4) and
+  is not rewritten on resume. Verified: interrupted@3 → resumed run reaches **identical** final weights
+  (CPU allclose test) and identical final_loss on a GPU end-to-end run (scratch dir, not committed).
+  3 new tests (10 pretrain total; 110 full suite). placeholder + torch_dtype scans clean (reworded two
+  policy comments so the grep gate stays clean — no actual `torch_dtype=` usage ever existed).
+- Ended at: resume-state done; tree clean after commit. Next: PA.006 compute-hour ledger.
+- Open uncertainties: GPU bf16 resume was bit-identical here but that is not guaranteed across all ops;
+  the §4 guarantee we rely on is "resumable + config/seed-validated", not "bit-exact on GPU".

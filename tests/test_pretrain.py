@@ -7,9 +7,11 @@ objectives, and that the trained encoder plugs into the probe as `encoder: jepa`
 """
 
 import json
+import shutil
 
 import numpy as np
 import pytest
+import torch
 
 from ezhuthu_jepa.data.grapheme import enumerate_uyirmei
 from ezhuthu_jepa.provenance import validate_run_dir
@@ -17,7 +19,7 @@ from ezhuthu_jepa.train import pretrain as P
 
 
 def _tiny_config(tmp_path, objective, **overrides):
-    return P.PretrainConfig(
+    defaults = dict(
         objective=objective, seed=0, mask_ratio=0.25,
         index_jsonl=str(tmp_path / "index.jsonl"), image_dir=str(tmp_path),
         limit_instances=0,
@@ -25,8 +27,8 @@ def _tiny_config(tmp_path, objective, **overrides):
         pred_dim=16, pred_depth=1, pred_heads=2,
         batch_size=8, max_steps=3, warmup_steps=1, log_every=2,
         device="cpu", amp_dtype="fp32",
-        **overrides,
     )
+    return P.PretrainConfig(**{**defaults, **overrides})
 
 
 @pytest.fixture()
@@ -111,3 +113,50 @@ def test_pretrain_smoke_encoder_loads_into_probe(synthetic_index, tmp_path):
 def test_pretrain_rejects_unknown_objective(synthetic_index):
     with pytest.raises(ValueError):
         _tiny_config(synthetic_index, "not_an_objective")
+
+
+# --- resume-state (AGENTS.md §4) ----------------------------------------------------------------
+
+
+def test_pretrain_resume_reproduces_uninterrupted_run(synthetic_index, tmp_path):
+    """A run interrupted at step 3 and resumed reaches the same weights as an uninterrupted 6-step run."""
+    cfg = _tiny_config(synthetic_index, "seam_jepa", max_steps=6, checkpoint_every=3)
+    run_a = tmp_path / "full"
+    P.train(cfg, run_a)                                    # completes 6 steps; also left resume-state@3
+    enc_a = torch.load(run_a / "encoder.pt", weights_only=False)["context_encoder"]
+    assert (run_a / P.RESUME_FILENAME).is_file()
+
+    # Simulate a crash that only reached step 3: a fresh run dir with just provenance + resume-state@3.
+    run_b = tmp_path / "crashed"
+    run_b.mkdir()
+    shutil.copy(run_a / "provenance.json", run_b / "provenance.json")
+    shutil.copy(run_a / P.RESUME_FILENAME, run_b / P.RESUME_FILENAME)
+
+    metrics_b = P.train(cfg, run_b, resume=True)
+    assert json.loads(metrics_b.read_text(encoding="utf-8"))["resumed_from_step"] == 3
+    enc_b = torch.load(run_b / "encoder.pt", weights_only=False)["context_encoder"]
+
+    assert enc_a.keys() == enc_b.keys()
+    for k in enc_a:
+        assert torch.allclose(enc_a[k], enc_b[k], atol=1e-6), f"param {k} diverged after resume"
+
+
+def test_pretrain_resume_refuses_on_config_mismatch(synthetic_index, tmp_path):
+    cfg = _tiny_config(synthetic_index, "seam_jepa", max_steps=6, checkpoint_every=3)
+    run_a = tmp_path / "full"
+    P.train(cfg, run_a)
+
+    run_b = tmp_path / "resume_bad"
+    run_b.mkdir()
+    shutil.copy(run_a / "provenance.json", run_b / "provenance.json")
+    shutil.copy(run_a / P.RESUME_FILENAME, run_b / P.RESUME_FILENAME)
+
+    changed = _tiny_config(synthetic_index, "block_jepa", max_steps=6, checkpoint_every=3)  # objective changed
+    with pytest.raises(P.ResumeError):
+        P.train(changed, run_b, resume=True)
+
+
+def test_pretrain_resume_missing_state_raises(synthetic_index, tmp_path):
+    cfg = _tiny_config(synthetic_index, "seam_jepa", max_steps=3)
+    with pytest.raises(P.ResumeError):
+        P.train(cfg, tmp_path / "empty", resume=True)

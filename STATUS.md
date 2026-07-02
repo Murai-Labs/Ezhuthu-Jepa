@@ -65,12 +65,16 @@ Last updated: 2026-07-02 CT
 - [x] **I-JEPA ViT-Tiny/8 pretraining loop (TASK PA.005, DEC-0014)** — `train/pretrain.py` +
   `configs/phase1/pretrain.yaml`. From-scratch ViT (torch.nn), context/EMA-target/predictor; objective
   {seam_jepa, block_jepa, mae_seam} by config only; fixed n_mask=36/144 identical across arms (AC2);
-  ≤10-step progress logging; provenance + metrics + `encoder.pt`; JEPA encoder registered in the probe
-  (`encoder: jepa`). Smoke runs `phaseA-smoke-001/-002/-003` (5.35M enc, 2.5–3.5k img/s, 1.7–1.9GB on the
-  5090). torch 2.10.0+cu130 pinned in `locked-versions.yaml`. **Smoke only — NOT a K1/K3 result.**
+  ≤10-step progress logging; provenance-before-loop + metrics + `encoder.pt`; JEPA encoder registered in
+  the probe (`encoder: jepa`). Smoke runs `phaseA-smoke-001/-002/-003` (5.35M enc, 2.5–3.5k img/s,
+  1.7–1.9GB on the 5090). torch 2.10.0+cu130 pinned. **Smoke only — NOT a K1/K3 result.**
+- [x] **Resume-state (AGENTS.md §4)** — `checkpoint_every>0` writes `resume-state.pt` (weights, optim,
+  EMA target, NumPy+torch RNG) atomically each N steps; `--resume` validates config-hash+seed and
+  continues from the saved step (refuses a changed config). Verified: an interrupted run resumed to the
+  **identical** final weights/loss (CPU test + GPU end-to-end). Enables the >30min sweep to survive interruption.
 
-Test suite: **107 passed** (`pytest -q`; +15 for P1.001b/PA.005). Placeholder scan clean. `compileall src`
-clean. Figures: F1, F2, F3 done; F4–F5 planned.
+Test suite: **110 passed** (`pytest -q`; +18 for P1.001b/PA.005/resume). Placeholder + `torch_dtype` scans
+clean. `compileall src` clean. Figures: F1, F2, F3 done; F4–F5 planned.
 
 ## Current Blockers
 
@@ -86,12 +90,10 @@ clean. Figures: F1, F2, F3 done; F4–F5 planned.
 
 1. **TASK PA.006** — pre-commit the GPU-hour ledger (smoke/pilot/full-sweep/degradation) with a hard
    ceiling → `docs/decisions/compute-ledger.md`. Uses the smoke throughput (2.5–3.5k img/s) to estimate.
-2. **Resume-state** — before the full sweep, add per-epoch resume + config/seed re-validation (AGENTS.md
-   §4); the loop currently has none (fine for the <30s smoke, required for the >30min sweep).
-3. **LAUNCH-A** — assemble the gate review (harness frozen ✓, ε pre-registered ✓, smoke passes ✓,
-   ledger from PA.006) → human approval to launch the full n≥3-seed sweep.
-4. **TASK P1.002** (K2 base→sign premise probe) → **P1.003** (full sweep, clean tree) → **P1.004**
-   (G1 decision vs ε via the McNemar comparator). Do NOT launch P1.003 before LAUNCH-A.
+2. **LAUNCH-A** — assemble the gate review (harness frozen ✓, ε pre-registered ✓, smoke passes ✓,
+   resume-state ✓, ledger from PA.006) → human approval to launch the full n≥3-seed sweep.
+3. **TASK P1.002** (K2 base→sign premise probe) → **P1.003** (full sweep, clean tree, checkpoint_every>0)
+   → **P1.004** (G1 decision vs ε via the McNemar comparator). Do NOT launch P1.003 before LAUNCH-A.
 
 ---
 **Tracker rule:** Update this file and `CHECKPOINT.md` before every commit that changes project
