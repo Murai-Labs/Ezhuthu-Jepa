@@ -1,0 +1,17 @@
+# Augmented, font-held-out dataset config (TASK PA.4b.2, DEC-0013).
+# Loaded by ezhuthu_jepa.data.build_augmented.AugmentedConfig.from_yaml.
+#
+# Train on train_fonts + augments; evaluate on the HELD-OUT eval_fonts + augments (eval-font
+# distribution never seen in training). Eval instances are seed-frozen → identical across every
+# future arm/seed, the requirement for paired McNemar (DEC-0013). Frequency buckets come from the
+# PA.002 split-manifest. Images + the per-instance index are gitignored (regenerable); only the
+# compact split-manifest + provenance are committed. Augmentation ranges = AugmentConfig() defaults.
+
+render_config: "configs/phase1/render.yaml"
+split_manifest: "runs/pa002-split-001/split-manifest.json"   # for frequency buckets
+train_fonts: ["noto"]        # reproducible OFL font for training
+eval_fonts: ["nirmala"]      # held out — measures cross-font generalization
+n_train_per_class: 100
+n_eval_per_class: 150
+out_dir: "data/rendered/augmented"
+seed: 42

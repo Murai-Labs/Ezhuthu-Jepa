@@ -67,3 +67,47 @@ def test_identity_config_is_near_noop():
 def test_none_bbox_stays_none():
     out, new_bbox = augment_image(np.zeros(SHAPE, np.uint8), None, AugmentConfig(), np.random.default_rng(0))
     assert new_bbox is None and out.shape == SHAPE
+
+
+# --- PA.4b.2 dataset builder (integration; skips without fonts) ---
+
+import json
+from pathlib import Path
+
+import pytest
+
+from ezhuthu_jepa.data.build_augmented import AugmentedConfig, build_from_config
+from ezhuthu_jepa.data.render import RenderConfig
+
+_REPO = Path(__file__).resolve().parents[1]
+_RENDER_YAML = _REPO / "configs" / "phase1" / "render.yaml"
+_SPLIT_MANIFEST = _REPO / "runs" / "pa002-split-001" / "split-manifest.json"
+_RC = RenderConfig.from_yaml(_RENDER_YAML)
+_HAS_FONTS = {f.id for f in _RC.fonts if f.available} >= {"noto", "nirmala"}
+
+
+@pytest.mark.skipif(not (_HAS_FONTS and _SPLIT_MANIFEST.is_file()),
+                    reason="needs noto+nirmala fonts and the PA.002 split-manifest")
+def test_build_augmented_is_font_held_out_and_disjoint(tmp_path):
+    cfg = AugmentedConfig(
+        render_config=str(_RENDER_YAML), split_manifest=str(_SPLIT_MANIFEST),
+        train_fonts=("noto",), eval_fonts=("nirmala",),
+        n_train_per_class=2, n_eval_per_class=2, out_dir=str(tmp_path / "aug"), seed=7,
+    )
+    run_dir = tmp_path / "run"
+    manifest_path = build_from_config(cfg, run_dir)
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    assert (run_dir / "provenance.json").is_file()
+
+    rows = [json.loads(l) for l in (tmp_path / "aug" / "index.jsonl").read_text(encoding="utf-8").splitlines()]
+    train = [r for r in rows if r["split"] == "train"]
+    eval_ = [r for r in rows if r["split"] == "eval"]
+    # held-out font: train only from noto, eval only from nirmala
+    assert {r["font_id"] for r in train} == {"noto"}
+    assert {r["font_id"] for r in eval_} == {"nirmala"}
+    # every class present in both, disjoint image names
+    assert len({r["akshara_id"] for r in train}) == 216
+    assert len({r["akshara_id"] for r in eval_}) == 216
+    assert len({r["image"] for r in rows}) == len(rows)
+    assert manifest["counts"]["train"] == 216 * 2 and manifest["counts"]["eval"] == 216 * 2
+    assert len(manifest["bottom_quartile"]) == 54

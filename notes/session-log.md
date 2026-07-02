@@ -125,3 +125,13 @@ Per-session checkpoints. Append; never edit past entries.
 - Ended at: augmentation core done. Next: PA.4b.2 (augmented dataset + font-holdout split) → P1.001b
   (McNemar comparator) → PA.005 (torch pretrain).
 - Open uncertainties: verify I-JEPA recipe vs paper at PA.005; confirm CI actually shrinks post-augment.
+
+### 2026-07-01 20:45 CT — PA.4b.2 augmented font-holdout dataset
+- Started from: PA.4b.2. (Ramchand: torch already installed on system; no install checkpoint needed.)
+- Did: `data/build_augmented.py` + `configs/phase1/augment.yaml` + build integration test. Generated
+  54,000 instances (21.6k train noto / 32.4k eval nirmala HELD OUT), aug_index 0 = clean, seed-frozen
+  eval. Committed compact split-manifest (recipe+summary+provenance); gitignored 54k images + index.jsonl
+  (regenerable). Analytical check: bottom-quartile eval n≈8,100 → CI half-width ~1pp (was ~12pp). 92 tests pass.
+- Ended at: PA.4b.2 done. Next: P1.001b (McNemar + probe on augmented index; confirm CI empirically).
+- Open uncertainties: empirical CI on augmented eval (confirm ~1pp at P1.001b); held-out-font accuracy may
+  be low for the pixel baseline (cross-font is hard) — the JEPA encoder is expected to close that at PA.005.

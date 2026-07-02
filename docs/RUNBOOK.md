@@ -48,6 +48,16 @@ PYTHONPATH=src python -m ezhuthu_jepa.eval.akshara_probe \
 PYTHONPATH=src python -m ezhuthu_jepa.figures.f3_probe_accuracy   # Figure F3
 ```
 
+## Build the Augmented Font-Holdout Dataset (PA.4b.2)
+
+```bash
+# ~100 train (noto) + ~150 eval (nirmala, held out) augmented instances/class, seam_bbox transformed
+# in lockstep. Images + per-instance index.jsonl → data/rendered/augmented/ (gitignored, regenerable);
+# compact split-manifest + provenance → runs/. ~1 min, 54k images.
+PYTHONPATH=src python -m ezhuthu_jepa.data.build_augmented \
+  --config configs/phase1/augment.yaml --run-dir runs/pa4b-augment-001
+```
+
 ## Run a Smoke Test
 
 ```bash

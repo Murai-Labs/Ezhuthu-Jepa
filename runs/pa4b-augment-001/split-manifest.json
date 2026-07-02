@@ -1,0 +1,1836 @@
+{
+  "run_id": "pa4b-augment-001",
+  "task": "PA.4b.2",
+  "created_at": "2026-07-01T22:59:03-0500",
+  "provenance_ref": "provenance.json",
+  "design": {
+    "train_fonts": [
+      "noto"
+    ],
+    "eval_fonts": [
+      "nirmala"
+    ],
+    "n_train_per_class": 100,
+    "n_eval_per_class": 150,
+    "seed": 42,
+    "aug_config": {
+      "rotation_deg": 4.0,
+      "translate_frac": 0.05,
+      "shear_deg": 4.0,
+      "scale_min": 0.9,
+      "scale_max": 1.1,
+      "stroke_iters": 1,
+      "blur_max": 1.0,
+      "noise_std": 6.0
+    },
+    "aug_index_0": "clean (un-augmented)"
+  },
+  "index_file": "data/rendered/augmented/index.jsonl",
+  "counts": {
+    "train": 21600,
+    "eval": 32400,
+    "n_classes": 216
+  },
+  "buckets": {
+    "n": 4,
+    "size": 54,
+    "labels": [
+      "q1_bottom",
+      "q2",
+      "q3",
+      "q4_top"
+    ],
+    "count_boundaries": [
+      711,
+      6367,
+      28330,
+      270681
+    ]
+  },
+  "bottom_quartile": [
+    "ng_ai",
+    "ng_au",
+    "ng_e",
+    "ng_i",
+    "ng_ii",
+    "ng_oo",
+    "ng_u",
+    "ng_uu",
+    "zh_au",
+    "ll_au",
+    "ng_aa",
+    "nj_au",
+    "nn_au",
+    "ng_ee",
+    "nj_o",
+    "ng_o",
+    "nj_ee",
+    "nj_u",
+    "nnn_au",
+    "tt_au",
+    "nj_uu",
+    "l_au",
+    "r_au",
+    "y_au",
+    "nj_oo",
+    "nj_ii",
+    "rr_au",
+    "nj_i",
+    "n_au",
+    "nj_e",
+    "zh_uu",
+    "zh_o",
+    "zh_oo",
+    "nn_uu",
+    "p_au",
+    "c_au",
+    "zh_e",
+    "k_au",
+    "nn_o",
+    "nj_ai",
+    "zh_ii",
+    "n_ai",
+    "m_au",
+    "ll_ii",
+    "ll_uu",
+    "ng_a",
+    "t_au",
+    "zh_ee",
+    "nn_oo",
+    "tt_uu",
+    "rr_uu",
+    "ll_o",
+    "n_o",
+    "l_ii"
+  ],
+  "per_class": [
+    {
+      "akshara_id": "k_a",
+      "base_id": "k",
+      "sign_id": "a",
+      "bucket": "q4_top",
+      "seam_source_train": "none",
+      "seam_source_eval": "none"
+    },
+    {
+      "akshara_id": "k_aa",
+      "base_id": "k",
+      "sign_id": "aa",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "k_i",
+      "base_id": "k",
+      "sign_id": "i",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "k_ii",
+      "base_id": "k",
+      "sign_id": "ii",
+      "bucket": "q2",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "k_u",
+      "base_id": "k",
+      "sign_id": "u",
+      "bucket": "q4_top",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "k_uu",
+      "base_id": "k",
+      "sign_id": "uu",
+      "bucket": "q3",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "k_e",
+      "base_id": "k",
+      "sign_id": "e",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "k_ee",
+      "base_id": "k",
+      "sign_id": "ee",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "k_ai",
+      "base_id": "k",
+      "sign_id": "ai",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "k_o",
+      "base_id": "k",
+      "sign_id": "o",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "k_oo",
+      "base_id": "k",
+      "sign_id": "oo",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "k_au",
+      "base_id": "k",
+      "sign_id": "au",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "ng_a",
+      "base_id": "ng",
+      "sign_id": "a",
+      "bucket": "q1_bottom",
+      "seam_source_train": "none",
+      "seam_source_eval": "none"
+    },
+    {
+      "akshara_id": "ng_aa",
+      "base_id": "ng",
+      "sign_id": "aa",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "ng_i",
+      "base_id": "ng",
+      "sign_id": "i",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "ng_ii",
+      "base_id": "ng",
+      "sign_id": "ii",
+      "bucket": "q1_bottom",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "ng_u",
+      "base_id": "ng",
+      "sign_id": "u",
+      "bucket": "q1_bottom",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "ng_uu",
+      "base_id": "ng",
+      "sign_id": "uu",
+      "bucket": "q1_bottom",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "ng_e",
+      "base_id": "ng",
+      "sign_id": "e",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "ng_ee",
+      "base_id": "ng",
+      "sign_id": "ee",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "ng_ai",
+      "base_id": "ng",
+      "sign_id": "ai",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "ng_o",
+      "base_id": "ng",
+      "sign_id": "o",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "ng_oo",
+      "base_id": "ng",
+      "sign_id": "oo",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "ng_au",
+      "base_id": "ng",
+      "sign_id": "au",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "c_a",
+      "base_id": "c",
+      "sign_id": "a",
+      "bucket": "q4_top",
+      "seam_source_train": "none",
+      "seam_source_eval": "none"
+    },
+    {
+      "akshara_id": "c_aa",
+      "base_id": "c",
+      "sign_id": "aa",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "c_i",
+      "base_id": "c",
+      "sign_id": "i",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "c_ii",
+      "base_id": "c",
+      "sign_id": "ii",
+      "bucket": "q2",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "c_u",
+      "base_id": "c",
+      "sign_id": "u",
+      "bucket": "q3",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "c_uu",
+      "base_id": "c",
+      "sign_id": "uu",
+      "bucket": "q2",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "c_e",
+      "base_id": "c",
+      "sign_id": "e",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "c_ee",
+      "base_id": "c",
+      "sign_id": "ee",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "c_ai",
+      "base_id": "c",
+      "sign_id": "ai",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "c_o",
+      "base_id": "c",
+      "sign_id": "o",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "c_oo",
+      "base_id": "c",
+      "sign_id": "oo",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "c_au",
+      "base_id": "c",
+      "sign_id": "au",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nj_a",
+      "base_id": "nj",
+      "sign_id": "a",
+      "bucket": "q2",
+      "seam_source_train": "none",
+      "seam_source_eval": "none"
+    },
+    {
+      "akshara_id": "nj_aa",
+      "base_id": "nj",
+      "sign_id": "aa",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nj_i",
+      "base_id": "nj",
+      "sign_id": "i",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nj_ii",
+      "base_id": "nj",
+      "sign_id": "ii",
+      "bucket": "q1_bottom",
+      "seam_source_train": "diff",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nj_u",
+      "base_id": "nj",
+      "sign_id": "u",
+      "bucket": "q1_bottom",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "nj_uu",
+      "base_id": "nj",
+      "sign_id": "uu",
+      "bucket": "q1_bottom",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "nj_e",
+      "base_id": "nj",
+      "sign_id": "e",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nj_ee",
+      "base_id": "nj",
+      "sign_id": "ee",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nj_ai",
+      "base_id": "nj",
+      "sign_id": "ai",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nj_o",
+      "base_id": "nj",
+      "sign_id": "o",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nj_oo",
+      "base_id": "nj",
+      "sign_id": "oo",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nj_au",
+      "base_id": "nj",
+      "sign_id": "au",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "tt_a",
+      "base_id": "tt",
+      "sign_id": "a",
+      "bucket": "q4_top",
+      "seam_source_train": "none",
+      "seam_source_eval": "none"
+    },
+    {
+      "akshara_id": "tt_aa",
+      "base_id": "tt",
+      "sign_id": "aa",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "tt_i",
+      "base_id": "tt",
+      "sign_id": "i",
+      "bucket": "q4_top",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "tt_ii",
+      "base_id": "tt",
+      "sign_id": "ii",
+      "bucket": "q2",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "tt_u",
+      "base_id": "tt",
+      "sign_id": "u",
+      "bucket": "q4_top",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "tt_uu",
+      "base_id": "tt",
+      "sign_id": "uu",
+      "bucket": "q1_bottom",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "tt_e",
+      "base_id": "tt",
+      "sign_id": "e",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "tt_ee",
+      "base_id": "tt",
+      "sign_id": "ee",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "tt_ai",
+      "base_id": "tt",
+      "sign_id": "ai",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "tt_o",
+      "base_id": "tt",
+      "sign_id": "o",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "tt_oo",
+      "base_id": "tt",
+      "sign_id": "oo",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "tt_au",
+      "base_id": "tt",
+      "sign_id": "au",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nn_a",
+      "base_id": "nn",
+      "sign_id": "a",
+      "bucket": "q4_top",
+      "seam_source_train": "none",
+      "seam_source_eval": "none"
+    },
+    {
+      "akshara_id": "nn_aa",
+      "base_id": "nn",
+      "sign_id": "aa",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nn_i",
+      "base_id": "nn",
+      "sign_id": "i",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nn_ii",
+      "base_id": "nn",
+      "sign_id": "ii",
+      "bucket": "q2",
+      "seam_source_train": "diff",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nn_u",
+      "base_id": "nn",
+      "sign_id": "u",
+      "bucket": "q2",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "nn_uu",
+      "base_id": "nn",
+      "sign_id": "uu",
+      "bucket": "q1_bottom",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "nn_e",
+      "base_id": "nn",
+      "sign_id": "e",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nn_ee",
+      "base_id": "nn",
+      "sign_id": "ee",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nn_ai",
+      "base_id": "nn",
+      "sign_id": "ai",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nn_o",
+      "base_id": "nn",
+      "sign_id": "o",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nn_oo",
+      "base_id": "nn",
+      "sign_id": "oo",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nn_au",
+      "base_id": "nn",
+      "sign_id": "au",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "t_a",
+      "base_id": "t",
+      "sign_id": "a",
+      "bucket": "q4_top",
+      "seam_source_train": "none",
+      "seam_source_eval": "none"
+    },
+    {
+      "akshara_id": "t_aa",
+      "base_id": "t",
+      "sign_id": "aa",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "t_i",
+      "base_id": "t",
+      "sign_id": "i",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "t_ii",
+      "base_id": "t",
+      "sign_id": "ii",
+      "bucket": "q3",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "t_u",
+      "base_id": "t",
+      "sign_id": "u",
+      "bucket": "q4_top",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "t_uu",
+      "base_id": "t",
+      "sign_id": "uu",
+      "bucket": "q3",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "t_e",
+      "base_id": "t",
+      "sign_id": "e",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "t_ee",
+      "base_id": "t",
+      "sign_id": "ee",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "t_ai",
+      "base_id": "t",
+      "sign_id": "ai",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "t_o",
+      "base_id": "t",
+      "sign_id": "o",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "t_oo",
+      "base_id": "t",
+      "sign_id": "oo",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "t_au",
+      "base_id": "t",
+      "sign_id": "au",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "n_a",
+      "base_id": "n",
+      "sign_id": "a",
+      "bucket": "q4_top",
+      "seam_source_train": "none",
+      "seam_source_eval": "none"
+    },
+    {
+      "akshara_id": "n_aa",
+      "base_id": "n",
+      "sign_id": "aa",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "n_i",
+      "base_id": "n",
+      "sign_id": "i",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "n_ii",
+      "base_id": "n",
+      "sign_id": "ii",
+      "bucket": "q3",
+      "seam_source_train": "diff",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "n_u",
+      "base_id": "n",
+      "sign_id": "u",
+      "bucket": "q2",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "n_uu",
+      "base_id": "n",
+      "sign_id": "uu",
+      "bucket": "q2",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "n_e",
+      "base_id": "n",
+      "sign_id": "e",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "n_ee",
+      "base_id": "n",
+      "sign_id": "ee",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "n_ai",
+      "base_id": "n",
+      "sign_id": "ai",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "n_o",
+      "base_id": "n",
+      "sign_id": "o",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "n_oo",
+      "base_id": "n",
+      "sign_id": "oo",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "n_au",
+      "base_id": "n",
+      "sign_id": "au",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "p_a",
+      "base_id": "p",
+      "sign_id": "a",
+      "bucket": "q4_top",
+      "seam_source_train": "none",
+      "seam_source_eval": "none"
+    },
+    {
+      "akshara_id": "p_aa",
+      "base_id": "p",
+      "sign_id": "aa",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "p_i",
+      "base_id": "p",
+      "sign_id": "i",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "p_ii",
+      "base_id": "p",
+      "sign_id": "ii",
+      "bucket": "q2",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "p_u",
+      "base_id": "p",
+      "sign_id": "u",
+      "bucket": "q4_top",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "p_uu",
+      "base_id": "p",
+      "sign_id": "uu",
+      "bucket": "q3",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "p_e",
+      "base_id": "p",
+      "sign_id": "e",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "p_ee",
+      "base_id": "p",
+      "sign_id": "ee",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "p_ai",
+      "base_id": "p",
+      "sign_id": "ai",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "p_o",
+      "base_id": "p",
+      "sign_id": "o",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "p_oo",
+      "base_id": "p",
+      "sign_id": "oo",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "p_au",
+      "base_id": "p",
+      "sign_id": "au",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "m_a",
+      "base_id": "m",
+      "sign_id": "a",
+      "bucket": "q4_top",
+      "seam_source_train": "none",
+      "seam_source_eval": "none"
+    },
+    {
+      "akshara_id": "m_aa",
+      "base_id": "m",
+      "sign_id": "aa",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "m_i",
+      "base_id": "m",
+      "sign_id": "i",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "m_ii",
+      "base_id": "m",
+      "sign_id": "ii",
+      "bucket": "q2",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "m_u",
+      "base_id": "m",
+      "sign_id": "u",
+      "bucket": "q4_top",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "m_uu",
+      "base_id": "m",
+      "sign_id": "uu",
+      "bucket": "q3",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "m_e",
+      "base_id": "m",
+      "sign_id": "e",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "m_ee",
+      "base_id": "m",
+      "sign_id": "ee",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "m_ai",
+      "base_id": "m",
+      "sign_id": "ai",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "m_o",
+      "base_id": "m",
+      "sign_id": "o",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "m_oo",
+      "base_id": "m",
+      "sign_id": "oo",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "m_au",
+      "base_id": "m",
+      "sign_id": "au",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "y_a",
+      "base_id": "y",
+      "sign_id": "a",
+      "bucket": "q4_top",
+      "seam_source_train": "none",
+      "seam_source_eval": "none"
+    },
+    {
+      "akshara_id": "y_aa",
+      "base_id": "y",
+      "sign_id": "aa",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "y_i",
+      "base_id": "y",
+      "sign_id": "i",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "y_ii",
+      "base_id": "y",
+      "sign_id": "ii",
+      "bucket": "q2",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "y_u",
+      "base_id": "y",
+      "sign_id": "u",
+      "bucket": "q4_top",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "y_uu",
+      "base_id": "y",
+      "sign_id": "uu",
+      "bucket": "q2",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "y_e",
+      "base_id": "y",
+      "sign_id": "e",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "y_ee",
+      "base_id": "y",
+      "sign_id": "ee",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "y_ai",
+      "base_id": "y",
+      "sign_id": "ai",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "y_o",
+      "base_id": "y",
+      "sign_id": "o",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "y_oo",
+      "base_id": "y",
+      "sign_id": "oo",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "y_au",
+      "base_id": "y",
+      "sign_id": "au",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "r_a",
+      "base_id": "r",
+      "sign_id": "a",
+      "bucket": "q4_top",
+      "seam_source_train": "none",
+      "seam_source_eval": "none"
+    },
+    {
+      "akshara_id": "r_aa",
+      "base_id": "r",
+      "sign_id": "aa",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "r_i",
+      "base_id": "r",
+      "sign_id": "i",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "r_ii",
+      "base_id": "r",
+      "sign_id": "ii",
+      "bucket": "q2",
+      "seam_source_train": "diff",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "r_u",
+      "base_id": "r",
+      "sign_id": "u",
+      "bucket": "q4_top",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "r_uu",
+      "base_id": "r",
+      "sign_id": "uu",
+      "bucket": "q2",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "r_e",
+      "base_id": "r",
+      "sign_id": "e",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "r_ee",
+      "base_id": "r",
+      "sign_id": "ee",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "r_ai",
+      "base_id": "r",
+      "sign_id": "ai",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "r_o",
+      "base_id": "r",
+      "sign_id": "o",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "r_oo",
+      "base_id": "r",
+      "sign_id": "oo",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "r_au",
+      "base_id": "r",
+      "sign_id": "au",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "l_a",
+      "base_id": "l",
+      "sign_id": "a",
+      "bucket": "q4_top",
+      "seam_source_train": "none",
+      "seam_source_eval": "none"
+    },
+    {
+      "akshara_id": "l_aa",
+      "base_id": "l",
+      "sign_id": "aa",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "l_i",
+      "base_id": "l",
+      "sign_id": "i",
+      "bucket": "q4_top",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "l_ii",
+      "base_id": "l",
+      "sign_id": "ii",
+      "bucket": "q1_bottom",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "l_u",
+      "base_id": "l",
+      "sign_id": "u",
+      "bucket": "q3",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "l_uu",
+      "base_id": "l",
+      "sign_id": "uu",
+      "bucket": "q2",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "l_e",
+      "base_id": "l",
+      "sign_id": "e",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "l_ee",
+      "base_id": "l",
+      "sign_id": "ee",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "l_ai",
+      "base_id": "l",
+      "sign_id": "ai",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "l_o",
+      "base_id": "l",
+      "sign_id": "o",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "l_oo",
+      "base_id": "l",
+      "sign_id": "oo",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "l_au",
+      "base_id": "l",
+      "sign_id": "au",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "v_a",
+      "base_id": "v",
+      "sign_id": "a",
+      "bucket": "q4_top",
+      "seam_source_train": "none",
+      "seam_source_eval": "none"
+    },
+    {
+      "akshara_id": "v_aa",
+      "base_id": "v",
+      "sign_id": "aa",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "v_i",
+      "base_id": "v",
+      "sign_id": "i",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "v_ii",
+      "base_id": "v",
+      "sign_id": "ii",
+      "bucket": "q3",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "v_u",
+      "base_id": "v",
+      "sign_id": "u",
+      "bucket": "q3",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "v_uu",
+      "base_id": "v",
+      "sign_id": "uu",
+      "bucket": "q2",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "v_e",
+      "base_id": "v",
+      "sign_id": "e",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "v_ee",
+      "base_id": "v",
+      "sign_id": "ee",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "v_ai",
+      "base_id": "v",
+      "sign_id": "ai",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "v_o",
+      "base_id": "v",
+      "sign_id": "o",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "v_oo",
+      "base_id": "v",
+      "sign_id": "oo",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "v_au",
+      "base_id": "v",
+      "sign_id": "au",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "zh_a",
+      "base_id": "zh",
+      "sign_id": "a",
+      "bucket": "q3",
+      "seam_source_train": "none",
+      "seam_source_eval": "none"
+    },
+    {
+      "akshara_id": "zh_aa",
+      "base_id": "zh",
+      "sign_id": "aa",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "zh_i",
+      "base_id": "zh",
+      "sign_id": "i",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "zh_ii",
+      "base_id": "zh",
+      "sign_id": "ii",
+      "bucket": "q1_bottom",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "zh_u",
+      "base_id": "zh",
+      "sign_id": "u",
+      "bucket": "q3",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "zh_uu",
+      "base_id": "zh",
+      "sign_id": "uu",
+      "bucket": "q1_bottom",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "zh_e",
+      "base_id": "zh",
+      "sign_id": "e",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "zh_ee",
+      "base_id": "zh",
+      "sign_id": "ee",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "zh_ai",
+      "base_id": "zh",
+      "sign_id": "ai",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "zh_o",
+      "base_id": "zh",
+      "sign_id": "o",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "zh_oo",
+      "base_id": "zh",
+      "sign_id": "oo",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "zh_au",
+      "base_id": "zh",
+      "sign_id": "au",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "ll_a",
+      "base_id": "ll",
+      "sign_id": "a",
+      "bucket": "q4_top",
+      "seam_source_train": "none",
+      "seam_source_eval": "none"
+    },
+    {
+      "akshara_id": "ll_aa",
+      "base_id": "ll",
+      "sign_id": "aa",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "ll_i",
+      "base_id": "ll",
+      "sign_id": "i",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "ll_ii",
+      "base_id": "ll",
+      "sign_id": "ii",
+      "bucket": "q1_bottom",
+      "seam_source_train": "diff",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "ll_u",
+      "base_id": "ll",
+      "sign_id": "u",
+      "bucket": "q3",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "ll_uu",
+      "base_id": "ll",
+      "sign_id": "uu",
+      "bucket": "q1_bottom",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "ll_e",
+      "base_id": "ll",
+      "sign_id": "e",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "ll_ee",
+      "base_id": "ll",
+      "sign_id": "ee",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "ll_ai",
+      "base_id": "ll",
+      "sign_id": "ai",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "ll_o",
+      "base_id": "ll",
+      "sign_id": "o",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "ll_oo",
+      "base_id": "ll",
+      "sign_id": "oo",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "ll_au",
+      "base_id": "ll",
+      "sign_id": "au",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "rr_a",
+      "base_id": "rr",
+      "sign_id": "a",
+      "bucket": "q4_top",
+      "seam_source_train": "none",
+      "seam_source_eval": "none"
+    },
+    {
+      "akshara_id": "rr_aa",
+      "base_id": "rr",
+      "sign_id": "aa",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "rr_i",
+      "base_id": "rr",
+      "sign_id": "i",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "rr_ii",
+      "base_id": "rr",
+      "sign_id": "ii",
+      "bucket": "q2",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "rr_u",
+      "base_id": "rr",
+      "sign_id": "u",
+      "bucket": "q4_top",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "rr_uu",
+      "base_id": "rr",
+      "sign_id": "uu",
+      "bucket": "q1_bottom",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "rr_e",
+      "base_id": "rr",
+      "sign_id": "e",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "rr_ee",
+      "base_id": "rr",
+      "sign_id": "ee",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "rr_ai",
+      "base_id": "rr",
+      "sign_id": "ai",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "rr_o",
+      "base_id": "rr",
+      "sign_id": "o",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "rr_oo",
+      "base_id": "rr",
+      "sign_id": "oo",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "rr_au",
+      "base_id": "rr",
+      "sign_id": "au",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nnn_a",
+      "base_id": "nnn",
+      "sign_id": "a",
+      "bucket": "q4_top",
+      "seam_source_train": "none",
+      "seam_source_eval": "none"
+    },
+    {
+      "akshara_id": "nnn_aa",
+      "base_id": "nnn",
+      "sign_id": "aa",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nnn_i",
+      "base_id": "nnn",
+      "sign_id": "i",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nnn_ii",
+      "base_id": "nnn",
+      "sign_id": "ii",
+      "bucket": "q2",
+      "seam_source_train": "diff",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nnn_u",
+      "base_id": "nnn",
+      "sign_id": "u",
+      "bucket": "q4_top",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "nnn_uu",
+      "base_id": "nnn",
+      "sign_id": "uu",
+      "bucket": "q2",
+      "seam_source_train": "diff",
+      "seam_source_eval": "diff"
+    },
+    {
+      "akshara_id": "nnn_e",
+      "base_id": "nnn",
+      "sign_id": "e",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nnn_ee",
+      "base_id": "nnn",
+      "sign_id": "ee",
+      "bucket": "q3",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nnn_ai",
+      "base_id": "nnn",
+      "sign_id": "ai",
+      "bucket": "q4_top",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nnn_o",
+      "base_id": "nnn",
+      "sign_id": "o",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nnn_oo",
+      "base_id": "nnn",
+      "sign_id": "oo",
+      "bucket": "q2",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    },
+    {
+      "akshara_id": "nnn_au",
+      "base_id": "nnn",
+      "sign_id": "au",
+      "bucket": "q1_bottom",
+      "seam_source_train": "glyph",
+      "seam_source_eval": "glyph"
+    }
+  ]
+}

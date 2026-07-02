@@ -50,9 +50,13 @@ Last updated: 2026-07-01 19:45 CT
 
 - [x] **PA.005 decisions (DEC-0013)** — ViT-Tiny/8 (auto-escalate); full augmentation + held-out-font
   eval; **decision rule amended to paired McNemar primary + CI secondary** (ε=2pp retained as min effect;
-  re-pre-registered before any result). Augmentation core `data/augment.py` built (transforms seam_bbox).
+  re-pre-registered before any result).
+- [x] **Augmentation core (PA.4b.1)** — `data/augment.py` transforms seam_bbox in lockstep with the warp.
+- [x] **Augmented font-holdout dataset (PA.4b.2)** — 54k instances (21.6k train noto / 32.4k eval nirmala,
+  held out), frozen seeded eval; `runs/pa4b-augment-001/split-manifest.json`. Bottom-quartile eval n≈8,100
+  → CI half-width ~1pp (was ~12pp), making the 2pp effect adjudicable.
 
-Test suite: **91 passed** (`pytest -q`). Placeholder scan clean. Figures: F1, F2, F3 done; F4–F5 planned.
+Test suite: **92 passed** (`pytest -q`). Placeholder scan clean. Figures: F1, F2, F3 done; F4–F5 planned.
 
 ## Current Blockers
 
@@ -65,11 +69,12 @@ Test suite: **91 passed** (`pytest -q`). Placeholder scan clean. Figures: F1, F2
 
 ## Next Recommended Work
 
-1. **TASK PA.4b.2** — augmented dataset (~100 train/150 eval per class) + font-holdout split (frozen
-   shared eval for McNemar). Uses `data/augment.py`.
-2. **TASK P1.001b** — add the McNemar comparator (primary) to the PA.003 harness.
-3. **TASK PA.005** — I-JEPA ViT-Tiny/8 pretraining loop (seam/block/MAE). **Introduces torch.**
-4. **TASK PA.006** — compute ledger → LAUNCH-A → **P1.002** (K2) → **P1.003** (sweep) → **P1.004** (G1 decision).
+1. **TASK P1.001b** — add the McNemar comparator (primary) to the PA.003 harness; wire the probe to the
+   augmented index; re-run to confirm the ~1pp CI empirically.
+2. **TASK PA.005** — I-JEPA ViT-Tiny/8 pretraining loop (seam/block/MAE). **Introduces torch** (already
+   on the system). Registers the JEPA encoder for the harness.
+3. **TASK PA.006** — compute ledger → **LAUNCH-A** (approve full sweep).
+4. Then **P1.002** (K2) → **P1.003** (sweep) → **P1.004** (G1 decision vs ε).
 
 ---
 **Tracker rule:** Update this file and `CHECKPOINT.md` before every commit that changes project

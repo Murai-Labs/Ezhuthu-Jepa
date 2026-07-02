@@ -202,12 +202,17 @@ n ≥ 3 seeds, 95 % bootstrap CIs. ε = 2.0 pp / non-overlapping CIs (pre-regist
   1. Held-out font: no eval instance shares a source font with training for the same class; instances
      physically disjoint; eval set frozen (seeded) and identical across future arms.
   2. Split-manifest carries per-instance {akshara_id, bucket, seam_source, seam_bbox, split, aug_index}.
-- **Evidence of completion:** `runs/pa4b-augment-001/{split-manifest,provenance}.json`; images gitignored.
-- **Validation:** `pytest -k augment`; manifest disjointness check.
+- **Evidence of completion:** `runs/pa4b-augment-001/{split-manifest,provenance}.json` (committed);
+  `data/rendered/augmented/{*.png,index.jsonl}` gitignored/regenerable; `build_augmented.py`,
+  `configs/phase1/augment.yaml`, `tests/test_augment.py` (7). 54,000 instances (21,600 train noto /
+  32,400 eval nirmala). Bottom-quartile eval n≈8,100 → CI half-width ~1pp (was ~12pp).
+- **Validation:** `pytest -k augment` (7 pass); full suite 92 pass.
 - **Dependencies:** PA.4b.1
 - **Blocking gate:** G1
+- **Notes:** committed manifest = recipe + provenance + per-class summary; the 54k per-instance index
+  (with every augmented seam_bbox) is gitignored + regenerable. Held-out font: eval (nirmala) never in training.
 - **Estimated effort:** 5
-- **Done:** [ ]
+- **Done:** [x]
 
 #### TASK P1.001b: Re-run the eval harness with the McNemar comparator
 - **What:** Extend the PA.003 harness with a paired-McNemar comparator (primary) alongside the bootstrap
