@@ -406,3 +406,29 @@ augmented probe CI half-width 1.02 pp (confirms DEC-0013's ~1 pp). NOT a K1/K3 r
 Follow-up: PA.006 compute ledger → LAUNCH-A → P1.003 full sweep on a clean tree. Verify the I-JEPA recipe
 (EMA schedule, predictor depth, mask scale) against the paper before the full run.
 Human Approval: implementation decisions under the DEC-0013 mandate; flag to Ramchand at the LAUNCH-A review.
+
+## DEC-0015 - Compute-hour ledger pre-committed for K1–K4 (TASK PA.006)
+
+Date: 2026-07-02
+Task/Gate: LAUNCH-A precondition (spec §4 compute ledger; AGENTS.md §1 cheap gate)
+Decision: Pre-committed the K1–K4 GPU-hour ledger at `docs/decisions/compute-ledger.md` **before** the
+sweep. Unit costs are measured from the PA.005 smokes (seam 50 ms/step, block 43, mae 37 at batch 128 on
+the RTX 5090; 169 steps/epoch; probe eval ~4 min, load-bound). Planned full run = 50,000 steps (~296
+epochs, pilot-confirmed at LAUNCH-A). Line items: smoke (done) + K2 probe (~0.3h) + pilot (~1.0h) + full
+K1/K3 sweep (9 runs, ~5.7h) + sweep evals (~0.6h) + K4 degradation (~4.0h), ×1.3 buffer → **~15 GPU-h
+total** for the whole program on one 5090. **Hard ceiling = 40 RTX-5090 GPU-hours cumulative**; crossing
+it halts for Ramchand's written approval. Escalation never means a bigger GPU — the H100/Lambda exclusion
+for K1–K4 stands; the option is re-scope, not more hardware. A full-foundation build (10²–10³× the plan)
+is explicitly out of scope for K1–K4.
+Rationale: makes "evenings-scale on one 5090" a number and gates sprawl before the expensive run, per the
+MARMAM-style ledger rule. Grounding unit costs in measured smoke throughput keeps the estimate honest.
+Alternatives Considered: no ceiling / soft target (rejected: the whole point is a hard gate); budget in
+wall-clock not GPU-h (rejected: GPU-h is the portable, provenance-checkable unit); pilot-first then ledger
+(rejected: the ledger must precede LAUNCH-A, which the pilot feeds).
+Evidence / Source Docs: `docs/decisions/compute-ledger.md`; runs `phaseA-smoke-001/-002/-003`,
+`pa003b-probe-aug-001`; `src/ezhuthu_jepa/train/pretrain.py`.
+Measured Result: N/A (budget/plan). Run lengths are provisional pending the LAUNCH-A pilot.
+Follow-up: the LAUNCH-A gate review cites this ledger as evidence; the sweep config sets 50,000 steps +
+checkpoint_every and per-seed run dirs. Revisit the 50k step budget if the pilot shows non-convergence.
+Human Approval: ledger pre-committed by the agent under §1; the 40-GPU-h ceiling + sweep launch require
+Ramchand's sign-off at LAUNCH-A.

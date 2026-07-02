@@ -168,3 +168,17 @@ Per-session checkpoints. Append; never edit past entries.
 - Ended at: resume-state done; tree clean after commit. Next: PA.006 compute-hour ledger.
 - Open uncertainties: GPU bf16 resume was bit-identical here but that is not guaranteed across all ops;
   the §4 guarantee we rely on is "resumable + config/seed-validated", not "bit-exact on GPU".
+
+### 2026-07-02 CT — PA.006 compute-hour ledger
+- Started from: resume-state done → PA.006 (user: "Then do PA.006").
+- Did: wrote `docs/decisions/compute-ledger.md` (DEC-0015). Grounded unit costs in the measured PA.005
+  smokes (seam 50 ms/step, block 43, mae 37 at batch 128; 169 steps/epoch; probe eval ~4 min load-bound).
+  Planned full run = 50,000 steps (~296 epochs, pilot-confirmed at LAUNCH-A). Line items smoke+K2+pilot+
+  sweep(9 runs, ~5.7h)+evals+K4, ×1.3 buffer → **~15 GPU-h** program on one 5090. **Hard ceiling = 40
+  RTX-5090 GPU-h cumulative** → halt for Ramchand's approval; escalation is re-scope, not a bigger GPU
+  (H100/Lambda exclusion stands). Contrast: full-foundation build is 10²–10³× and out of scope. Marked
+  PA.006 done; LAUNCH-A preconditions now all met (harness frozen, ε pre-reg, smoke, resume, ledger).
+- Ended at: PA.001–PA.006 + P1.001b + resume-state done. Next: LAUNCH-A (needs a longer 1-seed pilot +
+  human sign-off) and P1.002 (K2 premise probe, parallelizable). No full sweep until LAUNCH-A.
+- Open uncertainties: the 50k-step budget is provisional — the pilot must show convergence or the ledger
+  and sweep config revise upward (which also re-checks the 40 GPU-h ceiling headroom).

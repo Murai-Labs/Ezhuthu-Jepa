@@ -264,13 +264,15 @@ n ≥ 3 seeds, 95 % bootstrap CIs. ε = 2.0 pp / non-overlapping CIs (pre-regist
 - **Acceptance criteria:**
   1. GPU-hours estimated for smoke/pilot/full-sweep/degradation, summing to a stated total.
   2. A hard ceiling is named beyond which escalation requires human approval.
-- **Evidence of completion:** `docs/decisions/compute-ledger.md` + DECISION_LOG entry.
-- **Validation:** human review.
-- **Measurements / logs:** n/a
+- **Evidence of completion:** `docs/decisions/compute-ledger.md` (DEC-0015). AC1: smoke/K2/pilot/sweep/
+  K4 line items → ~15 GPU-h total (unit costs measured from the smokes; run length pilot-confirmed).
+  AC2: hard ceiling = **40 RTX-5090 GPU-hours cumulative**, crossing it halts for Ramchand's approval.
+- **Validation:** human review (Ramchand at LAUNCH-A).
+- **Measurements / logs:** n/a (budget; grounded in `phaseA-smoke-*` throughput).
 - **Dependencies:** PA.005
 - **Blocking gate:** LAUNCH-A
 - **Estimated effort:** 2
-- **Done:** [ ]
+- **Done:** [x]
 
 ## Gate LAUNCH-A — Approve the full Stage-A sweep
 

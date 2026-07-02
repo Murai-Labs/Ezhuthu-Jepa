@@ -22,7 +22,7 @@ resume-state for >30min runs, then **LAUNCH-A**, then **P1.002** (K2 probe) → 
 
 ## Current Checkpoint
 
-- Phase: **G0 APPROVED; PA.001–PA.005 + P1.001b done; ε amended (DEC-0013, McNemar+CI).** LAUNCH-A / G1 sweep not started.
+- Phase: **G0 APPROVED; PA.001–PA.006 + P1.001b + resume-state done; ε amended (DEC-0013).** LAUNCH-A / G1 sweep not started.
 - What is done: operating system + provenance writer + config contract (P0.003/P0.004), and the Tamil
   rendering pipeline (PA.001): `data/{grapheme,render,build_uyirmei}.py`, HarfBuzz+FreeType shaping,
   glyph/diff seam hybrid, **multi-font (Noto+Nirmala)**. All 216 uyirmei rendered under both fonts →
@@ -45,8 +45,10 @@ resume-state for >30min runs, then **LAUNCH-A**, then **P1.002** (K2 probe) → 
 - Done: **Resume-state (§4)** — `checkpoint_every>0` writes atomic `resume-state.pt` (weights/optim/EMA/
   RNG); `--resume` validates config-hash+seed and continues from the saved step. Verified interrupt→resume
   reproduces identical final weights (CPU + GPU). Provenance now written before the loop.
-- What is next: **PA.006** compute-hour ledger (use smoke throughput 2.5–3.5k img/s) → **LAUNCH-A** →
-  P1.002 (K2) → P1.003 sweep (clean tree, checkpoint_every>0). Do NOT run the sweep before LAUNCH-A.
+- Done: **PA.006** compute ledger — `docs/decisions/compute-ledger.md` (DEC-0015): ~15 GPU-h program on
+  one 5090, **hard ceiling 40 GPU-h**; unit costs measured from the smokes.
+- What is next: **LAUNCH-A** (all preconditions met; needs a longer 1-seed pilot + Ramchand sign-off) →
+  P1.002 (K2 probe, parallel-ok) → P1.003 sweep (clean tree, checkpoint_every>0). Do NOT run the sweep before LAUNCH-A.
 - Authorization gate status: **G0 approved** (DEC-0008); **ε pre-registered** (DEC-0009). LAUNCH-A
   **not yet approved** — do not launch the full Stage-A sweep (P1.003) until it is. No full training run authorized (smokes only).
 

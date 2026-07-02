@@ -15,7 +15,7 @@ Last updated: 2026-07-02 CT
 ## Current State
 
 - Repo state: pushed to Murai-Labs/Ezhuthu-Jepa (public). Phase-1 code landing.
-- Current phase: **G0 complete; PA.001–PA.005 + P1.001b done; LAUNCH-A / G1 sweep not started.**
+- Current phase: **G0 complete; PA.001–PA.006 + P1.001b + resume-state done; LAUNCH-A / G1 sweep not started.**
 - Stack decision: single RTX 5090; from-scratch I-JEPA-style ViT-Tiny/8 (torch.nn, no timm); PyTorch
   with `dtype=` policy (never `torch_dtype=`). Config contract locked at schema `0.1.0`; torch
   2.10.0+cu130 now pinned in `configs/phase0/locked-versions.yaml`.
@@ -72,6 +72,10 @@ Last updated: 2026-07-02 CT
   EMA target, NumPy+torch RNG) atomically each N steps; `--resume` validates config-hash+seed and
   continues from the saved step (refuses a changed config). Verified: an interrupted run resumed to the
   **identical** final weights/loss (CPU test + GPU end-to-end). Enables the >30min sweep to survive interruption.
+- [x] **Compute-hour ledger (TASK PA.006, DEC-0015)** — `docs/decisions/compute-ledger.md`. Unit costs
+  measured from the smokes (seam 50ms/step, 169 steps/epoch, probe ~4min); planned full run 50k steps;
+  program total **~15 GPU-h** on one 5090; **hard ceiling 40 RTX-5090 GPU-h** (halt for approval). Full-
+  foundation build (10²–10³×) explicitly out of scope; H100/Lambda exclusion for K1–K4 stands.
 
 Test suite: **110 passed** (`pytest -q`; +18 for P1.001b/PA.005/resume). Placeholder + `torch_dtype` scans
 clean. `compileall src` clean. Figures: F1, F2, F3 done; F4–F5 planned.
@@ -88,12 +92,13 @@ clean. `compileall src` clean. Figures: F1, F2, F3 done; F4–F5 planned.
 
 ## Next Recommended Work
 
-1. **TASK PA.006** — pre-commit the GPU-hour ledger (smoke/pilot/full-sweep/degradation) with a hard
-   ceiling → `docs/decisions/compute-ledger.md`. Uses the smoke throughput (2.5–3.5k img/s) to estimate.
-2. **LAUNCH-A** — assemble the gate review (harness frozen ✓, ε pre-registered ✓, smoke passes ✓,
-   resume-state ✓, ledger from PA.006) → human approval to launch the full n≥3-seed sweep.
-3. **TASK P1.002** (K2 base→sign premise probe) → **P1.003** (full sweep, clean tree, checkpoint_every>0)
-   → **P1.004** (G1 decision vs ε via the McNemar comparator). Do NOT launch P1.003 before LAUNCH-A.
+1. **TASK LA.001 (LAUNCH-A)** — assemble the gate review and get Ramchand's sign-off. All preconditions
+   are now met: eval harness frozen ✓, ε pre-registered ✓, 1-seed smoke passes ✓, resume-state ✓,
+   compute ledger committed ✓ (DEC-0015). Needs: a slightly longer 1-seed **pilot** confirming
+   convergence (per the ledger's provisional 50k-step budget), then human approval.
+2. **TASK P1.002** (K2 base→sign premise probe) — cheap kill-gate; can run in parallel with the pilot.
+3. **TASK P1.003** (full n≥3-seed sweep, clean tree, checkpoint_every>0) → **P1.004** (G1 decision vs ε
+   via the McNemar comparator). **Do NOT launch P1.003 before LAUNCH-A is approved.**
 
 ---
 **Tracker rule:** Update this file and `CHECKPOINT.md` before every commit that changes project
