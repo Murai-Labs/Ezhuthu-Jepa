@@ -153,3 +153,26 @@ Interpretation:    metric_M (target encoder): seam 0.239 [0.230,0.248], block 0.
                    K1/K3 result. See notes/negative-results/pilot-latent-jepa-underperforms-pixel-baseline.md.
 Next Action:       PA.005b recipe iteration (pending Ramchand's A/B/C choice in DEC-0017). Do NOT launch
                    the sweep until latent JEPA ≥ pixel baseline on the pilot.
+
+### Runs: phase1-pilotB/C-* (PA.005b recipe iteration, option A — cheap-baseline kill signal)
+
+Run IDs:           phase1-pilotB-seam_jepa-seed0 (16k cosine), phase1-pilotB-block_jepa-seed0 (16k cosine),
+                   phase1-pilotC-seam_jepa-seed0 (50k cosine); probes phase1-pilotB/Cprobe-*
+Task ID:           PA.005b (recipe iteration)
+Date:              2026-07-02
+Git Commit:        2ac86eb (dirty: cosine-LR change uncommitted at run time; committed this turn)
+Exact Command:     python -m ezhuthu_jepa.train.pretrain --config <flat pilot cfg, cosine> --objective <o>
+                   --run-dir runs/phase1-pilotB|C-...  ; then akshara_probe encoder: jepa
+Config:            ViT-Tiny/8, mask 0.25, LR cosine decay (lr 1e-3 → 1e-6), warmup; 16k or 50k steps
+Seed:              0
+Environment:       RTX 5090, torch 2.10.0+cu130, bf16; ~3.5–3.7k img/s
+Metrics Path:      runs/phase1-pilotB|C*/metrics.json ; runs/phase1-pilotB|Cprobe-*/metrics.json
+Status:            success (pipeline) — mechanism FAILS both cheap-baseline criteria
+Interpretation:    metric_M — seam 16k-cosine 0.290 [.280,.300] (best), seam 50k-cosine 0.212 [.204,.221]
+                   (degrades; eff-rank 39.7→20.2), block 16k-cosine 0.335 [.325,.345], MAE 0.532; pixel
+                   0.359. **K1 reversed: block (0.335) > seam (0.290), non-overlapping. K3 reversed: MAE
+                   (0.532) ≫ latent.** Both cheap baselines exceed the mechanism beyond ε. Cosine LR +
+                   scale did NOT reverse the direction. Section 3 kill signal (DEC-0018). 1 seed.
+Next Action:       Escalated to Ramchand (DEC-0018). Suggested last cheap test: MAE-at-block vs MAE-at-seam
+                   (does the seam mask help with a pixel target?), then re-scope/reframe/conclude. Do NOT
+                   launch the full sweep.

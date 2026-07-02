@@ -33,3 +33,18 @@ Append an entry whenever blocked for more than one serious attempt. Escalate aft
   conclude honestly (the fancy latent mechanism loses to the cheap baselines). Recommend (A) first — it
   is cheap and the recipe is admittedly simplified. Do NOT launch the sweep until latent JEPA is
   competitive with the pixel baseline on the pilot.
+
+### 2026-07-02 CT — PA.005b recipe iteration (option A) result: cheap-baseline kill signal
+- Goal: lift latent seam-JEPA above the pixel baseline (0.359) via recipe iteration.
+- Attempts: (1) LR cosine decay + 16k steps → seam 0.239→0.290 (helped, still < pixels). (2) Full 50k
+  budget → seam 0.212 (WORSE; effective rank 39.7→20.2 — degrades with scale). (3) Matched block at 16k
+  cosine → 0.335. (4) Collapse diagnostic (feature std / eff-rank).
+- Failures: seam-latent-JEPA peaks at 0.290 < pixel 0.359; block-JEPA (0.335) BEATS seam (K1 reversed,
+  non-overlapping CIs); MAE-at-seam (0.532) crushes latent (K3 reversed). Both cheap baselines exceed the
+  mechanism beyond ε. Recipe iteration did not reverse the direction.
+- Hypothesis: at evenings-scale on this task, the latent-target objective is a weak/unstable learning
+  signal vs pixel reconstruction; the seam mask does not beat block masking. Anti-collapse surgery
+  (VICReg/multi-block/ViT-Small) *might* help but the prior is now against it.
+- Escalation: **Section 3 cheap-baseline-falsification triggered (DEC-0018).** Potential project
+  re-scope/termination — Ramchand's call. Recommend one last cheap datapoint (MAE-at-block vs MAE-at-seam:
+  does the seam mask help at all with a pixel target?), then reframe/conclude. Do NOT launch the sweep.

@@ -502,3 +502,48 @@ Follow-up: NEW task PA.005b (recipe iteration) before any LAUNCH-A retry. LAUNCH
 unsigned. Sweep orchestrator (`sweep.py`) already refuses the ≥3-seed run without `--launch-a-approved`.
 Human Approval: **REQUIRED** — Ramchand chooses A/B/C. The agent will not iterate the recipe or launch
 anything further without direction.
+
+## DEC-0018 - PA.005b recipe iteration (option A) — cheap baselines still exceed the mechanism (kill signal)
+
+Date: 2026-07-02
+Task/Gate: PA.005b → LAUNCH-A / Section 3 cheap-baseline gate
+Decision: Ramchand chose option A (recipe iteration). Implemented **LR cosine decay** (`_lr_at`, the
+standard I-JEPA schedule; the pilot's constant LR was the first suspect) and swept steps. Outcome — the
+mechanism still loses to both cheap baselines on metric M (1 seed, target-encoder probe, augmented eval):
+
+| arm | recipe | metric_M | note |
+|-----|--------|----------|------|
+| seam_jepa | 8k const  | 0.239 | (DEC-0017) |
+| seam_jepa | 16k cosine | **0.290** [.280,.300] | best latent point |
+| seam_jepa | 50k cosine | 0.212 [.204,.221] | **degrades with scale** (eff-rank 39.7→20.2) |
+| block_jepa | 16k cosine | **0.335** [.325,.345] | **K1: block > seam, non-overlapping CIs** |
+| mae_seam | 8k const | **0.532** [.521,.542] | **K3: MAE ≫ latent** |
+| pixel baseline | — | 0.359 | both latent arms below it |
+
+Findings: (1) cosine LR helped seam 0.239→0.290 but not above the pixel baseline; (2) the full 50k budget
+made seam **worse** (0.212) with a falling effective rank — the latent representation degrades with
+extended training; (3) at the **matched** 16k-cosine recipe, **block-JEPA (0.335) beats seam-JEPA (0.290)
+beyond ε with non-overlapping CIs** — the K1 direction is *reversed*; (4) MAE-at-seam (pixel target)
+crushes latent-JEPA (0.532 vs 0.290) — the K3 direction is *reversed*. So **both mandated cheap baselines
+(block-masking JEPA, MAE-at-seam) exceed the seam-latent mechanism**, well beyond ε = 2 pp.
+Rationale: this is exactly the Section 3 cheap-baseline-falsification condition ("if any cheap baseline
+matches or exceeds the mechanism within ε on M → G2+ is blocked; re-scope or terminate"), and the
+Murai-Labs thesis in action — the latent outer objective does not earn its keep over a simpler pixel
+target here. Recipe iteration (option A) was tried and did **not** reverse the direction. Caveat: this is
+n = 1 seed (a pilot), not the n ≥ 3 formal G1 adjudication; but the signal is strong, consistent across
+recipes, and the pilot exists precisely to avoid spending the sweep on a falsified mechanism.
+Alternatives Considered: run the full n≥3 sweep anyway — rejected (the 1-seed signal is strong on both
+kill criteria; the sweep would most likely confirm a kill at ~15 GPU-h); more aggressive recipe surgery
+(anti-collapse/VICReg reg, ViT-Small, multi-block masking) — possible but the prior is now against it, and
+block > seam means even the seam *mask* (independent of target) is not winning.
+Evidence / Source Docs: runs `phase1-pilotB-{seam,block}_jepa-seed0`, `phase1-pilotC-seam_jepa-seed0`,
+`phase1-pilotB/Cprobe-*`; `notes/negative-results/pilot-latent-jepa-underperforms-pixel-baseline.md`
+(Update 2), `notes/stuck-log.md`; `src/ezhuthu_jepa/train/pretrain.py` (`_lr_at`).
+Measured Result: see table. block 0.335 > seam 0.290 (K1 reversed); MAE 0.532 ≫ seam 0.290 (K3 reversed).
+Follow-up / options escalated to Ramchand: (i) a cheap diagnostic — **MAE-at-block vs MAE-at-seam** (~10
+min) — to test whether the seam *mask* helps at all with a pixel target (does any "seam, not target"
+reframe survive?); (ii) **re-scope/reframe** per Section 3; (iii) **conclude** with an honest negative
+(seam-latent JEPA loses to block-masking and to MAE at evenings-scale). Agent recommendation: run (i) as
+the last cheap datapoint, then decide (ii)/(iii); do NOT launch the full sweep.
+Human Approval: **REQUIRED** — this is a potential project re-scope/termination (Section 3). No further
+compute or direction changes without Ramchand.

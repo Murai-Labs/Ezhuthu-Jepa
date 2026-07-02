@@ -236,3 +236,21 @@ Per-session checkpoints. Append; never edit past entries.
 - Open uncertainties: is the latent recipe fixable by LR cosine decay + paper-fidelity, or does the
   fancy latent objective genuinely lose to MAE/pixels here (→ reframe to "seam, not target", or conclude)?
   This is the Murai-Labs thesis live: the outer objective must earn its keep over the cheap baselines.
+
+### 2026-07-02 CT — PA.005b recipe iteration (option A): cheap-baseline kill signal
+- Started from: Ramchand chose "a" (recipe iteration) after DEC-0017.
+- Did: implemented **LR cosine decay** (`_lr_at`, +`lr_final`) — the standard I-JEPA schedule the constant-LR
+  pilot lacked. Swept: seam 16k-cosine 0.290 [.280,.300] (up from 0.239 — helped), seam 50k-cosine 0.212
+  (WORSE; effective rank 39.7→20.2 — degrades with scale), block 16k-cosine 0.335 [.325,.345] (matched).
+  Collapse diagnostic: seam eff-rank falls with scale; MAE low-rank (7.6) but best probe (0.532).
+- Result: **K1 REVERSED** — block (0.335) > seam (0.290), non-overlapping CIs, beyond ε. **K3 REVERSED** —
+  MAE (0.532) ≫ latent. Both latent arms < pixel baseline 0.359. Cosine + scale did NOT reverse direction.
+  **Section 3 cheap-baseline-falsification triggered (DEC-0018)** — both mandated baselines exceed the
+  mechanism. Recorded DEC-0018, stuck-log, negative-results Update 2, EXPERIMENT_LOG, task PA.005b done.
+  124 tests pass; cosine-LR committed.
+- Ended at: **LAUNCH-A blocked; potential project re-scope/termination escalated to Ramchand.** Suggested
+  last cheap datapoint: MAE-at-block vs MAE-at-seam (does the seam mask help with a pixel target?). Made
+  no re-scope/conclude decision and no further compute changes — Ramchand's call.
+- Open uncertainties: does the seam MASK help at all with a pixel target (MAE-seam vs MAE-block)? If not,
+  seam is not special even for MAE → stronger kill. Would anti-collapse surgery (VICReg/multi-block/
+  ViT-Small) lift latent above the baselines? Prior now against it; not worth the compute without a decision.

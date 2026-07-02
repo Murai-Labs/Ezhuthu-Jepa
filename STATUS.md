@@ -15,8 +15,9 @@ Last updated: 2026-07-02 CT
 ## Current State
 
 - Repo state: pushed to Murai-Labs/Ezhuthu-Jepa (public). Phase-1 code landing.
-- Current phase: **G0 complete; PA.001–PA.006 + P1.001b + P1.002 (K2) + resume-state + sweep infra + pilot done.
-  LAUNCH-A BLOCKED (DEC-0017): pilot shows latent JEPA < pixel baseline — recipe iteration needed before the sweep.**
+- Current phase: **G0 complete; PA.001–PA.006 + P1.001b + P1.002 + resume + sweep infra + pilot + PA.005b done.
+  LAUNCH-A BLOCKED (DEC-0018): recipe iteration (cosine LR) did NOT rescue latent JEPA — both cheap baselines
+  (block-masking, MAE) exceed the mechanism on M. Section 3 kill signal; awaiting Ramchand's re-scope/conclude decision.**
 - Stack decision: single RTX 5090; from-scratch I-JEPA-style ViT-Tiny/8 (torch.nn, no timm); PyTorch
   with `dtype=` policy (never `torch_dtype=`). Config contract locked at schema `0.1.0`; torch
   2.10.0+cu130 now pinned in `configs/phase0/locked-versions.yaml`.
@@ -101,11 +102,14 @@ Test suite: **117 passed** (`pytest -q`; +25 for P1.001b/PA.005/resume/K2/base-i
 
 ## Current Blockers
 
-- **BLOCKER (DEC-0017): LAUNCH-A is blocked.** The 1-seed pilot shows both latent JEPA arms below the
-  raw-pixel baseline on metric_M (seam 0.239, block 0.326 vs pixel 0.359); MAE 0.532. The latent recipe
-  is not competitive; launching the sweep now would compare broken encoders. **Needs recipe iteration
-  (PA.005b) — leading fix: LR cosine decay + I-JEPA recipe fidelity — until latent ≥ pixels on the pilot.**
-  Escalated to Ramchand (options A/B/C in DEC-0017). No further compute/recipe changes without direction.
+- **BLOCKER (DEC-0018): cheap-baseline kill signal — potential Section 3 re-scope/termination.** Ramchand
+  chose option A (recipe iteration, PA.005b). Added LR cosine decay + swept steps. Result at the matched
+  16k-cosine recipe: **block-JEPA 0.335 > seam-JEPA 0.290 (K1 REVERSED, non-overlapping CIs); MAE-at-seam
+  0.532 ≫ latent (K3 REVERSED); both latent arms < pixel baseline 0.359; seam degrades at 50k (0.212).**
+  Both mandated cheap baselines exceed the mechanism beyond ε — the Section 3 falsification condition (1
+  seed, strong/consistent). Recipe iteration did NOT reverse it. **Do NOT launch the sweep.** Escalated to
+  Ramchand: suggested last cheap test = MAE-at-block vs MAE-at-seam, then re-scope/reframe/conclude. No
+  further compute or direction changes without Ramchand.
 - Open uncertainty (feeds PA.004): ligature vowels (i/ii/u/uu, 60/216) have no cleanly separable
   sign region — likely report K1 stratified by seam_source.
 - Claim boundary: nothing has been trained or measured. Repo supports "operating system +

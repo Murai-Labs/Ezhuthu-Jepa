@@ -37,6 +37,7 @@ locked contract governs them without a schema bump.
 | `embed_dim`,`depth`,`num_heads`,`mlp_ratio` | `ViTEncoder` (context + EMA target) | ✓ |
 | `pred_dim`,`pred_depth`,`pred_heads` | `Predictor` | ✓ |
 | `batch_size`,`max_steps`,`lr`,`weight_decay`,`warmup_steps`,`grad_clip` | `train` optimiser/loop | ✓ |
+| `lr_final` | `_lr_at` (cosine-decay floor after warmup; PA.005b recipe fix) | ✓ |
 | `ema_base`,`ema_final` | `train` EMA momentum schedule (latent objectives) | ✓ |
 | `device`,`amp_dtype`,`log_every` | `train` runtime/autocast/progress | ✓ |
 | `checkpoint_every` | `train` (writes `resume-state.pt` every N steps; 0 = none); `__post_init__` (>=0) | ✓ |

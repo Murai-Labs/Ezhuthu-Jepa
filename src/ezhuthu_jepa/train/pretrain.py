@@ -81,6 +81,7 @@ class PretrainConfig:
     batch_size: int = 128
     max_steps: int = 3000
     lr: float = 1.0e-3
+    lr_final: float = 1.0e-6          # cosine-decay floor after warmup (PA.005b recipe fix)
     weight_decay: float = 0.05
     warmup_steps: int = 100
     ema_base: float = 0.996
@@ -319,6 +320,18 @@ def _amp_dtype(name: str) -> torch.dtype:
     return {"bf16": torch.bfloat16, "fp16": torch.float16, "fp32": torch.float32}[name]
 
 
+def _lr_at(step: int, cfg: PretrainConfig) -> float:
+    """Linear warmup to ``cfg.lr``, then cosine decay to ``cfg.lr_final`` over the remaining steps.
+
+    Constant LR let the JEPA loss plateau with weak representations (pilot, DEC-0017); cosine annealing
+    is the standard I-JEPA schedule and the first PA.005b recipe fix.
+    """
+    if step <= cfg.warmup_steps:
+        return cfg.lr * step / max(1, cfg.warmup_steps)
+    progress = min(1.0, (step - cfg.warmup_steps) / max(1, cfg.max_steps - cfg.warmup_steps))
+    return cfg.lr_final + 0.5 * (cfg.lr - cfg.lr_final) * (1.0 + math.cos(math.pi * progress))
+
+
 RESUME_FILENAME = "resume-state.pt"
 
 
@@ -440,7 +453,7 @@ def train(cfg: PretrainConfig, run_dir: Path, resume: bool = False) -> Path:
         mask_idx = torch.from_numpy(mask_np).to(device)
         vis_idx = torch.from_numpy(vis_np).to(device)
 
-        lr = cfg.lr * min(1.0, step / max(1, cfg.warmup_steps))
+        lr = _lr_at(step, cfg)
         for g in opt.param_groups:
             g["lr"] = lr
 

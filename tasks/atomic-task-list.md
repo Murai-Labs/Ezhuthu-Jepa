@@ -367,10 +367,14 @@ n ≥ 3 seeds, 95 % bootstrap CIs. ε = 2.0 pp / non-overlapping CIs (pre-regist
   1. A 1-seed pilot shows seam-JEPA (and block-JEPA) metric_M ≥ the pixel baseline (0.359), with the
      seam/block/mae ordering interpretable (not all below pixels).
   2. Recipe changes recorded; provenance per re-pilot run.
-- **Status:** NOT STARTED — awaiting Ramchand's DEC-0017 choice (A recipe iteration / B reframe / C conclude).
-- **Blocking gate:** LAUNCH-A
+- **Status:** DONE (option A executed, DEC-0018). Added LR cosine decay (`_lr_at`) + step sweep. Result:
+  did NOT clear the bar. Matched 16k-cosine — block 0.335 > seam 0.290 (K1 reversed, non-overlapping CIs);
+  MAE 0.532 ≫ latent (K3 reversed); seam degrades at 50k (0.212). **Both cheap baselines exceed the
+  mechanism → Section 3 kill signal; escalated to Ramchand.** Anti-collapse surgery (VICReg/multi-block/
+  ViT-Small) is the only remaining recipe lever and the prior is against it.
+- **Blocking gate:** LAUNCH-A / Section 3
 - **Estimated effort:** 5
-- **Done:** [ ]
+- **Done:** [x]
 
 #### TASK P1.003: K1 + K3 sweep — seam-JEPA vs block-JEPA vs MAE-at-seam on M
 - **What:** The full n ≥ 3-seed comparison of the three objectives, evaluated on metric M.

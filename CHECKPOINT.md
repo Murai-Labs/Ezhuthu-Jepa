@@ -23,8 +23,8 @@ then **P1.003** (full n≥3-seed sweep, clean tree). Do NOT launch the sweep bef
 
 ## Current Checkpoint
 
-- Phase: **G0 APPROVED; PA.001–PA.006 + P1.001b + P1.002 + resume + sweep infra + pilot done.
-  LAUNCH-A BLOCKED (DEC-0017): pilot → latent JEPA < pixel baseline; recipe iteration (PA.005b) needed.**
+- Phase: **G0 APPROVED; PA.001–PA.006 + P1.001b + P1.002 + resume + sweep infra + pilot + PA.005b done.
+  LAUNCH-A BLOCKED (DEC-0018): cheap baselines (block, MAE) exceed the mechanism on M; Section 3 kill signal.**
 - What is done: operating system + provenance writer + config contract (P0.003/P0.004), and the Tamil
   rendering pipeline (PA.001): `data/{grapheme,render,build_uyirmei}.py`, HarfBuzz+FreeType shaping,
   glyph/diff seam hybrid, **multi-font (Noto+Nirmala)**. All 216 uyirmei rendered under both fonts →
@@ -57,9 +57,13 @@ then **P1.003** (full n≥3-seed sweep, clean tree). Do NOT launch the sweep bef
 - BLOCKER: **LAUNCH-A pilot (DEC-0017)** — `phase1-pilot-*` 1-seed 8k: metric_M seam 0.239, block 0.326
   (both < pixel 0.359), mae 0.532. Latent JEPA underperforms raw pixels; target-encoder fix did not
   rescue → recipe deficiency. See `notes/negative-results/pilot-latent-jepa-underperforms-pixel-baseline.md`.
-- What is next: **AWAIT Ramchand's DEC-0017 choice (A recipe iteration / B reframe to MAE / C conclude).**
-  Recommended A = PA.005b: LR cosine decay + I-JEPA recipe fidelity, re-pilot until latent ≥ pixels. Do
-  NOT launch the sweep (sweep.py refuses it) and make no further recipe/compute changes without direction.
+- PA.005b DONE (option A): added LR cosine decay (`_lr_at`) + swept steps. **Did NOT rescue latent JEPA.**
+  Matched 16k-cosine: block 0.335 > seam 0.290 (K1 reversed, non-overlapping); MAE 0.532 ≫ latent (K3
+  reversed); seam degrades at 50k (0.212, eff-rank 39.7→20.2). Both cheap baselines exceed the mechanism
+  beyond ε → **Section 3 cheap-baseline kill signal (DEC-0018).**
+- What is next: **AWAIT Ramchand's decision (Section 3): re-scope / reframe / conclude.** Suggested last
+  cheap datapoint: MAE-at-block vs MAE-at-seam (does the seam mask help with a pixel target?). Do NOT
+  launch the sweep (sweep.py refuses it). No further compute/direction changes without Ramchand.
 - Authorization gate status: **G0 approved** (DEC-0008); **ε pre-registered** (DEC-0009). LAUNCH-A
   **not yet approved** — do not launch the full Stage-A sweep (P1.003) until it is. No full training run authorized (smokes only).
 

@@ -52,3 +52,29 @@ Decision (escalated): (A) iterate the recipe and re-pilot until latent ≥ pixel
 fails, conclude honestly that the latent mechanism loses to the cheap baselines. This is precisely the
 Murai-Labs thesis in action: the fancy latent outer objective must earn its keep over simpler targets —
 so far, at pilot scale, it has not.
+
+## Update 2 (2026-07-02) — recipe iteration (option A) did NOT reverse it; both baselines exceed the mechanism
+
+Ramchand chose (A). Added **LR cosine decay** (`_lr_at`) and swept steps; also ran block at the matched
+recipe for a fair K1 read.
+
+| arm | recipe | metric_M |
+|-----|--------|----------|
+| seam_jepa | 16k cosine | **0.290** [.280,.300] (best latent) |
+| seam_jepa | 50k cosine | 0.212 [.204,.221] — **worse** (eff-rank 39.7→20.2: degrades with scale) |
+| **block_jepa** | **16k cosine (matched)** | **0.335** [.325,.345] |
+| mae_seam | 8k | 0.532 [.521,.542] |
+| pixel baseline | — | 0.359 |
+
+- Cosine helped seam (0.239→0.290) but not past the pixel baseline; the full 50k budget made it **worse**
+  (representation degrades, effective rank falls).
+- **K1 is REVERSED at the matched recipe:** block-JEPA (0.335) beats seam-JEPA (0.290), non-overlapping
+  CIs, beyond ε = 2 pp. The block-masking baseline wins.
+- **K3 is REVERSED:** MAE-at-seam (0.532) ≫ seam-latent-JEPA (0.290). The pixel-target baseline wins.
+- So **both mandated cheap baselines exceed the mechanism** — the Section 3 falsification condition (at
+  1-seed pilot scale; the formal gate wants n ≥ 3, but the signal is strong and consistent).
+
+Bottom line: option A (recipe iteration) was executed and the mechanism still loses to block-masking and
+to MAE. This is a cheap-baseline kill signal (DEC-0018). Recommended last cheap datapoint before deciding:
+**MAE-at-block vs MAE-at-seam** — does the seam *mask* help at all with a pixel target, or is seam not
+special even there? Then re-scope/reframe or conclude (Ramchand's call). Do NOT launch the full sweep.

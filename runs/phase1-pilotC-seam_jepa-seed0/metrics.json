@@ -1,0 +1,17 @@
+{
+  "run_id": "phase1-pilotC-seam_jepa-seed0",
+  "task": "PA.005",
+  "objective": "seam_jepa",
+  "device": "cuda",
+  "n_train_instances": 19800,
+  "n_tokens": 144,
+  "n_mask": 36,
+  "encoder_params_m": 5.351,
+  "steps": 50000,
+  "resumed_from_step": 0,
+  "final_loss": 0.06506731361150742,
+  "throughput_img_s": 3547.0,
+  "peak_mem_mb": 1868.6,
+  "elapsed_s": 1804.4,
+  "encoder_checkpoint": "encoder.pt"
+}
