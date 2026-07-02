@@ -9,7 +9,9 @@ hypothesis is **falsified on both of its kill criteria**. The project is **concl
 negative result, not a failure to hide.
 
 > ## ⛔ Status: concluded (G1 = BLOCK)
-> The full writeup is **[`docs/REPORT.md`](docs/REPORT.md)**.
+> The full writeup is **[`docs/REPORT.md`](docs/REPORT.md)**. Next directions (planning) live in
+> **[`docs/FUTURE_WORK.md`](docs/FUTURE_WORK.md)** — two parallel tracks: a supervised compositional
+> `(base, sign)` decoder, and self-supervised JEPA-vs-MAE done right on unlabeled Tamil page images.
 
 ## TL;DR of the result
 

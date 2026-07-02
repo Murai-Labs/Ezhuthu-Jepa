@@ -126,9 +126,11 @@ Test suite: **117 passed** (`pytest -q`; +25 for P1.001b/PA.005/resume/K2/base-i
 
 **None — project concluded (DEC-0019).** No further tasks planned under this thesis.
 
-Optional future work (separate decision, not scheduled): open-release the reusable assets + honest
-negative as a short report; revisit only with a materially different hypothesis (pixel-target-at-seam on
-its own terms, larger scale, or an anti-collapse latent recipe) — not under the falsified latent thesis.
+**Future directions (planning, not started): [`docs/FUTURE_WORK.md`](docs/FUTURE_WORK.md)** — two parallel
+tracks with Phase-0 cheap-baseline gates: **T1** a supervised compositional `(base, sign)` decoder (the
+high-probability path to composing rare/unseen compounds), and **T2+J1** self-supervised JEPA-vs-MAE done
+right on unlabeled Tamil page images (few-shot fine-tuning eval). Both reuse this repo's benchmark, harness,
+and rendering pipeline.
 
 ---
 **Tracker rule:** Update this file and `CHECKPOINT.md` before every commit that changes project
