@@ -1,0 +1,43 @@
+# I-JEPA-style ViT pretraining — SMOKE config (TASK PA.005, DEC-0013).
+# Loaded by ezhuthu_jepa.train.pretrain.PretrainConfig.from_yaml.
+#
+# This is the 1-seed SMOKE recipe that proves the loop runs end-to-end and writes provenance +
+# metrics (PA.005 AC1). It is NOT the full sweep: the full n>=3-seed Stage-A run (P1.003) is gated
+# by LAUNCH-A and lives in a separate sweep config. Objective is set here (or via --objective); the
+# architecture / compute / mask-ratio are identical across {seam_jepa, block_jepa, mae_seam}, so only
+# the switched variable changes (AC2). dtype= autocast (bf16) — never torch_dtype= (AGENTS.md §6).
+
+objective: "seam_jepa"        # seam_jepa | block_jepa | mae_seam
+seed: 0
+mask_ratio: 0.25              # fixed masked-token fraction (36/144), identical for every arm
+
+# Data: the PA.4b.2 augmented font-holdout index (train = noto; eval font held out for the probe).
+index_jsonl: "data/rendered/augmented/index.jsonl"
+image_dir: "data/rendered/augmented"
+exclude_no_sign: true         # inherent-'a' forms have no seam to hide; excluded from every arm alike
+limit_instances: 1024         # SMOKE cap; the full run drops this (0 = all)
+
+# Architecture — ViT-Tiny/8 (~5.5M/encoder; 96px, patch 8 -> 12x12 = 144 tokens). DEC-0013.
+img_size: 96
+patch_size: 8
+embed_dim: 192
+depth: 12
+num_heads: 3
+pred_dim: 96
+pred_depth: 4
+pred_heads: 3
+
+# Optimisation — SMOKE scale (short). The sweep config sets the real schedule.
+batch_size: 128
+max_steps: 30
+lr: 0.001
+weight_decay: 0.05
+warmup_steps: 10
+ema_base: 0.996
+ema_final: 1.0
+grad_clip: 1.0
+
+# Runtime
+device: "cuda"
+amp_dtype: "bf16"
+log_every: 10

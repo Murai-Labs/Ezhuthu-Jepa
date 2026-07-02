@@ -1,0 +1,16 @@
+# Akshara-recognition probe config on the AUGMENTED font-holdout index (TASK P1.001b, DEC-0013).
+# Loaded by ezhuthu_jepa.eval.akshara_probe.ProbeConfig.from_yaml.
+#
+# Same frozen metric machinery as probe.yaml, but the `index` backend reads the PA.4b.2 per-instance
+# index.jsonl (~54k instances, train=noto / eval=held-out nirmala). The larger eval set (M-bucket
+# n≈8,100) shrinks metric M's 95 % bootstrap CI toward ~1 pp so a 2 pp effect is adjudicable — the
+# empirical confirmation P1.001b requires. Encoder is still the weak PixelEncoder reference; PA.005
+# swaps in the JEPA encoder (encoder: jepa, checkpoint: <run>/encoder.pt) on this identical index.
+
+index_jsonl: "data/rendered/augmented/index.jsonl"   # PA.4b.2 per-instance index (gitignored, regenerable)
+image_dir: "data/rendered/augmented"                 # gitignored image bodies
+ridge_lambda: 1.0
+bootstrap_n: 2000
+seed: 42
+encoder: "pixel32"
+downsample: 32

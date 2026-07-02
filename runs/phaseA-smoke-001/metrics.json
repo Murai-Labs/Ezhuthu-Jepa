@@ -1,0 +1,16 @@
+{
+  "run_id": "phaseA-smoke-001",
+  "task": "PA.005",
+  "objective": "seam_jepa",
+  "device": "cuda",
+  "n_train_instances": 1024,
+  "n_tokens": 144,
+  "n_mask": 36,
+  "encoder_params_m": 5.351,
+  "steps": 30,
+  "final_loss": 0.03502350300550461,
+  "throughput_img_s": 2542.8,
+  "peak_mem_mb": 1868.6,
+  "elapsed_s": 1.5,
+  "encoder_checkpoint": "encoder.pt"
+}

@@ -25,6 +25,8 @@ fonts/
 # Run bodies: keep manifests/metrics/notes (committed), ignore heavy artifacts
 runs/**/checkpoint*
 runs/**/*.ckpt
+# Per-instance probe predictions (paired-McNemar input): large + regenerable from the run, not a report
+runs/**/predictions.jsonl
 *.pt
 *.safetensors
 *.bin

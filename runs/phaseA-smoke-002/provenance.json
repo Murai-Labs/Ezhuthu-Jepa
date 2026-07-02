@@ -1,0 +1,59 @@
+{
+  "manifest_version": "1",
+  "run_id": "phaseA-smoke-002",
+  "created_at": "2026-07-02T13:43:50.688453+00:00",
+  "code_dirty": true,
+  "config": {
+    "objective": "block_jepa",
+    "seed": 0,
+    "mask_ratio": 0.25,
+    "index_jsonl": "data/rendered/augmented/index.jsonl",
+    "image_dir": "data/rendered/augmented",
+    "exclude_no_sign": true,
+    "limit_instances": 1024,
+    "img_size": 96,
+    "patch_size": 8,
+    "embed_dim": 192,
+    "depth": 12,
+    "num_heads": 3,
+    "pred_dim": 96,
+    "pred_depth": 4,
+    "pred_heads": 3,
+    "mlp_ratio": 4.0,
+    "batch_size": 128,
+    "max_steps": 30,
+    "lr": 0.001,
+    "weight_decay": 0.05,
+    "warmup_steps": 10,
+    "ema_base": 0.996,
+    "ema_final": 1.0,
+    "grad_clip": 1.0,
+    "device": "cuda",
+    "amp_dtype": "bf16",
+    "log_every": 10
+  },
+  "identifiers": {
+    "config_hash": "sha256:0a37019c7b582648b5cc1dc2a27857cbf066d371593f1a92947a97e04c482588",
+    "code_sha": "2ac86eb22841d7cbee1fe22cfb63d75704663c0f",
+    "data_hash": "sha256:4abd63f965b7acba8456d95bdbfb984d5b28e46f588e7385689d06e922009ec1",
+    "seed": 0,
+    "environment": {
+      "python": "3.13.14",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "processor": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
+      "torch": {
+        "installed": true,
+        "version": "2.10.0+cu130",
+        "cuda_available": true,
+        "cuda_version": "13.0",
+        "device_name": "NVIDIA GeForce RTX 5090"
+      },
+      "packages": {
+        "numpy": "2.4.3",
+        "pillow": "12.1.1",
+        "pyyaml": "6.0.3",
+        "torch": "2.10.0+cu130"
+      }
+    }
+  }
+}

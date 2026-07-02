@@ -58,28 +58,58 @@ PYTHONPATH=src python -m ezhuthu_jepa.data.build_augmented \
   --config configs/phase1/augment.yaml --run-dir runs/pa4b-augment-001
 ```
 
+## Evaluate on the Augmented Font-Holdout Index — tight CI (P1.001b)
+
+```bash
+# Same frozen metric machinery as PA.003, but the `index` backend reads the 54k-instance
+# index.jsonl (train=noto / eval=held-out nirmala). Bottom-quartile eval n≈8,100 → metric M CI
+# half-width ~1 pp. Writes metrics.json + predictions.jsonl (per-instance correctness, for McNemar).
+PYTHONPATH=src python -m ezhuthu_jepa.eval.akshara_probe \
+  --config configs/phase1/probe-augmented.yaml --run-dir runs/pa003b-probe-aug-001
+# To evaluate a trained JEPA encoder instead of the PixelEncoder reference, set in the probe config:
+#   encoder: jepa
+#   checkpoint: runs/<pretrain-run>/encoder.pt
+```
+
+## Pretraining Loop — seam / block / MAE (PA.005)
+
+```bash
+# Objective is set by config, or overridden with --objective. Architecture / compute / mask-ratio are
+# identical across the three arms — only the switched variable changes. dtype= autocast (bf16).
+# SMOKE (configs/phase1/pretrain.yaml: limit_instances=1024, max_steps=30) — proves the loop runs:
+PYTHONPATH=src python -m ezhuthu_jepa.train.pretrain \
+  --config configs/phase1/pretrain.yaml --run-dir runs/phaseA-smoke-001                     # seam_jepa
+PYTHONPATH=src python -m ezhuthu_jepa.train.pretrain \
+  --config configs/phase1/pretrain.yaml --run-dir runs/phaseA-smoke-002 --objective block_jepa
+PYTHONPATH=src python -m ezhuthu_jepa.train.pretrain \
+  --config configs/phase1/pretrain.yaml --run-dir runs/phaseA-smoke-003 --objective mae_seam
+```
+
 ## Run a Smoke Test
 
 ```bash
-python -m compileall src && pytest -q          # code smoke
-# Pipeline smoke (after PA.005 exists):
-python -m ezhuthu_jepa.train.pretrain --config configs/phase1/pretrain.yaml --smoke --seed 0
+python -m compileall src && pytest -q                     # code smoke (107 pass)
+pytest -k "pretrain or mcnemar or probe"                  # Phase-1 focused
+# Pipeline smoke: the PA.005 seam/block/MAE runs above (each ~2 s on the RTX 5090).
 ```
 
 ## Launch a Full Run
 
 ```bash
-# ONLY after LAUNCH-A approval (docs/GATE_LAUNCH_A_REVIEW.md signed).
-# Provenance is recorded by the writer (P0.003) before the loop starts.
-python -m ezhuthu_jepa.train.pretrain --config configs/phase1/sweep.yaml \
-  --objective seam_jepa --seed 0 --run-id phase1-sweep-seamjepa-seed0
+# ONLY after LAUNCH-A approval (docs/GATE_LAUNCH_A_REVIEW.md signed) and on a CLEAN committed tree.
+# Provenance (incl. code_sha + dirty flag) is recorded before the loop starts. The full sweep uses a
+# dedicated sweep config (P1.003) that sets limit_instances=0, the real step budget, and per-seed dirs.
+# The seed is a config field (one config per seed) — there is no --seed flag.
+PYTHONPATH=src python -m ezhuthu_jepa.train.pretrain \
+  --config configs/phase1/sweep-seamjepa-seed0.yaml --run-dir runs/phase1-sweep-seamjepa-seed0
 ```
 
 ## Resume an Interrupted Run
 
 ```bash
-# Runs >30min write a resume-state file each epoch; restart validates config hash + seed.
-python -m ezhuthu_jepa.train.pretrain --resume runs/<run-id>/resume-state.json
+# NOT YET IMPLEMENTED. The PA.005 smoke is short (<30 s) and needs no resume. Runs >30 min (the
+# P1.003 sweep) require a per-epoch resume-state file + config/seed re-validation (AGENTS.md §4);
+# build that before launching the full sweep.
 ```
 
 ## Pre-Run Checklist

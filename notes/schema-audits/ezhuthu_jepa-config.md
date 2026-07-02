@@ -31,5 +31,13 @@ bar; fields with only a future consumer are marked so the debt is visible, not h
 
 ## Open debt
 
-- `objective` and `mask_ratio` currently have only validation + hashing as present consumers; their
-  behavioral consumers land at PA.004/PA.005. Re-audit when those tasks add code.
+- ~~`objective` and `mask_ratio` currently have only validation + hashing as present consumers.~~
+  **Resolved 2026-07-02 (PA.005).** Both now have behavioral consumers:
+  - `objective` → `train.pretrain.train` selects latent (seam/block JEPA) vs pixel (MAE) target;
+    `masking.seam.make_mask` selects seam vs block placement.
+  - `mask_ratio` → `PretrainConfig.n_mask` (= round(mask_ratio × n_tokens)) sets the fixed
+    masked-token count, held identical across objectives (K1/K3). See the PA.005 config audit at
+    `notes/schema-audits/phase1-configs.md`.
+- `SCHEMA_VERSION` stays `0.1.0`: PA.005 did **not** add fields to `RunConfig`. The pretraining knobs
+  live in a separate `PretrainConfig` (audited below), which *reuses* `RunConfig` to validate the three
+  identity fields. So the locked contract and its config hash are unchanged.

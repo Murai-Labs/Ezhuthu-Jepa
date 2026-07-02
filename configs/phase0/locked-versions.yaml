@@ -22,16 +22,16 @@ pinned:
   uharfbuzz: "0.55.0"      # PA.001 complex-text shaping (reordering, ligatures)
   freetype-py: "2.13.2"    # PA.001 glyph-ID rasterization
   pyyaml: "6.0.3"          # PA.001 loads configs/phase1/render.yaml
+  torch: "2.10.0+cu130"    # PA.005 I-JEPA ViT pretraining loop (RTX 5090, CUDA 13.0). dtype= only.
 
 # Deferred: pinned to exact versions at the task that introduces each dependency. Listed so the
 # roadmap is explicit and no one adds them ad hoc. NOT installed by the current pyproject.
 deferred:
-  - name: torch
-    pin_at: PA.005            # I-JEPA-style ViT pretraining loop
-    rule: "use dtype=..., never torch_dtype=..."
+  # torchvision is present on the machine (0.25.0+cu130) but the PA.005 ViT is written from scratch on
+  # torch.nn alone, so it is NOT a code dependency; it stays here until code actually imports it.
   - name: torchvision
-    pin_at: PA.005
+    pin_at: "unused (from-scratch ViT); pin if a transform/dataset is adopted"
   - name: timm
-    pin_at: PA.005            # ViT backbone
+    pin_at: "unused (from-scratch ViT/8, not timm); pin only if we swap to a timm backbone"
   - name: gradio
     pin_at: P3.002            # transcription-aid demo

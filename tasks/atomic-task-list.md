@@ -223,12 +223,14 @@ n ≥ 3 seeds, 95 % bootstrap CIs. ε = 2.0 pp / non-overlapping CIs (pre-regist
 - **Acceptance criteria:**
   1. Given two arms' per-eval-instance correctness, computes McNemar χ²/exact p on M with Bonferroni.
   2. Reports both the McNemar verdict (primary) and non-overlapping-CI verdict (secondary).
-- **Evidence of completion:** compare function + passing `pytest -k mcnemar`.
-- **Validation:** `pytest -k mcnemar`
+- **Evidence of completion:** `compare_arms`/`mcnemar` in `akshara_probe.py`; `pytest -k mcnemar` (5)
+  + config-backend test; augmented re-run `runs/pa003b-probe-aug-001` → metric_M CI **half-width 1.02 pp**
+  (was ~12 pp), confirming the 2 pp effect is now adjudicable. Harness writes `predictions.jsonl` for pairing.
+- **Validation:** `pytest -k "mcnemar or probe"` (14 pass); `EXPERIMENT_LOG` pa003b-probe-aug-001.
 - **Dependencies:** PA.003
 - **Blocking gate:** G1
 - **Estimated effort:** 2
-- **Done:** [ ]
+- **Done:** [x]
 
 #### TASK PA.005: I-JEPA-style ViT pretraining loop (single-5090, seam/block/MAE switchable)
 - **What:** A pretraining entry point that trains **ViT-Tiny/8 (auto-escalate to Small)** under a
@@ -239,13 +241,20 @@ n ≥ 3 seeds, 95 % bootstrap CIs. ε = 2.0 pp / non-overlapping CIs (pre-regist
 - **Acceptance criteria:**
   1. A 1-seed smoke run completes end-to-end and writes a provenance manifest + `metrics.json`.
   2. Objective is set by config only; architecture/compute/mask-ratio are identical across variants.
-- **Evidence of completion:** run-id `phaseA-smoke-001`, manifest + metrics.
-- **Validation:** smoke run; `pytest -k pretrain_smoke`
-- **Measurements / logs:** loss, throughput, GPU mem, step/total/ETA.
+- **Evidence of completion:** `src/ezhuthu_jepa/train/pretrain.py` + `configs/phase1/pretrain.yaml`;
+  runs `phaseA-smoke-001` (seam_jepa), `-002` (block_jepa), `-003` (mae_seam) — each with provenance +
+  metrics + `encoder.pt`. ViT-Tiny/8 = 5.35M-param encoder, 144 tokens, n_mask=36 identical across arms
+  (AC2). Objective set by config/`--objective` only (AC1). JEPA encoder registered in the probe
+  (`encoder: jepa`). torch pinned in `locked-versions.yaml`.
+- **Validation:** `pytest -k pretrain` (7 pass, incl. all-objective smoke); GPU smoke runs above;
+  full suite 107 pass; placeholder scan clean; `compileall src` clean.
+- **Measurements / logs:** loss, lr, throughput (img/s), GPU mem, step/total/elapsed/ETA every 10 steps.
 - **Dependencies:** PA.003, PA.004, P0.003
 - **Blocking gate:** LAUNCH-A
+- **Notes:** smoke only (30 steps) — NOT a K1/K3 result. Full n≥3-seed sweep (P1.003) is gated by
+  LAUNCH-A and must run on a clean committed tree. Impl decisions in DEC-0014.
 - **Estimated effort:** 8
-- **Done:** [ ]
+- **Done:** [x]
 
 #### TASK PA.006: Compute-ledger pre-commit for K1–K4
 - **What:** A pre-committed GPU-hour ledger for K1–K4 vs a full-foundation-model build.

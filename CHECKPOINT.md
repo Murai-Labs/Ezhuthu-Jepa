@@ -1,6 +1,6 @@
 # Ezhuthu-Jepa — Checkpoint
 
-Last updated: 2026-07-01 19:45 CT
+Last updated: 2026-07-02 CT
 
 ## Resume Point
 
@@ -9,19 +9,20 @@ To verify a clean state and continue:
 ```bash
 cd /c/Github/Ezhuthu-Jepa
 git status -sb
-PYTHONIOENCODING=utf-8 python -m pytest -q          # expect: 56 passed
-# Fetch the OFL font (gitignored) if missing, then regenerate the multi-font dataset (deterministic):
-curl -fsSL "https://github.com/google/fonts/raw/main/ofl/notosanstamil/NotoSansTamil%5Bwdth,wght%5D.ttf" -o fonts/NotoSansTamil.ttf
-PYTHONIOENCODING=utf-8 PYTHONPATH=src python -m ezhuthu_jepa.data.build_uyirmei
+PYTHONIOENCODING=utf-8 python -m pytest -q          # expect: 107 passed
 nvidia-smi                 # confirm RTX 5090 available before any GPU work
+# Regenerate gitignored data if missing (deterministic): the OFL font, then the augmented index.
+curl -fsSL "https://github.com/google/fonts/raw/main/ofl/notosanstamil/NotoSansTamil%5Bwdth,wght%5D.ttf" -o fonts/NotoSansTamil.ttf
+PYTHONIOENCODING=utf-8 PYTHONPATH=src python -m ezhuthu_jepa.data.build_augmented \
+  --config configs/phase1/augment.yaml --run-dir runs/pa4b-augment-001   # only if data/rendered/augmented absent
 ```
 
-Next controlled task: see `tasks/atomic-task-list.md` → **TASK PA.002** (frequency split from Project
-Madurai), then **PA.003** (eval harness), **P1.001** (pre-register ε), **PA.004** (seam masking).
+Next controlled task: see `tasks/atomic-task-list.md` → **TASK PA.006** (compute-hour ledger), then a
+resume-state for >30min runs, then **LAUNCH-A**, then **P1.002** (K2 probe) → **P1.003** (full sweep).
 
 ## Current Checkpoint
 
-- Phase: **G0 APPROVED; PA.001–PA.004 + PA.4b.1/PA.4b.2 done; ε amended (DEC-0013, McNemar+CI).** LAUNCH-A / G1 sweep not started.
+- Phase: **G0 APPROVED; PA.001–PA.005 + P1.001b done; ε amended (DEC-0013, McNemar+CI).** LAUNCH-A / G1 sweep not started.
 - What is done: operating system + provenance writer + config contract (P0.003/P0.004), and the Tamil
   rendering pipeline (PA.001): `data/{grapheme,render,build_uyirmei}.py`, HarfBuzz+FreeType shaping,
   glyph/diff seam hybrid, **multi-font (Noto+Nirmala)**. All 216 uyirmei rendered under both fonts →
@@ -36,11 +37,15 @@ Madurai), then **PA.003** (eval harness), **P1.001** (pre-register ε), **PA.004
 - Done: PA.4b.1 `data/augment.py` (transforms seam_bbox); PA.4b.2 augmented dataset — 54k instances,
   `runs/pa4b-augment-001/split-manifest.json` (committed) + gitignored `data/rendered/augmented/`.
   Regenerate via RUNBOOK "Build the Augmented Font-Holdout Dataset".
-- What is next: **P1.001b** (McNemar comparator + wire probe to augmented index; confirm ~1pp CI) →
-  **PA.005** I-JEPA ViT-Tiny/8 pretrain loop (torch already on system; use `dtype=` not `torch_dtype=`;
-  pin torch in locked-versions) → PA.006 ledger → **LAUNCH-A** → P1.003 sweep. Do NOT run the sweep before LAUNCH-A.
+- Done: **P1.001b** — `akshara_probe.py` McNemar comparator (`mcnemar`/`compare_arms`) + `index`
+  backend + `predictions.jsonl`; `runs/pa003b-probe-aug-001` confirms metric_M CI half-width 1.02 pp.
+- Done: **PA.005** — `train/pretrain.py` I-JEPA ViT-Tiny/8, {seam/block/mae} by config; smoke runs
+  `phaseA-smoke-001/-002/-003` (provenance + metrics + `encoder.pt`); JEPA encoder wired into the
+  probe (`encoder: jepa`); torch 2.10.0+cu130 pinned. Regenerate via RUNBOOK "Pretraining Loop".
+- What is next: **PA.006** compute-hour ledger (use smoke throughput 2.5–3.5k img/s) → add resume-state
+  for >30min runs → **LAUNCH-A** → P1.002 (K2) → P1.003 sweep (clean tree). Do NOT run the sweep before LAUNCH-A.
 - Authorization gate status: **G0 approved** (DEC-0008); **ε pre-registered** (DEC-0009). LAUNCH-A
-  **not yet approved** — do not launch the full Stage-A sweep (P1.003) until it is. No training run authorized.
+  **not yet approved** — do not launch the full Stage-A sweep (P1.003) until it is. No full training run authorized (smokes only).
 
 ## Do Not Do
 

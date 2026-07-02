@@ -1,6 +1,6 @@
 # Ezhuthu-Jepa — Status
 
-Last updated: 2026-07-01 19:45 CT
+Last updated: 2026-07-02 CT
 
 ## Methodology Decisions (DEC-0004, DEC-0006)
 
@@ -14,12 +14,14 @@ Last updated: 2026-07-01 19:45 CT
 
 ## Current State
 
-- Repo state: pushed to Murai-Labs/Ezhuthu-Jepa (public). Phase-0 code landing.
-- Current phase: **G0 complete + Phase-0 code in progress**. P0.001–P0.004 done; G1 not started.
-- Stack decision: single RTX 5090; small I-JEPA-style ViT; PyTorch with `dtype=` policy (never
-  `torch_dtype=`). Config contract locked at schema `0.1.0`; training toolchain deferred/pinned
-  per `configs/phase0/locked-versions.yaml`.
-- Latest run: no runs yet. Provenance writer is in place and required before the first run.
+- Repo state: pushed to Murai-Labs/Ezhuthu-Jepa (public). Phase-1 code landing.
+- Current phase: **G0 complete; PA.001–PA.005 + P1.001b done; LAUNCH-A / G1 sweep not started.**
+- Stack decision: single RTX 5090; from-scratch I-JEPA-style ViT-Tiny/8 (torch.nn, no timm); PyTorch
+  with `dtype=` policy (never `torch_dtype=`). Config contract locked at schema `0.1.0`; torch
+  2.10.0+cu130 now pinned in `configs/phase0/locked-versions.yaml`.
+- Latest runs: `pa003b-probe-aug-001` (CI confirmation) + `phaseA-smoke-001/-002/-003` (pretraining
+  smoke, all three objectives). All provenanced. Smoke ran on a dirty tree (acceptable for a smoke;
+  the full sweep must run clean).
 
 ## Completed Work
 
@@ -55,13 +57,26 @@ Last updated: 2026-07-01 19:45 CT
 - [x] **Augmented font-holdout dataset (PA.4b.2)** — 54k instances (21.6k train noto / 32.4k eval nirmala,
   held out), frozen seeded eval; `runs/pa4b-augment-001/split-manifest.json`. Bottom-quartile eval n≈8,100
   → CI half-width ~1pp (was ~12pp), making the 2pp effect adjudicable.
+- [x] **McNemar comparator + augmented-index probe (TASK P1.001b, DEC-0013/0014)** — `akshara_probe.py`
+  gains `mcnemar`/`compare_arms` (exact binomial <25 discordants else χ²+continuity, Bonferroni; primary)
+  + non-overlapping-CI verdict (secondary), and an `index` backend reading the 54k augmented index. Writes
+  `predictions.jsonl` for pairing. Re-run `runs/pa003b-probe-aug-001`: PixelEncoder metric_M = 0.359
+  [0.349,0.369], **CI half-width 1.02pp** — empirically confirms the ~1pp target.
+- [x] **I-JEPA ViT-Tiny/8 pretraining loop (TASK PA.005, DEC-0014)** — `train/pretrain.py` +
+  `configs/phase1/pretrain.yaml`. From-scratch ViT (torch.nn), context/EMA-target/predictor; objective
+  {seam_jepa, block_jepa, mae_seam} by config only; fixed n_mask=36/144 identical across arms (AC2);
+  ≤10-step progress logging; provenance + metrics + `encoder.pt`; JEPA encoder registered in the probe
+  (`encoder: jepa`). Smoke runs `phaseA-smoke-001/-002/-003` (5.35M enc, 2.5–3.5k img/s, 1.7–1.9GB on the
+  5090). torch 2.10.0+cu130 pinned in `locked-versions.yaml`. **Smoke only — NOT a K1/K3 result.**
 
-Test suite: **92 passed** (`pytest -q`). Placeholder scan clean. Figures: F1, F2, F3 done; F4–F5 planned.
+Test suite: **107 passed** (`pytest -q`; +15 for P1.001b/PA.005). Placeholder scan clean. `compileall src`
+clean. Figures: F1, F2, F3 done; F4–F5 planned.
 
 ## Current Blockers
 
-- None blocking. G0 approved; ε pre-registered. Forward: G1 still needs PA.002 (frequency split) +
-  PA.003 (eval harness) frozen; and the full sweep (P1.003) needs LAUNCH-A approval. No run authorized yet.
+- None blocking. G0 approved; ε pre-registered; eval harness + comparator frozen; pretraining loop
+  smoke-passes. Forward: the full sweep (P1.003) needs LAUNCH-A approval, which needs PA.006 (compute
+  ledger). No full training run authorized yet.
 - Open uncertainty (feeds PA.004): ligature vowels (i/ii/u/uu, 60/216) have no cleanly separable
   sign region — likely report K1 stratified by seam_source.
 - Claim boundary: nothing has been trained or measured. Repo supports "operating system +
@@ -69,12 +84,14 @@ Test suite: **92 passed** (`pytest -q`). Placeholder scan clean. Figures: F1, F2
 
 ## Next Recommended Work
 
-1. **TASK P1.001b** — add the McNemar comparator (primary) to the PA.003 harness; wire the probe to the
-   augmented index; re-run to confirm the ~1pp CI empirically.
-2. **TASK PA.005** — I-JEPA ViT-Tiny/8 pretraining loop (seam/block/MAE). **Introduces torch** (already
-   on the system). Registers the JEPA encoder for the harness.
-3. **TASK PA.006** — compute ledger → **LAUNCH-A** (approve full sweep).
-4. Then **P1.002** (K2) → **P1.003** (sweep) → **P1.004** (G1 decision vs ε).
+1. **TASK PA.006** — pre-commit the GPU-hour ledger (smoke/pilot/full-sweep/degradation) with a hard
+   ceiling → `docs/decisions/compute-ledger.md`. Uses the smoke throughput (2.5–3.5k img/s) to estimate.
+2. **Resume-state** — before the full sweep, add per-epoch resume + config/seed re-validation (AGENTS.md
+   §4); the loop currently has none (fine for the <30s smoke, required for the >30min sweep).
+3. **LAUNCH-A** — assemble the gate review (harness frozen ✓, ε pre-registered ✓, smoke passes ✓,
+   ledger from PA.006) → human approval to launch the full n≥3-seed sweep.
+4. **TASK P1.002** (K2 base→sign premise probe) → **P1.003** (full sweep, clean tree) → **P1.004**
+   (G1 decision vs ε via the McNemar comparator). Do NOT launch P1.003 before LAUNCH-A.
 
 ---
 **Tracker rule:** Update this file and `CHECKPOINT.md` before every commit that changes project

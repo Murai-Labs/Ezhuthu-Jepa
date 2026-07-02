@@ -366,3 +366,43 @@ Measured Result: N/A (design).
 Follow-up: NEW task **PA.4b augmentation pipeline + font-holdout split** before PA.005; PA.003 harness
 gains the McNemar comparator; PA.005 uses ViT-Tiny/8. Verify the I-JEPA recipe against the paper at build.
 Human Approval: Ramchand, 2026-07-01 (three choices).
+
+## DEC-0014 - PA.005 masking operationalization + P1.001b comparator (implementation decisions)
+
+Date: 2026-07-02
+Task/Gate: G1 (implements DEC-0013; P1.001b + PA.005)
+Decision: Four implementation choices made while building the eval comparator and the pretraining loop:
+1. **Fixed-count, seam-centred token block (not the per-instance pixel-matched box).** The masked set
+   is a rectangular token block of a **fixed size** `n_mask = round(mask_ratio × 144)` (36 tokens at
+   0.25), identical for every instance and every objective. `seam_jepa`/`mae_seam` place the block
+   **centred on the seam bbox** (clamped to the grid); `block_jepa` places the **same-size** block at
+   a **random location**. This makes "mask ratio held fixed across objectives" *exact* (AC2) and
+   batchable, and keeps K1 = location-only difference, K3 = target-only difference. (The pixel-level
+   `masking.seam.matched_block_mask` from PA.004 matches size *per instance*; the loop instead fixes
+   size globally — a stricter form of the same invariant. Both satisfy "vary only boundary/target.")
+2. **No-sign ('a') forms excluded from pretraining** (`exclude_no_sign=True`), the same exclusion for
+   every arm. They have no seam to hide; masking them would inject block-like masking into the seam arm
+   and confound K1. They remain fully evaluated by the probe (all 216 classes); only the SSL loss skips
+   them. ~18/216 classes, mostly high-frequency (q4) — does not touch the bottom-quartile M contribution.
+3. **Latent vs pixel is the only cross-objective architecture difference.** seam/block JEPA use an EMA
+   target encoder + smooth-L1 in latent space; MAE-at-seam predicts normalised patch pixels (MSE, no
+   target encoder). Encoder + predictor trunk are byte-identical across all three; only the predictor
+   head output dim (D=192 latent vs 64 pixels) and the presence of the EMA target differ — that *is*
+   the K3 variable, not an incidental asymmetry.
+4. **G1 comparator = paired McNemar (exact binomial < 25 discordants, else χ² w/ continuity), Bonferroni
+   on p** (primary) **+ non-overlapping bootstrap-CI verdict** (secondary), ε = 2.0 pp as the minimum
+   effect size (DEC-0009/0013). Requires identical eval instances across arms → the harness now writes
+   `predictions.jsonl` (per-instance key+correctness) so arms can be paired at P1.003.
+Rationale: makes AC2 exact and the loop batchable; keeps K1/K3 clean; implements the DEC-0013 decision
+rule as a reusable, tested function. From-scratch ViT (torch.nn only) rather than timm — needed for the
+I-JEPA visible-token-only context encode + mask-token predictor, which timm's ViT does not expose.
+Alternatives Considered: per-instance size-matched mask (rejected: variable count breaks batching and is
+no cleaner than a global fixed count); include 'a' forms with a centre/random block (rejected: injects
+block masking into the seam arm); timm backbone (rejected: I-JEPA forward needs custom token routing).
+Evidence / Source Docs: `src/ezhuthu_jepa/train/pretrain.py`, `src/ezhuthu_jepa/eval/akshara_probe.py`,
+`notes/schema-audits/phase1-configs.md`, runs `phaseA-smoke-001/-002/-003`, `pa003b-probe-aug-001`.
+Measured Result: smoke — all three objectives run end-to-end (ViT-Tiny/8, 5.35M enc, n_mask=36);
+augmented probe CI half-width 1.02 pp (confirms DEC-0013's ~1 pp). NOT a K1/K3 result.
+Follow-up: PA.006 compute ledger → LAUNCH-A → P1.003 full sweep on a clean tree. Verify the I-JEPA recipe
+(EMA schedule, predictor depth, mask scale) against the paper before the full run.
+Human Approval: implementation decisions under the DEC-0013 mandate; flag to Ramchand at the LAUNCH-A review.

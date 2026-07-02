@@ -135,3 +135,22 @@ Per-session checkpoints. Append; never edit past entries.
 - Ended at: PA.4b.2 done. Next: P1.001b (McNemar + probe on augmented index; confirm CI empirically).
 - Open uncertainties: empirical CI on augmented eval (confirm ~1pp at P1.001b); held-out-font accuracy may
   be low for the pixel baseline (cross-font is hard) — the JEPA encoder is expected to close that at PA.005.
+
+### 2026-07-02 CT — P1.001b (McNemar comparator) + PA.005 (I-JEPA pretraining loop)
+- Started from: post-Windows-restart integrity check — working tree clean, HEAD 2ac86eb matches trackers,
+  92 tests pass, gitignored data (font, 4 run dirs, 54k augmented images) intact. No work lost. Resumed at
+  P1.001b + PA.005 (user: "proceed with 1 and 2").
+- Did (P1.001b): added `mcnemar` (exact binomial <25 discordants else χ²+continuity) + `compare_arms`
+  (Bonferroni primary + non-overlapping-CI secondary, ε=2pp) to `akshara_probe.py`; added an `index`
+  backend (reads the PA.4b.2 `index.jsonl`) + `predictions.jsonl` output + load progress logging. Re-ran on
+  the augmented index → `runs/pa003b-probe-aug-001`: PixelEncoder metric_M 0.359 [0.349,0.369], **CI
+  half-width 1.02pp** — empirically confirms DEC-0013's ~1pp (uncertainty above resolved).
+- Did (PA.005): `train/pretrain.py` — from-scratch ViT-Tiny/8 (torch.nn; no timm), context/EMA-target/
+  predictor; objective {seam_jepa, block_jepa, mae_seam} by config only; fixed n_mask=36/144 identical
+  across arms (AC2); no-sign forms excluded; ≤10-step progress logging; provenance + metrics + encoder.pt.
+  GPU smokes `phaseA-smoke-001/-002/-003` (5.35M enc, 2.5–3.5k img/s, 1.7–1.9GB). JEPA encoder wired into
+  the probe (`encoder: jepa`). torch 2.10.0+cu130 pinned. Recorded DEC-0014; schema audit + EXPERIMENT_LOG
+  + RUNBOOK updated. Full suite **107 pass**; compileall + placeholder scan clean.
+- Ended at: PA.001–PA.005 + P1.001b done. Next: PA.006 compute ledger → resume-state → LAUNCH-A → P1.003.
+- Open uncertainties: verify the I-JEPA recipe (EMA schedule, predictor depth, mask scale) vs the paper
+  before the full sweep; smokes are 30 steps and prove nothing about K1/K3; resume-state not yet built.
