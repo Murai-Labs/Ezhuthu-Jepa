@@ -1,0 +1,5276 @@
+{
+  "run_id": "pa002-split-001",
+  "task": "PA.002",
+  "created_at": "2026-07-01T20:02:18-0500",
+  "provenance_ref": "provenance.json",
+  "corpus": {
+    "dir": "data/raw/project-madurai",
+    "n_files": 172,
+    "files": [
+      {
+        "name": "pmuni0001.txt",
+        "sha256": "sha256:3d68b021e825e827733149569be1b7804d693e56f1e528ab768d4841ec233889",
+        "uyirmei_count": 25233
+      },
+      {
+        "name": "pmuni0002.txt",
+        "sha256": "sha256:ca0b20b8ca05f12850bd95f6a8afd68415a41c05fe4ca7c17015742b4dc08094",
+        "uyirmei_count": 4692
+      },
+      {
+        "name": "pmuni0004.txt",
+        "sha256": "sha256:51375b187e8c82babeb80e80517342f00fbe462cc663eb976cd01e9cb316d471",
+        "uyirmei_count": 24614
+      },
+      {
+        "name": "pmuni0007.txt",
+        "sha256": "sha256:956313daeb0fd6b68c7af485c025e6bb88551a88d2c17f1e815986e134ce227c",
+        "uyirmei_count": 47889
+      },
+      {
+        "name": "pmuni0013.txt",
+        "sha256": "sha256:3fd76f3d745c8aa288e5f0f92a02d72feb53141f7a5699a36e5101836e02b2fb",
+        "uyirmei_count": 35657
+      },
+      {
+        "name": "pmuni0014.txt",
+        "sha256": "sha256:e803a826f257a27113140163793235806a0797c761d0f9d1be6b3c5069cc9ab3",
+        "uyirmei_count": 17021
+      },
+      {
+        "name": "pmuni0015.txt",
+        "sha256": "sha256:b3e7d68ec8a6070af67d4e3cf935775c476712f6fdb1f94791019b16bc058e0d",
+        "uyirmei_count": 22094
+      },
+      {
+        "name": "pmuni0016.txt",
+        "sha256": "sha256:24072e42ef467695082f5c6f3ac2577d3853f5b7ab7ca61789b62635fc4b0fc0",
+        "uyirmei_count": 17196
+      },
+      {
+        "name": "pmuni0017.txt",
+        "sha256": "sha256:c42d892be942ef3c6c60a9a95d93a21e38a7574a6717d1452834d258f1fda75e",
+        "uyirmei_count": 25860
+      },
+      {
+        "name": "pmuni0020.txt",
+        "sha256": "sha256:49b5d2a7bdb68c2cf0f9077440e1e71110efe7c043bc18d592252fb6f7f0e265",
+        "uyirmei_count": 1917
+      },
+      {
+        "name": "pmuni0021.txt",
+        "sha256": "sha256:ffb3deb9cd09de261c3a18fe370cadc49771c15c09f3523362110a744b70c059",
+        "uyirmei_count": 22568
+      },
+      {
+        "name": "pmuni0022.txt",
+        "sha256": "sha256:ecb025804b1be34045b33150dab2d9c256bb9aeadc695a950be033b06680ca6f",
+        "uyirmei_count": 1237
+      },
+      {
+        "name": "pmuni0023.txt",
+        "sha256": "sha256:5d8c291a076418073f24e139e117f667b59ceca9cd44bb51317c020df01aeda3",
+        "uyirmei_count": 16496
+      },
+      {
+        "name": "pmuni0024.txt",
+        "sha256": "sha256:a374af22521a71619f0048a04aaa54dc4aa453d827569fc21b0736440bd8ab9c",
+        "uyirmei_count": 5202
+      },
+      {
+        "name": "pmuni0025.txt",
+        "sha256": "sha256:43f5654c2385fc1c31b332dea93e56579b8d7a94cd76d3f6921dc2c6179bbe28",
+        "uyirmei_count": 7408
+      },
+      {
+        "name": "pmuni0027.txt",
+        "sha256": "sha256:f0720cad29f076489e5ccf43737d4dad260813162e892b63f847d8345b6ec20b",
+        "uyirmei_count": 9338
+      },
+      {
+        "name": "pmuni0028.txt",
+        "sha256": "sha256:061393d6fa5ddea8be266ecd83cb8b16ca2f73dbc11db51aa89aeabc34744b00",
+        "uyirmei_count": 21673
+      },
+      {
+        "name": "pmuni0029.txt",
+        "sha256": "sha256:7e507be3cf6f73d50ece30e57344401366b448f6511a8cb32d2fed107324dbae",
+        "uyirmei_count": 10090
+      },
+      {
+        "name": "pmuni0031.txt",
+        "sha256": "sha256:9ae2b8d648ddd13cd4466b01560e8e7b366247c3ae28b0579424cfcb7f550959",
+        "uyirmei_count": 25334
+      },
+      {
+        "name": "pmuni0034.txt",
+        "sha256": "sha256:9f919ac23bc3f91cd60e41740f6f9f62db9480849e858bc7d4ab1027ab496093",
+        "uyirmei_count": 5101
+      },
+      {
+        "name": "pmuni0035.txt",
+        "sha256": "sha256:03f2ad0a515510d5e4b2baeb60c30df926d5bc5376795b4580f73155d671e35f",
+        "uyirmei_count": 53847
+      },
+      {
+        "name": "pmuni0036.txt",
+        "sha256": "sha256:69a0830806ef296ef6f67400e31b5bf5a0ce374036bfbf315994b91050ea4a34",
+        "uyirmei_count": 17049
+      },
+      {
+        "name": "pmuni0037.txt",
+        "sha256": "sha256:305d6dbd0566908a959084a797e1efc10d737d6922debb46fa7de7399ead6003",
+        "uyirmei_count": 13444
+      },
+      {
+        "name": "pmuni0038.txt",
+        "sha256": "sha256:56add25773599f0339bb6985432a7622727fbffd4021336af21c28a6a8a4c425",
+        "uyirmei_count": 24034
+      },
+      {
+        "name": "pmuni0039.txt",
+        "sha256": "sha256:f3e61f8d220668c5d48eed9e7b37d131c49aa0f7cd4f62e90a0f4403d928b41a",
+        "uyirmei_count": 47497
+      },
+      {
+        "name": "pmuni0040.txt",
+        "sha256": "sha256:777622e1279e2524fd86eef47c85a3cba37ea2fa27194566707252d846eb13fe",
+        "uyirmei_count": 6713
+      },
+      {
+        "name": "pmuni0041.txt",
+        "sha256": "sha256:f82bff05821142ba671826b9fed421ef93fbe4ba172eab89fabe774742226311",
+        "uyirmei_count": 33373
+      },
+      {
+        "name": "pmuni0042.txt",
+        "sha256": "sha256:53c932b6c93d2aad90eb45c066a1468816d28877f8e972e3d7c9c16789d889c6",
+        "uyirmei_count": 33622
+      },
+      {
+        "name": "pmuni0043.txt",
+        "sha256": "sha256:69e5ef5cbb4d3d72b3d53977eff4c32e5dcbf7179728586698ef4142cd7684a0",
+        "uyirmei_count": 18168
+      },
+      {
+        "name": "pmuni0045.txt",
+        "sha256": "sha256:0c00bed3a4718f0753c862b72d7eac589445a5e3620f73ca5aa5aff93409adce",
+        "uyirmei_count": 11004
+      },
+      {
+        "name": "pmuni0046.txt",
+        "sha256": "sha256:b899d4676a344239499708c7472af12cfed9fec47a1a7afe99c7774c70f16b4b",
+        "uyirmei_count": 19217
+      },
+      {
+        "name": "pmuni0047.txt",
+        "sha256": "sha256:a8c4cfd98a729f289e74a029e4f29d4d40adc9a5df2df3e2e13716d4696e465e",
+        "uyirmei_count": 4535
+      },
+      {
+        "name": "pmuni0048.txt",
+        "sha256": "sha256:d5e8fa787b29b5662ff9e2fa3d5ae2aa8af43efd55871e3e49981d06e8f8ea2a",
+        "uyirmei_count": 5040
+      },
+      {
+        "name": "pmuni0049.txt",
+        "sha256": "sha256:2043770bda8a6e467083106d8d6bae0a172612ebe2b009aa7c2f36782645f007",
+        "uyirmei_count": 22740
+      },
+      {
+        "name": "pmuni0050.txt",
+        "sha256": "sha256:a0fab7b124addb13efbe0b8aa612b46289ce0fb7d5d2e0fff583659807d758a0",
+        "uyirmei_count": 2016
+      },
+      {
+        "name": "pmuni0051.txt",
+        "sha256": "sha256:f614c6751c233101fd52874e8e4e5bb9ba67d328eee1a58e7ba99494bf51d641",
+        "uyirmei_count": 5263
+      },
+      {
+        "name": "pmuni0052.txt",
+        "sha256": "sha256:079d5d59f7ac00073824ae4d6cd2d9dc80ca206978f8d508f14a3d138d830d96",
+        "uyirmei_count": 8565
+      },
+      {
+        "name": "pmuni0053.txt",
+        "sha256": "sha256:f88066c95510929915ebd374aa56bfeba9256a5ed1ed3bdefad794e6d49ceaca",
+        "uyirmei_count": 32690
+      },
+      {
+        "name": "pmuni0054.txt",
+        "sha256": "sha256:94d3ec18f9583f96e9213c53583ffc4981039b45358ecbc4ee5e87b1b963358e",
+        "uyirmei_count": 37579
+      },
+      {
+        "name": "pmuni0055.txt",
+        "sha256": "sha256:b8cd7a5b1dac71181ee7089cf81c72b5e34399d32adc698567df09feea87cc25",
+        "uyirmei_count": 4828
+      },
+      {
+        "name": "pmuni0056.txt",
+        "sha256": "sha256:23545bad423bf38b9d290c0e5ffbcbbdb4a140a3e8af37edd3dcf2121a9446c0",
+        "uyirmei_count": 6978
+      },
+      {
+        "name": "pmuni0057.txt",
+        "sha256": "sha256:86cc4bba6f2d95fe7454052318e497147ff8d3a04c7052c3356807a68deffda3",
+        "uyirmei_count": 71981
+      },
+      {
+        "name": "pmuni0058.txt",
+        "sha256": "sha256:80d23b2b860c9a25cdc28da44b4b251277108134536d158a51dcb2381fce5b8c",
+        "uyirmei_count": 77335
+      },
+      {
+        "name": "pmuni0059.txt",
+        "sha256": "sha256:d7cc47be4be5f93b33809fb91d344d8a02298364f8a1000b2dafe51110585248",
+        "uyirmei_count": 8586
+      },
+      {
+        "name": "pmuni0060.txt",
+        "sha256": "sha256:cfb05a2751fd11cdd2e954050a6b0e6c059cb692b6003bb614c79edb0f172d49",
+        "uyirmei_count": 7481
+      },
+      {
+        "name": "pmuni0061.txt",
+        "sha256": "sha256:eaa1f62475275b59c34a3546c991d9c17976e53505cefafdcac23d6566b12492",
+        "uyirmei_count": 2874
+      },
+      {
+        "name": "pmuni0062.txt",
+        "sha256": "sha256:2ebf011ae65801bf5983f589767efbff5799fb07390fab150dc15d9721360a0a",
+        "uyirmei_count": 5793
+      },
+      {
+        "name": "pmuni0063.txt",
+        "sha256": "sha256:5776c7bdf0fd8aee92b10504b57ab2357c1cd260b674f39641315ffc87ee43e8",
+        "uyirmei_count": 2752
+      },
+      {
+        "name": "pmuni0064.txt",
+        "sha256": "sha256:1b815de40f44fbeb13e950b543a28ccfd17d5548c6eafcd310fd9072ae6801d9",
+        "uyirmei_count": 3367
+      },
+      {
+        "name": "pmuni0065.txt",
+        "sha256": "sha256:9e686be87a616965f8dbb3f3ef8bac38cb142a90854e44043291f240e8c6f64e",
+        "uyirmei_count": 25289
+      },
+      {
+        "name": "pmuni0066.txt",
+        "sha256": "sha256:b728d5749a91133e2eceee160351631b7a426a7567f3f5f0464462d0898451a2",
+        "uyirmei_count": 11181
+      },
+      {
+        "name": "pmuni0067.txt",
+        "sha256": "sha256:32f50765decdf1f423a6842b6b7f1ff1de37b63487f7f217af4b8e0321d11683",
+        "uyirmei_count": 3814
+      },
+      {
+        "name": "pmuni0068.txt",
+        "sha256": "sha256:57f3d23b63c876ee4cad784aa8dc2611aa636c12ca15d53ee5f57234b9d26b59",
+        "uyirmei_count": 5773
+      },
+      {
+        "name": "pmuni0069.txt",
+        "sha256": "sha256:7784fd8cb104d0a5e9f5503ae1f2053670937067465dfd51d2325740109331bb",
+        "uyirmei_count": 5976
+      },
+      {
+        "name": "pmuni0070.txt",
+        "sha256": "sha256:ef670ff214332c225eb3106a75bef51c3370c9e48f6042f8b0890bc4db295351",
+        "uyirmei_count": 2302
+      },
+      {
+        "name": "pmuni0071.txt",
+        "sha256": "sha256:3c97f14de0d5398fa40e4b6532cc32b475c316385cb205ba60c9950354241ac8",
+        "uyirmei_count": 8510
+      },
+      {
+        "name": "pmuni0072.txt",
+        "sha256": "sha256:c2ad1a2ac458af0fb04f292d5227b9ff6168993f5dbf3ae1b004e0f2c8654406",
+        "uyirmei_count": 43645
+      },
+      {
+        "name": "pmuni0073.txt",
+        "sha256": "sha256:747b05a47bba4d6d316f58a7f36627bc806fb65e39e57f620e12edc79ef5acf5",
+        "uyirmei_count": 3186
+      },
+      {
+        "name": "pmuni0074.txt",
+        "sha256": "sha256:0c6f639273d10125d8e19d8fc1ddf09bda8629684a13ad3f62a7ac451f110b21",
+        "uyirmei_count": 6122
+      },
+      {
+        "name": "pmuni0075.txt",
+        "sha256": "sha256:3ae0935c3d81df80e8d09805d2747fc882608b53083e3d6aa09a6cef28683e06",
+        "uyirmei_count": 4807
+      },
+      {
+        "name": "pmuni0076.txt",
+        "sha256": "sha256:6719d03cf509b39c7db637ccdf27ddf9d283746f151c70c51041901cc06ffc3a",
+        "uyirmei_count": 8053
+      },
+      {
+        "name": "pmuni0077.txt",
+        "sha256": "sha256:620fc838a9c476fc4b4a2abf3b2c1f4434566244a7de2b1844e7912d1b22bde6",
+        "uyirmei_count": 3076
+      },
+      {
+        "name": "pmuni0078.txt",
+        "sha256": "sha256:bd3094de1d5396bfdb8d898a53491586492c3ad49e02c30f3e5a9d592c538b09",
+        "uyirmei_count": 6842
+      },
+      {
+        "name": "pmuni0079.txt",
+        "sha256": "sha256:65cc693a57b8d19b829af67e322dbb457df426fd9a7552809346630e11a947aa",
+        "uyirmei_count": 49619
+      },
+      {
+        "name": "pmuni0080.txt",
+        "sha256": "sha256:560dc7e2257e3596539626ff653466328ec84954b07bfc580ee8332a22977f42",
+        "uyirmei_count": 7842
+      },
+      {
+        "name": "pmuni0081.txt",
+        "sha256": "sha256:de367fb51e64f269022670c4372065670c1e9f4d48d450403df69dd9980bd99a",
+        "uyirmei_count": 2172
+      },
+      {
+        "name": "pmuni0082.txt",
+        "sha256": "sha256:22425ea3c0c4b7b6379ad138a16e0a5ff9e739c70026b8c02ef8938bedd0ff6c",
+        "uyirmei_count": 41051
+      },
+      {
+        "name": "pmuni0083.txt",
+        "sha256": "sha256:355c1e0709ccc9087564f08593ca790bebb725de40b28e9f37768fb2c8e947f7",
+        "uyirmei_count": 11419
+      },
+      {
+        "name": "pmuni0084.txt",
+        "sha256": "sha256:da4debcce2902262c11fe305943c3f2beadee6a6a94f9a9bb3e3469cbf800d11",
+        "uyirmei_count": 9479
+      },
+      {
+        "name": "pmuni0085.txt",
+        "sha256": "sha256:f590cbe80f92ce63fb16abb9cca42db1b6e25527a4044218666ea4a13fa80a8e",
+        "uyirmei_count": 17899
+      },
+      {
+        "name": "pmuni0086.txt",
+        "sha256": "sha256:69b763872998fac6960cbad08fe796f018b74566a10a5d705851a0ddde0e9122",
+        "uyirmei_count": 8486
+      },
+      {
+        "name": "pmuni0087.txt",
+        "sha256": "sha256:b2989eb09fa7be84c356295bf94705742356b4034322ef69f0d97e6d06dbe2a8",
+        "uyirmei_count": 26277
+      },
+      {
+        "name": "pmuni0088.txt",
+        "sha256": "sha256:9c22774a04ae5afa396c86fe84d37b1f23d4fe846c99af78fde1b3bc87ce3b68",
+        "uyirmei_count": 40231
+      },
+      {
+        "name": "pmuni0089.txt",
+        "sha256": "sha256:9ac2f42139d085eabb047e4d1f035ea27e6dea6778a8ba641637c614d919f609",
+        "uyirmei_count": 37615
+      },
+      {
+        "name": "pmuni0090.txt",
+        "sha256": "sha256:7e0b27c556e84c0f1626fe5d001d75fcd46a0167698f5c759fb3a3230610a270",
+        "uyirmei_count": 8158
+      },
+      {
+        "name": "pmuni0091.txt",
+        "sha256": "sha256:7bfbdf92ba74fa62b6f3b33338b812432d4948b65c144b61f95f7d4c95920c71",
+        "uyirmei_count": 17161
+      },
+      {
+        "name": "pmuni0092.txt",
+        "sha256": "sha256:712e180ba7b990be60b130f23c66efe9b190f26756a14b6a73dcc8f48c9fe2fe",
+        "uyirmei_count": 22331
+      },
+      {
+        "name": "pmuni0093.txt",
+        "sha256": "sha256:b75766b313f295264ffa9a6217934c5f3c84e3c77d3b66b88aaf8bd9c27d8873",
+        "uyirmei_count": 9949
+      },
+      {
+        "name": "pmuni0095.txt",
+        "sha256": "sha256:6aecee9f18584bfc81d6717813fe6d113f0e07f5eaffe3ff4e059fa53e4d03c1",
+        "uyirmei_count": 48587
+      },
+      {
+        "name": "pmuni0096.txt",
+        "sha256": "sha256:abba7846bedc01d7a2c5a6fb9ad6d89f697e6987770b6b40e14c0d740c4a0bc6",
+        "uyirmei_count": 16674
+      },
+      {
+        "name": "pmuni0097.txt",
+        "sha256": "sha256:857e9d3a80e48dc1d7bc258d6e9d1e61e645bafa83456b5b0935537371998988",
+        "uyirmei_count": 4585
+      },
+      {
+        "name": "pmuni0098.txt",
+        "sha256": "sha256:15449ecf0a263bd468cd92f86af81a13a6ea13577b93ee299414b02d69c7399b",
+        "uyirmei_count": 21168
+      },
+      {
+        "name": "pmuni0099.txt",
+        "sha256": "sha256:ce1b05a28b6fea4bdf36d61281dd10d0540f943b5ef5fd151970623f4a977aa3",
+        "uyirmei_count": 6852
+      },
+      {
+        "name": "pmuni0100.txt",
+        "sha256": "sha256:e2caff7f770c544f11aa5f77bbbec70b386d8bce902c4ae38e8ef830d5c46b73",
+        "uyirmei_count": 40856
+      },
+      {
+        "name": "pmuni0101.txt",
+        "sha256": "sha256:e02efa6b268454523b329b59136c53efec7a39379c6508cb46e17b9e7df41c9b",
+        "uyirmei_count": 4394
+      },
+      {
+        "name": "pmuni0102.txt",
+        "sha256": "sha256:ddf54b85d1ef93e3f597b8e10ff7dde9d8aa5de449d1c0de84e3fcfca9965d5c",
+        "uyirmei_count": 127865
+      },
+      {
+        "name": "pmuni0103.txt",
+        "sha256": "sha256:f487280c82b996a3eedb47604b20f3d221082a9e6432300e93110635e1a8649c",
+        "uyirmei_count": 6311
+      },
+      {
+        "name": "pmuni0104.txt",
+        "sha256": "sha256:4c508b2a32ca883e6a03df9ad00499331df9ce7716ccdd8ea73c87a735af47eb",
+        "uyirmei_count": 34471
+      },
+      {
+        "name": "pmuni0105.txt",
+        "sha256": "sha256:6568f6e9bdec665f097a3bb95fb530c5aea2aac6812d98ca5e3b8771cef8ee46",
+        "uyirmei_count": 56474
+      },
+      {
+        "name": "pmuni0106.txt",
+        "sha256": "sha256:5b486b878f374b92af6a67b595809fe48e0c5affdcd26a43b377035e444bb441",
+        "uyirmei_count": 34884
+      },
+      {
+        "name": "pmuni0107.txt",
+        "sha256": "sha256:56e7101ebf2441d686a0ebf78b6174208f30644be5f914a832adbd02b6adc442",
+        "uyirmei_count": 7416
+      },
+      {
+        "name": "pmuni0108.txt",
+        "sha256": "sha256:3b978496807445975dd5e034d2491569e47d1f007b350b07fac14346a50c9497",
+        "uyirmei_count": 15227
+      },
+      {
+        "name": "pmuni0109.txt",
+        "sha256": "sha256:44a5a6e29afb7ad082e7e2335ed554845119cf1a3e051df3f9016691c4f2ebcd",
+        "uyirmei_count": 14081
+      },
+      {
+        "name": "pmuni0110.txt",
+        "sha256": "sha256:30d49beed78fe1a405d4cfe7fbce32d8c4e6aea850729f75bdc5d0578b21c876",
+        "uyirmei_count": 30853
+      },
+      {
+        "name": "pmuni0112.txt",
+        "sha256": "sha256:8e3d89f658b85957b6f2bd867d117b779ee766eba6fd5a4e1d54fa3c09e3963f",
+        "uyirmei_count": 8144
+      },
+      {
+        "name": "pmuni0113.txt",
+        "sha256": "sha256:4f377cfc4d109b03e0b78ca02f609722e377db81c8d8a34c290f43898117904f",
+        "uyirmei_count": 37066
+      },
+      {
+        "name": "pmuni0114.txt",
+        "sha256": "sha256:f4c92c48a52f824ea2d505d7cc984204476b9740cf461c5c87b49ee9cff2c580",
+        "uyirmei_count": 3270
+      },
+      {
+        "name": "pmuni0115.txt",
+        "sha256": "sha256:34256cd95e3982356e612c2f8bafdae04cf0f6bd3421d67b06e603c6f8f5b688",
+        "uyirmei_count": 15412
+      },
+      {
+        "name": "pmuni0116.txt",
+        "sha256": "sha256:4fae78b72bd88d9468ce33b7ace1b39458df2b1c819f4db5e1c0869a789f8e97",
+        "uyirmei_count": 28581
+      },
+      {
+        "name": "pmuni0117.txt",
+        "sha256": "sha256:4c9a59a342536765393b82caf27ff67a034a2b582d906093108744d70eae436b",
+        "uyirmei_count": 57314
+      },
+      {
+        "name": "pmuni0118.txt",
+        "sha256": "sha256:3e1a23e6e4df835d7c23e7acf955e36c3dc4a227eebaf31226a5c8604038fe29",
+        "uyirmei_count": 19988
+      },
+      {
+        "name": "pmuni0119.txt",
+        "sha256": "sha256:f33398b96e6714d442c7de89b5cdfd60e826f36506d8d4fcb67ef63428e6dc09",
+        "uyirmei_count": 3637
+      },
+      {
+        "name": "pmuni0120.txt",
+        "sha256": "sha256:3a55519833506162e995e6e2b94b973a4d8418e8182824d89b107b022302bc70",
+        "uyirmei_count": 6887
+      },
+      {
+        "name": "pmuni0121.txt",
+        "sha256": "sha256:3de35c30cb11826ae2ba6102d37611b67fb88f9132ec8386c2bd90571f1a5eca",
+        "uyirmei_count": 5366
+      },
+      {
+        "name": "pmuni0122.txt",
+        "sha256": "sha256:a8a671ce71bad90e8bca1b450261e0e4e864ffa1669852c913243fd911d8391a",
+        "uyirmei_count": 19913
+      },
+      {
+        "name": "pmuni0123.txt",
+        "sha256": "sha256:fda3e84c1a374480d7fe67ae21dc01d74e7f07f6a707c20516a2dad829d9d827",
+        "uyirmei_count": 30027
+      },
+      {
+        "name": "pmuni0124.txt",
+        "sha256": "sha256:3a7bdb8ba847915c18b11cb91f40fafee96efa4d5324849b21a229df36360132",
+        "uyirmei_count": 76932
+      },
+      {
+        "name": "pmuni0125.txt",
+        "sha256": "sha256:b073beb3b93c3e0e2b39d7fb0318d198625525675b433e5dff88fa1c3ca2b825",
+        "uyirmei_count": 30664
+      },
+      {
+        "name": "pmuni0126.txt",
+        "sha256": "sha256:91b0fd6e6318e215cb5d13bce1bdc2c9bdb8c148a18a2947b0f03e080d1e3ded",
+        "uyirmei_count": 57714
+      },
+      {
+        "name": "pmuni0128.txt",
+        "sha256": "sha256:f044c6a1a6b76902e8495de6f0b9d01ac90966d766500a374f90b9aab904510a",
+        "uyirmei_count": 27032
+      },
+      {
+        "name": "pmuni0129.txt",
+        "sha256": "sha256:3ef707465e8d4da6e2400d055d6255f796c5ab105f100fb46e7fd89201cdb026",
+        "uyirmei_count": 23104
+      },
+      {
+        "name": "pmuni0130.txt",
+        "sha256": "sha256:8801498201b83ab983cb09ebbf5c08bf97132b7e2bf5eda275885cc11954195e",
+        "uyirmei_count": 54894
+      },
+      {
+        "name": "pmuni0131.txt",
+        "sha256": "sha256:e103d8ef77062893c4dba0c0ccc9bd9676da943097fe7e1c99fbfe67d31af587",
+        "uyirmei_count": 21906
+      },
+      {
+        "name": "pmuni0132.txt",
+        "sha256": "sha256:30682b5148f2bad832ca6d7fa172dc603873e20a66e3855384ff624a1f9bb92c",
+        "uyirmei_count": 77312
+      },
+      {
+        "name": "pmuni0133.txt",
+        "sha256": "sha256:cd2e5891e483bffc6177f9f309824abd25383a6a65eefe57c337a52e7ef699da",
+        "uyirmei_count": 12477
+      },
+      {
+        "name": "pmuni0134.txt",
+        "sha256": "sha256:6d081671008c666f306761a0ee6ce1911c890cf5bd1e899d4a42b7c900ed82f3",
+        "uyirmei_count": 37254
+      },
+      {
+        "name": "pmuni0138.txt",
+        "sha256": "sha256:43d906d500b9723fd4de3cf9d55e3db74ec15a2e1086d5128771355039937678",
+        "uyirmei_count": 3326
+      },
+      {
+        "name": "pmuni0139.txt",
+        "sha256": "sha256:0581682844ea6335bcfdb294fbb98164303fe99feb2e719184eee55c3315f65e",
+        "uyirmei_count": 3811
+      },
+      {
+        "name": "pmuni0140.txt",
+        "sha256": "sha256:9f7b9631936604313ca001e6f1b40afcd78ad4947423216f1e4bc75f744932f5",
+        "uyirmei_count": 28377
+      },
+      {
+        "name": "pmuni0141.txt",
+        "sha256": "sha256:7a0e8bad63618f553edda2ff1e96c0875fcd4613842a060553baff258b99a34a",
+        "uyirmei_count": 50920
+      },
+      {
+        "name": "pmuni0142.txt",
+        "sha256": "sha256:368fa592b4fa9eddc1e6630628516c10fd67013a3ed43c5e5e31a0f99851b554",
+        "uyirmei_count": 9811
+      },
+      {
+        "name": "pmuni0144.txt",
+        "sha256": "sha256:76910bf1e5b6a1e085e109f2765f5a4f9350ede504c125ccc55ade1b002c0822",
+        "uyirmei_count": 8685
+      },
+      {
+        "name": "pmuni0145.txt",
+        "sha256": "sha256:0dfd9f67a19e6c4e7de8b9956722fa344aff8e0ccad2708e51851e9c0722f810",
+        "uyirmei_count": 4515
+      },
+      {
+        "name": "pmuni0147.txt",
+        "sha256": "sha256:1b8d95b3e44814f62ac07c2f0c705643e3d75a0e04bb6fedeab6f5395873d04c",
+        "uyirmei_count": 12119
+      },
+      {
+        "name": "pmuni0148.txt",
+        "sha256": "sha256:d940233b5259be66bb58cd2e99e480a36bbcb3f8dd58f22f9d9476dd465b5a81",
+        "uyirmei_count": 151419
+      },
+      {
+        "name": "pmuni0149.txt",
+        "sha256": "sha256:99c3384da31fba760d6e47238122a339fd2a4d58fa16b85fb0ab5ababe8f596a",
+        "uyirmei_count": 27804
+      },
+      {
+        "name": "pmuni0150.txt",
+        "sha256": "sha256:99adb8360e28bff8e132f08cee6eca38da13f44aaab1feeb2e4182dc90b7c7b6",
+        "uyirmei_count": 48030
+      },
+      {
+        "name": "pmuni0151.txt",
+        "sha256": "sha256:7bc32421b4693dbaa2854266990731fed7602bd369bbcb2d29dd207d48bb53d9",
+        "uyirmei_count": 47494
+      },
+      {
+        "name": "pmuni0152.txt",
+        "sha256": "sha256:4905cade16b43529ca87980f42763eba4a5e5639668d54d955a6eb9ac94fdd55",
+        "uyirmei_count": 15545
+      },
+      {
+        "name": "pmuni0154.txt",
+        "sha256": "sha256:28aa803f712eddead3a0244472eb8d12e88f2289edc8da6808b2047c690aa4e7",
+        "uyirmei_count": 8373
+      },
+      {
+        "name": "pmuni0155.txt",
+        "sha256": "sha256:4671f6d79e210c2319eac085bdda3676832f58f8653b38450dfed58ca31ae167",
+        "uyirmei_count": 10128
+      },
+      {
+        "name": "pmuni0156.txt",
+        "sha256": "sha256:5c8506740f30a0ca7509cca3810d24dd4e13193d821bdb5ef3362a9e0d5c3f0b",
+        "uyirmei_count": 43300
+      },
+      {
+        "name": "pmuni0157.txt",
+        "sha256": "sha256:f9c90ba693d72de440622e5828dff82493e121cbc759ee4aeed2bf03e744ce2d",
+        "uyirmei_count": 39047
+      },
+      {
+        "name": "pmuni0159.txt",
+        "sha256": "sha256:2d3ef2a5777cde9c6c0455f03d9538e9f10f85e5148ef1ab3d2f1e669cb06de0",
+        "uyirmei_count": 11910
+      },
+      {
+        "name": "pmuni0160.txt",
+        "sha256": "sha256:161a6b9f88fb4dd5b49d3177f03a6e55b355ab9885e66de62456bdda1bb95552",
+        "uyirmei_count": 23775
+      },
+      {
+        "name": "pmuni0161.txt",
+        "sha256": "sha256:5bae3f6d55b98b23b602f892141aed6cfc4d562d9bd7fb2d58619a11ed947775",
+        "uyirmei_count": 48281
+      },
+      {
+        "name": "pmuni0162.txt",
+        "sha256": "sha256:70898708d164ef679ebc35546354bb3c2bde785923553f6f35495ceddec7eefd",
+        "uyirmei_count": 49666
+      },
+      {
+        "name": "pmuni0163.txt",
+        "sha256": "sha256:34e41d5753b64a03e6998388f7a3f3ccccbe2ca564973229291c1022addfa539",
+        "uyirmei_count": 5977
+      },
+      {
+        "name": "pmuni0164.txt",
+        "sha256": "sha256:9198a099796f65049e3ed09e71e45beb08e211aa5415b64fa39e272d028e85fb",
+        "uyirmei_count": 6121
+      },
+      {
+        "name": "pmuni0165.txt",
+        "sha256": "sha256:93c4436d27850d63c6528efa790aa1bfe4bdf801bb7ac4f3dc2103aeae1ad30d",
+        "uyirmei_count": 42605
+      },
+      {
+        "name": "pmuni0167.txt",
+        "sha256": "sha256:c59a1285fe875b7e8794e05f3b87c5dedce2cc2d83890d0bc528f2740b6c69a8",
+        "uyirmei_count": 45065
+      },
+      {
+        "name": "pmuni0168.txt",
+        "sha256": "sha256:fd95abf1d8f37baede39dc8eaeac5505f584bdd5c4d819e9b97a579b0355e801",
+        "uyirmei_count": 43571
+      },
+      {
+        "name": "pmuni0170.txt",
+        "sha256": "sha256:7645e03bfb4c22cc817c544e7d75caf16536f4a9e7b7d64e042d0679fcbb02da",
+        "uyirmei_count": 18810
+      },
+      {
+        "name": "pmuni0171.txt",
+        "sha256": "sha256:c6b27cc6a503e10edda41b17d4c4bc5ca3fdd282332d78d2470ee7b3e0d09593",
+        "uyirmei_count": 3484
+      },
+      {
+        "name": "pmuni0172.txt",
+        "sha256": "sha256:f7215bb1862d7459c12a564273a02bd21070f3eec04c37535a621e1a08909be1",
+        "uyirmei_count": 119469
+      },
+      {
+        "name": "pmuni0173.txt",
+        "sha256": "sha256:898205587edd205b954e29bf18fb429d5e08a960ba4aae952cddb95a9ab823c6",
+        "uyirmei_count": 42535
+      },
+      {
+        "name": "pmuni0174.txt",
+        "sha256": "sha256:4caeb99683b735409cf4107cd9c527671d0c5050bfb878b7279ba99a12a280dd",
+        "uyirmei_count": 46452
+      },
+      {
+        "name": "pmuni0175.txt",
+        "sha256": "sha256:b576fd271d5c3ba639aa108eb3557616b170c255fe3fc73eb549c79f42ff20f9",
+        "uyirmei_count": 28508
+      },
+      {
+        "name": "pmuni0176.txt",
+        "sha256": "sha256:4f2c83736ff6966b1fc99764722b6c5fe5ba6207ddf16b1d34844573d590d126",
+        "uyirmei_count": 1325
+      },
+      {
+        "name": "pmuni0177.txt",
+        "sha256": "sha256:bd7be1aad1faf85aef3f29e6dc4e3d50fd32783e71b508153afed974513effbe",
+        "uyirmei_count": 19700
+      },
+      {
+        "name": "pmuni0178.txt",
+        "sha256": "sha256:42c32cbb012e4b66ca5bd41fcd293890db9f166367aa2b4c019a76cce95d5d91",
+        "uyirmei_count": 41473
+      },
+      {
+        "name": "pmuni0179.txt",
+        "sha256": "sha256:822d0fe9328d50af4ed2bd0aeaf9e9850f997a7609f676cdd3451bbbfa5639fc",
+        "uyirmei_count": 49224
+      },
+      {
+        "name": "pmuni0180.txt",
+        "sha256": "sha256:0d5109a6423217b1a9d80161c96f62ce72fdce997966171643de2a4b90b2a405",
+        "uyirmei_count": 95944
+      },
+      {
+        "name": "pmuni0181.txt",
+        "sha256": "sha256:2d5eb49343d8d9ac91f9e5aa2386d76bc84aad4d68b660616a9bca3ca8b29111",
+        "uyirmei_count": 32709
+      },
+      {
+        "name": "pmuni0182.txt",
+        "sha256": "sha256:d34accece3cffa2d7ec1995af5faa14ebccbaa4c329fab8faa8ecdb915024b8d",
+        "uyirmei_count": 39557
+      },
+      {
+        "name": "pmuni0183.txt",
+        "sha256": "sha256:14c4bd5d2fb88fea5fd9ddf963f63b26aba6457ac9e62aaa7e3adc9f29df1f88",
+        "uyirmei_count": 4658
+      },
+      {
+        "name": "pmuni0184.txt",
+        "sha256": "sha256:85479b2dd00805dc4d9037c0a010652e6828a921245ac10c6fbc6b21bf973c5d",
+        "uyirmei_count": 20956
+      },
+      {
+        "name": "pmuni0185.txt",
+        "sha256": "sha256:5ebe680de6727cc3fe79dfe3bd648fdb5998872a119219d1792efe88d65b0327",
+        "uyirmei_count": 12588
+      },
+      {
+        "name": "pmuni0186.txt",
+        "sha256": "sha256:e85e88b7c1edccfd31c3b67659bb6a19c36320cac5363e28149736a6515263b9",
+        "uyirmei_count": 24148
+      },
+      {
+        "name": "pmuni0187.txt",
+        "sha256": "sha256:4bef591d2da16d1fe2d5cbfcd8b8080525e26b6a88c0f63344fb4688b72ce3ea",
+        "uyirmei_count": 100275
+      },
+      {
+        "name": "pmuni0188.txt",
+        "sha256": "sha256:bb9dd2474c4637919e4d4ab1fd24aa4fdf1c7d6be9063401d18996b6dce9ad70",
+        "uyirmei_count": 25463
+      },
+      {
+        "name": "pmuni0189.txt",
+        "sha256": "sha256:f0c69c6d60d6d760937a22d14fb4560a8e7ba0ecd63feae5872999091bbaaede",
+        "uyirmei_count": 98297
+      },
+      {
+        "name": "pmuni0190.txt",
+        "sha256": "sha256:a8e3c789942c15af185410d7a571dfb0d88bb88705bb5944e89ff9603014625c",
+        "uyirmei_count": 19226
+      },
+      {
+        "name": "pmuni0191.txt",
+        "sha256": "sha256:e6942a8a371a277f33396407a558cb6acc46551e8d2dee6df06fa52b985612b5",
+        "uyirmei_count": 84934
+      },
+      {
+        "name": "pmuni0192.txt",
+        "sha256": "sha256:7d50400b645e295ea9c6e438cd4eda077a858604ae4a296d4c919db9d99b22e9",
+        "uyirmei_count": 38829
+      },
+      {
+        "name": "pmuni0193.txt",
+        "sha256": "sha256:da42a5cec9b83cbbc69e1a6dad38d6af88b5301445d397f647ae3fb4df69d439",
+        "uyirmei_count": 120570
+      },
+      {
+        "name": "pmuni0194.txt",
+        "sha256": "sha256:ea3512fad21d65ebefde5897d6dcfaefc7c5b6232e8972674ba7daa4bb112838",
+        "uyirmei_count": 136629
+      },
+      {
+        "name": "pmuni0195.txt",
+        "sha256": "sha256:b9ebec1f9ec050b1fd253719a3e2998f50833fbbcd0ebecdeafe86ea20f580dd",
+        "uyirmei_count": 142519
+      },
+      {
+        "name": "pmuni0196.txt",
+        "sha256": "sha256:6e672b558ba73ca952e3f3cb170261a1af3624872d9ea68827ef8c1d6655ff48",
+        "uyirmei_count": 46668
+      },
+      {
+        "name": "pmuni0198.txt",
+        "sha256": "sha256:89e043c33a37122ec454284a39ff262eef0015fff3c8473b4c435099027fcaca",
+        "uyirmei_count": 64421
+      },
+      {
+        "name": "pmuni0199.txt",
+        "sha256": "sha256:ada10d04b30fcb005174747daa260bfeb97380b4b874eed6a3a34da28184c2e4",
+        "uyirmei_count": 70781
+      },
+      {
+        "name": "pmuni0200.txt",
+        "sha256": "sha256:9085e1d435f7a2b0cfbdcc476d771b7b0880e0165741275e96b90cda17e983a7",
+        "uyirmei_count": 2745
+      }
+    ],
+    "total_uyirmei": 4851420,
+    "distinct_uyirmei_seen": 207
+  },
+  "buckets": {
+    "n": 4,
+    "size": 54,
+    "labels": [
+      "q1_bottom",
+      "q2",
+      "q3",
+      "q4_top"
+    ],
+    "count_boundaries": [
+      711,
+      6367,
+      28330,
+      270681
+    ]
+  },
+  "bottom_quartile": [
+    "ng_ai",
+    "ng_au",
+    "ng_e",
+    "ng_i",
+    "ng_ii",
+    "ng_oo",
+    "ng_u",
+    "ng_uu",
+    "zh_au",
+    "ll_au",
+    "ng_aa",
+    "nj_au",
+    "nn_au",
+    "ng_ee",
+    "nj_o",
+    "ng_o",
+    "nj_ee",
+    "nj_u",
+    "nnn_au",
+    "tt_au",
+    "nj_uu",
+    "l_au",
+    "r_au",
+    "y_au",
+    "nj_oo",
+    "nj_ii",
+    "rr_au",
+    "nj_i",
+    "n_au",
+    "nj_e",
+    "zh_uu",
+    "zh_o",
+    "zh_oo",
+    "nn_uu",
+    "p_au",
+    "c_au",
+    "zh_e",
+    "k_au",
+    "nn_o",
+    "nj_ai",
+    "zh_ii",
+    "n_ai",
+    "m_au",
+    "ll_ii",
+    "ll_uu",
+    "ng_a",
+    "t_au",
+    "zh_ee",
+    "nn_oo",
+    "tt_uu",
+    "rr_uu",
+    "ll_o",
+    "n_o",
+    "l_ii"
+  ],
+  "aksharas": [
+    {
+      "akshara_id": "k_a",
+      "base_id": "k",
+      "sign_id": "a",
+      "frequency": 270681,
+      "rank": 215,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "k_aa",
+      "base_id": "k",
+      "sign_id": "aa",
+      "frequency": 56894,
+      "rank": 193,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "k_i",
+      "base_id": "k",
+      "sign_id": "i",
+      "frequency": 70090,
+      "rank": 198,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "k_ii",
+      "base_id": "k",
+      "sign_id": "ii",
+      "frequency": 2820,
+      "rank": 82,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "k_u",
+      "base_id": "k",
+      "sign_id": "u",
+      "frequency": 117135,
+      "rank": 207,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "k_uu",
+      "base_id": "k",
+      "sign_id": "uu",
+      "frequency": 14934,
+      "rank": 134,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "k_e",
+      "base_id": "k",
+      "sign_id": "e",
+      "frequency": 6367,
+      "rank": 107,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "k_ee",
+      "base_id": "k",
+      "sign_id": "ee",
+      "frequency": 14572,
+      "rank": 132,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "k_ai",
+      "base_id": "k",
+      "sign_id": "ai",
+      "frequency": 28723,
+      "rank": 163,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "k_o",
+      "base_id": "k",
+      "sign_id": "o",
+      "frequency": 40344,
+      "rank": 180,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "k_oo",
+      "base_id": "k",
+      "sign_id": "oo",
+      "frequency": 14083,
+      "rank": 130,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "k_au",
+      "base_id": "k",
+      "sign_id": "au",
+      "frequency": 212,
+      "rank": 37,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "ng_a",
+      "base_id": "ng",
+      "sign_id": "a",
+      "frequency": 390,
+      "rank": 45,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "ng_aa",
+      "base_id": "ng",
+      "sign_id": "aa",
+      "frequency": 1,
+      "rank": 10,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "ng_i",
+      "base_id": "ng",
+      "sign_id": "i",
+      "frequency": 0,
+      "rank": 3,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "ng_ii",
+      "base_id": "ng",
+      "sign_id": "ii",
+      "frequency": 0,
+      "rank": 4,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "ng_u",
+      "base_id": "ng",
+      "sign_id": "u",
+      "frequency": 0,
+      "rank": 6,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "ng_uu",
+      "base_id": "ng",
+      "sign_id": "uu",
+      "frequency": 0,
+      "rank": 7,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "ng_e",
+      "base_id": "ng",
+      "sign_id": "e",
+      "frequency": 0,
+      "rank": 2,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "ng_ee",
+      "base_id": "ng",
+      "sign_id": "ee",
+      "frequency": 2,
+      "rank": 13,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "ng_ai",
+      "base_id": "ng",
+      "sign_id": "ai",
+      "frequency": 0,
+      "rank": 0,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "ng_o",
+      "base_id": "ng",
+      "sign_id": "o",
+      "frequency": 5,
+      "rank": 15,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "ng_oo",
+      "base_id": "ng",
+      "sign_id": "oo",
+      "frequency": 0,
+      "rank": 5,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "ng_au",
+      "base_id": "ng",
+      "sign_id": "au",
+      "frequency": 0,
+      "rank": 1,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "c_a",
+      "base_id": "c",
+      "sign_id": "a",
+      "frequency": 46938,
+      "rank": 184,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "c_aa",
+      "base_id": "c",
+      "sign_id": "aa",
+      "frequency": 14250,
+      "rank": 131,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "c_i",
+      "base_id": "c",
+      "sign_id": "i",
+      "frequency": 51243,
+      "rank": 189,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "c_ii",
+      "base_id": "c",
+      "sign_id": "ii",
+      "frequency": 4515,
+      "rank": 98,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "c_u",
+      "base_id": "c",
+      "sign_id": "u",
+      "frequency": 22761,
+      "rank": 149,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "c_uu",
+      "base_id": "c",
+      "sign_id": "uu",
+      "frequency": 6248,
+      "rank": 106,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "c_e",
+      "base_id": "c",
+      "sign_id": "e",
+      "frequency": 34955,
+      "rank": 175,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "c_ee",
+      "base_id": "c",
+      "sign_id": "ee",
+      "frequency": 9600,
+      "rank": 120,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "c_ai",
+      "base_id": "c",
+      "sign_id": "ai",
+      "frequency": 11602,
+      "rank": 124,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "c_o",
+      "base_id": "c",
+      "sign_id": "o",
+      "frequency": 12793,
+      "rank": 128,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "c_oo",
+      "base_id": "c",
+      "sign_id": "oo",
+      "frequency": 5310,
+      "rank": 103,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "c_au",
+      "base_id": "c",
+      "sign_id": "au",
+      "frequency": 138,
+      "rank": 35,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "nj_a",
+      "base_id": "nj",
+      "sign_id": "a",
+      "frequency": 1186,
+      "rank": 63,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "nj_aa",
+      "base_id": "nj",
+      "sign_id": "aa",
+      "frequency": 3186,
+      "rank": 87,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "nj_i",
+      "base_id": "nj",
+      "sign_id": "i",
+      "frequency": 43,
+      "rank": 27,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "nj_ii",
+      "base_id": "nj",
+      "sign_id": "ii",
+      "frequency": 36,
+      "rank": 25,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "nj_u",
+      "base_id": "nj",
+      "sign_id": "u",
+      "frequency": 6,
+      "rank": 17,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "nj_uu",
+      "base_id": "nj",
+      "sign_id": "uu",
+      "frequency": 9,
+      "rank": 20,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "nj_e",
+      "base_id": "nj",
+      "sign_id": "e",
+      "frequency": 99,
+      "rank": 29,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "nj_ee",
+      "base_id": "nj",
+      "sign_id": "ee",
+      "frequency": 5,
+      "rank": 16,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "nj_ai",
+      "base_id": "nj",
+      "sign_id": "ai",
+      "frequency": 299,
+      "rank": 39,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "nj_o",
+      "base_id": "nj",
+      "sign_id": "o",
+      "frequency": 2,
+      "rank": 14,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "nj_oo",
+      "base_id": "nj",
+      "sign_id": "oo",
+      "frequency": 21,
+      "rank": 24,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "nj_au",
+      "base_id": "nj",
+      "sign_id": "au",
+      "frequency": 1,
+      "rank": 11,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "tt_a",
+      "base_id": "tt",
+      "sign_id": "a",
+      "frequency": 99826,
+      "rank": 204,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "tt_aa",
+      "base_id": "tt",
+      "sign_id": "aa",
+      "frequency": 19329,
+      "rank": 141,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "tt_i",
+      "base_id": "tt",
+      "sign_id": "i",
+      "frequency": 73631,
+      "rank": 199,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "tt_ii",
+      "base_id": "tt",
+      "sign_id": "ii",
+      "frequency": 1250,
+      "rank": 67,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "tt_u",
+      "base_id": "tt",
+      "sign_id": "u",
+      "frequency": 88874,
+      "rank": 202,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "tt_uu",
+      "base_id": "tt",
+      "sign_id": "uu",
+      "frequency": 541,
+      "rank": 49,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "tt_e",
+      "base_id": "tt",
+      "sign_id": "e",
+      "frequency": 1953,
+      "rank": 76,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "tt_ee",
+      "base_id": "tt",
+      "sign_id": "ee",
+      "frequency": 4714,
+      "rank": 101,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "tt_ai",
+      "base_id": "tt",
+      "sign_id": "ai",
+      "frequency": 34778,
+      "rank": 174,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "tt_o",
+      "base_id": "tt",
+      "sign_id": "o",
+      "frequency": 1100,
+      "rank": 61,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "tt_oo",
+      "base_id": "tt",
+      "sign_id": "oo",
+      "frequency": 2558,
+      "rank": 80,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "tt_au",
+      "base_id": "tt",
+      "sign_id": "au",
+      "frequency": 8,
+      "rank": 19,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "nn_a",
+      "base_id": "nn",
+      "sign_id": "a",
+      "frequency": 31299,
+      "rank": 169,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "nn_aa",
+      "base_id": "nn",
+      "sign_id": "aa",
+      "frequency": 4930,
+      "rank": 102,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "nn_i",
+      "base_id": "nn",
+      "sign_id": "i",
+      "frequency": 21450,
+      "rank": 145,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "nn_ii",
+      "base_id": "nn",
+      "sign_id": "ii",
+      "frequency": 1188,
+      "rank": 64,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "nn_u",
+      "base_id": "nn",
+      "sign_id": "u",
+      "frequency": 6185,
+      "rank": 105,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "nn_uu",
+      "base_id": "nn",
+      "sign_id": "uu",
+      "frequency": 133,
+      "rank": 33,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "nn_e",
+      "base_id": "nn",
+      "sign_id": "e",
+      "frequency": 783,
+      "rank": 54,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "nn_ee",
+      "base_id": "nn",
+      "sign_id": "ee",
+      "frequency": 1416,
+      "rank": 70,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "nn_ai",
+      "base_id": "nn",
+      "sign_id": "ai",
+      "frequency": 9297,
+      "rank": 119,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "nn_o",
+      "base_id": "nn",
+      "sign_id": "o",
+      "frequency": 221,
+      "rank": 38,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "nn_oo",
+      "base_id": "nn",
+      "sign_id": "oo",
+      "frequency": 452,
+      "rank": 48,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "nn_au",
+      "base_id": "nn",
+      "sign_id": "au",
+      "frequency": 1,
+      "rank": 12,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "t_a",
+      "base_id": "t",
+      "sign_id": "a",
+      "frequency": 227520,
+      "rank": 214,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "t_aa",
+      "base_id": "t",
+      "sign_id": "aa",
+      "frequency": 66614,
+      "rank": 195,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "t_i",
+      "base_id": "t",
+      "sign_id": "i",
+      "frequency": 133505,
+      "rank": 210,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "t_ii",
+      "base_id": "t",
+      "sign_id": "ii",
+      "frequency": 7718,
+      "rank": 111,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "t_u",
+      "base_id": "t",
+      "sign_id": "u",
+      "frequency": 147618,
+      "rank": 211,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "t_uu",
+      "base_id": "t",
+      "sign_id": "uu",
+      "frequency": 6538,
+      "rank": 108,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "t_e",
+      "base_id": "t",
+      "sign_id": "e",
+      "frequency": 17434,
+      "rank": 139,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "t_ee",
+      "base_id": "t",
+      "sign_id": "ee",
+      "frequency": 22162,
+      "rank": 147,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "t_ai",
+      "base_id": "t",
+      "sign_id": "ai",
+      "frequency": 24807,
+      "rank": 156,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "t_o",
+      "base_id": "t",
+      "sign_id": "o",
+      "frequency": 14705,
+      "rank": 133,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "t_oo",
+      "base_id": "t",
+      "sign_id": "oo",
+      "frequency": 16081,
+      "rank": 135,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "t_au",
+      "base_id": "t",
+      "sign_id": "au",
+      "frequency": 405,
+      "rank": 46,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "n_a",
+      "base_id": "n",
+      "sign_id": "a",
+      "frequency": 36949,
+      "rank": 176,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "n_aa",
+      "base_id": "n",
+      "sign_id": "aa",
+      "frequency": 29726,
+      "rank": 166,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "n_i",
+      "base_id": "n",
+      "sign_id": "i",
+      "frequency": 32100,
+      "rank": 170,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "n_ii",
+      "base_id": "n",
+      "sign_id": "ii",
+      "frequency": 16178,
+      "rank": 136,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "n_u",
+      "base_id": "n",
+      "sign_id": "u",
+      "frequency": 3041,
+      "rank": 84,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "n_uu",
+      "base_id": "n",
+      "sign_id": "uu",
+      "frequency": 3068,
+      "rank": 85,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "n_e",
+      "base_id": "n",
+      "sign_id": "e",
+      "frequency": 9673,
+      "rank": 121,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "n_ee",
+      "base_id": "n",
+      "sign_id": "ee",
+      "frequency": 4357,
+      "rank": 95,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "n_ai",
+      "base_id": "n",
+      "sign_id": "ai",
+      "frequency": 303,
+      "rank": 41,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "n_o",
+      "base_id": "n",
+      "sign_id": "o",
+      "frequency": 704,
+      "rank": 52,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "n_oo",
+      "base_id": "n",
+      "sign_id": "oo",
+      "frequency": 4343,
+      "rank": 94,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "n_au",
+      "base_id": "n",
+      "sign_id": "au",
+      "frequency": 53,
+      "rank": 28,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "p_a",
+      "base_id": "p",
+      "sign_id": "a",
+      "frequency": 130977,
+      "rank": 209,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "p_aa",
+      "base_id": "p",
+      "sign_id": "aa",
+      "frequency": 46380,
+      "rank": 183,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "p_i",
+      "base_id": "p",
+      "sign_id": "i",
+      "frequency": 43257,
+      "rank": 181,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "p_ii",
+      "base_id": "p",
+      "sign_id": "ii",
+      "frequency": 1144,
+      "rank": 62,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "p_u",
+      "base_id": "p",
+      "sign_id": "u",
+      "frequency": 54212,
+      "rank": 191,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "p_uu",
+      "base_id": "p",
+      "sign_id": "uu",
+      "frequency": 8665,
+      "rank": 117,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "p_e",
+      "base_id": "p",
+      "sign_id": "e",
+      "frequency": 27178,
+      "rank": 159,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "p_ee",
+      "base_id": "p",
+      "sign_id": "ee",
+      "frequency": 12372,
+      "rank": 126,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "p_ai",
+      "base_id": "p",
+      "sign_id": "ai",
+      "frequency": 4528,
+      "rank": 99,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "p_o",
+      "base_id": "p",
+      "sign_id": "o",
+      "frequency": 24107,
+      "rank": 153,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "p_oo",
+      "base_id": "p",
+      "sign_id": "oo",
+      "frequency": 34566,
+      "rank": 173,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "p_au",
+      "base_id": "p",
+      "sign_id": "au",
+      "frequency": 137,
+      "rank": 34,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "m_a",
+      "base_id": "m",
+      "sign_id": "a",
+      "frequency": 114007,
+      "rank": 206,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "m_aa",
+      "base_id": "m",
+      "sign_id": "aa",
+      "frequency": 53856,
+      "rank": 190,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "m_i",
+      "base_id": "m",
+      "sign_id": "i",
+      "frequency": 30190,
+      "rank": 168,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "m_ii",
+      "base_id": "m",
+      "sign_id": "ii",
+      "frequency": 4547,
+      "rank": 100,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "m_u",
+      "base_id": "m",
+      "sign_id": "u",
+      "frequency": 61611,
+      "rank": 194,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "m_uu",
+      "base_id": "m",
+      "sign_id": "uu",
+      "frequency": 7381,
+      "rank": 110,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "m_e",
+      "base_id": "m",
+      "sign_id": "e",
+      "frequency": 13219,
+      "rank": 129,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "m_ee",
+      "base_id": "m",
+      "sign_id": "ee",
+      "frequency": 22262,
+      "rank": 148,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "m_ai",
+      "base_id": "m",
+      "sign_id": "ai",
+      "frequency": 24470,
+      "rank": 155,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "m_o",
+      "base_id": "m",
+      "sign_id": "o",
+      "frequency": 7251,
+      "rank": 109,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "m_oo",
+      "base_id": "m",
+      "sign_id": "oo",
+      "frequency": 4386,
+      "rank": 96,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "m_au",
+      "base_id": "m",
+      "sign_id": "au",
+      "frequency": 318,
+      "rank": 42,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "y_a",
+      "base_id": "y",
+      "sign_id": "a",
+      "frequency": 117282,
+      "rank": 208,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "y_aa",
+      "base_id": "y",
+      "sign_id": "aa",
+      "frequency": 48416,
+      "rank": 186,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "y_i",
+      "base_id": "y",
+      "sign_id": "i",
+      "frequency": 54985,
+      "rank": 192,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "y_ii",
+      "base_id": "y",
+      "sign_id": "ii",
+      "frequency": 1024,
+      "rank": 60,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "y_u",
+      "base_id": "y",
+      "sign_id": "u",
+      "frequency": 37391,
+      "rank": 177,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "y_uu",
+      "base_id": "y",
+      "sign_id": "uu",
+      "frequency": 2003,
+      "rank": 78,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "y_e",
+      "base_id": "y",
+      "sign_id": "e",
+      "frequency": 8947,
+      "rank": 118,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "y_ee",
+      "base_id": "y",
+      "sign_id": "ee",
+      "frequency": 16669,
+      "rank": 137,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "y_ai",
+      "base_id": "y",
+      "sign_id": "ai",
+      "frequency": 12116,
+      "rank": 125,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "y_o",
+      "base_id": "y",
+      "sign_id": "o",
+      "frequency": 2880,
+      "rank": 83,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "y_oo",
+      "base_id": "y",
+      "sign_id": "oo",
+      "frequency": 8516,
+      "rank": 116,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "y_au",
+      "base_id": "y",
+      "sign_id": "au",
+      "frequency": 18,
+      "rank": 23,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "r_a",
+      "base_id": "r",
+      "sign_id": "a",
+      "frequency": 89767,
+      "rank": 203,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "r_aa",
+      "base_id": "r",
+      "sign_id": "aa",
+      "frequency": 21520,
+      "rank": 146,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "r_i",
+      "base_id": "r",
+      "sign_id": "i",
+      "frequency": 48971,
+      "rank": 187,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "r_ii",
+      "base_id": "r",
+      "sign_id": "ii",
+      "frequency": 1226,
+      "rank": 65,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "r_u",
+      "base_id": "r",
+      "sign_id": "u",
+      "frequency": 148228,
+      "rank": 212,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "r_uu",
+      "base_id": "r",
+      "sign_id": "uu",
+      "frequency": 1327,
+      "rank": 68,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "r_e",
+      "base_id": "r",
+      "sign_id": "e",
+      "frequency": 3303,
+      "rank": 89,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "r_ee",
+      "base_id": "r",
+      "sign_id": "ee",
+      "frequency": 7810,
+      "rank": 112,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "r_ai",
+      "base_id": "r",
+      "sign_id": "ai",
+      "frequency": 24300,
+      "rank": 154,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "r_o",
+      "base_id": "r",
+      "sign_id": "o",
+      "frequency": 1695,
+      "rank": 74,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "r_oo",
+      "base_id": "r",
+      "sign_id": "oo",
+      "frequency": 3116,
+      "rank": 86,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "r_au",
+      "base_id": "r",
+      "sign_id": "au",
+      "frequency": 13,
+      "rank": 22,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "l_a",
+      "base_id": "l",
+      "sign_id": "a",
+      "frequency": 80531,
+      "rank": 200,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "l_aa",
+      "base_id": "l",
+      "sign_id": "aa",
+      "frequency": 32381,
+      "rank": 171,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "l_i",
+      "base_id": "l",
+      "sign_id": "i",
+      "frequency": 29171,
+      "rank": 165,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "l_ii",
+      "base_id": "l",
+      "sign_id": "ii",
+      "frequency": 711,
+      "rank": 53,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "l_u",
+      "base_id": "l",
+      "sign_id": "u",
+      "frequency": 22997,
+      "rank": 151,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "l_uu",
+      "base_id": "l",
+      "sign_id": "uu",
+      "frequency": 944,
+      "rank": 59,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "l_e",
+      "base_id": "l",
+      "sign_id": "e",
+      "frequency": 3197,
+      "rank": 88,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "l_ee",
+      "base_id": "l",
+      "sign_id": "ee",
+      "frequency": 11114,
+      "rank": 123,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "l_ai",
+      "base_id": "l",
+      "sign_id": "ai",
+      "frequency": 44228,
+      "rank": 182,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "l_o",
+      "base_id": "l",
+      "sign_id": "o",
+      "frequency": 1451,
+      "rank": 71,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "l_oo",
+      "base_id": "l",
+      "sign_id": "oo",
+      "frequency": 4125,
+      "rank": 92,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "l_au",
+      "base_id": "l",
+      "sign_id": "au",
+      "frequency": 12,
+      "rank": 21,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "v_a",
+      "base_id": "v",
+      "sign_id": "a",
+      "frequency": 173211,
+      "rank": 213,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "v_aa",
+      "base_id": "v",
+      "sign_id": "aa",
+      "frequency": 50129,
+      "rank": 188,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "v_i",
+      "base_id": "v",
+      "sign_id": "i",
+      "frequency": 86872,
+      "rank": 201,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "v_ii",
+      "base_id": "v",
+      "sign_id": "ii",
+      "frequency": 10297,
+      "rank": 122,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "v_u",
+      "base_id": "v",
+      "sign_id": "u",
+      "frequency": 28330,
+      "rank": 161,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "v_uu",
+      "base_id": "v",
+      "sign_id": "uu",
+      "frequency": 875,
+      "rank": 56,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "v_e",
+      "base_id": "v",
+      "sign_id": "e",
+      "frequency": 19357,
+      "rank": 142,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "v_ee",
+      "base_id": "v",
+      "sign_id": "ee",
+      "frequency": 33003,
+      "rank": 172,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "v_ai",
+      "base_id": "v",
+      "sign_id": "ai",
+      "frequency": 17587,
+      "rank": 140,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "v_o",
+      "base_id": "v",
+      "sign_id": "o",
+      "frequency": 2181,
+      "rank": 79,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "v_oo",
+      "base_id": "v",
+      "sign_id": "oo",
+      "frequency": 4510,
+      "rank": 97,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "v_au",
+      "base_id": "v",
+      "sign_id": "au",
+      "frequency": 1243,
+      "rank": 66,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "zh_a",
+      "base_id": "zh",
+      "sign_id": "a",
+      "frequency": 22970,
+      "rank": 150,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "zh_aa",
+      "base_id": "zh",
+      "sign_id": "aa",
+      "frequency": 1997,
+      "rank": 77,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "zh_i",
+      "base_id": "zh",
+      "sign_id": "i",
+      "frequency": 25653,
+      "rank": 157,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "zh_ii",
+      "base_id": "zh",
+      "sign_id": "ii",
+      "frequency": 301,
+      "rank": 40,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "zh_u",
+      "base_id": "zh",
+      "sign_id": "u",
+      "frequency": 23769,
+      "rank": 152,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "zh_uu",
+      "base_id": "zh",
+      "sign_id": "uu",
+      "frequency": 114,
+      "rank": 30,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "zh_e",
+      "base_id": "zh",
+      "sign_id": "e",
+      "frequency": 147,
+      "rank": 36,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "zh_ee",
+      "base_id": "zh",
+      "sign_id": "ee",
+      "frequency": 405,
+      "rank": 47,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "zh_ai",
+      "base_id": "zh",
+      "sign_id": "ai",
+      "frequency": 8248,
+      "rank": 115,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "zh_o",
+      "base_id": "zh",
+      "sign_id": "o",
+      "frequency": 117,
+      "rank": 31,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "zh_oo",
+      "base_id": "zh",
+      "sign_id": "oo",
+      "frequency": 122,
+      "rank": 32,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "zh_au",
+      "base_id": "zh",
+      "sign_id": "au",
+      "frequency": 0,
+      "rank": 8,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "ll_a",
+      "base_id": "ll",
+      "sign_id": "a",
+      "frequency": 39295,
+      "rank": 179,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "ll_aa",
+      "base_id": "ll",
+      "sign_id": "aa",
+      "frequency": 8145,
+      "rank": 114,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "ll_i",
+      "base_id": "ll",
+      "sign_id": "i",
+      "frequency": 29080,
+      "rank": 164,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "ll_ii",
+      "base_id": "ll",
+      "sign_id": "ii",
+      "frequency": 339,
+      "rank": 43,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "ll_u",
+      "base_id": "ll",
+      "sign_id": "u",
+      "frequency": 16850,
+      "rank": 138,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "ll_uu",
+      "base_id": "ll",
+      "sign_id": "uu",
+      "frequency": 365,
+      "rank": 44,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "ll_e",
+      "base_id": "ll",
+      "sign_id": "e",
+      "frequency": 1587,
+      "rank": 73,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "ll_ee",
+      "base_id": "ll",
+      "sign_id": "ee",
+      "frequency": 5931,
+      "rank": 104,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "ll_ai",
+      "base_id": "ll",
+      "sign_id": "ai",
+      "frequency": 20362,
+      "rank": 144,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "ll_o",
+      "base_id": "ll",
+      "sign_id": "o",
+      "frequency": 670,
+      "rank": 51,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "ll_oo",
+      "base_id": "ll",
+      "sign_id": "oo",
+      "frequency": 1416,
+      "rank": 69,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "ll_au",
+      "base_id": "ll",
+      "sign_id": "au",
+      "frequency": 1,
+      "rank": 9,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "rr_a",
+      "base_id": "rr",
+      "sign_id": "a",
+      "frequency": 67075,
+      "rank": 196,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "rr_aa",
+      "base_id": "rr",
+      "sign_id": "aa",
+      "frequency": 19395,
+      "rank": 143,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "rr_i",
+      "base_id": "rr",
+      "sign_id": "i",
+      "frequency": 48071,
+      "rank": 185,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "rr_ii",
+      "base_id": "rr",
+      "sign_id": "ii",
+      "frequency": 910,
+      "rank": 57,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "rr_u",
+      "base_id": "rr",
+      "sign_id": "u",
+      "frequency": 67969,
+      "rank": 197,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "rr_uu",
+      "base_id": "rr",
+      "sign_id": "uu",
+      "frequency": 617,
+      "rank": 50,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "rr_e",
+      "base_id": "rr",
+      "sign_id": "e",
+      "frequency": 2715,
+      "rank": 81,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "rr_ee",
+      "base_id": "rr",
+      "sign_id": "ee",
+      "frequency": 7928,
+      "rank": 113,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "rr_ai",
+      "base_id": "rr",
+      "sign_id": "ai",
+      "frequency": 25722,
+      "rank": 158,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "rr_o",
+      "base_id": "rr",
+      "sign_id": "o",
+      "frequency": 1561,
+      "rank": 72,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "rr_oo",
+      "base_id": "rr",
+      "sign_id": "oo",
+      "frequency": 3416,
+      "rank": 90,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "rr_au",
+      "base_id": "rr",
+      "sign_id": "au",
+      "frequency": 41,
+      "rank": 26,
+      "bucket": "q1_bottom"
+    },
+    {
+      "akshara_id": "nnn_a",
+      "base_id": "nnn",
+      "sign_id": "a",
+      "frequency": 103745,
+      "rank": 205,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "nnn_aa",
+      "base_id": "nnn",
+      "sign_id": "aa",
+      "frequency": 27282,
+      "rank": 160,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "nnn_i",
+      "base_id": "nnn",
+      "sign_id": "i",
+      "frequency": 30174,
+      "rank": 167,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "nnn_ii",
+      "base_id": "nnn",
+      "sign_id": "ii",
+      "frequency": 943,
+      "rank": 58,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "nnn_u",
+      "base_id": "nnn",
+      "sign_id": "u",
+      "frequency": 28342,
+      "rank": 162,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "nnn_uu",
+      "base_id": "nnn",
+      "sign_id": "uu",
+      "frequency": 823,
+      "rank": 55,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "nnn_e",
+      "base_id": "nnn",
+      "sign_id": "e",
+      "frequency": 4210,
+      "rank": 93,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "nnn_ee",
+      "base_id": "nnn",
+      "sign_id": "ee",
+      "frequency": 12613,
+      "rank": 127,
+      "bucket": "q3"
+    },
+    {
+      "akshara_id": "nnn_ai",
+      "base_id": "nnn",
+      "sign_id": "ai",
+      "frequency": 39035,
+      "rank": 178,
+      "bucket": "q4_top"
+    },
+    {
+      "akshara_id": "nnn_o",
+      "base_id": "nnn",
+      "sign_id": "o",
+      "frequency": 1856,
+      "rank": 75,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "nnn_oo",
+      "base_id": "nnn",
+      "sign_id": "oo",
+      "frequency": 4066,
+      "rank": 91,
+      "bucket": "q2"
+    },
+    {
+      "akshara_id": "nnn_au",
+      "base_id": "nnn",
+      "sign_id": "au",
+      "frequency": 8,
+      "rank": 18,
+      "bucket": "q1_bottom"
+    }
+  ],
+  "split": {
+    "seed": 42,
+    "eval_fraction": 0.5,
+    "n_train": 216,
+    "n_eval": 216
+  },
+  "instances": [
+    {
+      "akshara_id": "k_a",
+      "font_id": "noto",
+      "image": "k_a__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "k_aa",
+      "font_id": "noto",
+      "image": "k_aa__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "k_i",
+      "font_id": "noto",
+      "image": "k_i__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "k_ii",
+      "font_id": "noto",
+      "image": "k_ii__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "k_u",
+      "font_id": "noto",
+      "image": "k_u__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "k_uu",
+      "font_id": "noto",
+      "image": "k_uu__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "k_e",
+      "font_id": "noto",
+      "image": "k_e__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "k_ee",
+      "font_id": "noto",
+      "image": "k_ee__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "k_ai",
+      "font_id": "noto",
+      "image": "k_ai__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "k_o",
+      "font_id": "noto",
+      "image": "k_o__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "k_oo",
+      "font_id": "noto",
+      "image": "k_oo__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "k_au",
+      "font_id": "noto",
+      "image": "k_au__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ng_a",
+      "font_id": "noto",
+      "image": "ng_a__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ng_aa",
+      "font_id": "noto",
+      "image": "ng_aa__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ng_i",
+      "font_id": "noto",
+      "image": "ng_i__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ng_ii",
+      "font_id": "noto",
+      "image": "ng_ii__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ng_u",
+      "font_id": "noto",
+      "image": "ng_u__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ng_uu",
+      "font_id": "noto",
+      "image": "ng_uu__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ng_e",
+      "font_id": "noto",
+      "image": "ng_e__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ng_ee",
+      "font_id": "noto",
+      "image": "ng_ee__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ng_ai",
+      "font_id": "noto",
+      "image": "ng_ai__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ng_o",
+      "font_id": "noto",
+      "image": "ng_o__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ng_oo",
+      "font_id": "noto",
+      "image": "ng_oo__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ng_au",
+      "font_id": "noto",
+      "image": "ng_au__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "c_a",
+      "font_id": "noto",
+      "image": "c_a__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "c_aa",
+      "font_id": "noto",
+      "image": "c_aa__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "c_i",
+      "font_id": "noto",
+      "image": "c_i__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "c_ii",
+      "font_id": "noto",
+      "image": "c_ii__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "c_u",
+      "font_id": "noto",
+      "image": "c_u__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "c_uu",
+      "font_id": "noto",
+      "image": "c_uu__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "c_e",
+      "font_id": "noto",
+      "image": "c_e__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "c_ee",
+      "font_id": "noto",
+      "image": "c_ee__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "c_ai",
+      "font_id": "noto",
+      "image": "c_ai__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "c_o",
+      "font_id": "noto",
+      "image": "c_o__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "c_oo",
+      "font_id": "noto",
+      "image": "c_oo__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "c_au",
+      "font_id": "noto",
+      "image": "c_au__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nj_a",
+      "font_id": "noto",
+      "image": "nj_a__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nj_aa",
+      "font_id": "noto",
+      "image": "nj_aa__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nj_i",
+      "font_id": "noto",
+      "image": "nj_i__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nj_ii",
+      "font_id": "noto",
+      "image": "nj_ii__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nj_u",
+      "font_id": "noto",
+      "image": "nj_u__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nj_uu",
+      "font_id": "noto",
+      "image": "nj_uu__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nj_e",
+      "font_id": "noto",
+      "image": "nj_e__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nj_ee",
+      "font_id": "noto",
+      "image": "nj_ee__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nj_ai",
+      "font_id": "noto",
+      "image": "nj_ai__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nj_o",
+      "font_id": "noto",
+      "image": "nj_o__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nj_oo",
+      "font_id": "noto",
+      "image": "nj_oo__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nj_au",
+      "font_id": "noto",
+      "image": "nj_au__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "tt_a",
+      "font_id": "noto",
+      "image": "tt_a__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "tt_aa",
+      "font_id": "noto",
+      "image": "tt_aa__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "tt_i",
+      "font_id": "noto",
+      "image": "tt_i__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "tt_ii",
+      "font_id": "noto",
+      "image": "tt_ii__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "tt_u",
+      "font_id": "noto",
+      "image": "tt_u__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "tt_uu",
+      "font_id": "noto",
+      "image": "tt_uu__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "tt_e",
+      "font_id": "noto",
+      "image": "tt_e__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "tt_ee",
+      "font_id": "noto",
+      "image": "tt_ee__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "tt_ai",
+      "font_id": "noto",
+      "image": "tt_ai__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "tt_o",
+      "font_id": "noto",
+      "image": "tt_o__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "tt_oo",
+      "font_id": "noto",
+      "image": "tt_oo__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "tt_au",
+      "font_id": "noto",
+      "image": "tt_au__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nn_a",
+      "font_id": "noto",
+      "image": "nn_a__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nn_aa",
+      "font_id": "noto",
+      "image": "nn_aa__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nn_i",
+      "font_id": "noto",
+      "image": "nn_i__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nn_ii",
+      "font_id": "noto",
+      "image": "nn_ii__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nn_u",
+      "font_id": "noto",
+      "image": "nn_u__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nn_uu",
+      "font_id": "noto",
+      "image": "nn_uu__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nn_e",
+      "font_id": "noto",
+      "image": "nn_e__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nn_ee",
+      "font_id": "noto",
+      "image": "nn_ee__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nn_ai",
+      "font_id": "noto",
+      "image": "nn_ai__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nn_o",
+      "font_id": "noto",
+      "image": "nn_o__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nn_oo",
+      "font_id": "noto",
+      "image": "nn_oo__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nn_au",
+      "font_id": "noto",
+      "image": "nn_au__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "t_a",
+      "font_id": "noto",
+      "image": "t_a__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "t_aa",
+      "font_id": "noto",
+      "image": "t_aa__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "t_i",
+      "font_id": "noto",
+      "image": "t_i__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "t_ii",
+      "font_id": "noto",
+      "image": "t_ii__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "t_u",
+      "font_id": "noto",
+      "image": "t_u__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "t_uu",
+      "font_id": "noto",
+      "image": "t_uu__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "t_e",
+      "font_id": "noto",
+      "image": "t_e__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "t_ee",
+      "font_id": "noto",
+      "image": "t_ee__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "t_ai",
+      "font_id": "noto",
+      "image": "t_ai__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "t_o",
+      "font_id": "noto",
+      "image": "t_o__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "t_oo",
+      "font_id": "noto",
+      "image": "t_oo__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "t_au",
+      "font_id": "noto",
+      "image": "t_au__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "n_a",
+      "font_id": "noto",
+      "image": "n_a__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "n_aa",
+      "font_id": "noto",
+      "image": "n_aa__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "n_i",
+      "font_id": "noto",
+      "image": "n_i__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "n_ii",
+      "font_id": "noto",
+      "image": "n_ii__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "n_u",
+      "font_id": "noto",
+      "image": "n_u__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "n_uu",
+      "font_id": "noto",
+      "image": "n_uu__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "n_e",
+      "font_id": "noto",
+      "image": "n_e__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "n_ee",
+      "font_id": "noto",
+      "image": "n_ee__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "n_ai",
+      "font_id": "noto",
+      "image": "n_ai__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "n_o",
+      "font_id": "noto",
+      "image": "n_o__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "n_oo",
+      "font_id": "noto",
+      "image": "n_oo__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "n_au",
+      "font_id": "noto",
+      "image": "n_au__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "p_a",
+      "font_id": "noto",
+      "image": "p_a__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "p_aa",
+      "font_id": "noto",
+      "image": "p_aa__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "p_i",
+      "font_id": "noto",
+      "image": "p_i__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "p_ii",
+      "font_id": "noto",
+      "image": "p_ii__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "p_u",
+      "font_id": "noto",
+      "image": "p_u__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "p_uu",
+      "font_id": "noto",
+      "image": "p_uu__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "p_e",
+      "font_id": "noto",
+      "image": "p_e__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "p_ee",
+      "font_id": "noto",
+      "image": "p_ee__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "p_ai",
+      "font_id": "noto",
+      "image": "p_ai__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "p_o",
+      "font_id": "noto",
+      "image": "p_o__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "p_oo",
+      "font_id": "noto",
+      "image": "p_oo__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "p_au",
+      "font_id": "noto",
+      "image": "p_au__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "m_a",
+      "font_id": "noto",
+      "image": "m_a__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "m_aa",
+      "font_id": "noto",
+      "image": "m_aa__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "m_i",
+      "font_id": "noto",
+      "image": "m_i__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "m_ii",
+      "font_id": "noto",
+      "image": "m_ii__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "m_u",
+      "font_id": "noto",
+      "image": "m_u__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "m_uu",
+      "font_id": "noto",
+      "image": "m_uu__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "m_e",
+      "font_id": "noto",
+      "image": "m_e__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "m_ee",
+      "font_id": "noto",
+      "image": "m_ee__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "m_ai",
+      "font_id": "noto",
+      "image": "m_ai__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "m_o",
+      "font_id": "noto",
+      "image": "m_o__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "m_oo",
+      "font_id": "noto",
+      "image": "m_oo__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "m_au",
+      "font_id": "noto",
+      "image": "m_au__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "y_a",
+      "font_id": "noto",
+      "image": "y_a__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "y_aa",
+      "font_id": "noto",
+      "image": "y_aa__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "y_i",
+      "font_id": "noto",
+      "image": "y_i__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "y_ii",
+      "font_id": "noto",
+      "image": "y_ii__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "y_u",
+      "font_id": "noto",
+      "image": "y_u__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "y_uu",
+      "font_id": "noto",
+      "image": "y_uu__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "y_e",
+      "font_id": "noto",
+      "image": "y_e__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "y_ee",
+      "font_id": "noto",
+      "image": "y_ee__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "y_ai",
+      "font_id": "noto",
+      "image": "y_ai__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "y_o",
+      "font_id": "noto",
+      "image": "y_o__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "y_oo",
+      "font_id": "noto",
+      "image": "y_oo__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "y_au",
+      "font_id": "noto",
+      "image": "y_au__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "r_a",
+      "font_id": "noto",
+      "image": "r_a__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "r_aa",
+      "font_id": "noto",
+      "image": "r_aa__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "r_i",
+      "font_id": "noto",
+      "image": "r_i__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "r_ii",
+      "font_id": "noto",
+      "image": "r_ii__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "r_u",
+      "font_id": "noto",
+      "image": "r_u__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "r_uu",
+      "font_id": "noto",
+      "image": "r_uu__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "r_e",
+      "font_id": "noto",
+      "image": "r_e__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "r_ee",
+      "font_id": "noto",
+      "image": "r_ee__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "r_ai",
+      "font_id": "noto",
+      "image": "r_ai__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "r_o",
+      "font_id": "noto",
+      "image": "r_o__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "r_oo",
+      "font_id": "noto",
+      "image": "r_oo__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "r_au",
+      "font_id": "noto",
+      "image": "r_au__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "l_a",
+      "font_id": "noto",
+      "image": "l_a__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "l_aa",
+      "font_id": "noto",
+      "image": "l_aa__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "l_i",
+      "font_id": "noto",
+      "image": "l_i__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "l_ii",
+      "font_id": "noto",
+      "image": "l_ii__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "l_u",
+      "font_id": "noto",
+      "image": "l_u__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "l_uu",
+      "font_id": "noto",
+      "image": "l_uu__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "l_e",
+      "font_id": "noto",
+      "image": "l_e__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "l_ee",
+      "font_id": "noto",
+      "image": "l_ee__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "l_ai",
+      "font_id": "noto",
+      "image": "l_ai__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "l_o",
+      "font_id": "noto",
+      "image": "l_o__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "l_oo",
+      "font_id": "noto",
+      "image": "l_oo__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "l_au",
+      "font_id": "noto",
+      "image": "l_au__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "v_a",
+      "font_id": "noto",
+      "image": "v_a__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "v_aa",
+      "font_id": "noto",
+      "image": "v_aa__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "v_i",
+      "font_id": "noto",
+      "image": "v_i__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "v_ii",
+      "font_id": "noto",
+      "image": "v_ii__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "v_u",
+      "font_id": "noto",
+      "image": "v_u__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "v_uu",
+      "font_id": "noto",
+      "image": "v_uu__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "v_e",
+      "font_id": "noto",
+      "image": "v_e__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "v_ee",
+      "font_id": "noto",
+      "image": "v_ee__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "v_ai",
+      "font_id": "noto",
+      "image": "v_ai__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "v_o",
+      "font_id": "noto",
+      "image": "v_o__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "v_oo",
+      "font_id": "noto",
+      "image": "v_oo__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "v_au",
+      "font_id": "noto",
+      "image": "v_au__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "zh_a",
+      "font_id": "noto",
+      "image": "zh_a__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "zh_aa",
+      "font_id": "noto",
+      "image": "zh_aa__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "zh_i",
+      "font_id": "noto",
+      "image": "zh_i__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "zh_ii",
+      "font_id": "noto",
+      "image": "zh_ii__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "zh_u",
+      "font_id": "noto",
+      "image": "zh_u__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "zh_uu",
+      "font_id": "noto",
+      "image": "zh_uu__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "zh_e",
+      "font_id": "noto",
+      "image": "zh_e__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "zh_ee",
+      "font_id": "noto",
+      "image": "zh_ee__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "zh_ai",
+      "font_id": "noto",
+      "image": "zh_ai__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "zh_o",
+      "font_id": "noto",
+      "image": "zh_o__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "zh_oo",
+      "font_id": "noto",
+      "image": "zh_oo__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "zh_au",
+      "font_id": "noto",
+      "image": "zh_au__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ll_a",
+      "font_id": "noto",
+      "image": "ll_a__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ll_aa",
+      "font_id": "noto",
+      "image": "ll_aa__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ll_i",
+      "font_id": "noto",
+      "image": "ll_i__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ll_ii",
+      "font_id": "noto",
+      "image": "ll_ii__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ll_u",
+      "font_id": "noto",
+      "image": "ll_u__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ll_uu",
+      "font_id": "noto",
+      "image": "ll_uu__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ll_e",
+      "font_id": "noto",
+      "image": "ll_e__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ll_ee",
+      "font_id": "noto",
+      "image": "ll_ee__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ll_ai",
+      "font_id": "noto",
+      "image": "ll_ai__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ll_o",
+      "font_id": "noto",
+      "image": "ll_o__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ll_oo",
+      "font_id": "noto",
+      "image": "ll_oo__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ll_au",
+      "font_id": "noto",
+      "image": "ll_au__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "rr_a",
+      "font_id": "noto",
+      "image": "rr_a__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "rr_aa",
+      "font_id": "noto",
+      "image": "rr_aa__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "rr_i",
+      "font_id": "noto",
+      "image": "rr_i__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "rr_ii",
+      "font_id": "noto",
+      "image": "rr_ii__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "rr_u",
+      "font_id": "noto",
+      "image": "rr_u__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "rr_uu",
+      "font_id": "noto",
+      "image": "rr_uu__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "rr_e",
+      "font_id": "noto",
+      "image": "rr_e__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "rr_ee",
+      "font_id": "noto",
+      "image": "rr_ee__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "rr_ai",
+      "font_id": "noto",
+      "image": "rr_ai__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "rr_o",
+      "font_id": "noto",
+      "image": "rr_o__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "rr_oo",
+      "font_id": "noto",
+      "image": "rr_oo__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "rr_au",
+      "font_id": "noto",
+      "image": "rr_au__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nnn_a",
+      "font_id": "noto",
+      "image": "nnn_a__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nnn_aa",
+      "font_id": "noto",
+      "image": "nnn_aa__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nnn_i",
+      "font_id": "noto",
+      "image": "nnn_i__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nnn_ii",
+      "font_id": "noto",
+      "image": "nnn_ii__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nnn_u",
+      "font_id": "noto",
+      "image": "nnn_u__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nnn_uu",
+      "font_id": "noto",
+      "image": "nnn_uu__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nnn_e",
+      "font_id": "noto",
+      "image": "nnn_e__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nnn_ee",
+      "font_id": "noto",
+      "image": "nnn_ee__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nnn_ai",
+      "font_id": "noto",
+      "image": "nnn_ai__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nnn_o",
+      "font_id": "noto",
+      "image": "nnn_o__noto.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nnn_oo",
+      "font_id": "noto",
+      "image": "nnn_oo__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nnn_au",
+      "font_id": "noto",
+      "image": "nnn_au__noto.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "k_a",
+      "font_id": "nirmala",
+      "image": "k_a__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "k_aa",
+      "font_id": "nirmala",
+      "image": "k_aa__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "k_i",
+      "font_id": "nirmala",
+      "image": "k_i__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "k_ii",
+      "font_id": "nirmala",
+      "image": "k_ii__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "k_u",
+      "font_id": "nirmala",
+      "image": "k_u__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "k_uu",
+      "font_id": "nirmala",
+      "image": "k_uu__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "k_e",
+      "font_id": "nirmala",
+      "image": "k_e__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "k_ee",
+      "font_id": "nirmala",
+      "image": "k_ee__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "k_ai",
+      "font_id": "nirmala",
+      "image": "k_ai__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "k_o",
+      "font_id": "nirmala",
+      "image": "k_o__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "k_oo",
+      "font_id": "nirmala",
+      "image": "k_oo__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "k_au",
+      "font_id": "nirmala",
+      "image": "k_au__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ng_a",
+      "font_id": "nirmala",
+      "image": "ng_a__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ng_aa",
+      "font_id": "nirmala",
+      "image": "ng_aa__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ng_i",
+      "font_id": "nirmala",
+      "image": "ng_i__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ng_ii",
+      "font_id": "nirmala",
+      "image": "ng_ii__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ng_u",
+      "font_id": "nirmala",
+      "image": "ng_u__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ng_uu",
+      "font_id": "nirmala",
+      "image": "ng_uu__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ng_e",
+      "font_id": "nirmala",
+      "image": "ng_e__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ng_ee",
+      "font_id": "nirmala",
+      "image": "ng_ee__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ng_ai",
+      "font_id": "nirmala",
+      "image": "ng_ai__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ng_o",
+      "font_id": "nirmala",
+      "image": "ng_o__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ng_oo",
+      "font_id": "nirmala",
+      "image": "ng_oo__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ng_au",
+      "font_id": "nirmala",
+      "image": "ng_au__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "c_a",
+      "font_id": "nirmala",
+      "image": "c_a__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "c_aa",
+      "font_id": "nirmala",
+      "image": "c_aa__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "c_i",
+      "font_id": "nirmala",
+      "image": "c_i__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "c_ii",
+      "font_id": "nirmala",
+      "image": "c_ii__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "c_u",
+      "font_id": "nirmala",
+      "image": "c_u__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "c_uu",
+      "font_id": "nirmala",
+      "image": "c_uu__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "c_e",
+      "font_id": "nirmala",
+      "image": "c_e__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "c_ee",
+      "font_id": "nirmala",
+      "image": "c_ee__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "c_ai",
+      "font_id": "nirmala",
+      "image": "c_ai__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "c_o",
+      "font_id": "nirmala",
+      "image": "c_o__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "c_oo",
+      "font_id": "nirmala",
+      "image": "c_oo__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "c_au",
+      "font_id": "nirmala",
+      "image": "c_au__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nj_a",
+      "font_id": "nirmala",
+      "image": "nj_a__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nj_aa",
+      "font_id": "nirmala",
+      "image": "nj_aa__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nj_i",
+      "font_id": "nirmala",
+      "image": "nj_i__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nj_ii",
+      "font_id": "nirmala",
+      "image": "nj_ii__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nj_u",
+      "font_id": "nirmala",
+      "image": "nj_u__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nj_uu",
+      "font_id": "nirmala",
+      "image": "nj_uu__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nj_e",
+      "font_id": "nirmala",
+      "image": "nj_e__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nj_ee",
+      "font_id": "nirmala",
+      "image": "nj_ee__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nj_ai",
+      "font_id": "nirmala",
+      "image": "nj_ai__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nj_o",
+      "font_id": "nirmala",
+      "image": "nj_o__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nj_oo",
+      "font_id": "nirmala",
+      "image": "nj_oo__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nj_au",
+      "font_id": "nirmala",
+      "image": "nj_au__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "tt_a",
+      "font_id": "nirmala",
+      "image": "tt_a__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "tt_aa",
+      "font_id": "nirmala",
+      "image": "tt_aa__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "tt_i",
+      "font_id": "nirmala",
+      "image": "tt_i__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "tt_ii",
+      "font_id": "nirmala",
+      "image": "tt_ii__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "tt_u",
+      "font_id": "nirmala",
+      "image": "tt_u__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "tt_uu",
+      "font_id": "nirmala",
+      "image": "tt_uu__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "tt_e",
+      "font_id": "nirmala",
+      "image": "tt_e__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "tt_ee",
+      "font_id": "nirmala",
+      "image": "tt_ee__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "tt_ai",
+      "font_id": "nirmala",
+      "image": "tt_ai__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "tt_o",
+      "font_id": "nirmala",
+      "image": "tt_o__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "tt_oo",
+      "font_id": "nirmala",
+      "image": "tt_oo__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "tt_au",
+      "font_id": "nirmala",
+      "image": "tt_au__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nn_a",
+      "font_id": "nirmala",
+      "image": "nn_a__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nn_aa",
+      "font_id": "nirmala",
+      "image": "nn_aa__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nn_i",
+      "font_id": "nirmala",
+      "image": "nn_i__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nn_ii",
+      "font_id": "nirmala",
+      "image": "nn_ii__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nn_u",
+      "font_id": "nirmala",
+      "image": "nn_u__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nn_uu",
+      "font_id": "nirmala",
+      "image": "nn_uu__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nn_e",
+      "font_id": "nirmala",
+      "image": "nn_e__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nn_ee",
+      "font_id": "nirmala",
+      "image": "nn_ee__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nn_ai",
+      "font_id": "nirmala",
+      "image": "nn_ai__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nn_o",
+      "font_id": "nirmala",
+      "image": "nn_o__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nn_oo",
+      "font_id": "nirmala",
+      "image": "nn_oo__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nn_au",
+      "font_id": "nirmala",
+      "image": "nn_au__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "t_a",
+      "font_id": "nirmala",
+      "image": "t_a__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "t_aa",
+      "font_id": "nirmala",
+      "image": "t_aa__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "t_i",
+      "font_id": "nirmala",
+      "image": "t_i__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "t_ii",
+      "font_id": "nirmala",
+      "image": "t_ii__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "t_u",
+      "font_id": "nirmala",
+      "image": "t_u__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "t_uu",
+      "font_id": "nirmala",
+      "image": "t_uu__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "t_e",
+      "font_id": "nirmala",
+      "image": "t_e__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "t_ee",
+      "font_id": "nirmala",
+      "image": "t_ee__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "t_ai",
+      "font_id": "nirmala",
+      "image": "t_ai__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "t_o",
+      "font_id": "nirmala",
+      "image": "t_o__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "t_oo",
+      "font_id": "nirmala",
+      "image": "t_oo__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "t_au",
+      "font_id": "nirmala",
+      "image": "t_au__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "n_a",
+      "font_id": "nirmala",
+      "image": "n_a__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "n_aa",
+      "font_id": "nirmala",
+      "image": "n_aa__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "n_i",
+      "font_id": "nirmala",
+      "image": "n_i__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "n_ii",
+      "font_id": "nirmala",
+      "image": "n_ii__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "n_u",
+      "font_id": "nirmala",
+      "image": "n_u__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "n_uu",
+      "font_id": "nirmala",
+      "image": "n_uu__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "n_e",
+      "font_id": "nirmala",
+      "image": "n_e__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "n_ee",
+      "font_id": "nirmala",
+      "image": "n_ee__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "n_ai",
+      "font_id": "nirmala",
+      "image": "n_ai__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "n_o",
+      "font_id": "nirmala",
+      "image": "n_o__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "n_oo",
+      "font_id": "nirmala",
+      "image": "n_oo__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "n_au",
+      "font_id": "nirmala",
+      "image": "n_au__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "p_a",
+      "font_id": "nirmala",
+      "image": "p_a__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "p_aa",
+      "font_id": "nirmala",
+      "image": "p_aa__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "p_i",
+      "font_id": "nirmala",
+      "image": "p_i__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "p_ii",
+      "font_id": "nirmala",
+      "image": "p_ii__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "p_u",
+      "font_id": "nirmala",
+      "image": "p_u__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "p_uu",
+      "font_id": "nirmala",
+      "image": "p_uu__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "p_e",
+      "font_id": "nirmala",
+      "image": "p_e__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "p_ee",
+      "font_id": "nirmala",
+      "image": "p_ee__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "p_ai",
+      "font_id": "nirmala",
+      "image": "p_ai__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "p_o",
+      "font_id": "nirmala",
+      "image": "p_o__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "p_oo",
+      "font_id": "nirmala",
+      "image": "p_oo__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "p_au",
+      "font_id": "nirmala",
+      "image": "p_au__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "m_a",
+      "font_id": "nirmala",
+      "image": "m_a__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "m_aa",
+      "font_id": "nirmala",
+      "image": "m_aa__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "m_i",
+      "font_id": "nirmala",
+      "image": "m_i__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "m_ii",
+      "font_id": "nirmala",
+      "image": "m_ii__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "m_u",
+      "font_id": "nirmala",
+      "image": "m_u__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "m_uu",
+      "font_id": "nirmala",
+      "image": "m_uu__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "m_e",
+      "font_id": "nirmala",
+      "image": "m_e__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "m_ee",
+      "font_id": "nirmala",
+      "image": "m_ee__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "m_ai",
+      "font_id": "nirmala",
+      "image": "m_ai__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "m_o",
+      "font_id": "nirmala",
+      "image": "m_o__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "m_oo",
+      "font_id": "nirmala",
+      "image": "m_oo__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "m_au",
+      "font_id": "nirmala",
+      "image": "m_au__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "y_a",
+      "font_id": "nirmala",
+      "image": "y_a__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "y_aa",
+      "font_id": "nirmala",
+      "image": "y_aa__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "y_i",
+      "font_id": "nirmala",
+      "image": "y_i__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "y_ii",
+      "font_id": "nirmala",
+      "image": "y_ii__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "y_u",
+      "font_id": "nirmala",
+      "image": "y_u__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "y_uu",
+      "font_id": "nirmala",
+      "image": "y_uu__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "y_e",
+      "font_id": "nirmala",
+      "image": "y_e__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "y_ee",
+      "font_id": "nirmala",
+      "image": "y_ee__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "y_ai",
+      "font_id": "nirmala",
+      "image": "y_ai__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "y_o",
+      "font_id": "nirmala",
+      "image": "y_o__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "y_oo",
+      "font_id": "nirmala",
+      "image": "y_oo__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "y_au",
+      "font_id": "nirmala",
+      "image": "y_au__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "r_a",
+      "font_id": "nirmala",
+      "image": "r_a__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "r_aa",
+      "font_id": "nirmala",
+      "image": "r_aa__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "r_i",
+      "font_id": "nirmala",
+      "image": "r_i__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "r_ii",
+      "font_id": "nirmala",
+      "image": "r_ii__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "r_u",
+      "font_id": "nirmala",
+      "image": "r_u__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "r_uu",
+      "font_id": "nirmala",
+      "image": "r_uu__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "r_e",
+      "font_id": "nirmala",
+      "image": "r_e__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "r_ee",
+      "font_id": "nirmala",
+      "image": "r_ee__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "r_ai",
+      "font_id": "nirmala",
+      "image": "r_ai__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "r_o",
+      "font_id": "nirmala",
+      "image": "r_o__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "r_oo",
+      "font_id": "nirmala",
+      "image": "r_oo__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "r_au",
+      "font_id": "nirmala",
+      "image": "r_au__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "l_a",
+      "font_id": "nirmala",
+      "image": "l_a__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "l_aa",
+      "font_id": "nirmala",
+      "image": "l_aa__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "l_i",
+      "font_id": "nirmala",
+      "image": "l_i__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "l_ii",
+      "font_id": "nirmala",
+      "image": "l_ii__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "l_u",
+      "font_id": "nirmala",
+      "image": "l_u__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "l_uu",
+      "font_id": "nirmala",
+      "image": "l_uu__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "l_e",
+      "font_id": "nirmala",
+      "image": "l_e__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "l_ee",
+      "font_id": "nirmala",
+      "image": "l_ee__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "l_ai",
+      "font_id": "nirmala",
+      "image": "l_ai__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "l_o",
+      "font_id": "nirmala",
+      "image": "l_o__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "l_oo",
+      "font_id": "nirmala",
+      "image": "l_oo__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "l_au",
+      "font_id": "nirmala",
+      "image": "l_au__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "v_a",
+      "font_id": "nirmala",
+      "image": "v_a__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "v_aa",
+      "font_id": "nirmala",
+      "image": "v_aa__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "v_i",
+      "font_id": "nirmala",
+      "image": "v_i__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "v_ii",
+      "font_id": "nirmala",
+      "image": "v_ii__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "v_u",
+      "font_id": "nirmala",
+      "image": "v_u__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "v_uu",
+      "font_id": "nirmala",
+      "image": "v_uu__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "v_e",
+      "font_id": "nirmala",
+      "image": "v_e__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "v_ee",
+      "font_id": "nirmala",
+      "image": "v_ee__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "v_ai",
+      "font_id": "nirmala",
+      "image": "v_ai__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "v_o",
+      "font_id": "nirmala",
+      "image": "v_o__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "v_oo",
+      "font_id": "nirmala",
+      "image": "v_oo__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "v_au",
+      "font_id": "nirmala",
+      "image": "v_au__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "zh_a",
+      "font_id": "nirmala",
+      "image": "zh_a__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "zh_aa",
+      "font_id": "nirmala",
+      "image": "zh_aa__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "zh_i",
+      "font_id": "nirmala",
+      "image": "zh_i__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "zh_ii",
+      "font_id": "nirmala",
+      "image": "zh_ii__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "zh_u",
+      "font_id": "nirmala",
+      "image": "zh_u__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "zh_uu",
+      "font_id": "nirmala",
+      "image": "zh_uu__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "zh_e",
+      "font_id": "nirmala",
+      "image": "zh_e__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "zh_ee",
+      "font_id": "nirmala",
+      "image": "zh_ee__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "zh_ai",
+      "font_id": "nirmala",
+      "image": "zh_ai__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "zh_o",
+      "font_id": "nirmala",
+      "image": "zh_o__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "zh_oo",
+      "font_id": "nirmala",
+      "image": "zh_oo__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "zh_au",
+      "font_id": "nirmala",
+      "image": "zh_au__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ll_a",
+      "font_id": "nirmala",
+      "image": "ll_a__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ll_aa",
+      "font_id": "nirmala",
+      "image": "ll_aa__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ll_i",
+      "font_id": "nirmala",
+      "image": "ll_i__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ll_ii",
+      "font_id": "nirmala",
+      "image": "ll_ii__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ll_u",
+      "font_id": "nirmala",
+      "image": "ll_u__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ll_uu",
+      "font_id": "nirmala",
+      "image": "ll_uu__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ll_e",
+      "font_id": "nirmala",
+      "image": "ll_e__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ll_ee",
+      "font_id": "nirmala",
+      "image": "ll_ee__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ll_ai",
+      "font_id": "nirmala",
+      "image": "ll_ai__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ll_o",
+      "font_id": "nirmala",
+      "image": "ll_o__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "ll_oo",
+      "font_id": "nirmala",
+      "image": "ll_oo__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "ll_au",
+      "font_id": "nirmala",
+      "image": "ll_au__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "rr_a",
+      "font_id": "nirmala",
+      "image": "rr_a__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "rr_aa",
+      "font_id": "nirmala",
+      "image": "rr_aa__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "rr_i",
+      "font_id": "nirmala",
+      "image": "rr_i__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "rr_ii",
+      "font_id": "nirmala",
+      "image": "rr_ii__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "rr_u",
+      "font_id": "nirmala",
+      "image": "rr_u__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "rr_uu",
+      "font_id": "nirmala",
+      "image": "rr_uu__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "rr_e",
+      "font_id": "nirmala",
+      "image": "rr_e__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "rr_ee",
+      "font_id": "nirmala",
+      "image": "rr_ee__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "rr_ai",
+      "font_id": "nirmala",
+      "image": "rr_ai__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "rr_o",
+      "font_id": "nirmala",
+      "image": "rr_o__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "rr_oo",
+      "font_id": "nirmala",
+      "image": "rr_oo__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "rr_au",
+      "font_id": "nirmala",
+      "image": "rr_au__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nnn_a",
+      "font_id": "nirmala",
+      "image": "nnn_a__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nnn_aa",
+      "font_id": "nirmala",
+      "image": "nnn_aa__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nnn_i",
+      "font_id": "nirmala",
+      "image": "nnn_i__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nnn_ii",
+      "font_id": "nirmala",
+      "image": "nnn_ii__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nnn_u",
+      "font_id": "nirmala",
+      "image": "nnn_u__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nnn_uu",
+      "font_id": "nirmala",
+      "image": "nnn_uu__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nnn_e",
+      "font_id": "nirmala",
+      "image": "nnn_e__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nnn_ee",
+      "font_id": "nirmala",
+      "image": "nnn_ee__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nnn_ai",
+      "font_id": "nirmala",
+      "image": "nnn_ai__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nnn_o",
+      "font_id": "nirmala",
+      "image": "nnn_o__nirmala.png",
+      "split": "train"
+    },
+    {
+      "akshara_id": "nnn_oo",
+      "font_id": "nirmala",
+      "image": "nnn_oo__nirmala.png",
+      "split": "eval"
+    },
+    {
+      "akshara_id": "nnn_au",
+      "font_id": "nirmala",
+      "image": "nnn_au__nirmala.png",
+      "split": "eval"
+    }
+  ]
+}

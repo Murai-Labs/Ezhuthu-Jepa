@@ -117,13 +117,19 @@ n ≥ 3 seeds, 95 % bootstrap CIs. ε = 2.0 pp / non-overlapping CIs (pre-regist
   1. Compound frequencies are computed from **Project Madurai** e-texts (DEC-0004); the
      bottom-quartile cutoff is a recorded number with the corpus snapshot cited/hashed.
   2. Train and eval glyph instances are physically disjoint (no leakage); a test asserts empty overlap.
-- **Evidence of completion:** `data/rendered/split-manifest.json` (text-free), passing `pytest -k split`.
-- **Validation:** `pytest -k split`
-- **Measurements / logs:** per-bucket compound counts.
+- **Evidence of completion:** `runs/pa002-split-001/{split-manifest,provenance}.json` (committed;
+  moved from the template's `data/rendered/` since that is gitignored and the frozen bottom quartile
+  must be committed). `data/{frequency,frequency_split,fetch_project_madurai}.py`,
+  `configs/phase1/split.yaml`, `tests/test_split.py` (11 pass). Figure F2 captured.
+- **Validation:** `pytest -k "split or frequency"` (11 pass); full suite 69 pass.
+- **Measurements / logs:** 172 Project Madurai works, **4,851,420 uyirmei counted**, 207/216 seen;
+  quartile count boundaries [711, 6367, 28330, 270681]; bottom quartile = 54 compounds frozen.
 - **Dependencies:** PA.001
 - **Blocking gate:** G1
+- **Notes:** bottom-quartile membership frozen; does NOT reopen ε (DEC-0009). Corpus gitignored, pinned
+  by per-file sha256 + provenance data_hash. Rarest compounds are ங (velar-nasal) forms; 9 unseen.
 - **Estimated effort:** 4
-- **Done:** [ ]
+- **Done:** [x]
 
 #### TASK PA.003: Akshara-recognition evaluation harness (metric M)
 - **What:** A linear-probe / light-finetune evaluator reporting top-1 accuracy stratified by

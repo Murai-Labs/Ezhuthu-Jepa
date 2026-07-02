@@ -1,0 +1,13 @@
+# Frequency-stratified split config (TASK PA.002).
+# Loaded by ezhuthu_jepa.data.frequency_split.SplitConfig.from_yaml.
+#
+# Corpus = Project Madurai Tamil e-texts (DEC-0004), UTF-8 .txt files under corpus_dir (gitignored,
+# fetched via docs/RUNBOOK.md). The bottom quartile (lowest 25% by frequency) defines metric M's long
+# tail; its membership is frozen into runs/<run>/split-manifest.json and pinned by the corpus hash in
+# provenance.json. Freezing membership does NOT reopen the pre-registered epsilon (DEC-0009).
+
+corpus_dir: "data/raw/project-madurai"       # gitignored; UTF-8 .txt Project Madurai e-texts
+render_manifest: "runs/pa001-render-001/render-manifest.json"
+n_buckets: 4                                  # quartiles; bottom quartile = metric M's long tail
+eval_fraction: 0.5                            # per-akshara train/eval instance split
+split_seed: 42                                # deterministic instance assignment

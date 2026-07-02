@@ -256,3 +256,30 @@ Measured Result: N/A (pre-registration; no baseline has run).
 Follow-up: P1.002 (K2 probe) and P1.003 (sweep) are evaluated against this fixed ε; P1.004 appends the
 PASS/BLOCK outcome. Bottom-quartile membership frozen at PA.002.
 Human Approval: Ramchand, 2026-07-01.
+
+---
+
+## DEC-0010 - PA.002: Project Madurai frequency split; bottom quartile frozen
+
+Date: 2026-07-01
+Task/Gate: G1 (TASK PA.002)
+Decision: Built the frequency-stratified split. Corpus = a **Project Madurai snapshot of 172 UTF-8
+works** (fetched via `data.fetch_project_madurai`, HTML-stripped to `.txt`, gitignored, pinned by
+per-file sha256 + provenance data_hash). Counted **4,851,420 uyirmei**; **207/216 compounds seen**
+(9 unseen → frequency 0). Assigned all 216 to frequency quartiles; **bottom quartile = 54 compounds
+frozen** in `runs/pa002-split-001/split-manifest.json` (this is metric M's long tail). Quartile count
+boundaries: [711, 6367, 28330, 270681]. Train/eval split: deterministic (seed 42), per-akshara ≥1
+instance in each, physically disjoint (216 train / 216 eval over the 2-font render set).
+Two implementation choices:
+1. **split-manifest lives in the committed run dir** (`runs/pa002-split-001/`), not the template's
+   `data/rendered/` — that path is gitignored and the frozen bottom quartile must be committed.
+2. Corpus ingestion is a committed, reproducible fetcher; the corpus *bytes* stay gitignored (text-free
+   repo) but are hashed into the manifest, so the exact snapshot is reproducible.
+Rationale: 4.85M counts over 172 works give stable quartile estimates for 216 classes; the 9 unseen +
+rarest (ங velar-nasal forms) are exactly the rare/unseen long tail the paper targets. Does NOT reopen
+ε (DEC-0009): membership is a deterministic function of the pinned corpus.
+Evidence / Source Docs: `runs/pa002-split-001/{split-manifest,provenance}.json`,
+`docs/figures/f2_frequency_distribution.{png,prov.json}`, `tests/test_split.py` (11). Full suite 69 passed.
+Measured Result: bottom quartile frozen (54); most frequent k_a/t_a/v_a; rarest ங_* + 9 unseen.
+Follow-up: PA.003 eval harness reports M on this split, stratified by seam_source × font.
+Human Approval: pending.

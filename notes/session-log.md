@@ -78,3 +78,15 @@ Per-session checkpoints. Append; never edit past entries.
 - Ended at: G0 approved, ε locked, P1.001 done. Next: PA.002 (freq split + figure F2). LAUNCH-A still
   pending before the P1.003 sweep.
 - Open uncertainties carried forward: small n per (bucket×seam_source×font) stratum in the tail.
+
+### 2026-07-01 18:30 CT — PA.002 frequency split + Figure F2
+- Started from: PA.002 (blocked ~an hour by the Bash safety classifier being unavailable; wrote all
+  code meanwhile, resumed when it recovered).
+- Did: added `data/frequency.py` (uyirmei counter), `data/frequency_split.py` (quartile buckets +
+  leak-free seeded train/eval split), `data/fetch_project_madurai.py` (reproducible corpus fetcher),
+  `configs/phase1/split.yaml`, `tests/test_split.py` (11), `figures/f2_frequency_distribution.py`.
+  Fetched 172 Project Madurai works (~40MB, gitignored), counted 4,851,420 uyirmei (207/216 seen),
+  froze bottom quartile (54) → `runs/pa002-split-001/split-manifest.json` + provenance (seed 42).
+  Generated F2. 69 tests pass. DEC-0010.
+- Ended at: PA.002 done. Next: PA.003 eval harness (metric M per bucket×seam_source×font) + F3.
+- Open uncertainties carried forward: small-n strata; PA.003 will show CI widths on the tail.

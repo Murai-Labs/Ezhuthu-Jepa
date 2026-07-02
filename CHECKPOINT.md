@@ -1,6 +1,6 @@
 # Ezhuthu-Jepa — Checkpoint
 
-Last updated: 2026-07-01 17:45 CT
+Last updated: 2026-07-01 18:30 CT
 
 ## Resume Point
 
@@ -21,18 +21,19 @@ Madurai), then **PA.003** (eval harness), **P1.001** (pre-register ε), **PA.004
 
 ## Current Checkpoint
 
-- Phase: **G0 APPROVED (DEC-0008); PA.001 done; ε PRE-REGISTERED (DEC-0009).** LAUNCH-A / G1 sweep not started.
+- Phase: **G0 APPROVED (DEC-0008); PA.001 + PA.002 done; ε PRE-REGISTERED (DEC-0009).** LAUNCH-A / G1 sweep not started.
 - What is done: operating system + provenance writer + config contract (P0.003/P0.004), and the Tamil
   rendering pipeline (PA.001): `data/{grapheme,render,build_uyirmei}.py`, HarfBuzz+FreeType shaping,
   glyph/diff seam hybrid, **multi-font (Noto+Nirmala)**. All 216 uyirmei rendered under both fonts →
   `runs/pa001-render-001/` (432 entries + unified `provenance.json`). Full suite 56 passed.
-- What is next: PA.002 computes compound frequencies from Project Madurai and freezes the
-  bottom-quartile split (defines metric M's tail); then PA.003 eval harness (report accuracy per
-  frequency-bucket × seam_source × font, DEC-0006); then P1.001 pins ε. Data/train code loads configs
-  via `RunConfig.from_dict(...)`; ALL runs (incl. deterministic data-gen) use `write_provenance(...)`
-  with `seed=SEED_DETERMINISTIC` where there is no RNG (DEC-0006). Paper figures: add a generator
-  under `src/ezhuthu_jepa/figures/` + a `<fig>.prov.json` sidecar and a row in `docs/FIGURES.md`
-  (DEC-0007); F1 done, F2–F5 land with PA.002/PA.003/P1.003/P2.003.
+- PA.002 done: bottom quartile (54) frozen in `runs/pa002-split-001/split-manifest.json` from a
+  172-work Project Madurai snapshot (4.85M uyirmei, 207/216 seen). Corpus gitignored, hash-pinned.
+- What is next: **PA.003** eval harness — akshara recognition on the PA.002 split, report metric M
+  per (frequency-bucket × seam_source × font) with bootstrap CIs (DEC-0006); capture F3. Then PA.004
+  (masking), PA.005 (pretrain loop), P1.002 (K2 probe). Data/train code loads configs via
+  `RunConfig.from_dict(...)`; ALL runs use `write_provenance(...)` (deterministic seed where no RNG).
+  Figures: generator under `figures/` + `<fig>.prov.json` + `docs/FIGURES.md` row (DEC-0007); F1+F2 done.
+- To rebuild PA.002 from scratch: see `docs/RUNBOOK.md` → "Build the Frequency-Stratified Split".
 - Authorization gate status: **G0 approved** (DEC-0008); **ε pre-registered** (DEC-0009). LAUNCH-A
   **not yet approved** — do not launch the full Stage-A sweep (P1.003) until it is. No training run authorized.
 

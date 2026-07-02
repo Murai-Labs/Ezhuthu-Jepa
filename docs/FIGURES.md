@@ -16,17 +16,19 @@ index maps figure → paper section → generator → source run. Add a row when
 | Figure | Paper section | Generator | Source run | Shows |
 |--------|---------------|-----------|------------|-------|
 | **F1** | Method — seam localization | `figures.f1_seam_localization` | `pa001-render-001` | Rendered aksharas (k/nn/zh × 12 vowels, Noto) with seam boxes: green = separable-glyph sign, orange = ligature (diff), none = inherent 'a'. Makes the masked region concrete and exposes the ligature cases. |
+| **F2** | Data — frequency stratification | `figures.f2_frequency_distribution` | `pa002-split-001` | The 216 uyirmei ranked by Project Madurai frequency (log10); orange = bottom quartile (metric M's long tail), green line = frozen cutoff. 4.85M counted, 207/216 seen. |
 
 ## Regenerate
 
 ```bash
 # F1 (seam localization)
 PYTHONPATH=src python -m ezhuthu_jepa.figures.f1_seam_localization
+# F2 (frequency distribution) — needs runs/pa002-split-001/split-manifest.json
+PYTHONPATH=src python -m ezhuthu_jepa.figures.f2_frequency_distribution
 ```
 
 ## Planned (capture as milestones land)
 
-- **F2** — frequency distribution of compounds (Project Madurai) with the bottom-quartile cutoff (PA.002).
 - **F3** — akshara-recognition accuracy per frequency bucket × seam_source × font (PA.003).
 - **F4** — K1/K3 main comparison (seam-JEPA vs block-JEPA vs MAE-at-seam) on M, with CIs (P1.003).
 - **F5** — K4 degradation curves (missing-puḷḷi etc.) (P2.003).

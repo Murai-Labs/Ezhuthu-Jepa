@@ -1,6 +1,6 @@
 # Ezhuthu-Jepa — Status
 
-Last updated: 2026-07-01 17:45 CT
+Last updated: 2026-07-01 18:30 CT
 
 ## Methodology Decisions (DEC-0004, DEC-0006)
 
@@ -37,12 +37,13 @@ Last updated: 2026-07-01 17:45 CT
   HarfBuzz+FreeType shaping, glyph/diff seam hybrid, **multi-font (Noto+Nirmala)**. All 216 uyirmei
   rendered under both fonts → `runs/pa001-render-001/` (432 entries; noto 18/142/56, nirmala
   18/138/60 none/glyph/diff). Provenance unified for deterministic data-gen runs (DEC-0006).
-- [x] **Figures convention + Figure F1** (DEC-0007) — `docs/figures/f1_seam_localization.{png,prov.json}`,
-  generator `src/ezhuthu_jepa/figures/`, `docs/FIGURES.md` index. Figures regenerable + provenanced.
-- [ ] G0 review evidence signed off (`docs/GATE_G0_REVIEW.md` — drafted, awaiting human approval).
+- [x] **Figures convention + Figure F1** (DEC-0007) — `docs/figures/`, generator `figures/`, `FIGURES.md`.
+- [x] **G0 gate APPROVED** (DEC-0008) + **ε pre-registered** (DEC-0009, P1.001 done).
+- [x] **Frequency-stratified split (TASK PA.002, DEC-0010)** — 172 Project Madurai works, 4.85M uyirmei
+  counted, 207/216 seen; bottom quartile (54) frozen in `runs/pa002-split-001/split-manifest.json`;
+  deterministic leak-free train/eval split; Figure F2 captured.
 
-Test suite: **58 passed** (`pytest -q`). Placeholder scan clean. Paper figures captured as milestones
-land (F1 done; F2–F5 planned in `docs/FIGURES.md`).
+Test suite: **69 passed** (`pytest -q`). Placeholder scan clean. Figures: F1, F2 done; F3–F5 planned.
 
 ## Current Blockers
 
@@ -55,10 +56,10 @@ land (F1 done; F2–F5 planned in `docs/FIGURES.md`).
 
 ## Next Recommended Work
 
-1. **TASK PA.002** — frequency-stratified split from Project Madurai (DEC-0004); freeze bottom-quartile
-   membership (does not reopen ε). Capture figure F2 (frequency distribution + cutoff).
-2. **TASK PA.003** — akshara-recognition eval harness (metric M, per bucket × seam_source × font, CIs).
-3. **TASK PA.004** — seam-masking module (mask carries seam_source; ligatures via diff region).
+1. **TASK PA.003** — akshara-recognition eval harness (metric M on the PA.002 split, per bucket ×
+   seam_source × font, bootstrap CIs). Capture figure F3.
+2. **TASK PA.004** — seam-masking module (mask carries seam_source; ligatures via diff region).
+3. **TASK PA.005** — I-JEPA-style ViT pretraining loop (seam/block/MAE switchable).
 4. Then **P1.002** (K2 probe) → LAUNCH-A → **P1.003** (sweep) → **P1.004** (G1 decision vs ε).
 
 ---

@@ -25,6 +25,18 @@ PYTHONPATH=src python -m ezhuthu_jepa.data.build_uyirmei \
   --config configs/phase1/render.yaml --out data/rendered/uyirmei --run-dir runs/pa001-render-001
 ```
 
+## Build the Frequency-Stratified Split (PA.002)
+
+```bash
+# 1) Fetch the Project Madurai corpus snapshot into data/raw/project-madurai/ (gitignored).
+PYTHONPATH=src python -m ezhuthu_jepa.data.fetch_project_madurai --start 1 --end 200
+# 2) Count uyirmei frequencies, freeze the bottom quartile, write the split + provenance to runs/.
+PYTHONPATH=src python -m ezhuthu_jepa.data.frequency_split \
+  --config configs/phase1/split.yaml --run-dir runs/pa002-split-001
+# 3) Figure F2 (frequency distribution + cutoff).
+PYTHONPATH=src python -m ezhuthu_jepa.figures.f2_frequency_distribution
+```
+
 ## Run a Smoke Test
 
 ```bash
